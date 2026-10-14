@@ -39,7 +39,7 @@ export const TEMPLATES = [
 
   /* ---------- regions ---------- */
   { key: 'us-state-capital', cat: 226, where: '?s wdt:P31 wd:Q35657; wdt:P36 ?a.', q: x => `ما عاصمة ${pre('ولاية', x.s_ar)}؟`, qm: '?s wdt:P242 ?qm', am: IMG_A },
-  { key: 'saudi-region-seat', cat: 225, where: '?s wdt:P31 wd:Q15623255; wdt:P36 ?a.', q: x => `ما مقر إمارة ${pre('منطقة', x.s_ar)}؟`, qm: '?s wdt:P242 ?qm', am: IMG_A },
+  { key: 'saudi-region-seat', cat: 225, where: '?s wdt:P31 wd:Q15728204; wdt:P36 ?a.', q: x => `ما مقر إمارة ${pre('منطقة', x.s_ar)}؟`, qm: '?s wdt:P242 ?qm', am: IMG_A },
   { key: 'canada-capital', cat: 227, where: 'VALUES ?t { wd:Q11828004 wd:Q9357527 } ?s wdt:P31 ?t; wdt:P36 ?a.', q: x => `ما عاصمة ${x.s_ar}؟`, qm: FLAG_S, am: IMG_A },
 
   /* ---------- places → country ---------- */
@@ -76,9 +76,9 @@ export const TEMPLATES = [
     q: x => `ما العنصر الكيميائي الذي رمزه ${x.sym}؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
   { key: 'element-number', literal: true, where: '?s wdt:P31 wd:Q11344; wdt:P1086 ?a.', cat: 172,
     q: x => `ما العدد الذري ${lil(x.s_ar)}؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
-  { key: 'moon-planet', minPop: 15, where: '?s wdt:P31 wd:Q2537; wdt:P397 ?a.', cat: 184, q: x => `حول أي كوكب يدور ${pre('القمر', x.s_ar)}؟`, qm: IMG_S, am: IMG_A },
+  { key: 'moon-planet', minPop: 15, where: '?s wdt:P31/wdt:P279* wd:Q2537; wdt:P397 ?a. ?a wdt:P31/wdt:P279* wd:Q634.', cat: 184, q: x => `حول أي كوكب يدور ${pre('القمر', x.s_ar)}؟`, qm: IMG_S, am: IMG_A },
   ...[['Q7377', 60], ['Q5113', 90], ['Q10811', 50], ['Q10908', 50], ['Q1390', 60], ['Q127282', 60], ['Q7372', 60]].map(([cls, min]) => ({
-    key: `animal-${cls}`, minPop: min, where: `?s wdt:P105 wd:Q7432; wdt:P171+ wd:${cls}. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q7375 } BIND(?s AS ?a)`,
+    key: `animal-${cls}`, minPop: min, where: `?s wdt:P105 wd:Q7432; wdt:P171+ wd:${cls}. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q7375 } ${cls === 'Q10811' ? 'FILTER NOT EXISTS { ?s wdt:P171+ wd:Q5113 }' : ''} BIND(?s AS ?a)`,
     cat: 180, dependent: true, verify: false, q: () => 'ما اسم هذا الحيوان؟', qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true })),
   { key: 'animal-sound', minPop: 50, where: '?s wdt:P51 ?qm; wdt:P105 wd:Q7432. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q7375 } BIND(?s AS ?a)', cat: 129,
     dependent: true, verify: false, qKind: 'audio', q: () => 'ما الحيوان صاحب هذا الصوت؟', am: '?s wdt:P18 ?am' },
@@ -96,7 +96,9 @@ export const TEMPLATES = [
   { key: 'nobel-year', literal: true, vars: ['g', 'prize'], key2: x => x.prize, cat: 376,
     where: `?s wdt:P31 wd:Q5; p:P166 ?st. ?st ps:P166 ?prize; pq:P585 ?t. VALUES ?prize { ${Object.keys(NOBEL).map(q => 'wd:' + q).join(' ')} } BIND(STR(YEAR(?t)) AS ?a) OPTIONAL { ?s wdt:P21 ?g }`,
     q: x => `في أي سنة ${she(x) ? 'حصلت' : 'حصل'} ${x.s_ar} على ${nobelPrize(x.prize)}؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
-  { key: 'work-author', minPop: 20, vars: ['t'], where: 'VALUES ?t { wd:Q8261 wd:Q7725634 wd:Q25379 wd:Q5185279 } ?s wdt:P31 ?t; wdt:P50 ?a. ?a wdt:P31 wd:Q5.',
+  { key: 'work-author', minPop: 20, vars: ['t'], where: 'VALUES ?t { wd:Q8261 wd:Q7725634 wd:Q25379 wd:Q5185279 } ?s wdt:P31 ?t; wdt:P50 ?a. ?a wdt:P31 wd:Q5. ' +
+      // never religious scripture (the Torah, Gospels…) or a prophet as an "author"
+      'FILTER NOT EXISTS { ?s wdt:P31/wdt:P279* wd:Q179461 } FILTER NOT EXISTS { ?s wdt:P136/wdt:P279* wd:Q179461 } FILTER NOT EXISTS { ?a wdt:P106 wd:Q42857 }',
     cat: x => (x.t === 'Q8261' ? 375 : 382), q: x => `من مؤلف «${x.s_ar}»؟`, qm: IMG_S, am: IMG_A },
   { key: 'painting-painter', minPop: 8, where: '?s wdt:P31 wd:Q3305213; wdt:P170 ?a. ?a wdt:P31 wd:Q5.', cat: 117,
     q: x => `من رسم لوحة «${x.s_ar.replace(/^لوحة\s+/, '')}»؟`, qm: IMG_S, am: IMG_A },
