@@ -77,9 +77,12 @@ export const TEMPLATES = [
   { key: 'element-number', literal: true, where: '?s wdt:P31 wd:Q11344; wdt:P1086 ?a.', cat: 172,
     q: x => `ما العدد الذري ${lil(x.s_ar)}؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
   { key: 'moon-planet', minPop: 15, where: '?s wdt:P31/wdt:P279* wd:Q2537; wdt:P397 ?a. ?a wdt:P31/wdt:P279* wd:Q634.', cat: 184, q: x => `حول أي كوكب يدور ${pre('القمر', x.s_ar)}؟`, qm: IMG_S, am: IMG_A },
-  ...[['Q7377', 60], ['Q5113', 90], ['Q10811', 50], ['Q10908', 50], ['Q1390', 60], ['Q127282', 60], ['Q7372', 60]].map(([cls, min]) => ({
-    key: `animal-${cls}`, minPop: min, where: `${['Q1390', 'Q10811'].includes(cls) ? `hint:Query hint:optimizer "None". ?s wikibase:sitelinks ?p0. FILTER(?p0 >= ${min}) ` : ''}?s wdt:P105 wd:Q7432; wdt:P171+ wd:${cls}. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q166898 } ${cls === 'Q10811' ? 'FILTER NOT EXISTS { ?s wdt:P171+ wd:Q5113 }' : ''} BIND(?s AS ?a)`,
+  ...[['Q7377', 60], ['Q5113', 90], ['Q10908', 50], ['Q127282', 60], ['Q7372', 60]].map(([cls, min]) => ({
+    key: `animal-${cls}`, minPop: min, where: `?s wdt:P105 wd:Q7432; wdt:P171+ wd:${cls}. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q166898 } BIND(?s AS ?a)`,
     cat: 180, dependent: true, verify: false, q: () => 'ما اسم هذا الحيوان؟', qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true })),
+  // Reptiles by their Reptile Database ID: walking the taxon tree times out (and Wikidata files birds under reptiles).
+  { key: 'animal-reptile', minPop: 40, where: '?s wdt:P105 wd:Q7432; wdt:P5473 []. BIND(?s AS ?a)',
+    cat: 180, dependent: true, verify: false, q: () => 'ما اسم هذا الحيوان؟', qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
   { key: 'animal-sound', minPop: 50, where: '?s wdt:P51 ?qm; wdt:P105 wd:Q7432. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q166898 } BIND(?s AS ?a)', cat: 129,
     dependent: true, verify: false, qKind: 'audio', q: () => 'ما الحيوان صاحب هذا الصوت؟', am: '?s wdt:P18 ?am' },
   { key: 'dog-breed', minPop: 20, where: '?s wdt:P31 wd:Q39367. BIND(?s AS ?a)', cat: 396, dependent: true, verify: false,
