@@ -13,7 +13,10 @@ const noEnd = p => `FILTER NOT EXISTS { ?s p:${p} [ps:${p} ?a; pq:P582 []] }`;
 const FLAG_S = '?s wdt:P41 ?qm', FLAG_A = '?a wdt:P41 ?am', IMG_S = '?s wdt:P18 ?qm', IMG_A = '?a wdt:P18 ?am';
 
 // Arabic helpers: add a word the label may already start with; "للحديد" from "حديد"; drop a leading "ال".
-const pre = (w, x) => (x.startsWith(w) ? x : `${w} ${x}`);
+const pre = (w, x) => (x.startsWith(w) || x.startsWith('ال' + w) ? x : `${w} ${x}`);
+// Verb for «…»: feminine when the name's first word is (حديقة، مغارة، صحراء…), masculine otherwise.
+const fem = x => /^\S*(ة|اء)(\s|$)/.test(x);
+const THIS_YEAR = new Date().getFullYear();
 const lil = x => 'لل' + x.replace(/^ال/, '');
 const NOBEL = { Q38104: 'الفيزياء', Q44585: 'الكيمياء', Q80061: 'الطب', Q37922: 'الأدب', Q35637: 'السلام', Q47170: 'الاقتصاد' };
 const nobelPrize = q => (q === 'Q35637' ? 'جائزة نوبل للسلام' : `جائزة نوبل في ${NOBEL[q]}`);
@@ -32,7 +35,7 @@ export const TEMPLATES = [
   { key: 'continent', cat: 213, where: `${SOVEREIGN} ?s wdt:P30 ?a.`,
     q: x => `في أي قارة تقع ${x.s_ar}؟`, qm: FLAG_S, am: '?s wdt:P242 ?am' },
   { key: 'capital-of', vars: ['arab', 'cont'],
-    where: '?a wdt:P31 wd:Q3624078; wdt:P36 ?s. FILTER NOT EXISTS { ?a wdt:P576 [] } FILTER NOT EXISTS { ?a p:P36 [ps:P36 ?s; pq:P582 []] } ' +
+    where: '?a wdt:P31 wd:Q3624078; wdt:P36 ?s. FILTER(?a != wd:Q219060) FILTER NOT EXISTS { ?a wdt:P576 [] } FILTER NOT EXISTS { ?a p:P36 [ps:P36 ?s; pq:P582 []] } ' +
       'OPTIONAL { ?a wdt:P463 ?arab. FILTER(?arab = wd:Q7172) } OPTIONAL { ?a wdt:P30 ?cont }',
     cat: x => (x.arab ? 231 : x.cont === 'Q15' ? 229 : x.cont === 'Q48' ? 230 : null),
     q: x => `ما الدولة التي عاصمتها ${x.s_ar}؟`, qm: IMG_S, am: FLAG_A },
@@ -48,17 +51,17 @@ export const TEMPLATES = [
   { key: 'landmark-name', minPop: 70, where: '?s wdt:P1435 wd:Q9259. BIND(?s AS ?a)', cat: 208, dependent: true, verify: false,
     q: () => 'ما اسم هذا المعلم؟', qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
   { key: 'city-country', minPop: 25, vars: ['cont'], where: '?s wdt:P31/wdt:P279* wd:Q515; wdt:P17 ?a; wdt:P1082 ?n. FILTER(?n > 300000) OPTIONAL { ?a wdt:P30 ?cont }',
-    cat: x => (x.cont === 'Q46' ? 228 : x.pop >= 60 ? 220 : 206), q: x => `في أي دولة توجد ${pre('مدينة', x.s_ar)}؟`, qm: IMG_S, am: FLAG_A },
+    cat: x => (x.cont === 'Q46' ? 228 : 220), q: x => `في أي دولة توجد ${pre('مدينة', x.s_ar)}؟`, qm: IMG_S, am: FLAG_A },
   { key: 'mountain-country', minPop: 10, vars: ['h'], where: '?s wdt:P31 wd:Q8502; wdt:P17 ?a; wdt:P2044 ?h. FILTER(?h > 2000)',
     cat: x => (Number(x.h) > 6000 ? 216 : 211), q: x => `في أي دولة يقع ${/^(جبل|قمة|بركان)/.test(x.s_ar) ? x.s_ar : pre('جبل', x.s_ar)}؟`, qm: IMG_S, am: FLAG_A },
   { key: 'island-country', minPop: 15, where: '?s wdt:P31 wd:Q23442; wdt:P17 ?a.', cat: 212, q: x => `إلى أي دولة تتبع ${pre('جزيرة', x.s_ar)}؟`, qm: IMG_S, am: FLAG_A },
   { key: 'lake-country', minPop: 15, where: '?s wdt:P31 wd:Q23397; wdt:P17 ?a.', cat: 218, q: x => `في أي دولة توجد ${pre('بحيرة', x.s_ar)}؟`, qm: IMG_S, am: FLAG_A },
-  { key: 'park-country', minPop: 15, where: '?s wdt:P31 wd:Q46169; wdt:P17 ?a.', cat: 233, q: x => `في أي دولة توجد «${x.s_ar}»؟`, qm: IMG_S, am: FLAG_A },
+  { key: 'park-country', minPop: 15, where: '?s wdt:P31 wd:Q46169; wdt:P17 ?a.', cat: 233, q: x => `في أي دولة ${fem(x.s_ar) ? 'توجد' : 'يوجد'} «${x.s_ar}»؟`, qm: IMG_S, am: FLAG_A },
   { key: 'volcano-country', minPop: 15, where: '?s wdt:P31 wd:Q8072; wdt:P17 ?a.', cat: 188, q: x => `في أي دولة يقع ${pre('بركان', x.s_ar)}؟`, qm: IMG_S, am: FLAG_A },
-  { key: 'cave-country', minPop: 8, where: '?s wdt:P31 wd:Q35509; wdt:P17 ?a.', cat: 234, q: x => `في أي دولة يوجد «${x.s_ar}»؟`, qm: IMG_S, am: FLAG_A },
-  { key: 'desert-country', minPop: 10, where: '?s wdt:P31 wd:Q8514; wdt:P17 ?a.', cat: 235, q: x => `في أي دولة توجد «${x.s_ar}»؟`, qm: IMG_S, am: FLAG_A },
+  { key: 'cave-country', minPop: 8, where: '?s wdt:P31 wd:Q35509; wdt:P17 ?a.', cat: 234, q: x => `في أي دولة ${fem(x.s_ar) ? 'توجد' : 'يوجد'} «${x.s_ar}»؟`, qm: IMG_S, am: FLAG_A },
+  { key: 'desert-country', minPop: 10, where: '?s wdt:P31 wd:Q8514; wdt:P17 ?a.', cat: 235, q: x => `في أي دولة ${fem(x.s_ar) ? 'توجد' : 'يوجد'} «${x.s_ar}»؟`, qm: IMG_S, am: FLAG_A },
   { key: 'stadium-country', minPop: 10, where: '?s wdt:P1083 ?cap; wdt:P17 ?a. FILTER(?cap >= 40000) ?s wdt:P31/wdt:P279* wd:Q483110.', cat: 66,
-    q: x => `في أي دولة يقع ${pre('ملعب', x.s_ar)}؟`, qm: IMG_S, am: FLAG_A },
+    q: x => `في أي دولة يقع «${x.s_ar}»؟`, qm: IMG_S, am: FLAG_A },
   { key: 'circuit-country', minPop: 10, where: '?s wdt:P31 wd:Q2338524; wdt:P17 ?a.', cat: 61, q: x => `في أي دولة تقع ${pre('حلبة', x.s_ar)}؟`, qm: IMG_S, am: FLAG_A },
   { key: 'river-mouth', minPop: 15, vars: ['len'], where: '?s wdt:P31 wd:Q4022; wdt:P403 ?a. OPTIONAL { ?s wdt:P2043 ?len }',
     cat: x => (Number(x.len) > 1500 ? 217 : 209), q: x => `أين يصب ${pre('نهر', x.s_ar)}؟`, qm: IMG_S, am: IMG_A },
@@ -73,10 +76,10 @@ export const TEMPLATES = [
   { key: 'element-symbol', literal: true, latin: true, where: '?s wdt:P31 wd:Q11344; wdt:P246 ?a.', cat: 172,
     q: x => `ما الرمز الكيميائي ${lil(x.s_ar)}؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
   { key: 'element-from-symbol', vars: ['sym'], where: '?s wdt:P31 wd:Q11344; wdt:P246 ?sym. BIND(?s AS ?a)', cat: 172, needles: x => [x.sym],
-    q: x => `ما العنصر الكيميائي الذي رمزه ${x.sym}؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
+    q: x => `ما العنصر الكيميائي الذي رمزه ${x.sym}؟`, qmFile: 'File:Erlenmeyer Flask (Filled) (NIH BioArt 631 - 660919).png', am: '?s wdt:P18 ?am' },
   { key: 'element-number', literal: true, where: '?s wdt:P31 wd:Q11344; wdt:P1086 ?a.', cat: 172,
     q: x => `ما العدد الذري ${lil(x.s_ar)}؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
-  { key: 'moon-planet', minPop: 15, where: '?s wdt:P31/wdt:P279* wd:Q2537; wdt:P397 ?a. ?a wdt:P31/wdt:P279* wd:Q634.', cat: 184, q: x => `حول أي كوكب يدور ${pre('القمر', x.s_ar)}؟`, qm: IMG_S, am: IMG_A },
+  { key: 'moon-planet', minPop: 20, skip: x => x.s === 'Q405' || /\d/.test(x.s_ar), where: '?s wdt:P31/wdt:P279* wd:Q2537; wdt:P397 ?a. ?a wdt:P31/wdt:P279* wd:Q634.', cat: 184, q: x => `حول أي كوكب يدور ${pre('القمر', x.s_ar)}؟`, qm: IMG_S, am: IMG_A },
   ...[['Q7377', 60], ['Q5113', 90], ['Q10908', 50], ['Q127282', 60], ['Q7372', 60]].map(([cls, min]) => ({
     key: `animal-${cls}`, minPop: min, where: `?s wdt:P105 wd:Q7432; wdt:P171+ wd:${cls}. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q166898 } BIND(?s AS ?a)`,
     cat: 180, dependent: true, verify: false, q: () => 'ما اسم هذا الحيوان؟', qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true })),
@@ -87,23 +90,29 @@ export const TEMPLATES = [
     dependent: true, verify: false, qKind: 'audio', q: () => 'ما الحيوان صاحب هذا الصوت؟', am: '?s wdt:P18 ?am' },
   { key: 'dog-breed', minPop: 20, where: '?s wdt:P31 wd:Q39367. BIND(?s AS ?a)', cat: 396, dependent: true, verify: false,
     q: () => 'ما اسم سلالة الكلاب هذه؟', qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
-  { key: 'cat-breed', minPop: 15, where: '?s wdt:P31 wd:Q43577. BIND(?s AS ?a)', cat: 396, dependent: true, verify: false,
+  { key: 'cat-breed', minPop: 15, skip: x => /منزلي/.test(x.s_ar), where: '?s wdt:P31 wd:Q43577. BIND(?s AS ?a)', cat: 396, dependent: true, verify: false,
     q: () => 'ما اسم سلالة القطط هذه؟', qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
   { key: 'language-designer', minPop: 20, where: '?s wdt:P31 wd:Q9143; wdt:P287 ?a. ?a wdt:P31 wd:Q5.', cat: 164,
     q: x => `من مصمم لغة البرمجة ${x.s_ar}؟`, qm: '?s wdt:P154 ?qm', am: IMG_A },
 
   /* ---------- people and works ---------- */
-  { key: 'nobel-field', vars: ['g'], where: `?s wdt:P31 wd:Q5; wdt:P166 ?a. VALUES ?a { ${Object.keys(NOBEL).map(q => 'wd:' + q).join(' ')} } OPTIONAL { ?s wdt:P21 ?g }`,
+  { key: 'nobel-field', vars: ['g'], where: `?s wdt:P31 wd:Q5; p:P166 ?st. ?st ps:P166 ?a; pq:P585 ?t. FILTER(YEAR(?t) < ${THIS_YEAR}) VALUES ?a { ${Object.keys(NOBEL).map(q => 'wd:' + q).join(' ')} } OPTIONAL { ?s wdt:P21 ?g }`,
     cat: 376, answer: x => NOBEL[x.a], needles: x => [NOBEL[x.a]],
     q: x => `في أي مجال ${she(x) ? 'حصلت' : 'حصل'} ${x.s_ar} على جائزة نوبل؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
   { key: 'nobel-year', literal: true, vars: ['g', 'prize'], key2: x => x.prize, cat: 376,
-    where: `?s wdt:P31 wd:Q5; p:P166 ?st. ?st ps:P166 ?prize; pq:P585 ?t. VALUES ?prize { ${Object.keys(NOBEL).map(q => 'wd:' + q).join(' ')} } BIND(STR(YEAR(?t)) AS ?a) OPTIONAL { ?s wdt:P21 ?g }`,
+    where: `?s wdt:P31 wd:Q5; p:P166 ?st. ?st ps:P166 ?prize; pq:P585 ?t. FILTER(YEAR(?t) < ${THIS_YEAR}) VALUES ?prize { ${Object.keys(NOBEL).map(q => 'wd:' + q).join(' ')} } BIND(STR(YEAR(?t)) AS ?a) OPTIONAL { ?s wdt:P21 ?g }`,
     q: x => `في أي سنة ${she(x) ? 'حصلت' : 'حصل'} ${x.s_ar} على ${nobelPrize(x.prize)}؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
   { key: 'work-author', minPop: 20, vars: ['t'], where: 'VALUES ?t { wd:Q8261 wd:Q7725634 wd:Q25379 wd:Q5185279 } ?s wdt:P31 ?t; wdt:P50 ?a. ?a wdt:P31 wd:Q5. ' +
       // never religious scripture (the Torah, Gospels…) or a prophet as an "author"
       'FILTER NOT EXISTS { ?s wdt:P31/wdt:P279* wd:Q179461 } FILTER NOT EXISTS { ?s wdt:P136/wdt:P279* wd:Q179461 } FILTER NOT EXISTS { ?a wdt:P106 wd:Q42857 }',
     cat: x => (x.t === 'Q8261' ? 375 : 382), q: x => `من مؤلف «${x.s_ar}»؟`, qm: IMG_S, am: IMG_A },
-  { key: 'painting-painter', minPop: 8, where: '?s wdt:P31 wd:Q3305213; wdt:P170 ?a. ?a wdt:P31 wd:Q5.', cat: 117,
+  { key: 'painting-painter', minPop: 8, cat: 117,
+    where: '?s wdt:P31 wd:Q3305213; wdt:P170 ?a; wdt:P136 ?genre. ?a wdt:P31 wd:Q5. ' +
+      'VALUES ?genre { wd:Q191163 wd:Q170571 wd:Q134307 wd:Q158607 wd:Q1935974 wd:Q16875712 wd:Q1047337 } ' +
+      'FILTER NOT EXISTS { ?s wdt:P136 ?bad. VALUES ?bad { wd:Q40446 wd:Q2864737 } } ' +
+      'FILTER NOT EXISTS { ?s wdt:P180 ?d. VALUES ?d { wd:Q302 wd:Q345 wd:Q9077 wd:Q70899 wd:Q9181 wd:Q40662 wd:Q235113 wd:Q40446 } } ' +
+      'FILTER NOT EXISTS { ?s wdt:P180/wdt:P106 wd:Q42857 }',
+    skip: x => /المسيح|يسوع|مريم|العذراء|مادونا|القديس|قديس|الصلب|البشارة|موسى|آدم|إبراهيم|نوح|يوحنا|ملاك|الملائك|العشاء الأخير|فينوس|عارية|عاري|حواء|العائلة المقدسة|التعميد|الإنجيل/.test(x.s_ar),
     q: x => `من رسم لوحة «${x.s_ar.replace(/^لوحة\s+/, '')}»؟`, qm: IMG_S, am: IMG_A },
   { key: 'us-president-n', vars: ['ord'], key2: x => x.ord, cat: 252, where: '?s p:P39 ?st. ?st ps:P39 wd:Q11696; pq:P1545 ?ord. BIND(?s AS ?a)',
     q: x => `من الرئيس رقم ${x.ord} للولايات المتحدة الأمريكية؟`, qmFile: 'File:Seal of the President of the United States.svg', am: '?s wdt:P18 ?am' },

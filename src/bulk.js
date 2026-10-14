@@ -65,6 +65,7 @@ export async function build({ cacheDir, only = [], log = () => {} }) {
     for (const [id, g] of groups) {
       if (g.answers.size > 1) { drop(t, 'more than one answer'); continue; }
       const x = g.x;
+      if (t.skip?.(x)) { drop(t, 'excluded by template'); continue; }
       const cat = typeof t.cat === 'function' ? t.cat(x) : t.cat;
       if (!cat) { drop(t, 'no category'); continue; }
       const answer = t.answer ? t.answer(x) : t.literal ? String(x.a) : t.dependent ? x.s_ar : x.a_ar;
