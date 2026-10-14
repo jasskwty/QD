@@ -74,16 +74,21 @@ export async function commonsFiles(titles, kind, cacheDir) {
   return out;
 }
 
-/** Plain-text intros of Wikipedia articles → Map(title → text). */
+// Runs fn over items, `n` at a time.
+async function pool(items, n, fn) {
+  let i = 0;
+  await Promise.all(Array.from({ length: n }, async () => { while (i < items.length) await fn(items[i++]); }));
+}
+
+/** Plain-text intros of Wikipedia articles → Map(title → text). Four requests at a time: the extracts API is slow per call. */
 export async function intros(lang, titles, cacheDir) {
   const out = new Map();
-  for (const part of chunks([...new Set(titles)].sort(), 20)) {
+  await pool(chunks([...new Set(titles)].sort(), 20), 4, async part => {
     const j = await cached(cacheDir, `intro-${lang}-${hash(part.join('|'))}`, () => {
       const p = new URLSearchParams({ action: 'query', format: 'json', formatversion: '2', prop: 'extracts', exintro: '1', explaintext: '1', exlimit: '20', redirects: '1', titles: part.join('|') });
       return http(`https://${lang}.wikipedia.org/w/api.php`, { method: 'POST', body: p, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
     });
     for (const [t, pg] of pagesByTitle(j, part)) out.set(t, pg?.extract || '');
-    await sleep(100);
-  }
+  });
   return out;
 }

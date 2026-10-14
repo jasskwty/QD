@@ -98,12 +98,14 @@ export async function build({ cacheDir, only = [], log = () => {} }) {
   /* 4. second source: the subject's Wikipedia intro (Arabic or English) states the answer */
   const toCheck = textOk.filter(it => it.t.verify !== false);
   log(`checking ${toCheck.length} facts against Wikipedia…`);
+  const needles = it => (it.t.needles ? it.t.needles(it.x) : [it.a, ...it.alts]);
   const ar = await intros('ar', toCheck.map(it => it.x.s_arw).filter(Boolean), cacheDir);
-  const en = await intros('en', toCheck.map(it => it.x.s_enw).filter(Boolean), cacheDir);
+  const arOk = new Set(toCheck.filter(it => needles(it).some(n => mentions(ar.get(it.x.s_arw), n))));
+  log(`${arOk.size} confirmed by Arabic Wikipedia; checking the rest in English…`);
+  const en = await intros('en', toCheck.filter(it => !arOk.has(it)).map(it => it.x.s_enw).filter(Boolean), cacheDir);
   const verified = textOk.filter(it => {
     if (it.t.verify === false) return true;
-    const needles = it.t.needles ? it.t.needles(it.x) : [it.a, ...it.alts];
-    const ok = needles.some(n => mentions(ar.get(it.x.s_arw), n) || mentions(en.get(it.x.s_enw), n));
+    const ok = arOk.has(it) || needles(it).some(n => mentions(en.get(it.x.s_enw), n));
     if (!ok) drop(it.t, 'Wikipedia intro does not state the answer');
     return ok;
   });
