@@ -16,7 +16,7 @@ export function queryFor(t) {
   ?s wikibase:sitelinks ?pop. ${t.minPop ? `FILTER(?pop >= ${t.minPop})` : ''}
   FILTER(?s NOT IN (${ex}))
   ?s rdfs:label ?s_ar. FILTER(LANG(?s_ar) = "ar")
-  ${t.literal ? '' : `FILTER(?a NOT IN (${ex})) ?a rdfs:label ?a_ar. FILTER(LANG(?a_ar) = "ar") OPTIONAL { ?a rdfs:label ?a_en. FILTER(LANG(?a_en) = "en") }`}
+  ${t.literal ? '' : '?a rdfs:label ?a_ar. FILTER(LANG(?a_ar) = "ar") OPTIONAL { ?a rdfs:label ?a_en. FILTER(LANG(?a_en) = "en") }'}
   OPTIONAL { ?s rdfs:label ?s_en. FILTER(LANG(?s_en) = "en") }
   ${t.qm ? `OPTIONAL { ${t.qm} }` : ''}
   ${t.am ? `OPTIONAL { ${t.am} }` : ''}
@@ -63,6 +63,8 @@ export async function build({ cacheDir, only = [], log = () => {} }) {
       groups.set(id, g);
     }
     for (const [id, g] of groups) {
+      // A disputed place lists an excluded country among its answers: drop it, don't let the filter make it look settled.
+      if ([...g.answers].some(a => EXCLUDE.includes(a))) { drop(t, 'disputed'); continue; }
       if (g.answers.size > 1) { drop(t, 'more than one answer'); continue; }
       const x = g.x;
       if (t.skip?.(x)) { drop(t, 'excluded by template'); continue; }
@@ -91,7 +93,8 @@ export async function build({ cacheDir, only = [], log = () => {} }) {
 
   /* 3. text checks */
   const textOk = unambiguous.filter(it => {
-    const p = formatProblem({ ...it, pts: 200 }) || ([it.a, ...it.alts].some(a => leaksAnswer(it.q, a)) && 'answer in question');
+    const enLeak = !it.t.dependent && it.x.a_en && it.x.s_en && mentions(it.x.s_en, it.x.a_en);   // «مطار تشانجيانغ» → «زانجيانغ»
+    const p = formatProblem({ ...it, pts: 200 }) || ([it.a, ...it.alts].some(a => leaksAnswer(it.q, a)) && 'answer in question') || (enLeak && 'answer in the English name');
     if (p) drop(it.t, p);
     return !p;
   });

@@ -106,9 +106,10 @@ export const TEMPLATES = [
       // never religious scripture (the Torah, Gospels…) or a prophet as an "author"
       'FILTER NOT EXISTS { ?s wdt:P31/wdt:P279* wd:Q179461 } FILTER NOT EXISTS { ?s wdt:P136/wdt:P279* wd:Q179461 } FILTER NOT EXISTS { ?a wdt:P106 wd:Q42857 }',
     cat: x => (x.t === 'Q8261' ? 375 : 382), q: x => `من مؤلف «${x.s_ar}»؟`, qm: IMG_S, am: IMG_A },
-  { key: 'painting-painter', minPop: 8, cat: 117,
+  // Paintings without people (landscape, still life, sea, city, animals): figures can be nude or religious, and no automatic check sees that.
+  { key: 'painting-painter', minPop: 5, cat: 117,
     where: '?s wdt:P31 wd:Q3305213; wdt:P170 ?a; wdt:P136 ?genre. ?a wdt:P31 wd:Q5. ' +
-      'VALUES ?genre { wd:Q191163 wd:Q170571 wd:Q134307 wd:Q158607 wd:Q1935974 wd:Q16875712 wd:Q1047337 } ' +
+      'VALUES ?genre { wd:Q191163 wd:Q170571 wd:Q158607 wd:Q1935974 wd:Q16875712 } ' +
       'FILTER NOT EXISTS { ?s wdt:P136 ?bad. VALUES ?bad { wd:Q40446 wd:Q2864737 } } ' +
       'FILTER NOT EXISTS { ?s wdt:P180 ?d. VALUES ?d { wd:Q302 wd:Q345 wd:Q9077 wd:Q70899 wd:Q9181 wd:Q40662 wd:Q235113 wd:Q40446 } } ' +
       'FILTER NOT EXISTS { ?s wdt:P180/wdt:P106 wd:Q42857 }',
