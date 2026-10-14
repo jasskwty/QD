@@ -18,11 +18,11 @@ const step = process.env.QGEN_WIPE_STEP;
 if (!['backup', 'delete'].includes(step)) throw new Error('Set QGEN_WIPE_STEP to backup, then delete.');
 
 const db = store.init();
-const file = path.join(CFG.outDir, 'questions-backup.jsonl');
+const file = path.join(CFG.workDir, 'questions-backup.jsonl');
 const cats = await store.loadCategories(db);
 
 if (step === 'backup') {
-  await fs.mkdir(CFG.outDir, { recursive: true });
+  await fs.mkdir(CFG.workDir, { recursive: true });
   const enc = v => (v instanceof Timestamp ? { _ts: v.toDate().toISOString() } : v);
   const out = createWriteStream(file);
   let n = 0;

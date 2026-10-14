@@ -14,8 +14,8 @@ const db = store.init();
 
 let file = src;
 if (src.startsWith('backups/')) {
-  await fs.mkdir(CFG.outDir, { recursive: true });
-  file = path.join(CFG.outDir, path.basename(src));
+  await fs.mkdir(CFG.workDir, { recursive: true });
+  file = path.join(CFG.workDir, path.basename(src));
   await getStorage().bucket().file(src).download({ destination: file });
 }
 

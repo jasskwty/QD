@@ -2,17 +2,18 @@
   "name": "qns-ai-questions",
   "version": "1.0.0",
   "private": true,
-  "description": "Hourly AI question generator for qns.web.app (الديوانية) with a 20-stage verification pipeline",
+  "description": "Scheduled Claude routine that adds verified quiz questions with media to qns.web.app (الديوانية), through 20 verification stages",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "generate": "node src/generate.js",
+    "q": "node tools/q.js",
     "wipe": "node src/wipe.js",
     "restore": "node src/restore.js",
     "test": "node --test"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.133.0",
     "firebase-admin": "^14.5.0"
   }
 }

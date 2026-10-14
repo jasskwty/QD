@@ -3,11 +3,16 @@ import { initializeApp, cert } from 'firebase-admin/app';
 import { getFirestore, FieldValue } from 'firebase-admin/firestore';
 import { LEVELS } from './config.js';
 
+export const hasDb = () => !!(process.env.FIREBASE_SERVICE_ACCOUNT || process.env.FIRESTORE_EMULATOR_HOST);
+
 export function init() {
   const raw = process.env.FIREBASE_SERVICE_ACCOUNT;
-  if (!raw) throw new Error('FIREBASE_SERVICE_ACCOUNT is not set');
-  const sa = JSON.parse(raw);
-  initializeApp({ credential: cert(sa), storageBucket: process.env.FIREBASE_STORAGE_BUCKET || `${sa.project_id}.firebasestorage.app` });
+  if (!raw && process.env.FIRESTORE_EMULATOR_HOST) initializeApp({ projectId: process.env.GCLOUD_PROJECT || 'demo-qns' });  // local tests
+  else {
+    if (!raw) throw new Error('FIREBASE_SERVICE_ACCOUNT is not set');
+    const sa = JSON.parse(raw);
+    initializeApp({ credential: cert(sa), storageBucket: process.env.FIREBASE_STORAGE_BUCKET || `${sa.project_id}.firebasestorage.app` });
+  }
   return getFirestore();
 }
 
@@ -21,17 +26,16 @@ export async function existingQuestions(db, catId, max = 400) {
   return s.docs.map(d => d.data());
 }
 
-/** Adds the accepted questions and bumps the category counts, like addQuestions() in the site's qeditor.js. */
-export async function writeQuestions(db, cat, items, runId) {
-  const ref = db.collection('categories').doc(cat.id);
+/** Adds verified questions and bumps the category counts, like addQuestions() in the site's qeditor.js. */
+export async function writeQuestions(db, catId, items, runId) {
+  const ref = db.collection('categories').doc(catId);
   const b = db.batch(), cnt = { 200: 0, 400: 0, 600: 0 };
   for (const x of items) {
     b.set(ref.collection('questions').doc(), {
-      q: x.q, a: x.a, m: x.mq.url, am: x.ma.url, pts: x.pts, rnd: Math.random(), createdAt: FieldValue.serverTimestamp(),
+      q: x.q, a: x.a, m: x.m.url, am: x.am.url, pts: x.pts, rnd: Math.random(), createdAt: FieldValue.serverTimestamp(),
       ai: {
-        run: runId, stages: x.passed.length, confidence: x.conf ?? null, alts: x.alts,
-        sources: (x.sources || []).map(s => s.url),
-        media: [x.mq, x.ma].map(c => ({ title: c.title, page: c.page, license: c.license, artist: c.artist }))
+        run: runId, stages: 20, confidence: x.confidence ?? null, alts: x.alts, sources: x.sources || [],
+        media: [x.m, x.am].map(c => ({ title: c.title, page: c.page, license: c.license, artist: c.artist || '' }))
       }
     });
     cnt[x.pts]++;
