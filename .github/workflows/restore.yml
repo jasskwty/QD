@@ -1,0 +1,43 @@
+name: استرجاع الأسئلة من نسخة احتياطية
+
+on:
+  workflow_dispatch:
+    inputs:
+      wipe_run_id:
+        description: 'رقم تشغيل المسح (Run ID من رابط صفحة التشغيل) اللي فيه النسخة'
+        required: true
+
+concurrency:
+  group: questions
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: الريبو لازم يكون خاص
+        if: ${{ !github.event.repository.private }}
+        run: |
+          echo "::error::الريبو عام (public). خله خاص أول."
+          exit 1
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: questions-backup-${{ inputs.wipe_run_id }}
+          run-id: ${{ inputs.wipe_run_id }}
+          github-token: ${{ github.token }}
+          path: out
+      - run: node src/restore.js
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          QGEN_RESTORE: out/questions-backup.jsonl

@@ -1,0 +1,55 @@
+name: مسح كل الأسئلة
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'يمسح كل أسئلة الفئات العامة (بعد نسخة احتياطية). للتأكيد اكتب: DELETE-ALL-QUESTIONS'
+        required: true
+
+concurrency:
+  group: questions
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  wipe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      QGEN_WIPE_CONFIRM: ${{ inputs.confirm }}
+    steps:
+      - name: الريبو لازم يكون خاص
+        if: ${{ !github.event.repository.private }}
+        run: |
+          echo "::error::الريبو عام (public): النسخة الاحتياطية فيها كل الأسئلة وبتكون مكشوفة للكل. خله خاص أول."
+          exit 1
+      - name: التأكيد
+        if: ${{ inputs.confirm != 'DELETE-ALL-QUESTIONS' }}
+        run: |
+          echo "::error::ما انمسح شي. لازم تكتب DELETE-ALL-QUESTIONS بالضبط."
+          exit 1
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: نسخة احتياطية
+        run: node src/wipe.js
+        env:
+          QGEN_WIPE_STEP: backup
+      # Nothing is deleted unless the backup was saved first.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: questions-backup-${{ github.run_id }}
+          path: out/questions-backup.jsonl
+          retention-days: 90
+          if-no-files-found: error
+      - name: المسح
+        run: node src/wipe.js
+        env:
+          QGEN_WIPE_STEP: delete

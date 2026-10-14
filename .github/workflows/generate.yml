@@ -1,0 +1,63 @@
+name: توليد الأسئلة
+
+on:
+  schedule:
+    - cron: '17 * * * *'   # every hour (minute 17: GitHub delays runs at :00)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'تجربة: يولّد ويتحقق بس ما يكتب في الموقع'
+        type: boolean
+        default: true
+      per_run:
+        description: 'كم سؤال'
+        default: '54'
+      categories:
+        description: 'فئات محددة (اختياري): أسماء أو أرقام الفئات مفصولة بفاصلة'
+        default: ''
+
+concurrency:
+  group: questions
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    # The hourly schedule runs only after you set the repository variable QGEN_ENABLED=true.
+    if: github.event_name == 'workflow_dispatch' || vars.QGEN_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - name: الريبو لازم يكون خاص
+        if: ${{ !github.event.repository.private }}
+        run: |
+          echo "::error::الريبو عام (public): سجلات التشغيل والتقارير فيها الأسئلة والإجابات وبتكون مكشوفة للكل. خله خاص من Settings ثم General ثم Change visibility ثم Private، وبعدين شغّل مرة ثانية."
+          exit 1
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node src/generate.js
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          WIKIMEDIA_TOKEN: ${{ secrets.WIKIMEDIA_TOKEN }}
+          QGEN_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '' }}
+          QGEN_PER_RUN: ${{ inputs.per_run || vars.QGEN_PER_RUN }}
+          QGEN_CATEGORIES: ${{ inputs.categories }}
+          QGEN_MODEL: ${{ vars.QGEN_MODEL }}
+          QGEN_EFFORT: ${{ vars.QGEN_EFFORT }}
+          QGEN_FINAL_EFFORT: ${{ vars.QGEN_FINAL_EFFORT }}
+          QGEN_MAX_USD: ${{ vars.QGEN_MAX_USD }}
+          QGEN_CONCURRENCY: ${{ vars.QGEN_CONCURRENCY }}
+          QGEN_MIN_CONFIDENCE: ${{ vars.QGEN_MIN_CONFIDENCE }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: report-${{ github.run_id }}
+          path: out/
+          retention-days: 30
