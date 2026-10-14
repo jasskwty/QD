@@ -47,6 +47,21 @@ export async function writeQuestions(db, catId, items, runId) {
   await b.commit();
 }
 
+/** Adds questions from the bulk builder (data/bulk-questions.json); `ai.key` lets a later run skip what is already there. */
+export async function writeBulk(db, catId, items) {
+  const ref = db.collection('categories').doc(catId);
+  const b = db.batch(), cnt = { 200: 0, 400: 0, 600: 0 };
+  for (const x of items) {
+    b.set(ref.collection('questions').doc(), {
+      q: x.q, a: x.a, m: x.m.url, am: x.am.url, pts: x.pts, rnd: Math.random(), createdAt: FieldValue.serverTimestamp(),
+      ai: { key: x.key, source: 'wikidata', alts: x.alts, sources: x.sources, media: [x.m, x.am].map(c => ({ title: c.title, page: c.page, license: c.license, artist: c.artist || '' })) }
+    });
+    cnt[x.pts]++;
+  }
+  b.set(ref, { counts: Object.fromEntries(LEVELS.map(p => [String(p), FieldValue.increment(cnt[p])])) }, { merge: true });
+  await b.commit();
+}
+
 export const markSkipped = (db, catId, reason) => db.collection('categories').doc(catId).set({ aiSkip: reason, aiAt: FieldValue.serverTimestamp() }, { merge: true });
 export const markFailed = (db, catId) => db.collection('categories').doc(catId).set({ aiFails: FieldValue.increment(1), aiAt: FieldValue.serverTimestamp() }, { merge: true });
 
