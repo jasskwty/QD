@@ -78,9 +78,9 @@ export const TEMPLATES = [
     q: x => `ما العدد الذري ${lil(x.s_ar)}؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
   { key: 'moon-planet', minPop: 15, where: '?s wdt:P31/wdt:P279* wd:Q2537; wdt:P397 ?a. ?a wdt:P31/wdt:P279* wd:Q634.', cat: 184, q: x => `حول أي كوكب يدور ${pre('القمر', x.s_ar)}؟`, qm: IMG_S, am: IMG_A },
   ...[['Q7377', 60], ['Q5113', 90], ['Q10811', 50], ['Q10908', 50], ['Q1390', 60], ['Q127282', 60], ['Q7372', 60]].map(([cls, min]) => ({
-    key: `animal-${cls}`, minPop: min, where: `?s wdt:P105 wd:Q7432; wdt:P171+ wd:${cls}. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q7375 } ${cls === 'Q10811' ? 'FILTER NOT EXISTS { ?s wdt:P171+ wd:Q5113 }' : ''} BIND(?s AS ?a)`,
+    key: `animal-${cls}`, minPop: min, where: `${cls === 'Q1390' ? `hint:Query hint:optimizer "None". ?s wikibase:sitelinks ?p0. FILTER(?p0 >= ${min}) ` : ''}?s wdt:P105 wd:Q7432; wdt:P171+ wd:${cls}. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q166898 } ${cls === 'Q10811' ? 'FILTER NOT EXISTS { ?s wdt:P171+ wd:Q5113 }' : ''} BIND(?s AS ?a)`,
     cat: 180, dependent: true, verify: false, q: () => 'ما اسم هذا الحيوان؟', qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true })),
-  { key: 'animal-sound', minPop: 50, where: '?s wdt:P51 ?qm; wdt:P105 wd:Q7432. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q7375 } BIND(?s AS ?a)', cat: 129,
+  { key: 'animal-sound', minPop: 50, where: '?s wdt:P51 ?qm; wdt:P105 wd:Q7432. FILTER NOT EXISTS { ?s wdt:P171+ wd:Q166898 } BIND(?s AS ?a)', cat: 129,
     dependent: true, verify: false, qKind: 'audio', q: () => 'ما الحيوان صاحب هذا الصوت؟', am: '?s wdt:P18 ?am' },
   { key: 'dog-breed', minPop: 20, where: '?s wdt:P31 wd:Q39367. BIND(?s AS ?a)', cat: 396, dependent: true, verify: false,
     q: () => 'ما اسم سلالة الكلاب هذه؟', qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
@@ -108,7 +108,7 @@ export const TEMPLATES = [
     q: x => `ما ترتيب ${x.s_ar} بين رؤساء الولايات المتحدة الأمريكية؟`, qm: IMG_S, am: '?s wdt:P18 ?am', sameOk: true },
 
   /* ---------- sport ---------- */
-  { key: 'olympics-host', where: 'VALUES ?t { wd:Q159821 wd:Q82414 } ?s wdt:P31 ?t; wdt:P276 ?a. ?a wdt:P31/wdt:P279* wd:Q515.', cat: 62,
+  { key: 'olympics-host', where: 'VALUES ?t { wd:Q135976384 wd:Q137592217 } ?s wdt:P31 ?t; wdt:P276 ?a. ?a wdt:P31/wdt:P279* wd:Q515.', cat: 62,
     q: x => `أي مدينة استضافت ${x.s_ar}؟`, qmFile: 'File:Olympic rings without rims.svg', am: IMG_A },
   { key: 'world-cup-winner', where: '?s wdt:P3450 wd:Q19317; wdt:P1346 ?team. ?team wdt:P1532 ?a.', cat: 77,
     q: x => `أي منتخب فاز ببطولة ${x.s_ar}؟`, qmFile: 'File:FIFA World Cup Trophy.svg', am: FLAG_A },
