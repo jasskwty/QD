@@ -1,0 +1,402 @@
+[
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية كاليفورنيا؟",
+  "answer": "ساكرامنتو",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/California_in_United_States.svg/960px-California_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Sacramento%2C_California_skyline_in_2023.jpg/960px-Sacramento%2C_California_skyline_in_2023.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية هاواي؟",
+  "answer": "هونولولو",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Hawaii_in_United_States_%28US50%29.svg/960px-Hawaii_in_United_States_%28US50%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/2022_Views_from_Diamond_Head_02.jpg/960px-2022_Views_from_Diamond_Head_02.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية ألاسكا؟",
+  "answer": "جونو",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Alaska_in_United_States_%28US50%29.svg/960px-Alaska_in_United_States_%28US50%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Queen_Elizabeth_%28ship%2C_2010%29_in_Juneau%2C_Alaska_2024-08-15.jpg/960px-Queen_Elizabeth_%28ship%2C_2010%29_in_Juneau%2C_Alaska_2024-08-15.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية فلوريدا؟",
+  "answer": "تالاهاسي",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Florida_in_United_States.svg/960px-Florida_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/TallahasseeSkyline2.JPG/960px-TallahasseeSkyline2.JPG"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية تكساس؟",
+  "answer": "أوستن",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Texas_in_United_States.svg/960px-Texas_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Skyline_of_Austin%2C_Texas_%28cropped%29.jpg/960px-Skyline_of_Austin%2C_Texas_%28cropped%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية نيويورك؟",
+  "answer": "ألباني",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/New_York_in_United_States.svg/960px-New_York_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Albany%2C_New_York.jpg/960px-Albany%2C_New_York.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية أريزونا؟",
+  "answer": "فينيكس",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Arizona_in_United_States.svg/960px-Arizona_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Phoenix%2C_Arizona.JPG/960px-Phoenix%2C_Arizona.JPG"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية ألاباما؟",
+  "answer": "مونتغومري",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Alabama_in_United_States.svg/960px-Alabama_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Aerial_view_of_Montgomery%2C_Alabama_LCCN2011646683.jpg/960px-Aerial_view_of_Montgomery%2C_Alabama_LCCN2011646683.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية إلينوي؟",
+  "answer": "سبرينغفيلد",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Illinois_in_United_States.svg/960px-Illinois_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Illinois_State_Capitol%2C_Springfield%2C_IL.jpg/960px-Illinois_State_Capitol%2C_Springfield%2C_IL.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية أوهايو؟",
+  "answer": "كولومبوس",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Ohio_in_United_States.svg/960px-Ohio_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Montage_Columbus_1.jpg/960px-Montage_Columbus_1.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية بنسيلفانيا؟",
+  "answer": "هاريسبرج",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Pennsylvania_in_United_States.svg/960px-Pennsylvania_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Pennsylvania_Capitol_from_Downtown.jpg/960px-Pennsylvania_Capitol_from_Downtown.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية فرجينيا؟",
+  "answer": "ريتشموند",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Virginia_in_United_States.svg/960px-Virginia_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Richmond%2C_Virginia_-_Facing_West_%2832664969852%29.jpg/960px-Richmond%2C_Virginia_-_Facing_West_%2832664969852%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية نيفادا؟",
+  "answer": "كارسون سيتي",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Nevada_in_United_States.svg/960px-Nevada_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Nevada_State_Museum.jpg/960px-Nevada_State_Museum.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية نيوجيرسي؟",
+  "answer": "ترنتون",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/New_Jersey_in_United_States_%28zoom%29.svg/960px-New_Jersey_in_United_States_%28zoom%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Trenton%2C_New_Jersey.jpg/960px-Trenton%2C_New_Jersey.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية جورجيا؟",
+  "answer": "أتلانتا",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Georgia_in_United_States.svg/960px-Georgia_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/A2ATL20250614-0721_%28cropped%29.jpg/960px-A2ATL20250614-0721_%28cropped%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية كولورادو؟",
+  "answer": "دنفر",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Colorado_in_United_States.svg/960px-Colorado_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Denver%2C_Colorado_skyline_%28cropped%29.jpg/960px-Denver%2C_Colorado_skyline_%28cropped%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 200,
+  "question": "ما عاصمة ولاية ماساتشوستس؟",
+  "answer": "بوسطن",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Massachusetts_in_United_States_%28zoom%29.svg/960px-Massachusetts_in_United_States_%28zoom%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Boston_from_the_Harbour%2C_Massachusetts_%28493360%29_%2810772382303%29.jpg/960px-Boston_from_the_Harbour%2C_Massachusetts_%28493360%29_%2810772382303%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية ماريلند؟",
+  "answer": "أنابولس",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Maryland_in_United_States_%28zoom%29.svg/960px-Maryland_in_United_States_%28zoom%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Some_Annapolis_commercial_strip.jpg/960px-Some_Annapolis_commercial_strip.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية يوتا؟",
+  "answer": "سولت ليك سيتي",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Utah_in_United_States.svg/960px-Utah_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Salt_Lake_City_pan_1.jpg/960px-Salt_Lake_City_pan_1.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية أوريغن؟",
+  "answer": "سايلم",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Oregon_in_United_States.svg/960px-Oregon_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Oregon_State_Capitol%2C_Andr%C3%A9_Orso_%286501975671%29.jpg/960px-Oregon_State_Capitol%2C_Andr%C3%A9_Orso_%286501975671%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية تينيسي؟",
+  "answer": "ناشفيل",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Tennessee_in_United_States.svg/960px-Tennessee_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nashville%2C_Tennessee_%28cropped%29.jpg/960px-Nashville%2C_Tennessee_%28cropped%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية ميشيغان؟",
+  "answer": "لانسنغ",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Michigan_in_United_States.svg/960px-Michigan_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/1_Lansing_Pan_cropped.jpg/960px-1_Lansing_Pan_cropped.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية إنديانا؟",
+  "answer": "إنديانابولس",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Indiana_in_United_States.svg/960px-Indiana_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Downtown_Indianapolis.jpg/960px-Downtown_Indianapolis.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية ويسكونسن؟",
+  "answer": "ماديسون",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Wisconsin_in_United_States.svg/960px-Wisconsin_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Aerial_View_of_Campus%2C_with_Helen_C._White_Hall_in_foreground_%2814070186173%29.jpg/960px-Aerial_View_of_Campus%2C_with_Helen_C._White_Hall_in_foreground_%2814070186173%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية كانساس؟",
+  "answer": "توبيكا",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Kansas_in_United_States.svg/960px-Kansas_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Topeka%2C_Kansas.JPG/960px-Topeka%2C_Kansas.JPG"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية آيوا؟",
+  "answer": "دي موين",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Iowa_in_United_States.svg/960px-Iowa_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Des_Moines_skyline.jpg/960px-Des_Moines_skyline.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية لويزيانا؟",
+  "answer": "باتون روج",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Louisiana_in_United_States.svg/960px-Louisiana_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Baton_Rouge_Louisiana_waterfront_aerial_view.jpg/960px-Baton_Rouge_Louisiana_waterfront_aerial_view.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية واشنطن؟",
+  "answer": "أولمبيا",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Washington_in_United_States.svg/960px-Washington_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Capitol_Lake%2C_Olympia%2C_Washington%2C_July_20%2C_2025_%28cropped%29.jpg/960px-Capitol_Lake%2C_Olympia%2C_Washington%2C_July_20%2C_2025_%28cropped%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية منيسوتا؟",
+  "answer": "سانت بول",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Minnesota_in_United_States.svg/960px-Minnesota_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Saint_Paul%2C_Minnesota.jpg/960px-Saint_Paul%2C_Minnesota.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية نيو مكسيكو؟",
+  "answer": "سانتا فيه",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/New_Mexico_in_United_States.svg/960px-New_Mexico_in_United_States.svg.png",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Santa_Fe_NM.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية ميزوري؟",
+  "answer": "جيفرسون سيتي",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Missouri_in_United_States.svg/960px-Missouri_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Jefferson_City.jpg/960px-Jefferson_City.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية أركنساس؟",
+  "answer": "ليتل روك",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Arkansas_in_United_States.svg/960px-Arkansas_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Little_Rock%2C_Arkansas_skyline.jpg/960px-Little_Rock%2C_Arkansas_skyline.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية كونيتيكت؟",
+  "answer": "هارتفورد",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Connecticut_in_United_States_%28zoom%29.svg/960px-Connecticut_in_United_States_%28zoom%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Hartford%2C_CT_skyline_%28cropped%29.jpg/960px-Hartford%2C_CT_skyline_%28cropped%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 400,
+  "question": "ما عاصمة ولاية أيداهو؟",
+  "answer": "بويسي",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Idaho_in_United_States.svg/960px-Idaho_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Boise_Metro_Chamber_of_Commerce_photo_to_share_-_winter_2017.jpg/960px-Boise_Metro_Chamber_of_Commerce_photo_to_share_-_winter_2017.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية أوكلاهوما؟",
+  "answer": "أوكلاهوما سيتي",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Oklahoma_in_United_States.svg/960px-Oklahoma_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Downtown_Oklahoma_City_skyline_at_twilight.jpg/960px-Downtown_Oklahoma_City_skyline_at_twilight.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية نبراسكا؟",
+  "answer": "لنكن",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nebraska_in_United_States.svg/960px-Nebraska_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Skyline_of_Downtown_Lincoln%2C_Nebraska%2C_USA_%282023%29.jpg/960px-Skyline_of_Downtown_Lincoln%2C_Nebraska%2C_USA_%282023%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية كنتاكي؟",
+  "answer": "فرانكفورت",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Kentucky_in_United_States.svg/960px-Kentucky_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/U.S._Route_60_Frankfort%2C_KY_%2823892062134%29.jpg/960px-U.S._Route_60_Frankfort%2C_KY_%2823892062134%29.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية ديلاوير؟",
+  "answer": "دوفر",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Delaware_in_United_States_%28zoom%29.svg/960px-Delaware_in_United_States_%28zoom%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Dover_Delaware.jpg/960px-Dover_Delaware.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية مسيسيبي؟",
+  "answer": "جاكسون",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Mississippi_in_United_States.svg/960px-Mississippi_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/JacksonMS_CapitolSt.jpg/960px-JacksonMS_CapitolSt.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية فيرمونت؟",
+  "answer": "مونبلييه",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Vermont_in_United_States_%28zoom%29.svg/960px-Vermont_in_United_States_%28zoom%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Vermont_State_House%2C_Fall_2015.jpg/960px-Vermont_State_House%2C_Fall_2015.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية وايومنغ؟",
+  "answer": "شايان",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Wyoming_in_United_States.svg/960px-Wyoming_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/CheyenneWY_downtown.jpg/960px-CheyenneWY_downtown.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية كارولاينا الجنوبية؟",
+  "answer": "كولومبيا",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/South_Carolina_in_United_States.svg/960px-South_Carolina_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Fall_skyline_of_Columbia_SC_from_Arsenal_Hill.jpg/960px-Fall_skyline_of_Columbia_SC_from_Arsenal_Hill.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية مين؟",
+  "answer": "أوغوستا",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Maine_in_United_States.svg/960px-Maine_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Augusta%2C_Maine_skyline.jpg/960px-Augusta%2C_Maine_skyline.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية نيوهامبشير؟",
+  "answer": "كونكورد",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/New_Hampshire_in_United_States_%28US48%29.svg/960px-New_Hampshire_in_United_States_%28US48%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Downtown_Concord%2C_NH%2C_near_the_state_capitol_IMG_2719_%28cropped%29.JPG/960px-Downtown_Concord%2C_NH%2C_near_the_state_capitol_IMG_2719_%28cropped%29.JPG"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية مونتانا؟",
+  "answer": "هيلينا",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Montana_in_United_States.svg/960px-Montana_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Helena_Montana_2006.jpg/960px-Helena_Montana_2006.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية كارولاينا الشمالية؟",
+  "answer": "رالي",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/North_Carolina_in_United_States.svg/960px-North_Carolina_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Raleigh_Skyline.jpg/960px-Raleigh_Skyline.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية فيرجينيا الغربية؟",
+  "answer": "تشارلستون",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/West_Virginia_in_United_States.svg/960px-West_Virginia_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/View_across_the_Kanawha_River_of_Charleston%2C_the_capital_city_of_West_Virginia_LCCN2015631775.tif/lossy-page1-960px-View_across_the_Kanawha_River_of_Charleston%2C_the_capital_city_of_West_Virginia_LCCN2015631775.tif.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية رود آيلاند؟",
+  "answer": "بروفيدنس",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Rhode_Island_in_United_States_%28zoom%29.svg/960px-Rhode_Island_in_United_States_%28zoom%29.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Providence_RI_skyline.jpg/960px-Providence_RI_skyline.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية داكوتا الجنوبية؟",
+  "answer": "بيير",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/South_Dakota_in_United_States.svg/960px-South_Dakota_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/South_Dakota_State_Capitol%2C_Capitol_Avenue%2C_Pierre%2C_SD_-_53748063274.jpg/960px-South_Dakota_State_Capitol%2C_Capitol_Avenue%2C_Pierre%2C_SD_-_53748063274.jpg"
+ },
+ {
+  "category": "226",
+  "points": 600,
+  "question": "ما عاصمة ولاية داكوتا الشمالية؟",
+  "answer": "بيسمارك",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/North_Dakota_in_United_States.svg/960px-North_Dakota_in_United_States.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/2009-0521-ND-StateCapitol.jpg/960px-2009-0521-ND-StateCapitol.jpg"
+ }
+]

@@ -55,12 +55,16 @@ async function writeCmd() {
     if (written >= max) break;
     const id = catId(cat), c = cats.get(id);
     if (!c || c.active === false) { log(`${id} ${CAT_NAMES[cat]}: not an active category on the site, skipped`); continue; }
-    const have = await db.collection('categories').doc(id).collection('questions').select('q', 'ai.key').get();
+    // Already there: same key, same text, or (picture questions share their text) same answer with the same picture,
+    // which also catches files imported by hand through the admin page.
+    const have = await db.collection('categories').doc(id).collection('questions').select('q', 'a', 'm', 'ai.key').get();
     const keys = new Set(have.docs.map(d => d.get('ai.key')).filter(Boolean)), texts = new Set(have.docs.map(d => norm(d.get('q'))));
-    const todo = list.filter(x => !keys.has(x.key) && (x.media_dependent || !texts.has(norm(x.q)))).slice(0, max - written);
+    const pics = new Set(have.docs.map(d => `${norm(d.get('a'))}|${d.get('m')}`));
+    const fresh = list.filter(x => !keys.has(x.key) && !pics.has(`${norm(x.a)}|${x.m.url}`) && (x.media_dependent || !texts.has(norm(x.q))));
+    const todo = fresh.slice(0, max - written);
     if (!dry) for (let i = 0; i < todo.length; i += 400) await store.writeBulk(db, id, todo.slice(i, i + 400));
     written += todo.length;
-    log(`${id} ${CAT_NAMES[cat]}: +${todo.length}${dry ? ' (dry run)' : ''} (already there: ${list.length - todo.length})`);
+    log(`${id} ${CAT_NAMES[cat]}: +${todo.length}${dry ? ' (dry run)' : ''} · already there ${list.length - fresh.length}${fresh.length > todo.length ? ` · ${fresh.length - todo.length} left for the next run` : ''}`);
   }
   if (!dry && written) log(`catalog republished: ${await store.publishCatalog(db)} categories`);
   log(`${dry ? 'would add' : 'added'} ${written} questions${written >= max ? ` (stopped at --max ${max}; run again tomorrow for the rest)` : ''}`);

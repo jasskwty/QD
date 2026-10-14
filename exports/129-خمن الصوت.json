@@ -1,0 +1,482 @@
+[
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "ذئب رمادي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/87/Wolf_howls.ogg/Wolf_howls.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/960px-Eurasian_wolf_2.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "دب بني",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Yellowstone_sound_library_-_Grizzly_Bear_Eating_-_002.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/202309_Ezo_brown_bear.svg/960px-202309_Ezo_brown_bear.svg.png"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "باشق أوراسي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Accipiter_nisus_-_Eurasian_Sparrowhawk_XC380491.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Accipiter_nisus_Meneer_Zjeroen.jpg/960px-Accipiter_nisus_Meneer_Zjeroen.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "إوزة ربداء",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Anser_anser_-_Greylag_Goose_XC436358.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/00_3688_Graugans_%28Anser_anser%29.jpg/960px-00_3688_Graugans_%28Anser_anser%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "غرة أوراسية",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Fulica_atra_-_Eurasian_Coot_XC432890.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Eurasian_Coot.jpg/960px-Eurasian_Coot.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "غطاس صغير",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Tachybaptus_ruficollis_%28call%29.wav",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Little_Grebe_-_Tachybaptus_ruficollis_15-1.jpg/960px-Little_Grebe_-_Tachybaptus_ruficollis_15-1.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "غراب مقنع",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/%D0%9A%D0%B0%D1%80%D0%BA%D0%B0%D0%BD%D0%BD%D1%8F.ogg/%D0%9A%D0%B0%D1%80%D0%BA%D0%B0%D0%BD%D0%BD%D1%8F.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Corvus_cornix_%2833515567265%29.jpg/960px-Corvus_cornix_%2833515567265%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "دجاجة الماء خضراء الأقدام",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Gallinula_chloropus_-_Common_Moorhen_XC432931.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Common_Moorhen_%28Gallinula_chloropus_pyrrhorrhoa%29%2C_Mauritius.jpg/960px-Common_Moorhen_%28Gallinula_chloropus_pyrrhorrhoa%29%2C_Mauritius.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "ديك الخلنج الغربي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/31/Western_Capercaillie_%28Tetrao_urogallus%29_%28W1CDR0001418_BD47%29.ogg/Western_Capercaillie_%28Tetrao_urogallus%29_%28W1CDR0001418_BD47%29.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Auerhuhn_Schweden_P1130026.jpg/960px-Auerhuhn_Schweden_P1130026.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "تم أخرس",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Cygnus_olor_-_Mute_Swan_XC434964.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Mute_Swan_Emsworth2.JPG/960px-Mute_Swan_Emsworth2.JPG"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "بيسون أمريكي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Bison.wav",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/American_bison_k5680-1.jpg/960px-American_bison_k5680-1.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "قبرة الغيط",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4c/XN_Alauda_arvensis.ogg/XN_Alauda_arvensis.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Alouette_des_champs_Zaghouan001.jpg/960px-Alouette_des_champs_Zaghouan001.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "بلشون الليل أسود التاج",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Nycticorax_nycticorax_-_Black-crowned_Night_Heron_XC436935.mp3",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Nycticorax-nycticorax-004.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "تم صداح",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4d/Whooper_Swan_%28Cygnus_cygnus%29_%28W_CYGNUS_CYGNUS_R1_C6%29.ogg/Whooper_Swan_%28Cygnus_cygnus%29_%28W_CYGNUS_CYGNUS_R1_C6%29.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Cygnus_cygnus_070416_IOL.jpg/960px-Cygnus_cygnus_070416_IOL.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "يمامة مطوقة أوراسية",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/dc/%D0%9A%D0%BE%D0%BB%D1%8C%D1%87%D0%B0%D1%82%D0%B0%D1%8F_%D0%93%D0%BE%D1%80%D0%BB%D0%B8%D1%86%D0%B0.ogg/%D0%9A%D0%BE%D0%BB%D1%8C%D1%87%D0%B0%D1%82%D0%B0%D1%8F_%D0%93%D0%BE%D1%80%D0%BB%D0%B8%D1%86%D0%B0.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Streptopelia_decaocto%2C_H%C4%83rman%2C_Rom%C3%A2nia_%2834881606270%29.jpg/960px-Streptopelia_decaocto%2C_H%C4%83rman%2C_Rom%C3%A2nia_%2834881606270%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "طيطوي أحمر الساق",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Tringa_totanus_-_Common_Redshank_XC432923.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Tringa_totanus_-_Common_Redshank%2C_Mersin_2016-12-11_07-2.jpg/960px-Tringa_totanus_-_Common_Redshank%2C_Mersin_2016-12-11_07-2.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "درسة صفراء",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/54/Yellowhammer_%28Emberiza_citrinella%29_%28W1CDR0001422_BD1%29.ogg/Yellowhammer_%28Emberiza_citrinella%29_%28W1CDR0001422_BD1%29.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Emberiza_citrinella_-Midtjylland%2C_Denmark_-male-8.jpg/960px-Emberiza_citrinella_-Midtjylland%2C_Denmark_-male-8.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "لواء أوراسي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/V%C3%A4%C3%A4nkael_audio.wav",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Jynx_torquilla_%2834536504885%29.jpg/960px-Jynx_torquilla_%2834536504885%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "خساف",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nucifraga_caryocatactes_-_Spotted_Nutcracker_XC441534.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Nucifraga_caryocatactes%2C_Kotka%2C_Finland_1.jpg/960px-Nucifraga_caryocatactes%2C_Kotka%2C_Finland_1.jpg"
+ },
+ {
+  "category": "129",
+  "points": 200,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "إوزة مخططة الرأس",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Bar-headed_geese_%28Call%29.wav",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Bar-headed_Goose_by_Dr._Raju_Kasambe_DSCN7530_%2823%29.jpg/960px-Bar-headed_Goose_by_Dr._Raju_Kasambe_DSCN7530_%2823%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "مرعة الماء",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Rallus_aquaticus_-_Water_Rail_XC387327.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Wasserralle_Bodensee.jpg/960px-Wasserralle_Bodensee.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "ثبج أوراسي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c5/ZwergohreuleKroatienKatarineninsel2014.ogg/ZwergohreuleKroatienKatarineninsel2014.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Scops_Owl_%28Otus_scops%29%2C_Kalloni%2C_Lesvos%2C_Greece%2C_19.04.2015_%2816773748434%29.jpg/960px-Scops_Owl_%28Otus_scops%29%2C_Kalloni%2C_Lesvos%2C_Greece%2C_19.04.2015_%2816773748434%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "نهقة نشاجة",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Numenius_phaeopus_-_Whimbrel_XC551246.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Whimbrel_Numenius_phaeopus.jpg/960px-Whimbrel_Numenius_phaeopus.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "هزان",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Opisthocomus_hoazin_-_Hoatzin_XC251282.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Hoatzin_%28Opisthocomus_hoazin%29_Rio_Napo.jpg/960px-Hoatzin_%28Opisthocomus_hoazin%29_Rio_Napo.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "طيطوي أخضر",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Tringa_ochropus_-_Green_Sandpiper_XC432903.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Green_Sandpiper_%28_Tringa_ochropus_%29_..._Tophill_Low_%2C_Yorkshire_%2853182606905%29.jpg/960px-Green_Sandpiper_%28_Tringa_ochropus_%29_..._Tophill_Low_%2C_Yorkshire_%2853182606905%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "يمام شجري",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Columba_oenas_-_Stock_Dove_XC489891.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/2025-03-24_Columba_oenas%2C_Jesmond_Dene_6.jpg/960px-2025-03-24_Columba_oenas%2C_Jesmond_Dene_6.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "صعو أصفر العرف",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Regulus_regulus_-_Goldcrest_XC108347.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Tenerife_Goldcrest_%28Regulus_regulus_teneriffae%29_%28cropped%29.JPG/960px-Tenerife_Goldcrest_%28Regulus_regulus_teneriffae%29_%28cropped%29.JPG"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "مينة شائعة",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Common_myna-Acridotheres_tristis.wav",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Common_Myna_in_Rabindra_Sarobar_February_2025_by_Tisha_Mukherjee_01.jpg/960px-Common_Myna_in_Rabindra_Sarobar_February_2025_by_Tisha_Mukherjee_01.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "خرشنة قطبية",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Sterna_paradisaea_-_Arctic_Tern_XC564600.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/00_3786._K%C3%BCstenseeschwalbe.jpg/960px-00_3786._K%C3%BCstenseeschwalbe.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "خرشنة قزوينية",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Hydroprogne_caspia_-_Caspian_Tern_XC432881.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Sterna-caspia-010.jpg/960px-Sterna-caspia-010.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "واق صغير",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Ixobrychus_minutus_-_Little_Bittern_XC431991.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/47-090506-little-bittern-at-upper-ford-near-Sigri-.jpg/960px-47-090506-little-bittern-at-upper-ford-near-Sigri-.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "الذبابي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Muscicapa_striata_-_Spotted_Flycatcher_XC342793.mp3",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/SpottedFlycatcheronfence.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "قنبرة الغياض",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/da/Woodlark_%28Lullula_arborea%29_%28W1CDR0001500_BD8%29.ogg/Woodlark_%28Lullula_arborea%29_%28W1CDR0001500_BD8%29.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Lullula_arborea_%28J%C3%A1n_Svetl%C3%ADk%29.jpg/960px-Lullula_arborea_%28J%C3%A1n_Svetl%C3%ADk%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "دج مطوق",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Turdus_torquatus_-_Ring_Ouzel_XC467639.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/2015-04-20_Turdus_torquatus_torquatus_Cairngorm_2.jpg/960px-2015-04-20_Turdus_torquatus_torquatus_Cairngorm_2.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "بومة تنغمالم",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Aegolius_funereus_-_Boreal_Owl_XC103673.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Aegolius_funereus_funereus_%28Tengmalm%27s_Owl%29%2C_Lindberg%2C_Germany_2.jpg/960px-Aegolius_funereus_funereus_%28Tengmalm%27s_Owl%29%2C_Lindberg%2C_Germany_2.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "إوز أبيض الرأس",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Branta_leucopsis_-_Barnacle_Goose_XC433386.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Branta_leucopsis_-standing_in_a_field-8.jpg/960px-Branta_leucopsis_-standing_in_a_field-8.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "هازجة الغاب الكبيرة",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Acrocephalus_arundinaceus_-_Great_Reed_Warbler_XC457406.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Drosselrohrs%C3%A4nger_Great_reed_warbler.jpg/960px-Drosselrohrs%C3%A4nger_Great_reed_warbler.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "جزم أحمر",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Carpodacus_erythrinus_-_Common_Rosefinch_XC446039.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Carpodacus_erythrinus_20060623.jpg/960px-Carpodacus_erythrinus_20060623.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "نقشارة",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1b/Willow_Warbler_%28Phylloscopus_trochilus%29_%28W1CDR0001510_BD23%29.ogg/Willow_Warbler_%28Phylloscopus_trochilus%29_%28W1CDR0001510_BD23%29.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Willow_Warbler_Phylloscopus_trochilus.jpg/960px-Willow_Warbler_Phylloscopus_trochilus.jpg"
+ },
+ {
+  "category": "129",
+  "points": 400,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "خرشنة نيلية",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Gelochelidon_nilotica_-_Gull-billed_Tern_XC431990.mp3",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Gelochelidon_nilotica_1.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "دجاجة الماء الأرجوانية",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Porphyrio_porphyrio_-_Western_Swamphen_XC432226.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Purpurhuhn.jpg/960px-Purpurhuhn.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "كركر قطبي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Stercorarius_parasiticus_-_Parasitic_Jaeger_XC609518.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/2021-07-11_Parasitic_jaeger_chick.jpg/960px-2021-07-11_Parasitic_jaeger_chick.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "صعو أحمر العرف",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Regulus_ignicapilla_-_Common_Firecrest_XC432208.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Regulus_ignicapilla_Frank_Vassen.jpg/960px-Regulus_ignicapilla_Frank_Vassen.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "كيا",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Kea-song.wav",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Kea.jpg/960px-Kea.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "ضفدع شائع",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/16_bruine_kikker_individu_Rana_temporaria_individual.wav",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Common_frog.jpg/960px-Common_frog.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "نقار الخشب أوراسي ذو ثلاثة أصابع",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Picoides_tridactylus_-_Eurasian_Three-toed_Woodpecker_XC103682.mp3",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Three-toed_Woodpecker_-_Finlandia_0005_%283%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "سمنة أمريكي شمالي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Yellowstone_sound_library_-_American_Robin_-_001.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/American_robin_%2871307%29.jpg/960px-American_robin_%2871307%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "نقشارة مخضرة",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/181014_0009_Greenish_Warbler_song.wav",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Greenish_Warbler_Sikkim_India_11.05.2014.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "خطاف الذباب مطوق",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Ficedula_albicollis_-_Collared_Flycatcher_XC314783.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Collared_flycatcher_%28Ficedula_albicollis%29.jpg/960px-Collared_flycatcher_%28Ficedula_albicollis%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "السنونو الأحمر الردف",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Cecropis_daurica_-_Red-rumped_Swallow_XC307163.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Cecropis_daurica%2C_Fufeng_County%2C_Baoji%2C_Shaanxi%2C_China_1.jpg/960px-Cecropis_daurica%2C_Fufeng_County%2C_Baoji%2C_Shaanxi%2C_China_1.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "نقشارة صفراء الحاجب",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Phylloscopus_inornatus_-_Yellow-browed_Warbler_XC153463.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Phylloscopus_inornatus_456140817.jpg/960px-Phylloscopus_inornatus_456140817.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "درانغو أسود",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Dicrurus_macrocercus_-_Black_Drongo_XC330303.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Black_Drongo_in_Purulia_June_2025_by_Tisha_Mukherjee_02.jpg/960px-Black_Drongo_in_Purulia_June_2025_by_Tisha_Mukherjee_02.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "زعاق آسيوي",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Asian_Koel.wav",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Asian_koel.jpg/960px-Asian_koel.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "قرف الصفصاف",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Poecile_montanus_-_Willow_Tit_XC462898.mp3",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Parus_atricapillus_2_%28Marek_Szczepanek%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "الخفاش الشائع",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/85/XN_Pipistrellus_pipistrellus_ultrasound_2_hunting.ogg/XN_Pipistrellus_pipistrellus_ultrasound_2_hunting.ogg.mp3",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Pipistrellus_pipistrellus_lateral.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "رباح أصفر",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/96/Yellow_Baboon_%28Papio_cynocephalus%29_%28W_PAPIO_CYNOCEPHALUS_R1_C1%29.ogg/Yellow_Baboon_%28Papio_cynocephalus%29_%28W_PAPIO_CYNOCEPHALUS_R1_C1%29.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Amboseli_National_Park%2C_Kenya_%2853470637505%29.jpg/960px-Amboseli_National_Park%2C_Kenya_%2853470637505%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "هازجة قصب بلايث",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Acrocephalus_dumetorum_-_Blyth%27s_Reed_Warbler_XC565991.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Blyth%27s_Reed_Warbler_in_Baruipur_December_2024_by_Tisha_Mukherjee_02.jpg/960px-Blyth%27s_Reed_Warbler_in_Baruipur_December_2024_by_Tisha_Mukherjee_02.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "هازجة مروحية الذنب",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/XC821791_-_Zitting_Cisticola_-_Cisticola_juncidis.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Zitting_cisticola_2024_04_19_%28cropped%29.jpg/960px-Zitting_cisticola_2024_04_19_%28cropped%29.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "نورس أصفر الساق",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4b/Yellow-legged_Gull_-_Larus_michahellis_michahellis.ogg/Yellow-legged_Gull_-_Larus_michahellis_michahellis.ogg.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Larus_michahellis_atlantis%2C_Lagoa_do_Fogo%2C_Azores_1a.jpg/960px-Larus_michahellis_atlantis%2C_Lagoa_do_Fogo%2C_Azores_1a.jpg"
+ },
+ {
+  "category": "129",
+  "points": 600,
+  "question": "ما الحيوان صاحب هذا الصوت؟",
+  "answer": "قاوند أبيض الصدر",
+  "media_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/67/White-throated_kingfisher.wav/White-throated_kingfisher.wav.mp3",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Halcyon_smyrnensis_-Kerala%2C_India-8_%281%29.jpg/960px-Halcyon_smyrnensis_-Kerala%2C_India-8_%281%29.jpg"
+ }
+]

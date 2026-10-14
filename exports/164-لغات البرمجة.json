@@ -1,0 +1,26 @@
+[
+ {
+  "category": "164",
+  "points": 200,
+  "question": "من مصمم لغة البرمجة جافا سكريبت؟",
+  "answer": "برندان آيخ",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/960px-Unofficial_JavaScript_logo_2.svg.png",
+  "answer_media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/960px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg"
+ },
+ {
+  "category": "164",
+  "points": 400,
+  "question": "من مصمم لغة البرمجة بيرل؟",
+  "answer": "لاري وول",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Perl-logo.svg/960px-Perl-logo.svg.png",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Larry_Wall_YAPC_2007.jpg"
+ },
+ {
+  "category": "164",
+  "points": 600,
+  "question": "من مصمم لغة البرمجة سكالا؟",
+  "answer": "مارتن اودرسكي",
+  "media_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Scala-full-color.svg/960px-Scala-full-color.svg.png",
+  "answer_media_url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Mark_Odersky_photo_by_Linda_Poeng.jpg"
+ }
+]
