@@ -752,7 +752,7 @@ const LIVE={n:0,k:-1,u:'',t0:0,now:0};
 const LIVEIN=(()=>{const f=document.getElementById('frame');if(!f)return null;const el=document.createElement('input');el.type='text';el.id='liveIn';el.dir='rtl';el.placeholder='اكتب سؤالك…';el.autocomplete='off';
   el.style.cssText='position:absolute;left:18.4%;top:83%;width:49.5%;height:5.6%;border:0;outline:0;background:transparent;font:600 calc(var(--fw,1600px)*.0135) "Readex Pro",sans-serif;color:#0B1220;display:none;z-index:4;padding:0 1%';
   const btn=document.createElement('button');btn.type='button';btn.id='liveSend';btn.setAttribute('aria-label','إرسال');btn.style.cssText='position:absolute;left:15.3%;top:83.6%;width:2.8%;height:4.8%;border:0;border-radius:50%;background:transparent;cursor:pointer;display:none;z-index:4';
-  const send=(tx)=>{const v=(typeof tx==='string'?tx:el.value).trim();LIVE.k=LIVE.n%5;LIVE.n++;if(LIVE.k!==4)LIVE.u=v||null;LIVE.t0=LIVE.now;el.value='';try{window.fxSounds&&snd&&snd('pop',0)}catch(e){}};
+  const send=(tx)=>{const v=(typeof tx==='string'?tx:el.value).trim();const useAI=typeof AIM!=='undefined'&&!!AIM.s;LIVE.k=useAI?LIVE.n%4:LIVE.n%5;LIVE.n++;if(LIVE.k!==4)LIVE.u=v||null;LIVE.ai=useAI?aiStart(LIVE.k,v||AI_DEFQ[LIVE.k]):null;LIVE.t0=LIVE.now;el.value='';try{window.fxSounds&&snd&&snd('pop',0)}catch(e){}};
   el.addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter'){e.preventDefault();send();}});
   ['click','pointerdown','dblclick'].forEach(ev=>{el.addEventListener(ev,e=>e.stopPropagation());btn.addEventListener(ev,e=>e.stopPropagation());});
   btn.addEventListener('click',()=>{send();el.focus();});window.LIVE_SEND=send;f.appendChild(el);f.appendChild(btn);return {el,btn};})();
@@ -833,6 +833,22 @@ NEWCH.matrix={id:'matrix',dur:14,stops:[5.6,10.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt
   zone(450,RO,'الضوء الأحمر','لا يتعدى ٢٠٪',20,['وضع الدرجات','تقييم الطلاب','الاختبارات النهائية','مهمة المعلم الحصرية'],5.8);
   const b=seg(T,10.8,11.4);if(b>0){c.save();c.globalAlpha=b;rr(c,200,750,1200,74,37,'rgba(220,38,38,.07)',RO,2);c.restore();txt(c,'الخصوصية خط أحمر: ممنوع رفع أسماء الطلاب أو درجاتهم في البرامج العامة',W/2,788,30,RO,'center',FK,800,b);}
   kt(c,T,{s:'نسب مقترحة من الفريق',x:W/2,y:860,size:20,col:DIM,a:[1]});}};
+// ---- real AI answers (artifact link only); prepared answers otherwise ----
+const AIM={s:null,hist:[[],[],[],[]]};
+(async()=>{try{if(window.claude&&claude.use){AIM.s=await claude.use('sample');if(AIM.s&&!/remote/.test(location.hash)&&!matchMedia('(pointer:coarse) and (max-width:900px)').matches){try{const pm=await claude.use('permissions');pm&&pm.request&&pm.request(['sample']);}catch(e){}}}}catch(e){}})();
+const AI_BASE='أنت «المساعد الذكي» داخل عرض مدرسي مباشر في ثانوية يوسف بن عيسى بالكويت، أمام طلاب ومعلمين، وكلامك يظهر على شاشة كبيرة. افهم أي سؤال مهما كان أسلوبه أو لهجته أو أخطاؤه. جاوب بلهجة كويتية بسيطة، بجملتين أو ثلاث قصيرة فقط (أقل من ٣٥ كلمة)، بدون إيموجي وبدون عناوين أو نقاط أو تنسيق. كن لطيفاً ومحترماً ومناسباً للمدرسة، وإذا كان الطلب غير مناسب اعتذر بلطف.';
+const AI_TAB=['المهمة الحالية «شخصية تاريخية»: تقمّص الشخصية التاريخية المذكورة في الرسالة (وإذا ما ذُكرت شخصية اختر شخصية عربية أو إسلامية مشهورة)، وتكلم بصيغة المتكلم. ضع في ردك خطأً تاريخياً واحداً صغيراً ومقصوداً ليكتشفه الطلاب، ولا تذكر أنه خطأ.',
+ 'المهمة الحالية «صيد الأخطاء»: اكتب فقرة قصيرة بالفصحى (جملتان) عن موضوع الرسالة، وضع فيها خطأين لغويين أو إملائيين مقصودين ليكتشفهما الطلاب، ولا تذكر الأخطاء.',
+ 'المهمة الحالية «بطريقتين»: اشرح المسألة أو الفكرة المذكورة بطريقتين مختصرتين جداً، تبدأ الأولى بـ «الطريقة الأولى:» والثانية بـ «الطريقة الثانية:».',
+ 'المهمة الحالية «أذكى من الطالب؟»: أجب عن السؤال بدقة علمية وباختصار.'];
+const AI_PILL=['مهمتكم: اكتشفوا خطأه التاريخي','مين يكتشف الأخطاء اللغوية أول؟','أي طريقة أوضح لكم؟','صح أو خطأ؟ تأكدوا من الإجابة!'];
+const AI_DEFQ=['تقمّص شخصية تاريخية وخلنا نحاورك','اكتب لنا نصاً قصيراً عن المدرسة','اشرح لي كيف نحل معادلة من الدرجة الأولى','كم عدد كواكب المجموعة الشمسية؟'];
+function aiStart(k,q){if(!AIM.s)return null;const st={k,q,text:'',done:false,err:null};const h=AIM.hist[k].slice(-6);
+  const prompt=AI_BASE+'\n\n'+AI_TAB[k]+(h.length?'\n\nالمحادثة السابقة:\n'+h.map(x=>(x.r==='u'?'الطالب: ':'أنت: ')+x.c).join('\n'):'')+'\n\nرسالة الطالب الآن: «'+q+'»\n\nاكتب ردك فقط.';
+  try{AIM.s(prompt,{modelTier:'quick',cache:false,onText:u=>{st.text=u.text;}}).then(r=>{st.text=(r&&r.text||st.text||'').trim();st.done=true;AIM.hist[k].push({r:'u',c:q},{r:'a',c:st.text});})
+    .catch(e=>{st.err=(e&&e.code)||'err';st.done=true;if(st.err==='not_granted'||st.err==='unavailable')AIM.s=null;});}catch(e){return null;}return st;}
+function aiWrap(c,s,w,max){c.save();c.font='600 25px '+FB;const out=[];let cur='';for(const word of String(s).replace(/\s+/g,' ').trim().split(' ')){const tr=cur?cur+' '+word:word;if(c.measureText(tr).width>w&&cur){out.push(cur);cur=word;}else cur=tr;}if(cur)out.push(cur);c.restore();if(out.length>max){out.length=max;out[max-1]=out[max-1].replace(/\s*\S*$/,'')+'…';}return out;}
+
 NEWCH.challenge={id:'challenge',dur:1.2,stops:[],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr(c,T,'Live Challenge','هل الذكاء الاصطناعي أذكى من الطالب؟');
   const A=seg(T,0,.6),rise=(1-ease(A))*60;if(A<=0)return;
   const X=190,Y=128+rise,Wd=1220,Hd=720,B=22,sx=X+B,sy=Y+B,sw=Wd-2*B,sh=Hd-2*B;
@@ -862,7 +878,7 @@ NEWCH.challenge={id:'challenge',dur:1.2,stops:[],draw(c,T,t,dt,S){aiBg(c,t,S,dt)
    {u:'اكتب لنا نصاً قصيراً',ai:null,lines:5,pill:'مين يكتشف الأخطاء اللغوية أول؟'},
    {u:'اشرح لي المسألة',ai:'الطريقة الأولى: بالرسم خطوة خطوة…|الطريقة الثانية: بالمعادلة مباشرة…',pill:'أي طريقة أوضح لكم؟'},
    {u:'كم عدد كواكب المجموعة الشمسية؟',ai:'المجموعة الشمسية فيها ٩ كواكب،|وأبعدها كوكب بلوتو.',pill:'صح أو خطأ؟ صوّتوا!'},
-   {u:'كم عدد كواكب المجموعة الشمسية؟',ai:'المجموعة الشمسية فيها ٩ كواكب،|وأبعدها كوكب بلوتو.',rev:1,pill:'خطأ! ٨ كواكب… وبلوتو صار كوكباً قزماً سنة ٢٠٠٦'}][k<0?0:k];const LT0=live?(k<0?-9:t-LIVE.t0):T-s0;const LT=D.rev?LT0+3:LT0;
+   {u:'كم عدد كواكب المجموعة الشمسية؟',ai:'المجموعة الشمسية فيها ٩ كواكب،|وأبعدها كوكب بلوتو.',rev:1,pill:'خطأ! ٨ كواكب… وبلوتو صار كوكباً قزماً سنة ٢٠٠٦'}][k<0?0:k];const AIr=live&&LIVE.ai&&LIVE.ai.k===k?LIVE.ai:null;let AIL=null;if(AIr){AIL=(AIr.text||AIr.err)?aiWrap(c,AIr.text||'ما قدرت أرد الحين… جرّبوا مرة ثانية',cw-292,5):[];}const LT0=live?(k<0?-9:t-LIVE.t0):T-s0;const LT=D.rev?LT0+3:LT0;
   const lt=live?(k<0?-9:t-LIVE.t0):T-s0;const UT=live&&LIVE.u?LIVE.u:D.u;
   if(k>=0)txt(c,CH4[KT][0],cx0+cw/2,sy+118,18,DIM,'center',FB,700,1);else{const ga=seg(T,.4,1);txt(c,'كيف أقدر أساعدك اليوم؟',cx0+cw/2,sy+330,40,NV,'center',FK,800,ga);}
   // user bubble (right side of chat)
@@ -871,15 +887,15 @@ NEWCH.challenge={id:'challenge',dur:1.2,stops:[],draw(c,T,t,dt,S){aiBg(c,t,S,dt)
     c.save();c.beginPath();c.rect(bx+10,by,w-20,60);c.clip();txt(c,UT,bx+w-24,by+31,26,'#fff','right',FB,700,Math.min(1,ua));c.restore();}
   // AI avatar
   const aa=seg(LT,.7,1);if(aa>0){c.save();c.globalAlpha=aa;c.fillStyle=lg;c.beginPath();c.arc(cx0+56,sy+282,22,0,TAU);c.fill();c.restore();c.save();c.globalAlpha=aa;c.translate(cx0+56,sy+282);c.rotate(t*.8);c.fillStyle='#fff';for(let q=0;q<4;q++){c.rotate(Math.PI/2);c.beginPath();c.ellipse(0,-6,2.4,5.5,0,0,TAU);c.fill();}c.restore();}
-  if(LT>.7&&LT<1.3){[0,1,2].forEach(q=>{c.save();c.globalAlpha=.4+.6*Math.abs(Math.sin(t*6+q));c.fillStyle='#94A3B8';c.beginPath();c.arc(cx0+104+q*20,sy+282-Math.abs(Math.sin(t*6+q))*5,6,0,TAU);c.fill();c.restore();});}
-  const p=seg(LT,1.3,2.5);const abx=cx0+90,aby=sy+250,abw=cw-240;
+  if(AIr?(LT>.7&&!AIL.length):(LT>.7&&LT<1.3)){[0,1,2].forEach(q=>{c.save();c.globalAlpha=.4+.6*Math.abs(Math.sin(t*6+q));c.fillStyle='#94A3B8';c.beginPath();c.arc(cx0+104+q*20,sy+282-Math.abs(Math.sin(t*6+q))*5,6,0,TAU);c.fill();c.restore();});}
+  const p=AIr?(AIL.length?1:0):seg(LT,1.3,2.5);const abx=cx0+90,aby=sy+250,abw=cw-240;
   if(p>0){c.save();c.fillStyle='#fff';c.shadowColor='rgba(1,73,173,.10)';c.shadowBlur=18;
-    const AL=D.ai?D.ai.split('|'):[];const h=D.ai?40+AL.length*38:D.lines?D.lines*38+40:D.code.length*42+40;c.beginPath();c.roundRect(abx,aby,abw,h,[24,24,24,6]);c.fill();c.restore();
-    if(D.ai){let n=Math.floor(D.ai.length*p);AL.forEach((ln,i)=>{const m=Math.max(0,Math.min(ln.length,n));n-=ln.length+1;if(m>0)txt(c,ln.slice(0,m),abx+abw-26,aby+40+i*38,25,INK,'right',FB,600,1);});if(D.rev){const sk=seg(LT0,.2,.8);c.save();c.font='600 25px '+FB;AL.forEach((ln,i)=>{const w=c.measureText(ln).width;c.strokeStyle=RO;c.lineWidth=4;line(c,abx+abw-26,aby+40+i*38,abx+abw-26-w*sk,aby+40+i*38);});c.restore();}}
-    if(D.lines){for(let i=0;i<D.lines;i++){const q=seg(p,i/D.lines,(i+1)/D.lines);if(q<=0)continue;const lw=(abw-60)*(i===D.lines-1?.55:.92)*q,ly=aby+34+i*38;c.fillStyle='#CBD5E1';c.beginPath();c.roundRect(abx+abw-30-lw,ly,lw,14,7);c.fill();}
+    const AL=AIr?AIL:(D.ai?D.ai.split('|'):[]);const h=(AIr||D.ai)?40+AL.length*38:D.lines?D.lines*38+40:D.code.length*42+40;c.beginPath();c.roundRect(abx,aby,abw,h,[24,24,24,6]);c.fill();c.restore();
+    if(AIr){AL.forEach((ln,i)=>txt(c,ln,abx+abw-26,aby+40+i*38,25,AIr.err?RO:INK,'right',FB,600,1));}else if(D.ai){let n=Math.floor(D.ai.length*p);AL.forEach((ln,i)=>{const m=Math.max(0,Math.min(ln.length,n));n-=ln.length+1;if(m>0)txt(c,ln.slice(0,m),abx+abw-26,aby+40+i*38,25,INK,'right',FB,600,1);});if(D.rev){const sk=seg(LT0,.2,.8);c.save();c.font='600 25px '+FB;AL.forEach((ln,i)=>{const w=c.measureText(ln).width;c.strokeStyle=RO;c.lineWidth=4;line(c,abx+abw-26,aby+40+i*38,abx+abw-26-w*sk,aby+40+i*38);});c.restore();}}
+    if(!AIr&&D.lines){for(let i=0;i<D.lines;i++){const q=seg(p,i/D.lines,(i+1)/D.lines);if(q<=0)continue;const lw=(abw-60)*(i===D.lines-1?.55:.92)*q,ly=aby+34+i*38;c.fillStyle='#CBD5E1';c.beginPath();c.roundRect(abx+abw-30-lw,ly,lw,14,7);c.fill();}
       [[0,.3,.18],[1,.6,.12],[2,.15,.2],[3,.5,.16]].forEach(([r,f,wf],j)=>{const q=seg(LT,2.5+j*.12,2.8+j*.12);if(q<=0)return;const ex=abx+abw-30-(abw-60)*f,ey=aby+34+r*38+22,ew=(abw-60)*wf*q;c.save();c.strokeStyle=RO;c.lineWidth=3;c.beginPath();for(let z=0;z<=ew;z+=4)c.lineTo(ex-z,ey+Math.sin(z*.6)*3);c.stroke();c.restore();});}
-    if(D.code){c.fillStyle='#0F1B3D';c.beginPath();c.roundRect(abx+20,aby+18,abw-40,D.code.length*42+6,14);c.fill();let ch=Math.floor(p*D.code.join('').length);D.code.forEach((ln,i)=>{const n=Math.max(0,Math.min(ln.length,ch));ch-=ln.length;if(n>0)ltr(c,ln.slice(0,n),abx+50,aby+42+i*42,24,i?'#E2E8F0':'#C4B5FD',1);});}}
-  const pa=easeOutBack(D.rev?seg(LT0,.9,1.4):seg(LT,2.6,3));if(pa>0){c.save();c.font='800 24px '+FK;const w=c.measureText(D.pill).width+60;c.restore();const py=sy+sh-150;c.save();c.globalAlpha=Math.min(1,pa);c.translate(cx0+cw/2,py);c.scale(pa,pa);rr(c,-w/2,-28,w,56,28,'#fff',col,2.5);c.restore();txt(c,D.pill,cx0+cw/2,py+2,24,col,'center',FK,800,Math.min(1,pa));}
+    if(!AIr&&D.code){c.fillStyle='#0F1B3D';c.beginPath();c.roundRect(abx+20,aby+18,abw-40,D.code.length*42+6,14);c.fill();let ch=Math.floor(p*D.code.join('').length);D.code.forEach((ln,i)=>{const n=Math.max(0,Math.min(ln.length,ch));ch-=ln.length;if(n>0)ltr(c,ln.slice(0,n),abx+50,aby+42+i*42,24,i?'#E2E8F0':'#C4B5FD',1);});}}
+  const pa=AIr?(AIr.done&&!AIr.err?1:0):easeOutBack(D.rev?seg(LT0,.9,1.4):seg(LT,2.6,3));if(pa>0){c.save();c.font='800 24px '+FK;const w=c.measureText((AIr?AI_PILL[k]:D.pill)).width+60;c.restore();const py=sy+sh-150;c.save();c.globalAlpha=Math.min(1,pa);c.translate(cx0+cw/2,py);c.scale(pa,pa);rr(c,-w/2,-28,w,56,28,'#fff',col,2.5);c.restore();txt(c,(AIr?AI_PILL[k]:D.pill),cx0+cw/2,py+2,24,col,'center',FK,800,Math.min(1,pa));}
   // input bar
   c.fillStyle='#fff';c.beginPath();c.roundRect(cx0+30,sy+sh-80,cw-60,56,28);c.fill();c.strokeStyle='#D3DEF4';c.lineWidth=2;c.stroke();if(!live)txt(c,'اكتب سؤالك…',cx0+cw-60,sy+sh-51,20,'#94A3B8','right',FB,600,1);
   c.fillStyle=CY;c.beginPath();c.arc(cx0+62,sy+sh-52,20,0,TAU);c.fill();txt(c,'↑',cx0+62,sy+sh-50,22,'#fff','center',FB,800,1);
