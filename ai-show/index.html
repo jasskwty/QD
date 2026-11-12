@@ -1246,7 +1246,7 @@ function MQ(url,clientId,onMsg,onState,auth){const enc=new TextEncoder(),dec=new
 
 const QRM=["111111100000010001110011001111111", "100000100100111100100111001000001", "101110100100110100101011001011101", "101110100011011011111011101011101", "101110100000111001111010001011101", "100000101010101110010110101000001", "111111101010101010101010101111111", "000000000100101111100101100000000", "100101101110010010001111110100000", "010100001100011011001100111100011", "001111111011111010111010010110101", "010011000000010010101110110011011", "111110110010001010101100111111000", "000011011011011101101011111010011", "100100110010100110010101011110010", "010111000000011011001100101100010", "100101100100001111000111001011110", "001000000101000111000001110101001", "101100111111101001000010000000111", "000101010011000000000101010100011", "100010110011111101000101110000010", "011100000001010101010100101001111", "111101101010110010111000011110101", "011010011010111100111110000011001", "100000100010000011001101111110001", "000000001110010011011011100011011", "111111100101011011101000101011110", "100000101111011111101110100010010", "101110100001011000101010111111001", "101110101110000110111000001010100", "101110100010001111100011000010101", "100000100001111001111100010000000", "111111101101000100000110101011010"];
 const HOSTED=/^https?:$/.test(location.protocol)&&!/cla[u]de/i.test(location.hostname);
-let QRD=null;function getQRM(){if(QRD)return QRD;QRD=QRM;if(HOSTED&&typeof qrcode!=='undefined'){try{const q=qrcode(0,'M');q.addData(location.href.split('#')[0]+'#remote');q.make();const n=q.getModuleCount(),m=[];for(let r=0;r<n;r++){let row='';for(let k=0;k<n;k++)row+=q.isDark(r,k)?'1':'0';m.push(row);}QRD=m;}catch(e){}}return QRD;}
+let QRD=null;function getQRM(){if(QRD)return QRD;QRD=QRM;if(HOSTED&&typeof qrcode!=='undefined'){try{const q=qrcode(0,'M');q.addData(/index\.html$/.test(location.href.split('#')[0].split('?')[0])?location.href.split('#')[0].split('?')[0].replace(/index\.html$/,'remote.html'):location.href.split('#')[0]+'#remote');q.make();const n=q.getModuleCount(),m=[];for(let r=0;r<n;r++){let row='';for(let k=0;k<n;k++)row+=q.isDark(r,k)?'1':'0';m.push(row);}QRD=m;}catch(e){}}return QRD;}
 function drawQR(c,x,y,s,a){if(a<=0)return;const QRM=getQRM(),n=QRM.length,q=4,cell=s/(n+2*q);c.save();c.globalAlpha=a;c.fillStyle='#fff';c.fillRect(x,y,s,s);c.fillStyle='#041E52';
   for(let r=0;r<n;r++)for(let k=0;k<n;k++)if(QRM[r][k]==='1')c.fillRect(x+(k+q)*cell,y+(r+q)*cell,cell+.5,cell+.5);c.restore();}
 const REMOTE={peers:0,screens:0,room:null,db:null,mode:'screen',lastSeq:null,seen:{}};
@@ -1315,7 +1315,7 @@ let WL=null;async function keepAwake(){try{if('wakeLock' in navigator&&document.
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState!=='visible')return;keepAwake();try{REMOTE.room&&REMOTE.room.presence({role:REMOTE.mode}).catch(()=>{})}catch(e){}if(REMOTE.mode==='remote'&&window.__rHello)window.__rHello();});
 addEventListener('pointerdown',keepAwake,{once:true});
 
-if(/remote/.test(location.hash)){setTimeout(()=>{try{openRemote()}catch(e){}},300);}
+if(window.__FORCE_REMOTE||/remote/.test(location.hash)){setTimeout(()=>{try{openRemote()}catch(e){}},300);}
 
 window.__sStatus=()=>{const w=document.getElementById('sNet');if(!w)return;const ok=anyCh();w.textContent=ok?('السيرفر متصل ✓ ('+chInfo()+')'):'السيرفر غير متصل… تأكد من الإنترنت';w.style.color=ok?'#059669':'#DC2626';};setInterval(()=>window.__sStatus(),1500);
 
