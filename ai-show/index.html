@@ -752,7 +752,7 @@ const LIVE={n:0,k:-1,u:'',t0:0,now:0};
 const LIVEIN=(()=>{const f=document.getElementById('frame');if(!f)return null;const el=document.createElement('input');el.type='text';el.id='liveIn';el.dir='rtl';el.placeholder='اكتب سؤالك…';el.autocomplete='off';
   el.style.cssText='position:absolute;left:18.4%;top:83%;width:49.5%;height:5.6%;border:0;outline:0;background:transparent;font:600 calc(var(--fw,1600px)*.0135) "Readex Pro",sans-serif;color:#0B1220;display:none;z-index:4;padding:0 1%';
   const btn=document.createElement('button');btn.type='button';btn.id='liveSend';btn.setAttribute('aria-label','إرسال');btn.style.cssText='position:absolute;left:15.3%;top:83.6%;width:2.8%;height:4.8%;border:0;border-radius:50%;background:transparent;cursor:pointer;display:none;z-index:4';
-  const send=(tx)=>{const v=(typeof tx==='string'?tx:el.value).trim();const useAI=typeof AIM!=='undefined'&&!!AIM.s;LIVE.k=useAI?LIVE.n%4:LIVE.n%5;LIVE.n++;if(LIVE.k!==4)LIVE.u=v||null;LIVE.ai=useAI?aiStart(LIVE.k,v||AI_DEFQ[LIVE.k]):null;LIVE.t0=LIVE.now;el.value='';try{window.fxSounds&&snd&&snd('pop',0)}catch(e){}};
+  const send=(tx)=>{const v=(typeof tx==='string'?tx:el.value).trim();const useAI=typeof AIM!=='undefined'&&aiAvail();LIVE.k=useAI?LIVE.n%4:LIVE.n%5;LIVE.n++;if(LIVE.k!==4)LIVE.u=v||null;LIVE.ai=useAI?aiStart(LIVE.k,v||AI_DEFQ[LIVE.k]):null;LIVE.t0=LIVE.now;el.value='';try{window.fxSounds&&snd&&snd('pop',0)}catch(e){}};
   el.addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter'){e.preventDefault();send();}});
   ['click','pointerdown','dblclick'].forEach(ev=>{el.addEventListener(ev,e=>e.stopPropagation());btn.addEventListener(ev,e=>e.stopPropagation());});
   btn.addEventListener('click',()=>{send();el.focus();});window.LIVE_SEND=send;f.appendChild(el);f.appendChild(btn);return {el,btn};})();
@@ -843,7 +843,15 @@ const AI_TAB=['المهمة الحالية «شخصية تاريخية»: تقم
  'المهمة الحالية «أذكى من الطالب؟»: أجب عن السؤال بدقة علمية وباختصار.'];
 const AI_PILL=['مهمتكم: اكتشفوا خطأه التاريخي','مين يكتشف الأخطاء اللغوية أول؟','أي طريقة أوضح لكم؟','صح أو خطأ؟ تأكدوا من الإجابة!'];
 const AI_DEFQ=['تقمّص شخصية تاريخية وخلنا نحاورك','اكتب لنا نصاً قصيراً عن المدرسة','اشرح لي كيف نحل معادلة من الدرجة الأولى','كم عدد كواكب المجموعة الشمسية؟'];
-function aiStart(k,q){if(!AIM.s)return null;const st={k,q,text:'',done:false,err:null};const h=AIM.hist[k].slice(-6);
+const AI_FB=['أهلاً بكم! أنا شخصية من التاريخ… اسألوني، بس انتبهوا: ممكن أغلط','المدرسه مكان جميل نتعلم فيها العلوم، ونلتقي بأصدقائنا كل يوماً.','الطريقة الأولى: بالرسم خطوة خطوة… الطريقة الثانية: بالمعادلة مباشرة…','المجموعة الشمسية فيها ٨ كواكب، وأبعدها كوكب نبتون.'];
+function aiAvail(){return !!AIM.s||(typeof HOSTED!=='undefined'&&HOSTED&&typeof fetch!=='undefined');}
+function aiType(st,full){st.text='';const step=()=>{if(st.text.length>=full.length){st.text=full;st.done=true;return;}st.text=full.slice(0,st.text.length+3);setTimeout(step,28);};step();}
+function aiHosted(k,q,st){const h=AIM.hist[k].slice(-6).map(x=>({role:x.r==='u'?'user':'assistant',content:x.c}));
+  const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),20000);
+  fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({model:'openai',messages:[{role:'system',content:AI_BASE+'\n\n'+AI_TAB[k]},...h,{role:'user',content:q}]})})
+   .then(r=>{if(!r.ok)throw new Error('http '+r.status);return r.json();}).then(j=>{clearTimeout(to);let a=(j&&j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content||'').trim();if(!a)throw new Error('empty');a=a.replace(/[*#_`>]/g,'');AIM.hist[k].push({r:'u',c:q},{r:'a',c:a});aiType(st,a);})
+   .catch(()=>{clearTimeout(to);aiType(st,AI_FB[k]);});return st;}
+function aiStart(k,q){if(!AIM.s){if(aiAvail())return aiHosted(k,q,{k,q,text:'',done:false,err:null});return null;}const st={k,q,text:'',done:false,err:null};const h=AIM.hist[k].slice(-6);
   const prompt=AI_BASE+'\n\n'+AI_TAB[k]+(h.length?'\n\nالمحادثة السابقة:\n'+h.map(x=>(x.r==='u'?'الطالب: ':'أنت: ')+x.c).join('\n'):'')+'\n\nرسالة الطالب الآن: «'+q+'»\n\nاكتب ردك فقط.';
   try{AIM.s(prompt,{modelTier:'quick',cache:false,onText:u=>{st.text=u.text;}}).then(r=>{st.text=(r&&r.text||st.text||'').trim();st.done=true;AIM.hist[k].push({r:'u',c:q},{r:'a',c:st.text});})
     .catch(e=>{st.err=(e&&e.code)||'err';st.done=true;if(st.err==='not_granted'||st.err==='unavailable')AIM.s=null;});}catch(e){return null;}return st;}
