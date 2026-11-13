@@ -836,7 +836,7 @@ NEWCH.matrix={id:'matrix',dur:14,stops:[5.6,10.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt
 // ---- YBE: one general AI chat (artifact link: built-in model; hosted: free public API) ----
 const AIM={s:null,msgs:[]};
 (async()=>{try{if(window.claude&&claude.use){AIM.s=await claude.use('sample');if(AIM.s&&!/remote/.test(location.hash)&&!window.__FORCE_REMOTE&&!matchMedia('(pointer:coarse) and (max-width:900px)').matches){try{const pm=await claude.use('permissions');pm&&pm.request&&pm.request(['sample']);}catch(e){}}}}catch(e){}})();
-const YBE_SYS='اسمك YBE، المساعد الذكي لثانوية يوسف بن عيسى – بنين في الكويت. أنت في عرض مدرسي مباشر وكلامك يظهر على شاشة كبيرة أمام الطلاب والمعلمين. تساعد في أي شيء: أسئلة عامة، شرح دروس، رياضيات، علوم، لغات، كتابة، أفكار، نصائح دراسية. افهم أي سؤال مهما كان أسلوبه أو لهجته أو أخطاؤه. جاوب بلهجة كويتية بسيطة وواضحة، أو بلغة السؤال إذا كان بالإنجليزي. خلك مختصر: من جملتين إلى أربع (أقل من ٦٠ كلمة)، بدون إيموجي وبدون عناوين أو نقاط أو رموز تنسيق. كن دقيقاً ومحترماً ومناسباً للمدرسة، وإذا كان الطلب غير مناسب اعتذر بلطف. إذا سألوك عن نفسك: أنت YBE مساعد ثانوية يوسف بن عيسى.';
+const YBE_SYS='أنت مساعد ذكي متمكن وطبيعي في كلامك، تشتغل داخل عرض مدرسي مباشر في ثانوية يوسف بن عيسى بالكويت، وردودك تظهر على شاشة كبيرة أمام طلاب ومعلمين. تعامل مع كل رسالة مثل ما يتعامل معها أفضل مساعد ذكي: افهم المقصود حتى لو السؤال مكتوب بلهجة أو فيه أخطاء، وجاوب مباشرة على المطلوب بدقة ووضوح، بنفس لغة ولهجة السائل، وإذا السؤال بالعربي اكتب بالعربي فقط بدون أي كلمة من لغة ثانية، واستخدم المصطلحات العلمية الصحيحة المعروفة في مناهج المدارس. لا تعرّف بنفسك ولا تذكر اسمك ولا تبدأ بتحية أو مقدمة، إلا إذا سألوك صراحة منو أنت (وقتها قل إنك YBE). خلك مختصر لأن الرد على شاشة: من جملتين إلى أربع جمل (أقل من ٧٠ كلمة)، بدون إيموجي ولا عناوين ولا نقاط ولا رموز تنسيق. كن محترماً ومناسباً للمدرسة، وإذا الطلب غير مناسب اعتذر بلطف وباختصار.';
 function aiAvail(){return !!AIM.s||(typeof HOSTED!=='undefined'&&HOSTED&&typeof fetch!=='undefined');}
 function aiFinish(st,a){st.text=a;st.done=true;try{TX('ack',{seq:'rep'+Date.now()+Math.random().toString(36).slice(2,5),st:{reply:a}});}catch(e){}}
 function aiType(st,full){st.text='';const step=()=>{if(st.text.length>=full.length){aiFinish(st,full);return;}st.text=full.slice(0,st.text.length+3);setTimeout(step,26);};step();}
@@ -845,11 +845,14 @@ function aiStart(q){const st={text:'',done:false,err:null};const h=aiHist();
   if(AIM.s){const prompt=YBE_SYS+(h.length?'\n\nالمحادثة السابقة:\n'+h.map(x=>(x.role==='user'?'المستخدم: ':'YBE: ')+x.content).join('\n'):'')+'\n\nرسالة المستخدم الآن: «'+q+'»\n\nاكتب رد YBE فقط.';
     try{AIM.s(prompt,{modelTier:'default',cache:false,onText:u=>{st.text=u.text;}}).then(r=>aiFinish(st,(r&&r.text||st.text||'').trim())).catch(e=>{const c=(e&&e.code)||'err';if(c==='not_granted'||c==='unavailable')AIM.s=null;st.err=c;aiFinish(st,'ما قدرت أرد الحين… جرّبوا مرة ثانية');});}catch(e){st.err='err';aiFinish(st,'ما قدرت أرد الحين… جرّبوا مرة ثانية');}
     return st;}
-  if(aiAvail()){const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),25000);
-    fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({model:'openai',messages:[{role:'system',content:YBE_SYS},...h,{role:'user',content:q}]})})
-     .then(r=>{if(!r.ok)throw new Error('http '+r.status);return r.json();}).then(j=>{clearTimeout(to);let a=(j&&j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content||'').trim();if(!a)throw new Error('empty');aiType(st,a.replace(/[*#_`>]/g,''));})
-     .catch(()=>{clearTimeout(to);st.err='net';aiType(st,'الشبكة ضعيفة شوي… جرّبوا ترسلون السؤال مرة ثانية');});return st;}
-  st.err='none';aiType(st,'أنا YBE! أحتاج إنترنت عشان أرد عليكم… تأكدوا من الاتصال وجرّبوا مرة ثانية.');return st;}
+  if(aiAvail()){const body=()=>JSON.stringify({model:'openai',temperature:0.3,seed:Math.floor(Math.random()*1e6),messages:[{role:'system',content:YBE_SYS},...h,{role:'user',content:q}]});
+    const attempt=(n)=>{const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),25000);
+      fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:body()})
+       .then(async r=>{clearTimeout(to);const j=await r.json().catch(()=>null);if(!r.ok){const m=j&&j.error&&j.error.message||'';const w=Math.min(50,+((m.match(/after (\d+)s/)||[])[1]||0)+1);if((r.status===402||r.status===429)&&n<3){setTimeout(()=>attempt(n+1),(w||46)*1000);return;}throw new Error('http');}
+         let a=(j&&j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content||'').trim();if(!a)throw new Error('empty');aiType(st,a.replace(/[*#_`>]/g,''));})
+       .catch(()=>{clearTimeout(to);if(n<1){setTimeout(()=>attempt(n+1),1500);return;}st.err='net';aiType(st,'الشبكة ضعيفة شوي… جرّبوا ترسلون السؤال مرة ثانية');});};
+    attempt(0);return st;}
+  st.err='none';aiType(st,'أحتاج إنترنت عشان أرد… تأكدوا من الاتصال وجرّبوا مرة ثانية.');return st;}
 function aiWrap(c,s,w,max){c.save();c.font='600 25px '+FB;const out=[];let cur='';for(const word of String(s).replace(/\s+/g,' ').trim().split(' ')){const tr=cur?cur+' '+word:word;if(c.measureText(tr).width>w&&cur){out.push(cur);cur=word;}else cur=tr;}if(cur)out.push(cur);c.restore();if(out.length>max){const k=out.length-max;out.splice(0,k);out[0]='…'+out[0];}return out;}
 function ybeLogo(c,x,y,r,t,a){c.save();c.globalAlpha=a;const lg=c.createLinearGradient(x-r,y-r,x+r,y+r);lg.addColorStop(0,'#0149AD');lg.addColorStop(1,'#7C3AED');c.fillStyle=lg;c.beginPath();c.roundRect(x-r,y-r,2*r,2*r,r*.32);c.fill();
   c.translate(x,y);c.rotate(t*.6);c.fillStyle='#fff';for(let k=0;k<4;k++){c.rotate(Math.PI/2);c.beginPath();c.ellipse(0,-r*.42,r*.13,r*.32,0,0,TAU);c.fill();}c.restore();}
@@ -871,7 +874,7 @@ NEWCH.challenge={id:'challenge',dur:1.2,stops:[],draw(c,T,t,dt,S){aiBg(c,t,S,dt)
    const on=REMOTE.peers>0;c.fillStyle=on?'#22C55E':'#94A3B8';c.beginPath();c.arc(side+30,qy+qs+22,5,0,TAU);c.fill();txt(c,on?'الهاتف متصل':'امسح وشارك من هاتفك',side+SW/2+6,qy+qs+23,17,on?GR:NV,'center',FK,800,1);}
   // chat log
   const cx0=sx,cw=sw-SW,top=sy+96,bot=sy+sh-100;
-  const msgs=live?AIM.msgs:[{who:'u',text:'هلا YBE! منو أنت؟',t0:-9},{who:'a',st:{text:'هلا والله! أنا YBE، المساعد الذكي لثانوية يوسف بن عيسى. اسألوني أي شي: دروس، أفكار، أو حتى نصيحة للمذاكرة.',done:true},t0:-9}];
+  const msgs=live?AIM.msgs:[{who:'u',text:'شلون أذاكر صح قبل الاختبار؟',t0:-9},{who:'a',st:{text:'قسّم وقت المذاكرة لجلسات قصيرة ٢٥ دقيقة بينها راحة ٥ دقايق، وابدأ بالمادة الأصعب وأنت نشيط، وبعدها اختبر نفسك بأسئلة بدل ما تعيد القراءة بس.',done:true},t0:-9}];
   if(!msgs.length){const ga=seg(T,.4,1);ybeLogo(c,cx0+cw/2,sy+250,46,t,ga);txt(c,'كيف أقدر أساعدكم اليوم؟',cx0+cw/2,sy+350,40,NV,'center',FK,800,ga);txt(c,'اكتبوا أي سؤال… وYBE يجاوب',cx0+cw/2,sy+405,24,CY,'center',FB,700,ga);}
   else{c.save();c.beginPath();c.rect(cx0,top,cw,bot-top);c.clip();let y=bot;
     for(let i=msgs.length-1;i>=0&&y>top;i--){const m=msgs[i],age=live?t-m.t0:9,p=easeOutBack(Math.min(1,Math.max(0,age/.35)));
@@ -1293,7 +1296,7 @@ function openRemote(){REMOTE.mode='remote';try{REMOTE.room&&REMOTE.room.presence
   setTimeout(hello,900);setInterval(hello,3000);window.__rHello=()=>{hOk=false;hello();};keepAwake();
   document.getElementById('rF').onsubmit=e=>{e.preventDefault();const i=document.getElementById('rIn'),v=i.value.trim();if(!v)return;if(window.__rSecret&&__rSecret(v)){i.value='';return;}try{AIM.msgs.push({who:'u',text:v,t0:LIVE.now},{who:'a',st:{text:'',done:false},t0:LIVE.now+.3});}catch(x){}send({type:'chat',text:v},v);i.value='';};
   const RM=document.getElementById('remote'),SECRET=x=>x.replace(/\s+/g,'').replace(/[إأآ]/g,'ا')==='عسعسالغلس';
-  const setStudent=on=>{RM.classList.toggle('student',on);document.getElementById('rH').textContent=on?'YBE':'YBE · ريموت';document.getElementById('rHint').textContent=on?'هلا! أنا YBE… اسألني أي شي':'اكتب هنا… ويطلع على الآيباد في العرض';try{localStorage.setItem('ybeStudent',on?'1':'0')}catch(e){}};
+  const setStudent=on=>{RM.classList.toggle('student',on);document.getElementById('rH').textContent=on?'YBE':'YBE · ريموت';document.getElementById('rHint').textContent=on?'اسأل أي شي…':'اكتب هنا… ويطلع على الآيباد في العرض';try{localStorage.setItem('ybeStudent',on?'1':'0')}catch(e){}};
   try{if(localStorage.getItem('ybeStudent')==='1')setStudent(true);}catch(e){}
   document.getElementById('rStudent').onclick=()=>setStudent(true);
   window.__rSecret=v=>{if(SECRET(v)){setStudent(false);return true;}return false;};
@@ -1324,6 +1327,7 @@ function onState(d){if(REMOTE.mode!=='remote'||!d||typeof d.ci!=='number'||!CH[d
 (function pvLoop(){requestAnimationFrame(pvLoop);if(REMOTE.mode!=='remote')return;const cv2=document.getElementById('rPv');if(!cv2||!cv2.offsetWidth)return;const m=document.getElementById('rPvMsg');if(PV.ci<0){if(m)m.style.display='grid';return;}if(m)m.style.display='none';
   const dpr=Math.min(2,window.devicePixelRatio||1),w=Math.round(cv2.offsetWidth*dpr),h=Math.round(w*9/16);if(cv2.width!==w){cv2.width=w;cv2.height=h;}const x=cv2.getContext('2d');const now=performance.now();
   const T=PV.run?Math.min(PV.target,PV.tl+(now-PV.at)/1000):PV.tl;x.setTransform(w/W,0,0,w/W,0,0);x.globalAlpha=1;x.clearRect(0,0,W,H);try{CH[PV.ci].draw(x,T,now/1000,.016,PV.S);}catch(e){}})();
+window.__AIM=()=>AIM;
 
 })();
 </script>
