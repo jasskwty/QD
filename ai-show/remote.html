@@ -748,11 +748,11 @@ function techLayer(c,t,S,dt){circuits(c,t,1);
   wave(c,W/2-70,H-22,140,18,t,.55,22);}
 
 // ---- live chat state: presenter types, prepared answers reply in order ----
-const LIVE={n:0,k:-1,u:'',t0:0,now:0};
+const LIVE={n:0,k:-1,u:'',t0:0,now:0,tab:0};
 const LIVEIN=(()=>{const f=document.getElementById('frame');if(!f)return null;const el=document.createElement('input');el.type='text';el.id='liveIn';el.dir='rtl';el.placeholder='اكتب سؤالك…';el.autocomplete='off';
   el.style.cssText='position:absolute;left:18.4%;top:83%;width:49.5%;height:5.6%;border:0;outline:0;background:transparent;font:600 calc(var(--fw,1600px)*.0135) "Readex Pro",sans-serif;color:#0B1220;display:none;z-index:4;padding:0 1%';
   const btn=document.createElement('button');btn.type='button';btn.id='liveSend';btn.setAttribute('aria-label','إرسال');btn.style.cssText='position:absolute;left:15.3%;top:83.6%;width:2.8%;height:4.8%;border:0;border-radius:50%;background:transparent;cursor:pointer;display:none;z-index:4';
-  const send=(tx)=>{const v=(typeof tx==='string'?tx:el.value).trim();const useAI=typeof AIM!=='undefined'&&aiAvail();LIVE.k=useAI?LIVE.n%4:LIVE.n%5;LIVE.n++;if(LIVE.k!==4)LIVE.u=v||null;LIVE.ai=useAI?aiStart(LIVE.k,v||AI_DEFQ[LIVE.k]):null;LIVE.t0=LIVE.now;el.value='';try{window.fxSounds&&snd&&snd('pop',0)}catch(e){}};
+  const send=(tx)=>{const v=(typeof tx==='string'?tx:el.value).trim();const useAI=typeof AIM!=='undefined'&&aiAvail();const tb=LIVE.tab||0;LIVE.k=(!useAI&&tb===3&&LIVE.k===3&&!v)?4:tb;LIVE.n++;if(LIVE.k!==4)LIVE.u=v||null;LIVE.ai=useAI?aiStart(LIVE.k,v||AI_DEFQ[LIVE.k]):null;LIVE.t0=LIVE.now;el.value='';try{window.fxSounds&&snd&&snd('pop',0)}catch(e){}};
   el.addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter'){e.preventDefault();send();}});
   ['click','pointerdown','dblclick'].forEach(ev=>{el.addEventListener(ev,e=>e.stopPropagation());btn.addEventListener(ev,e=>e.stopPropagation());});
   btn.addEventListener('click',()=>{send();el.focus();});window.LIVE_SEND=send;f.appendChild(el);f.appendChild(btn);return {el,btn};})();
@@ -875,7 +875,7 @@ NEWCH.challenge={id:'challenge',dur:1.2,stops:[],draw(c,T,t,dt,S){aiBg(c,t,S,dt)
   const SW=270,side=sx+sw-SW;c.fillStyle='#EEF3FD';c.fillRect(side,sy+86,SW,sh-86);
   txt(c,'المحادثات',side+SW-24,sy+120,18,DIM,'right',FB,700,1);
   const CH4=[['شخصية تاريخية','التاريخ','#B45309'],['صيد الأخطاء','اللغة','#059669'],['مسألة بطريقتين','الرياضيات','#2563EB'],['أذكى من الطالب؟','العلوم','#DC2626']];
-  const live=S.on!==undefined;LIVE.now=t;const k=live?LIVE.k:(T<3.45?0:T<6.45?1:T<9.45?2:3),s0=live?0:[.3,3.5,6.5,9.5][k];const KT=k<0?0:(k>3?3:k);
+  const live=S.on!==undefined;LIVE.now=t;const k=live?LIVE.k:(T<3.45?0:T<6.45?1:T<9.45?2:3),s0=live?0:[.3,3.5,6.5,9.5][k];const KT=live?(LIVE.tab||0):(k<0?0:(k>3?3:k));
   CH4.forEach(([h,sub,col],i)=>{const y=sy+140+i*72;const on=i===KT;if(on){c.fillStyle='#fff';c.beginPath();c.roundRect(side+12,y,SW-24,62,16);c.fill();c.fillStyle=col;c.beginPath();c.roundRect(side+SW-18,y+10,5,42,3);c.fill();}
     c.fillStyle=on?col:'#CBD5E1';c.beginPath();c.arc(side+SW-48,y+31,17,0,TAU);c.fill();txt(c,AR(i+1),side+SW-48,y+32,16,'#fff','center',FK,800,1);
     txt(c,h,side+SW-76,y+22,20,on?NV:'#64748B','right',FK,800,1);txt(c,sub,side+SW-76,y+46,15,DIM,'right',FB,600,1);});
@@ -888,7 +888,7 @@ NEWCH.challenge={id:'challenge',dur:1.2,stops:[],draw(c,T,t,dt,S){aiBg(c,t,S,dt)
    {u:'كم عدد كواكب المجموعة الشمسية؟',ai:'المجموعة الشمسية فيها ٩ كواكب،|وأبعدها كوكب بلوتو.',pill:'صح أو خطأ؟ صوّتوا!'},
    {u:'كم عدد كواكب المجموعة الشمسية؟',ai:'المجموعة الشمسية فيها ٩ كواكب،|وأبعدها كوكب بلوتو.',rev:1,pill:'خطأ! ٨ كواكب… وبلوتو صار كوكباً قزماً سنة ٢٠٠٦'}][k<0?0:k];const AIr=live&&LIVE.ai&&LIVE.ai.k===k?LIVE.ai:null;let AIL=null;if(AIr){AIL=(AIr.text||AIr.err)?aiWrap(c,AIr.text||'ما قدرت أرد الحين… جرّبوا مرة ثانية',cw-292,5):[];}const LT0=live?(k<0?-9:t-LIVE.t0):T-s0;const LT=D.rev?LT0+3:LT0;
   const lt=live?(k<0?-9:t-LIVE.t0):T-s0;const UT=live&&LIVE.u?LIVE.u:D.u;
-  if(k>=0)txt(c,CH4[KT][0],cx0+cw/2,sy+118,18,DIM,'center',FB,700,1);else{const ga=seg(T,.4,1);txt(c,'كيف أقدر أساعدك اليوم؟',cx0+cw/2,sy+330,40,NV,'center',FK,800,ga);}
+  if(k>=0||live)txt(c,CH4[KT][0],cx0+cw/2,sy+118,18,DIM,'center',FB,700,1);if(k<0){const ga=seg(T,.4,1);txt(c,'كيف أقدر أساعدك اليوم؟',cx0+cw/2,sy+310,40,NV,'center',FK,800,ga);if(live)txt(c,['اسألوا الشخصية التاريخية… واكتشفوا أخطاءها','اطلبوا نص… وصيدوا الأخطاء اللغوية','اكتبوا مسألة… ويشرحها بطريقتين','اسألوا سؤال علمي… وتأكدوا من الإجابة'][KT],cx0+cw/2,sy+370,24,CH4[KT][2],'center',FB,700,ga);}
   // user bubble (right side of chat)
   const ua=easeOutBack(seg(LT,.1,.6));if(ua>0){c.save();c.font='700 26px '+FB;const w=Math.min(cw-120,c.measureText(UT).width+48);c.restore();const bx=cx0+cw-40-w,by=sy+160;
     c.save();c.globalAlpha=Math.min(1,ua);c.translate(bx+w,by+30);c.scale(ua,ua);c.translate(-(bx+w),-(by+30));const ug=c.createLinearGradient(bx,0,bx+w,0);ug.addColorStop(0,'#1D63E0');ug.addColorStop(1,'#0149AD');c.fillStyle=ug;c.beginPath();c.roundRect(bx,by,w,60,[24,24,6,24]);c.fill();c.restore();
@@ -1261,10 +1261,11 @@ const REMOTE={peers:0,screens:0,room:null,db:null,mode:'screen',lastSeq:null,see
 function remoteChat(text){const i=CH.findIndex(x=>x.id==='challenge');if(!started)begin();if(ci!==i){go(i);setTimeout(()=>window.LIVE_SEND&&LIVE_SEND(text),900);}else window.LIVE_SEND&&LIVE_SEND(text);}
 function handleCmd(d){if(!d||REMOTE.mode!=='screen'||!d.seq||REMOTE.seen[d.seq])return;REMOTE.seen[d.seq]=1;
   if(d.type==='hello'){paired();}
+  else if(d.type==='tab')setTab(d.i);
   else if(d.type==='chat')remoteChat(typeof d.text==='string'?d.text.slice(0,120):'');
   else if(d.type==='nav'){if(!started){begin();}else{const a=d.act||(d.dir<0?'prev':'next'),B=id=>{const b=document.getElementById(id);b&&b.click();};
     if(a==='step')clickOnce();else if(a==='prev')prevCh();else if(a==='next')next();else if(a==='pause')B('bPause');else if(a==='replay')B('bReplay');else if(a==='mode')B('bCont');else if(a==='sound')B('bSound');}}
-  const T_=id=>{const b=document.getElementById(id);return b?b.textContent:'';};const ack={seq:d.seq,st:{pause:T_('bPause'),mode:T_('bCont'),sound:T_('bSound'),n:(ci+1)+'/'+CH.length}};TX('ack',ack);}
+  const T_=id=>{const b=document.getElementById(id);return b?b.textContent:'';};const ack={seq:d.seq,st:{pause:T_('bPause'),mode:T_('bCont'),sound:T_('bSound'),n:(ci+1)+'/'+CH.length,tab:LIVE.tab||0}};TX('ack',ack);}
 const MQT='ybe-ai-show/3ab87bab71423fbc';REMOTE.mq=[];
 const NT='https://ntfy.sh/ybe_ai_28aaaaedd1d22dea';REMOTE.nt=false;
 function mqN(){return REMOTE.mq.filter(m=>m.open).length;}
@@ -1295,9 +1296,9 @@ function openRemote(){REMOTE.mode='remote';try{REMOTE.room&&REMOTE.room.presence
 #remote .msg small{display:block;font-size:12px;opacity:.85;margin-top:2px}#remote .msg.sys{align-self:center;background:#EEF3FD;color:#334155;border-radius:999px;font-size:13px}
 #remote form{display:flex;gap:8px}#remote input{flex:1;min-width:0;font:600 17px "Readex Pro";padding:13px 16px;border-radius:999px;border:1.5px solid #D3DEF4;background:#fff;color:#0B1220}
 #remote button{font:700 15px "Readex Pro";border:0;border-radius:999px;padding:12px 18px;cursor:pointer}
-#remote .send{background:linear-gradient(90deg,#0149AD,#1D4ED8);color:#fff}#remote .row{display:flex;gap:8px}#remote .row button{flex:1;background:#fff;border:1.5px solid #D3DEF4;color:#041E52}#remote .big{background:linear-gradient(90deg,#0149AD,#1D4ED8)!important;color:#fff!important;border:0!important;font-size:19px!important;padding:16px!important}#remote .rev{background:#FEF2F2!important;border-color:#DC2626!important;color:#DC2626!important}
+#remote .send{background:linear-gradient(90deg,#0149AD,#1D4ED8);color:#fff}#remote .row{display:flex;gap:8px}#remote .row button{flex:1;background:#fff;border:1.5px solid #D3DEF4;color:#041E52}#remote .big{background:linear-gradient(90deg,#0149AD,#1D4ED8)!important;color:#fff!important;border:0!important;font-size:19px!important;padding:16px!important}#remote .tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px}#remote .tabs button{background:#fff;border:1.5px solid #D3DEF4;color:#041E52;padding:9px 6px;font-size:14px}#remote .tabs button.on{background:#041E52;color:#fff;border-color:#041E52}#remote .rev{background:#FEF2F2!important;border-color:#DC2626!important;color:#DC2626!important}
 #remote button:focus-visible,#remote input:focus-visible{outline:2px solid #1D63E0;outline-offset:2px}`;document.head.appendChild(st);
-  const R=document.createElement('div');R.id='remote';R.innerHTML='<div><h2>المساعد الذكي · ريموت</h2><div class="st wait" id="rSt"><b>●</b> جاري الاتصال…</div></div><div class="log" id="rLog" aria-live="polite"><div class="msg sys">اكتب هنا… ويطلع على الآيباد في العرض</div></div><form id="rF"><input id="rIn" placeholder="اكتب سؤالك…" autocomplete="off" maxlength="120" aria-label="اكتب سؤالك"><button class="send" type="submit">إرسال</button></form><div class="row"><button type="button" id="rRev" class="rev">رد الشات بدون كتابة</button></div><div class="row"><button type="button" id="rStep" class="big">التالي ←</button></div><div class="row"><button type="button" id="rPrev">المشهد السابق</button><button type="button" id="rNext">المشهد التالي</button></div><div class="row"><button type="button" id="rPause">إيقاف مؤقت</button><button type="button" id="rReplay">أعد المشهد</button></div><div class="row"><button type="button" id="rMode">الوضع</button><button type="button" id="rSound">الصوت</button></div><div class="st" id="rN" style="text-align:center"></div>';
+  const R=document.createElement('div');R.id='remote';R.innerHTML='<div><h2>المساعد الذكي · ريموت</h2><div class="st wait" id="rSt"><b>●</b> جاري الاتصال…</div></div><div class="log" id="rLog" aria-live="polite"><div class="msg sys">اكتب هنا… ويطلع على الآيباد في العرض</div></div><div class="tabs" id="rTabs"><button type="button" data-i="0">١ تاريخية</button><button type="button" data-i="1">٢ صيد الأخطاء</button><button type="button" data-i="2">٣ بطريقتين</button><button type="button" data-i="3">٤ علوم</button></div><form id="rF"><input id="rIn" placeholder="اكتب سؤالك…" autocomplete="off" maxlength="120" aria-label="اكتب سؤالك"><button class="send" type="submit">إرسال</button></form><div class="row"><button type="button" id="rRev" class="rev">سؤال جاهز للمحادثة</button></div><div class="row"><button type="button" id="rStep" class="big">التالي ←</button></div><div class="row"><button type="button" id="rPrev">المشهد السابق</button><button type="button" id="rNext">المشهد التالي</button></div><div class="row"><button type="button" id="rPause">إيقاف مؤقت</button><button type="button" id="rReplay">أعد المشهد</button></div><div class="row"><button type="button" id="rMode">الوضع</button><button type="button" id="rSound">الصوت</button></div><div class="st" id="rN" style="text-align:center"></div>';
   document.body.appendChild(R);try{stEl.classList.add('gone')}catch(e){}
   const log=document.getElementById('rLog'),stt=document.getElementById('rSt');
   const add=(t,sys)=>{const d=document.createElement('div');d.className='msg'+(sys?' sys':'');d.textContent=t;const sm=document.createElement('small');if(!sys){sm.textContent='يرسل…';d.appendChild(sm);}log.appendChild(d);log.scrollTop=log.scrollHeight;return sm;};
@@ -1305,7 +1306,7 @@ function openRemote(){REMOTE.mode='remote';try{REMOTE.room&&REMOTE.room.presence
   window.__rStatus=()=>{if(!anyCh()){if(Date.now()-t0>11000){stt.className='st off';stt.innerHTML='<b>●</b> الهاتف ما قدر يتصل. افتح الرابط في متصفح الهاتف (Safari أو Chrome) وأنت مسجّل دخول على نفس الحساب، مو من ملف، وتأكد إن الإنترنت شغال.';}return;}
     if(REMOTE.screens>0||REMOTE.helloOk){stt.className='st';stt.innerHTML='<b>●</b> متصل بالعرض ✓ <small>('+chInfo()+')</small>';}else{stt.className='st wait';stt.innerHTML='<b>●</b> الهاتف جاهز… افتح العرض على اللابتوب من نفس الرابط <br><small>السيرفر: '+chInfo()+'</small>';}};
   setInterval(()=>window.__rStatus(),1500);
-  const pend={};ACK_CB=(seq,st)=>{if(st){const L=(id,t)=>{const b=document.getElementById(id);if(b&&t)b.textContent=t;};L('rPause',st.pause);L('rMode',st.mode);L('rSound',st.sound);const n=document.getElementById('rN');if(n&&st.n)n.textContent='المشهد '+st.n;}const p=pend[seq];if(p){clearTimeout(p.to);p.el.textContent='وصلت ✓';delete pend[seq];}};
+  const pend={};ACK_CB=(seq,st)=>{if(st){const L=(id,t)=>{const b=document.getElementById(id);if(b&&t)b.textContent=t;};L('rPause',st.pause);L('rMode',st.mode);L('rSound',st.sound);const n=document.getElementById('rN');if(n&&st.n)n.textContent='المشهد '+st.n;if(typeof st.tab==='number')document.querySelectorAll('#rTabs button').forEach(b=>b.classList.toggle('on',+b.dataset.i===st.tab));}const p=pend[seq];if(p){clearTimeout(p.to);p.el.textContent='وصلت ✓';delete pend[seq];}};
   const send=(cmd,label,sys)=>{if(!anyCh()){add('غير متصل',true);return;}cmd.seq=Date.now()+'-'+Math.random().toString(36).slice(2,7);const el=label?add(label,sys):document.createElement('i');
     TX('cmd',cmd);
     pend[cmd.seq]={el,to:setTimeout(()=>{el.textContent=sys?'':'ما وصلت للعرض… تأكد إن العرض مفتوح على اللابتوب';if(sys)add('ما وصلت للعرض',true);delete pend[cmd.seq];},6000)};};
@@ -1313,6 +1314,7 @@ function openRemote(){REMOTE.mode='remote';try{REMOTE.room&&REMOTE.room.presence
   const ackPrev=ACK_CB;ACK_CB=(seq,st)=>{if(seq&&seq===hSeq&&!hOk){hOk=true;REMOTE.helloOk=true;add('تم الاتصال بالعرض ✓ … العرض بدأ',true);}ackPrev&&ackPrev(seq,st);};
   setTimeout(hello,900);setInterval(hello,3000);window.__rHello=()=>{hOk=false;hello();};keepAwake();
   document.getElementById('rF').onsubmit=e=>{e.preventDefault();const i=document.getElementById('rIn'),v=i.value.trim();if(!v)return;send({type:'chat',text:v},v);i.value='';};
+  document.querySelectorAll('#rTabs button').forEach(b=>{b.onclick=()=>{document.querySelectorAll('#rTabs button').forEach(x=>x.classList.toggle('on',x===b));send({type:'tab',i:+b.dataset.i},'المحادثة: '+b.textContent,true);};});
   document.getElementById('rRev').onclick=()=>send({type:'chat',text:''},'رد الشات');
   [['rStep','step','التالي'],['rNext','next','المشهد التالي'],['rPrev','prev','المشهد السابق'],['rPause','pause','إيقاف/تشغيل'],['rReplay','replay','أعد المشهد'],['rMode','mode','تغيير الوضع'],['rSound','sound','الصوت']].forEach(([id,act,lb])=>{document.getElementById(id).onclick=()=>send({type:'nav',act},null,true);});}
 
@@ -1326,6 +1328,11 @@ addEventListener('pointerdown',keepAwake,{once:true});
 if(window.__FORCE_REMOTE||/remote/.test(location.hash)){setTimeout(()=>{try{openRemote()}catch(e){}},300);}
 
 window.__sStatus=()=>{const w=document.getElementById('sNet');if(!w)return;const ok=anyCh();w.textContent=ok?('السيرفر متصل ✓ ('+chInfo()+')'):'السيرفر غير متصل… تأكد من الإنترنت';w.style.color=ok?'#059669':'#DC2626';};setInterval(()=>window.__sStatus(),1500);
+
+function setTab(i){i=Math.max(0,Math.min(3,i|0));const ix=CH.findIndex(x=>x.id==='challenge');if(!started)begin();if(ci!==ix)go(ix);LIVE.tab=i;LIVE.k=-1;LIVE.ai=null;LIVE.u=null;LIVE.t0=LIVE.now;try{TX('ack',{seq:'tab'+Date.now(),st:{tab:i}})}catch(e){}try{window.fxSounds&&snd&&snd('pop',0)}catch(e){}}
+cv.addEventListener('click',e=>{if(!started||!CH[ci]||CH[ci].id!=='challenge')return;const r=cv.getBoundingClientRect(),x=(e.clientX-r.left)*W/r.width,y=(e.clientY-r.top)*H/r.height;
+  if(x>1118&&x<1388){for(let i=0;i<4;i++){const ty=150+140+i*72;if(y>=ty&&y<=ty+62){e.stopImmediatePropagation();setTab(i);return;}}}},true);
+window.__LIVE=()=>LIVE;
 
 })();
 </script>
