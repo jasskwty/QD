@@ -749,10 +749,10 @@ function techLayer(c,t,S,dt){circuits(c,t,1);
 
 // ---- live chat state: presenter types, prepared answers reply in order ----
 const LIVE={n:0,k:-1,u:'',t0:0,now:0,tab:0};
-const LIVEIN=(()=>{const f=document.getElementById('frame');if(!f)return null;const el=document.createElement('input');el.type='text';el.id='liveIn';el.dir='rtl';el.placeholder='اكتب سؤالك…';el.autocomplete='off';
+const LIVEIN=(()=>{const f=document.getElementById('frame');if(!f)return null;const el=document.createElement('input');el.type='text';el.id='liveIn';el.dir='rtl';el.placeholder='اسأل YBE أي شي…';el.autocomplete='off';
   el.style.cssText='position:absolute;left:18.4%;top:83%;width:49.5%;height:5.6%;border:0;outline:0;background:transparent;font:600 calc(var(--fw,1600px)*.0135) "Readex Pro",sans-serif;color:#0B1220;display:none;z-index:4;padding:0 1%';
   const btn=document.createElement('button');btn.type='button';btn.id='liveSend';btn.setAttribute('aria-label','إرسال');btn.style.cssText='position:absolute;left:15.3%;top:83.6%;width:2.8%;height:4.8%;border:0;border-radius:50%;background:transparent;cursor:pointer;display:none;z-index:4';
-  const send=(tx)=>{const v=(typeof tx==='string'?tx:el.value).trim();const useAI=typeof AIM!=='undefined'&&aiAvail();const tb=LIVE.tab||0;LIVE.k=(!useAI&&tb===3&&LIVE.k===3&&!v)?4:tb;LIVE.n++;if(LIVE.k!==4)LIVE.u=v||null;LIVE.ai=useAI?aiStart(LIVE.k,v||AI_DEFQ[LIVE.k]):null;LIVE.t0=LIVE.now;el.value='';try{window.fxSounds&&snd&&snd('pop',0)}catch(e){}};
+  const send=(tx)=>{const v=(typeof tx==='string'?tx:el.value).trim().slice(0,200);el.value='';if(!v)return;const now=LIVE.now;AIM.msgs.push({who:'u',text:v,t0:now});AIM.msgs.push({who:'a',st:aiStart(v),t0:now+.3});if(AIM.msgs.length>30)AIM.msgs.splice(0,AIM.msgs.length-30);try{window.fxSounds&&snd&&snd('pop',0)}catch(e){}};
   el.addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter'){e.preventDefault();send();}});
   ['click','pointerdown','dblclick'].forEach(ev=>{el.addEventListener(ev,e=>e.stopPropagation());btn.addEventListener(ev,e=>e.stopPropagation());});
   btn.addEventListener('click',()=>{send();el.focus();});window.LIVE_SEND=send;f.appendChild(el);f.appendChild(btn);return {el,btn};})();
@@ -833,86 +833,62 @@ NEWCH.matrix={id:'matrix',dur:14,stops:[5.6,10.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt
   zone(450,RO,'الضوء الأحمر','لا يتعدى ٢٠٪',20,['وضع الدرجات','تقييم الطلاب','الاختبارات النهائية','مهمة المعلم الحصرية'],5.8);
   const b=seg(T,10.8,11.4);if(b>0){c.save();c.globalAlpha=b;rr(c,200,750,1200,74,37,'rgba(220,38,38,.07)',RO,2);c.restore();txt(c,'الخصوصية خط أحمر: ممنوع رفع أسماء الطلاب أو درجاتهم في البرامج العامة',W/2,788,30,RO,'center',FK,800,b);}
   kt(c,T,{s:'نسب مقترحة من الفريق',x:W/2,y:860,size:20,col:DIM,a:[1]});}};
-// ---- real AI answers (artifact link only); prepared answers otherwise ----
-const AIM={s:null,hist:[[],[],[],[]]};
-(async()=>{try{if(window.claude&&claude.use){AIM.s=await claude.use('sample');if(AIM.s&&!/remote/.test(location.hash)&&!matchMedia('(pointer:coarse) and (max-width:900px)').matches){try{const pm=await claude.use('permissions');pm&&pm.request&&pm.request(['sample']);}catch(e){}}}}catch(e){}})();
-const AI_BASE='أنت «المساعد الذكي» داخل عرض مدرسي مباشر في ثانوية يوسف بن عيسى بالكويت، أمام طلاب ومعلمين، وكلامك يظهر على شاشة كبيرة. افهم أي سؤال مهما كان أسلوبه أو لهجته أو أخطاؤه. جاوب بلهجة كويتية بسيطة، بجملتين أو ثلاث قصيرة فقط (أقل من ٣٥ كلمة)، بدون إيموجي وبدون عناوين أو نقاط أو تنسيق. كن لطيفاً ومحترماً ومناسباً للمدرسة، وإذا كان الطلب غير مناسب اعتذر بلطف.';
-const AI_TAB=['المهمة الحالية «شخصية تاريخية»: تقمّص الشخصية التاريخية المذكورة في الرسالة (وإذا ما ذُكرت شخصية اختر شخصية عربية أو إسلامية مشهورة)، وتكلم بصيغة المتكلم. ضع في ردك خطأً تاريخياً واحداً صغيراً ومقصوداً ليكتشفه الطلاب، ولا تذكر أنه خطأ.',
- 'المهمة الحالية «صيد الأخطاء»: اكتب فقرة قصيرة بالفصحى (جملتان) عن موضوع الرسالة، وضع فيها خطأين لغويين أو إملائيين مقصودين ليكتشفهما الطلاب، ولا تذكر الأخطاء.',
- 'المهمة الحالية «بطريقتين»: اشرح المسألة أو الفكرة المذكورة بطريقتين مختصرتين جداً، تبدأ الأولى بـ «الطريقة الأولى:» والثانية بـ «الطريقة الثانية:».',
- 'المهمة الحالية «أذكى من الطالب؟»: أجب عن السؤال بدقة علمية وباختصار.'];
-const AI_PILL=['مهمتكم: اكتشفوا خطأه التاريخي','مين يكتشف الأخطاء اللغوية أول؟','أي طريقة أوضح لكم؟','صح أو خطأ؟ تأكدوا من الإجابة!'];
-const AI_DEFQ=['تقمّص شخصية تاريخية وخلنا نحاورك','اكتب لنا نصاً قصيراً عن المدرسة','اشرح لي كيف نحل معادلة من الدرجة الأولى','كم عدد كواكب المجموعة الشمسية؟'];
-const AI_FB=['أهلاً بكم! أنا شخصية من التاريخ… اسألوني، بس انتبهوا: ممكن أغلط','المدرسه مكان جميل نتعلم فيها العلوم، ونلتقي بأصدقائنا كل يوماً.','الطريقة الأولى: بالرسم خطوة خطوة… الطريقة الثانية: بالمعادلة مباشرة…','المجموعة الشمسية فيها ٨ كواكب، وأبعدها كوكب نبتون.'];
+// ---- YBE: one general AI chat (artifact link: built-in model; hosted: free public API) ----
+const AIM={s:null,msgs:[]};
+(async()=>{try{if(window.claude&&claude.use){AIM.s=await claude.use('sample');if(AIM.s&&!/remote/.test(location.hash)&&!window.__FORCE_REMOTE&&!matchMedia('(pointer:coarse) and (max-width:900px)').matches){try{const pm=await claude.use('permissions');pm&&pm.request&&pm.request(['sample']);}catch(e){}}}}catch(e){}})();
+const YBE_SYS='اسمك YBE، المساعد الذكي لثانوية يوسف بن عيسى – بنين في الكويت. أنت في عرض مدرسي مباشر وكلامك يظهر على شاشة كبيرة أمام الطلاب والمعلمين. تساعد في أي شيء: أسئلة عامة، شرح دروس، رياضيات، علوم، لغات، كتابة، أفكار، نصائح دراسية. افهم أي سؤال مهما كان أسلوبه أو لهجته أو أخطاؤه. جاوب بلهجة كويتية بسيطة وواضحة، أو بلغة السؤال إذا كان بالإنجليزي. خلك مختصر: من جملتين إلى أربع (أقل من ٦٠ كلمة)، بدون إيموجي وبدون عناوين أو نقاط أو رموز تنسيق. كن دقيقاً ومحترماً ومناسباً للمدرسة، وإذا كان الطلب غير مناسب اعتذر بلطف. إذا سألوك عن نفسك: أنت YBE مساعد ثانوية يوسف بن عيسى.';
 function aiAvail(){return !!AIM.s||(typeof HOSTED!=='undefined'&&HOSTED&&typeof fetch!=='undefined');}
-function aiType(st,full){st.text='';const step=()=>{if(st.text.length>=full.length){st.text=full;st.done=true;return;}st.text=full.slice(0,st.text.length+3);setTimeout(step,28);};step();}
-function aiHosted(k,q,st){const h=AIM.hist[k].slice(-6).map(x=>({role:x.r==='u'?'user':'assistant',content:x.c}));
-  const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),20000);
-  fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({model:'openai',messages:[{role:'system',content:AI_BASE+'\n\n'+AI_TAB[k]},...h,{role:'user',content:q}]})})
-   .then(r=>{if(!r.ok)throw new Error('http '+r.status);return r.json();}).then(j=>{clearTimeout(to);let a=(j&&j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content||'').trim();if(!a)throw new Error('empty');a=a.replace(/[*#_`>]/g,'');AIM.hist[k].push({r:'u',c:q},{r:'a',c:a});aiType(st,a);})
-   .catch(()=>{clearTimeout(to);aiType(st,AI_FB[k]);});return st;}
-function aiStart(k,q){if(!AIM.s){if(aiAvail())return aiHosted(k,q,{k,q,text:'',done:false,err:null});return null;}const st={k,q,text:'',done:false,err:null};const h=AIM.hist[k].slice(-6);
-  const prompt=AI_BASE+'\n\n'+AI_TAB[k]+(h.length?'\n\nالمحادثة السابقة:\n'+h.map(x=>(x.r==='u'?'الطالب: ':'أنت: ')+x.c).join('\n'):'')+'\n\nرسالة الطالب الآن: «'+q+'»\n\nاكتب ردك فقط.';
-  try{AIM.s(prompt,{modelTier:'quick',cache:false,onText:u=>{st.text=u.text;}}).then(r=>{st.text=(r&&r.text||st.text||'').trim();st.done=true;AIM.hist[k].push({r:'u',c:q},{r:'a',c:st.text});})
-    .catch(e=>{st.err=(e&&e.code)||'err';st.done=true;if(st.err==='not_granted'||st.err==='unavailable')AIM.s=null;});}catch(e){return null;}return st;}
-function aiWrap(c,s,w,max){c.save();c.font='600 25px '+FB;const out=[];let cur='';for(const word of String(s).replace(/\s+/g,' ').trim().split(' ')){const tr=cur?cur+' '+word:word;if(c.measureText(tr).width>w&&cur){out.push(cur);cur=word;}else cur=tr;}if(cur)out.push(cur);c.restore();if(out.length>max){out.length=max;out[max-1]=out[max-1].replace(/\s*\S*$/,'')+'…';}return out;}
+function aiFinish(st,a){st.text=a;st.done=true;try{TX('ack',{seq:'rep'+Date.now()+Math.random().toString(36).slice(2,5),st:{reply:a}});}catch(e){}}
+function aiType(st,full){st.text='';const step=()=>{if(st.text.length>=full.length){aiFinish(st,full);return;}st.text=full.slice(0,st.text.length+3);setTimeout(step,26);};step();}
+function aiHist(){return AIM.msgs.filter(m=>m.who==='u'||(m.st&&m.st.done&&!m.st.err)).slice(-9,-1).map(m=>({role:m.who==='u'?'user':'assistant',content:m.who==='u'?m.text:m.st.text}));}
+function aiStart(q){const st={text:'',done:false,err:null};const h=aiHist();
+  if(AIM.s){const prompt=YBE_SYS+(h.length?'\n\nالمحادثة السابقة:\n'+h.map(x=>(x.role==='user'?'المستخدم: ':'YBE: ')+x.content).join('\n'):'')+'\n\nرسالة المستخدم الآن: «'+q+'»\n\nاكتب رد YBE فقط.';
+    try{AIM.s(prompt,{modelTier:'default',cache:false,onText:u=>{st.text=u.text;}}).then(r=>aiFinish(st,(r&&r.text||st.text||'').trim())).catch(e=>{const c=(e&&e.code)||'err';if(c==='not_granted'||c==='unavailable')AIM.s=null;st.err=c;aiFinish(st,'ما قدرت أرد الحين… جرّبوا مرة ثانية');});}catch(e){st.err='err';aiFinish(st,'ما قدرت أرد الحين… جرّبوا مرة ثانية');}
+    return st;}
+  if(aiAvail()){const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),25000);
+    fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({model:'openai',messages:[{role:'system',content:YBE_SYS},...h,{role:'user',content:q}]})})
+     .then(r=>{if(!r.ok)throw new Error('http '+r.status);return r.json();}).then(j=>{clearTimeout(to);let a=(j&&j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content||'').trim();if(!a)throw new Error('empty');aiType(st,a.replace(/[*#_`>]/g,''));})
+     .catch(()=>{clearTimeout(to);st.err='net';aiType(st,'الشبكة ضعيفة شوي… جرّبوا ترسلون السؤال مرة ثانية');});return st;}
+  st.err='none';aiType(st,'أنا YBE! أحتاج إنترنت عشان أرد عليكم… تأكدوا من الاتصال وجرّبوا مرة ثانية.');return st;}
+function aiWrap(c,s,w,max){c.save();c.font='600 25px '+FB;const out=[];let cur='';for(const word of String(s).replace(/\s+/g,' ').trim().split(' ')){const tr=cur?cur+' '+word:word;if(c.measureText(tr).width>w&&cur){out.push(cur);cur=word;}else cur=tr;}if(cur)out.push(cur);c.restore();if(out.length>max){const k=out.length-max;out.splice(0,k);out[0]='…'+out[0];}return out;}
+function ybeLogo(c,x,y,r,t,a){c.save();c.globalAlpha=a;const lg=c.createLinearGradient(x-r,y-r,x+r,y+r);lg.addColorStop(0,'#0149AD');lg.addColorStop(1,'#7C3AED');c.fillStyle=lg;c.beginPath();c.roundRect(x-r,y-r,2*r,2*r,r*.32);c.fill();
+  c.translate(x,y);c.rotate(t*.6);c.fillStyle='#fff';for(let k=0;k<4;k++){c.rotate(Math.PI/2);c.beginPath();c.ellipse(0,-r*.42,r*.13,r*.32,0,0,TAU);c.fill();}c.restore();}
 
 NEWCH.challenge={id:'challenge',dur:1.2,stops:[],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr(c,T,'Live Challenge','هل الذكاء الاصطناعي أذكى من الطالب؟');
-  const A=seg(T,0,.6),rise=(1-ease(A))*60;if(A<=0)return;
+  const live=S.on!==undefined;LIVE.now=t;const A=seg(T,0,.6),rise=(1-ease(A))*60;if(A<=0)return;
   const X=190,Y=128+rise,Wd=1220,Hd=720,B=22,sx=X+B,sy=Y+B,sw=Wd-2*B,sh=Hd-2*B;
-  // iPad body
   c.save();c.globalAlpha=A;c.shadowColor='rgba(4,30,82,.35)';c.shadowBlur=60;c.shadowOffsetY=24;rr(c,X,Y,Wd,Hd,52,'#1E293B');c.restore();
   c.save();c.globalAlpha=A;const bg=c.createLinearGradient(X,Y,X+Wd,Y+Hd);bg.addColorStop(0,'#475569');bg.addColorStop(.5,'#0F172A');bg.addColorStop(1,'#334155');rr(c,X,Y,Wd,Hd,52,null,bg,3);
   c.fillStyle='#0B1220';c.beginPath();c.arc(X+Wd/2,Y+11,4,0,TAU);c.fill();rr(c,sx,sy,sw,sh,32,'#F8FAFF');c.restore();
   c.save();c.beginPath();c.roundRect(sx,sy,sw,sh,32);c.clip();c.globalAlpha=A;
-  // status + top bar
   c.fillStyle='#fff';c.fillRect(sx,sy,sw,84);c.strokeStyle='#E3EAF7';c.lineWidth=2;line(c,sx,sy+84,sx+sw,sy+84);
   ltr2(c,'9:41',sx+40,sy+22,16,'#0B1220',1);txt(c,'١٠٠٪',sx+sw-40,sy+22,15,'#0B1220','right',FB,700,1);
-  const lg=c.createLinearGradient(sx+sw-330,0,sx+sw-290,0);lg.addColorStop(0,'#0149AD');lg.addColorStop(1,'#7C3AED');c.fillStyle=lg;c.beginPath();c.roundRect(sx+sw-322,sy+38,38,38,12);c.fill();
-  c.save();c.translate(sx+sw-303,sy+57);c.rotate(t*.8);c.fillStyle='#fff';for(let k=0;k<4;k++){c.rotate(Math.PI/2);c.beginPath();c.ellipse(0,-8,3,7,0,0,TAU);c.fill();}c.restore();
-  txt(c,'المساعد الذكي',sx+sw-340,sy+52,24,NV,'right',FK,800,1);c.fillStyle='#22C55E';c.beginPath();c.arc(sx+sw-345,sy+72,4,0,TAU);c.fill();txt(c,'متصل',sx+sw-356,sy+72,14,DIM,'right',FB,600,1);
-  // sidebar (right in RTL)
+  ybeLogo(c,sx+sw-303,sy+57,19,t,1);ltr2(c,'YBE',sx+sw-372,sy+50,30,NV,1);c.fillStyle='#22C55E';c.beginPath();c.arc(sx+sw-410,sy+74,4,0,TAU);c.fill();txt(c,'متصل',sx+sw-345,sy+74,14,DIM,'right',FB,600,1);
+  // sidebar
   const SW=270,side=sx+sw-SW;c.fillStyle='#EEF3FD';c.fillRect(side,sy+86,SW,sh-86);
-  txt(c,'المحادثات',side+SW-24,sy+120,18,DIM,'right',FB,700,1);
-  const CH4=[['شخصية تاريخية','التاريخ','#B45309'],['صيد الأخطاء','اللغة','#059669'],['مسألة بطريقتين','الرياضيات','#2563EB'],['أذكى من الطالب؟','العلوم','#DC2626']];
-  const live=S.on!==undefined;LIVE.now=t;const k=live?LIVE.k:(T<3.45?0:T<6.45?1:T<9.45?2:3),s0=live?0:[.3,3.5,6.5,9.5][k];const KT=live?(LIVE.tab||0):(k<0?0:(k>3?3:k));
-  CH4.forEach(([h,sub,col],i)=>{const y=sy+140+i*72;const on=i===KT;if(on){c.fillStyle='#fff';c.beginPath();c.roundRect(side+12,y,SW-24,62,16);c.fill();c.fillStyle=col;c.beginPath();c.roundRect(side+SW-18,y+10,5,42,3);c.fill();}
-    c.fillStyle=on?col:'#CBD5E1';c.beginPath();c.arc(side+SW-48,y+31,17,0,TAU);c.fill();txt(c,AR(i+1),side+SW-48,y+32,16,'#fff','center',FK,800,1);
-    txt(c,h,side+SW-76,y+22,20,on?NV:'#64748B','right',FK,800,1);txt(c,sub,side+SW-76,y+46,15,DIM,'right',FB,600,1);});
-  // chat area
-  const cx0=sx,cw=sw-SW,col=CH4[KT][2];
-  const D=[
-   {u:'تقمّص شخصية تاريخية وخلنا نحاورك',ai:'أهلاً بكم! أنا شخصية من التاريخ…|اسألوني، بس انتبهوا: ممكن أغلط',pill:'مهمتكم: اكتشفوا أخطاءه'},
-   {u:'اكتب لنا نصاً قصيراً',ai:null,lines:5,pill:'مين يكتشف الأخطاء اللغوية أول؟'},
-   {u:'اشرح لي المسألة',ai:'الطريقة الأولى: بالرسم خطوة خطوة…|الطريقة الثانية: بالمعادلة مباشرة…',pill:'أي طريقة أوضح لكم؟'},
-   {u:'كم عدد كواكب المجموعة الشمسية؟',ai:'المجموعة الشمسية فيها ٩ كواكب،|وأبعدها كوكب بلوتو.',pill:'صح أو خطأ؟ صوّتوا!'},
-   {u:'كم عدد كواكب المجموعة الشمسية؟',ai:'المجموعة الشمسية فيها ٩ كواكب،|وأبعدها كوكب بلوتو.',rev:1,pill:'خطأ! ٨ كواكب… وبلوتو صار كوكباً قزماً سنة ٢٠٠٦'}][k<0?0:k];const AIr=live&&LIVE.ai&&LIVE.ai.k===k?LIVE.ai:null;let AIL=null;if(AIr){AIL=(AIr.text||AIr.err)?aiWrap(c,AIr.text||'ما قدرت أرد الحين… جرّبوا مرة ثانية',cw-292,5):[];}const LT0=live?(k<0?-9:t-LIVE.t0):T-s0;const LT=D.rev?LT0+3:LT0;
-  const lt=live?(k<0?-9:t-LIVE.t0):T-s0;const UT=live&&LIVE.u?LIVE.u:D.u;
-  if(k>=0||live)txt(c,CH4[KT][0],cx0+cw/2,sy+118,18,DIM,'center',FB,700,1);if(k<0){const ga=seg(T,.4,1);txt(c,'كيف أقدر أساعدك اليوم؟',cx0+cw/2,sy+310,40,NV,'center',FK,800,ga);if(live)txt(c,['اسألوا الشخصية التاريخية… واكتشفوا أخطاءها','اطلبوا نص… وصيدوا الأخطاء اللغوية','اكتبوا مسألة… ويشرحها بطريقتين','اسألوا سؤال علمي… وتأكدوا من الإجابة'][KT],cx0+cw/2,sy+370,24,CH4[KT][2],'center',FB,700,ga);}
-  // user bubble (right side of chat)
-  const ua=easeOutBack(seg(LT,.1,.6));if(ua>0){c.save();c.font='700 26px '+FB;const w=Math.min(cw-120,c.measureText(UT).width+48);c.restore();const bx=cx0+cw-40-w,by=sy+160;
-    c.save();c.globalAlpha=Math.min(1,ua);c.translate(bx+w,by+30);c.scale(ua,ua);c.translate(-(bx+w),-(by+30));const ug=c.createLinearGradient(bx,0,bx+w,0);ug.addColorStop(0,'#1D63E0');ug.addColorStop(1,'#0149AD');c.fillStyle=ug;c.beginPath();c.roundRect(bx,by,w,60,[24,24,6,24]);c.fill();c.restore();
-    c.save();c.beginPath();c.rect(bx+10,by,w-20,60);c.clip();txt(c,UT,bx+w-24,by+31,26,'#fff','right',FB,700,Math.min(1,ua));c.restore();}
-  // AI avatar
-  const aa=seg(LT,.7,1);if(aa>0){c.save();c.globalAlpha=aa;c.fillStyle=lg;c.beginPath();c.arc(cx0+56,sy+282,22,0,TAU);c.fill();c.restore();c.save();c.globalAlpha=aa;c.translate(cx0+56,sy+282);c.rotate(t*.8);c.fillStyle='#fff';for(let q=0;q<4;q++){c.rotate(Math.PI/2);c.beginPath();c.ellipse(0,-6,2.4,5.5,0,0,TAU);c.fill();}c.restore();}
-  if(AIr?(LT>.7&&!AIL.length):(LT>.7&&LT<1.3)){[0,1,2].forEach(q=>{c.save();c.globalAlpha=.4+.6*Math.abs(Math.sin(t*6+q));c.fillStyle='#94A3B8';c.beginPath();c.arc(cx0+104+q*20,sy+282-Math.abs(Math.sin(t*6+q))*5,6,0,TAU);c.fill();c.restore();});}
-  const p=AIr?(AIL.length?1:0):seg(LT,1.3,2.5);const abx=cx0+90,aby=sy+250,abw=cw-240;
-  if(p>0){c.save();c.fillStyle='#fff';c.shadowColor='rgba(1,73,173,.10)';c.shadowBlur=18;
-    const AL=AIr?AIL:(D.ai?D.ai.split('|'):[]);const h=(AIr||D.ai)?40+AL.length*38:D.lines?D.lines*38+40:D.code.length*42+40;c.beginPath();c.roundRect(abx,aby,abw,h,[24,24,24,6]);c.fill();c.restore();
-    if(AIr){AL.forEach((ln,i)=>txt(c,ln,abx+abw-26,aby+40+i*38,25,AIr.err?RO:INK,'right',FB,600,1));}else if(D.ai){let n=Math.floor(D.ai.length*p);AL.forEach((ln,i)=>{const m=Math.max(0,Math.min(ln.length,n));n-=ln.length+1;if(m>0)txt(c,ln.slice(0,m),abx+abw-26,aby+40+i*38,25,INK,'right',FB,600,1);});if(D.rev){const sk=seg(LT0,.2,.8);c.save();c.font='600 25px '+FB;AL.forEach((ln,i)=>{const w=c.measureText(ln).width;c.strokeStyle=RO;c.lineWidth=4;line(c,abx+abw-26,aby+40+i*38,abx+abw-26-w*sk,aby+40+i*38);});c.restore();}}
-    if(!AIr&&D.lines){for(let i=0;i<D.lines;i++){const q=seg(p,i/D.lines,(i+1)/D.lines);if(q<=0)continue;const lw=(abw-60)*(i===D.lines-1?.55:.92)*q,ly=aby+34+i*38;c.fillStyle='#CBD5E1';c.beginPath();c.roundRect(abx+abw-30-lw,ly,lw,14,7);c.fill();}
-      [[0,.3,.18],[1,.6,.12],[2,.15,.2],[3,.5,.16]].forEach(([r,f,wf],j)=>{const q=seg(LT,2.5+j*.12,2.8+j*.12);if(q<=0)return;const ex=abx+abw-30-(abw-60)*f,ey=aby+34+r*38+22,ew=(abw-60)*wf*q;c.save();c.strokeStyle=RO;c.lineWidth=3;c.beginPath();for(let z=0;z<=ew;z+=4)c.lineTo(ex-z,ey+Math.sin(z*.6)*3);c.stroke();c.restore();});}
-    if(!AIr&&D.code){c.fillStyle='#0F1B3D';c.beginPath();c.roundRect(abx+20,aby+18,abw-40,D.code.length*42+6,14);c.fill();let ch=Math.floor(p*D.code.join('').length);D.code.forEach((ln,i)=>{const n=Math.max(0,Math.min(ln.length,ch));ch-=ln.length;if(n>0)ltr(c,ln.slice(0,n),abx+50,aby+42+i*42,24,i?'#E2E8F0':'#C4B5FD',1);});}}
-  const pa=AIr?(AIr.done&&!AIr.err?1:0):easeOutBack(D.rev?seg(LT0,.9,1.4):seg(LT,2.6,3));if(pa>0){c.save();c.font='800 24px '+FK;const w=c.measureText((AIr?AI_PILL[k]:D.pill)).width+60;c.restore();const py=sy+sh-150;c.save();c.globalAlpha=Math.min(1,pa);c.translate(cx0+cw/2,py);c.scale(pa,pa);rr(c,-w/2,-28,w,56,28,'#fff',col,2.5);c.restore();txt(c,(AIr?AI_PILL[k]:D.pill),cx0+cw/2,py+2,24,col,'center',FK,800,Math.min(1,pa));}
-  // input bar
-  c.fillStyle='#fff';c.beginPath();c.roundRect(cx0+30,sy+sh-80,cw-60,56,28);c.fill();c.strokeStyle='#D3DEF4';c.lineWidth=2;c.stroke();if(!live)txt(c,'اكتب سؤالك…',cx0+cw-60,sy+sh-51,20,'#94A3B8','right',FB,600,1);
-  c.fillStyle=CY;c.beginPath();c.arc(cx0+62,sy+sh-52,20,0,TAU);c.fill();txt(c,'↑',cx0+62,sy+sh-50,22,'#fff','center',FB,800,1);
-  // glass glare
-  const gl=c.createLinearGradient(sx,sy,sx+sw*.6,sy+sh);gl.addColorStop(0,'rgba(255,255,255,.18)');gl.addColorStop(.35,'rgba(255,255,255,0)');c.fillStyle=gl;c.fillRect(sx,sy,sw,sh);
-    {const qs=176,qy=sy+sh-qs-58;c.fillStyle='#fff';c.beginPath();c.roundRect(side+14,qy-12,SW-28,qs+62,18);c.fill();c.strokeStyle='#D3DEF4';c.lineWidth=1.5;c.stroke();drawQR(c,side+SW/2-qs/2,qy,qs,1);
+  ybeLogo(c,side+SW/2,sy+170,42,t,1);ltr2(c,'YBE',side+SW/2,sy+250,44,NV,1);txt(c,'المساعد الذكي',side+SW/2,sy+292,20,DIM,'center',FB,700,1);txt(c,'اسألوه أي شي!',side+SW/2,sy+326,20,CY,'center',FK,800,1);
+  {const qs=176,qy=sy+sh-qs-58;c.fillStyle='#fff';c.beginPath();c.roundRect(side+14,qy-12,SW-28,qs+62,18);c.fill();c.strokeStyle='#D3DEF4';c.lineWidth=1.5;c.stroke();drawQR(c,side+SW/2-qs/2,qy,qs,1);
    const on=REMOTE.peers>0;c.fillStyle=on?'#22C55E':'#94A3B8';c.beginPath();c.arc(side+30,qy+qs+22,5,0,TAU);c.fill();txt(c,on?'الهاتف متصل':'امسح وشارك من هاتفك',side+SW/2+6,qy+qs+23,17,on?GR:NV,'center',FK,800,1);}
+  // chat log
+  const cx0=sx,cw=sw-SW,top=sy+96,bot=sy+sh-100;
+  const msgs=live?AIM.msgs:[{who:'u',text:'هلا YBE! منو أنت؟',t0:-9},{who:'a',st:{text:'هلا والله! أنا YBE، المساعد الذكي لثانوية يوسف بن عيسى. اسألوني أي شي: دروس، أفكار، أو حتى نصيحة للمذاكرة.',done:true},t0:-9}];
+  if(!msgs.length){const ga=seg(T,.4,1);ybeLogo(c,cx0+cw/2,sy+250,46,t,ga);txt(c,'كيف أقدر أساعدكم اليوم؟',cx0+cw/2,sy+350,40,NV,'center',FK,800,ga);txt(c,'اكتبوا أي سؤال… وYBE يجاوب',cx0+cw/2,sy+405,24,CY,'center',FB,700,ga);}
+  else{c.save();c.beginPath();c.rect(cx0,top,cw,bot-top);c.clip();let y=bot;
+    for(let i=msgs.length-1;i>=0&&y>top;i--){const m=msgs[i],age=live?t-m.t0:9,p=easeOutBack(Math.min(1,Math.max(0,age/.35)));
+      if(m.who==='u'){const L=aiWrap(c,m.text,cw-260,4),h=24+L.length*36;y-=h;c.save();c.font='700 25px '+FB;const w=Math.min(cw-200,Math.max(...L.map(l=>c.measureText(l).width))+48);c.restore();const bx=cx0+cw-36-w;
+        c.save();c.globalAlpha=Math.min(1,p);c.translate(bx+w,y+h/2);c.scale(p,p);c.translate(-(bx+w),-(y+h/2));const ug=c.createLinearGradient(bx,0,bx+w,0);ug.addColorStop(0,'#1D63E0');ug.addColorStop(1,'#0149AD');c.fillStyle=ug;c.beginPath();c.roundRect(bx,y,w,h,[22,22,6,22]);c.fill();c.restore();
+        L.forEach((l,k)=>txt(c,l,bx+w-24,y+30+k*36,25,'#fff','right',FB,700,Math.min(1,p)));y-=16;}
+      else{const st=m.st||{};const abx=cx0+92,abw=cw-250;
+        if(!st.text){const h=56;y-=h;c.save();c.fillStyle='#fff';c.shadowColor='rgba(1,73,173,.10)';c.shadowBlur=16;c.beginPath();c.roundRect(abx,y,110,h,[22,22,22,6]);c.fill();c.restore();
+          [0,1,2].forEach(q=>{c.save();c.globalAlpha=.4+.6*Math.abs(Math.sin(t*6+q));c.fillStyle='#94A3B8';c.beginPath();c.arc(abx+30+q*25,y+28-Math.abs(Math.sin(t*6+q))*5,6,0,TAU);c.fill();c.restore();});}
+        else{const L=aiWrap(c,st.text,abw-50,8),h=24+L.length*36;y-=h;c.save();c.fillStyle='#fff';c.shadowColor='rgba(1,73,173,.10)';c.shadowBlur=16;c.beginPath();c.roundRect(abx,y,abw,h,[22,22,22,6]);c.fill();c.restore();
+          L.forEach((l,k)=>txt(c,l,abx+abw-24,y+30+k*36,25,st.err?RO:INK,'right',FB,600,1));}
+        ybeLogo(c,cx0+54,y+26,20,t,1);y-=16;}}
+    c.restore();}
+  c.fillStyle='#fff';c.beginPath();c.roundRect(cx0+30,sy+sh-80,cw-60,56,28);c.fill();c.strokeStyle='#D3DEF4';c.lineWidth=2;c.stroke();if(!live)txt(c,'اسأل YBE أي شي…',cx0+cw-60,sy+sh-51,20,'#94A3B8','right',FB,600,1);
+  c.fillStyle=CY;c.beginPath();c.arc(cx0+62,sy+sh-52,20,0,TAU);c.fill();txt(c,'↑',cx0+62,sy+sh-50,22,'#fff','center',FB,800,1);
+  const gl=c.createLinearGradient(sx,sy,sx+sw*.6,sy+sh);gl.addColorStop(0,'rgba(255,255,255,.14)');gl.addColorStop(.35,'rgba(255,255,255,0)');c.fillStyle=gl;c.fillRect(sx,sy,sw,sh);
   c.restore();if(live)liveWant(A>=1);}};
-function ltr(c,s,x,y,size,col,a){if(a<=0)return;c.save();c.globalAlpha=a;c.direction='ltr';c.textAlign='left';c.textBaseline='middle';c.font='600 '+size+'px "Courier New",monospace';c.fillStyle=col;c.fillText(s,x,y);c.restore();}
 
 NEWCH.roadmap={id:'roadmap',dur:13,stops:[8],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr(c,T,'المشروع','شلون نطبق الفكرة في مدرستنا؟');
   const N=[['ورش بسيطة','للمعلمين'],['نجرب','في مادتين أو ثلاث'],['نقيس النتائج','ونشوف شنو تحسّن'],['نطوّر','التجربة باستمرار']];
@@ -1275,7 +1251,7 @@ let DBQ=null,DBN=null;function dbSet(path,data){if(!REMOTE.db)return;if(DBQ){DBN
 function TX(kind,data){try{REMOTE.room&&REMOTE.room.emit(kind,data).catch(()=>{})}catch(e){}dbSet('remote/'+kind,data);const msg=JSON.stringify({k:kind,d:data});REMOTE.mq.forEach(m=>{try{m.pub(MQT,msg)}catch(e){}});if(!mqN()&&REMOTE.nt){try{fetch(NT,{method:'POST',body:msg}).catch(()=>{})}catch(e){}}}
 function onMQ(t,raw){let o;try{o=JSON.parse(raw)}catch(e){return}if(!o||!o.d)return;if(o.k==='cmd')handleCmd(o.d);else if(o.k==='ack'&&ACK_CB)ACK_CB(o.d.seq,o.d.st);}
 try{if(typeof WebSocket!=='undefined'){(window.__MQ_URLS||['wss://mqtt.eclipseprojects.io:443/mqtt',['wss://public.cloud.shiftr.io:443',['public','public']],'wss://broker.hivemq.com:8884/mqtt','wss://broker.emqx.io:8084/mqtt']).forEach(u=>{const a=Array.isArray(u)?u[1]:null;u=Array.isArray(u)?u[0]:u;const m=MQ(u,'ybe'+Math.random().toString(36).slice(2,10),onMQ,()=>{window.__rStatus&&__rStatus();window.__sStatus&&__sStatus();},a);m.sub(MQT);REMOTE.mq.push(m);});}}catch(e){}
-let ACK_CB=null,PAIRED=false;function paired(){if(PAIRED||REMOTE.mode!=='screen')return;PAIRED=true;const w=document.getElementById('sWait');if(w){w.classList.add('ok');w.querySelector('span').textContent='تم الاتصال ✓ … يبدأ العرض';}setTimeout(()=>{if(!started)begin();},1200);}
+let ACK_CB=null,PAIRED=false;const ACK_SEEN={};function paired(){if(PAIRED||REMOTE.mode!=='screen')return;PAIRED=true;const w=document.getElementById('sWait');if(w){w.classList.add('ok');w.querySelector('span').textContent='تم الاتصال ✓ … يبدأ العرض';}setTimeout(()=>{if(!started)begin();},1200);}
 (function(){const q=document.getElementById('sQR');if(!q)return;const x=q.getContext('2d');drawQR(x,0,0,330,1);})();
 (async()=>{if(!window.claude||!claude.use)return;
   try{const room=await claude.use('room');if(room){REMOTE.room=room;
@@ -1295,9 +1271,9 @@ function openRemote(){REMOTE.mode='remote';try{REMOTE.room&&REMOTE.room.presence
 #remote .msg small{display:block;font-size:12px;opacity:.85;margin-top:2px}#remote .msg.sys{align-self:center;background:#EEF3FD;color:#334155;border-radius:999px;font-size:13px}
 #remote form{display:flex;gap:8px}#remote input{flex:1;min-width:0;font:600 17px "Readex Pro";padding:13px 16px;border-radius:999px;border:1.5px solid #D3DEF4;background:#fff;color:#0B1220}
 #remote button{font:700 15px "Readex Pro";border:0;border-radius:999px;padding:12px 18px;cursor:pointer}
-#remote .send{background:linear-gradient(90deg,#0149AD,#1D4ED8);color:#fff}#remote .row{display:flex;gap:8px}#remote .row button{flex:1;background:#fff;border:1.5px solid #D3DEF4;color:#041E52}#remote .big{background:linear-gradient(90deg,#0149AD,#1D4ED8)!important;color:#fff!important;border:0!important;font-size:19px!important;padding:16px!important}#remote .tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px}#remote .tabs button{background:#fff;border:1.5px solid #D3DEF4;color:#041E52;padding:9px 6px;font-size:14px}#remote .tabs button.on{background:#041E52;color:#fff;border-color:#041E52}#remote .rev{background:#FEF2F2!important;border-color:#DC2626!important;color:#DC2626!important}
+#remote .send{background:linear-gradient(90deg,#0149AD,#1D4ED8);color:#fff}#remote .row{display:flex;gap:8px}#remote .row button{flex:1;background:#fff;border:1.5px solid #D3DEF4;color:#041E52}#remote .big{background:linear-gradient(90deg,#0149AD,#1D4ED8)!important;color:#fff!important;border:0!important;font-size:19px!important;padding:16px!important}#remote .hd{display:flex;align-items:center;gap:10px}#remote .lgo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#0149AD,#7C3AED);color:#fff;display:grid;place-items:center;font:900 13px "Alexandria",sans-serif;direction:ltr}#remote .msg.ai{align-self:flex-end;background:#EEF3FD;color:#0B1220;border-radius:18px 18px 6px 18px}#remote.student .ctl,#remote.student #rSt{display:none!important}#remote.student .msg.sys:not(#rHint){display:none!important}#remote.student .msg small{display:none}#remote .tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px}#remote .tabs button{background:#fff;border:1.5px solid #D3DEF4;color:#041E52;padding:9px 6px;font-size:14px}#remote .tabs button.on{background:#041E52;color:#fff;border-color:#041E52}#remote .rev{background:#FEF2F2!important;border-color:#DC2626!important;color:#DC2626!important}
 #remote button:focus-visible,#remote input:focus-visible{outline:2px solid #1D63E0;outline-offset:2px}`;document.head.appendChild(st);
-  const R=document.createElement('div');R.id='remote';R.innerHTML='<div><h2>المساعد الذكي · ريموت</h2><div class="st wait" id="rSt"><b>●</b> جاري الاتصال…</div></div><div class="log" id="rLog" aria-live="polite"><div class="msg sys">اكتب هنا… ويطلع على الآيباد في العرض</div></div><div class="tabs" id="rTabs"><button type="button" data-i="0">١ تاريخية</button><button type="button" data-i="1">٢ صيد الأخطاء</button><button type="button" data-i="2">٣ بطريقتين</button><button type="button" data-i="3">٤ علوم</button></div><form id="rF"><input id="rIn" placeholder="اكتب سؤالك…" autocomplete="off" maxlength="120" aria-label="اكتب سؤالك"><button class="send" type="submit">إرسال</button></form><div class="row"><button type="button" id="rRev" class="rev">سؤال جاهز للمحادثة</button></div><div class="row"><button type="button" id="rStep" class="big">التالي ←</button></div><div class="row"><button type="button" id="rPrev">المشهد السابق</button><button type="button" id="rNext">المشهد التالي</button></div><div class="row"><button type="button" id="rPause">إيقاف مؤقت</button><button type="button" id="rReplay">أعد المشهد</button></div><div class="row"><button type="button" id="rMode">الوضع</button><button type="button" id="rSound">الصوت</button></div><div class="st" id="rN" style="text-align:center"></div>';
+  const R=document.createElement('div');R.id='remote';R.innerHTML='<div class="hd"><div class="lgo">YBE</div><div><h2 id="rH">YBE · ريموت</h2><div class="st wait" id="rSt"><b>●</b> جاري الاتصال…</div></div></div><div class="log" id="rLog" aria-live="polite"><div class="msg sys" id="rHint">اكتب هنا… ويطلع على الآيباد في العرض</div></div><form id="rF"><input id="rIn" placeholder="اسأل YBE أي شي…" autocomplete="off" maxlength="200" aria-label="اكتب سؤالك"><button class="send" type="submit">إرسال</button></form><div class="row ctl"><button type="button" id="rStudent" class="rev">مشاركة الطلاب</button></div><div class="row ctl"><button type="button" id="rStep" class="big">التالي ←</button></div><div class="row ctl"><button type="button" id="rPrev">المشهد السابق</button><button type="button" id="rNext">المشهد التالي</button></div><div class="row ctl"><button type="button" id="rPause">إيقاف مؤقت</button><button type="button" id="rReplay">أعد المشهد</button></div><div class="row ctl"><button type="button" id="rMode">الوضع</button><button type="button" id="rSound">الصوت</button></div><div class="st ctl" id="rN" style="text-align:center"></div>';
   document.body.appendChild(R);try{stEl.classList.add('gone')}catch(e){}
   const log=document.getElementById('rLog'),stt=document.getElementById('rSt');
   const add=(t,sys)=>{const d=document.createElement('div');d.className='msg'+(sys?' sys':'');d.textContent=t;const sm=document.createElement('small');if(!sys){sm.textContent='يرسل…';d.appendChild(sm);}log.appendChild(d);log.scrollTop=log.scrollHeight;return sm;};
@@ -1305,16 +1281,19 @@ function openRemote(){REMOTE.mode='remote';try{REMOTE.room&&REMOTE.room.presence
   window.__rStatus=()=>{if(!anyCh()){if(Date.now()-t0>11000){stt.className='st off';stt.innerHTML='<b>●</b> الهاتف ما قدر يتصل. افتح الرابط في متصفح الهاتف (Safari أو Chrome) وأنت مسجّل دخول على نفس الحساب، مو من ملف، وتأكد إن الإنترنت شغال.';}return;}
     if(REMOTE.screens>0||REMOTE.helloOk){stt.className='st';stt.innerHTML='<b>●</b> متصل بالعرض ✓ <small>('+chInfo()+')</small>';}else{stt.className='st wait';stt.innerHTML='<b>●</b> الهاتف جاهز… افتح العرض على اللابتوب من نفس الرابط <br><small>السيرفر: '+chInfo()+'</small>';}};
   setInterval(()=>window.__rStatus(),1500);
-  const pend={};ACK_CB=(seq,st)=>{if(st){const L=(id,t)=>{const b=document.getElementById(id);if(b&&t)b.textContent=t;};L('rPause',st.pause);L('rMode',st.mode);L('rSound',st.sound);const n=document.getElementById('rN');if(n&&st.n)n.textContent='المشهد '+st.n;if(typeof st.tab==='number')document.querySelectorAll('#rTabs button').forEach(b=>b.classList.toggle('on',+b.dataset.i===st.tab));}const p=pend[seq];if(p){clearTimeout(p.to);p.el.textContent='وصلت ✓';delete pend[seq];}};
+  const pend={};ACK_CB=(seq,st)=>{if(st){const L=(id,t)=>{const b=document.getElementById(id);if(b&&t)b.textContent=t;};L('rPause',st.pause);L('rMode',st.mode);L('rSound',st.sound);if(st.reply&&!ACK_SEEN[seq]){ACK_SEEN[seq]=1;const d=document.createElement('div');d.className='msg ai';d.textContent=st.reply;const lg=document.getElementById('rLog');lg.appendChild(d);lg.scrollTop=lg.scrollHeight;}const n=document.getElementById('rN');if(n&&st.n)n.textContent='المشهد '+st.n;if(typeof st.tab==='number')document.querySelectorAll('#rTabs button').forEach(b=>b.classList.toggle('on',+b.dataset.i===st.tab));}const p=pend[seq];if(p){clearTimeout(p.to);p.el.textContent='وصلت ✓';delete pend[seq];}};
   const send=(cmd,label,sys)=>{if(!anyCh()){add('غير متصل',true);return;}cmd.seq=Date.now()+'-'+Math.random().toString(36).slice(2,7);const el=label?add(label,sys):document.createElement('i');
     TX('cmd',cmd);
-    pend[cmd.seq]={el,to:setTimeout(()=>{el.textContent=sys?'':'ما وصلت للعرض… تأكد إن العرض مفتوح على اللابتوب';if(sys)add('ما وصلت للعرض',true);delete pend[cmd.seq];},6000)};};
+    pend[cmd.seq]={el,to:setTimeout(()=>{el.textContent=sys?'':(document.getElementById('remote').classList.contains('student')?'ما وصلت… جرّب مرة ثانية':'ما وصلت للعرض… تأكد إن العرض مفتوح على اللابتوب');if(sys)add('ما وصلت للعرض',true);delete pend[cmd.seq];},6000)};};
   let hOk=false,hSeq=null;const hello=()=>{if(hOk||!anyCh())return;hSeq='h'+Date.now()+'-'+Math.random().toString(36).slice(2,6);TX('cmd',{type:'hello',seq:hSeq});};
   const ackPrev=ACK_CB;ACK_CB=(seq,st)=>{if(seq&&seq===hSeq&&!hOk){hOk=true;REMOTE.helloOk=true;add('تم الاتصال بالعرض ✓ … العرض بدأ',true);}ackPrev&&ackPrev(seq,st);};
   setTimeout(hello,900);setInterval(hello,3000);window.__rHello=()=>{hOk=false;hello();};keepAwake();
-  document.getElementById('rF').onsubmit=e=>{e.preventDefault();const i=document.getElementById('rIn'),v=i.value.trim();if(!v)return;send({type:'chat',text:v},v);i.value='';};
-  document.querySelectorAll('#rTabs button').forEach(b=>{b.onclick=()=>{document.querySelectorAll('#rTabs button').forEach(x=>x.classList.toggle('on',x===b));send({type:'tab',i:+b.dataset.i},'المحادثة: '+b.textContent,true);};});
-  document.getElementById('rRev').onclick=()=>send({type:'chat',text:''},'رد الشات');
+  document.getElementById('rF').onsubmit=e=>{e.preventDefault();const i=document.getElementById('rIn'),v=i.value.trim();if(!v)return;if(window.__rSecret&&__rSecret(v)){i.value='';return;}send({type:'chat',text:v},v);i.value='';};
+  const RM=document.getElementById('remote'),SECRET=x=>x.replace(/\s+/g,'').replace(/[إأآ]/g,'ا')==='عسعسالغلس';
+  const setStudent=on=>{RM.classList.toggle('student',on);document.getElementById('rH').textContent=on?'YBE':'YBE · ريموت';document.getElementById('rHint').textContent=on?'هلا! أنا YBE… اسألني أي شي':'اكتب هنا… ويطلع على الآيباد في العرض';try{localStorage.setItem('ybeStudent',on?'1':'0')}catch(e){}};
+  try{if(localStorage.getItem('ybeStudent')==='1')setStudent(true);}catch(e){}
+  document.getElementById('rStudent').onclick=()=>setStudent(true);
+  window.__rSecret=v=>{if(SECRET(v)){setStudent(false);return true;}return false;};
   [['rStep','step','التالي'],['rNext','next','المشهد التالي'],['rPrev','prev','المشهد السابق'],['rPause','pause','إيقاف/تشغيل'],['rReplay','replay','أعد المشهد'],['rMode','mode','تغيير الوضع'],['rSound','sound','الصوت']].forEach(([id,act,lb])=>{document.getElementById(id).onclick=()=>send({type:'nav',act},null,true);});}
 
 document.getElementById('sRemote').onclick=e=>{e.stopPropagation();openRemote();};
