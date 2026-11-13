@@ -1002,7 +1002,7 @@ const PS={};NEWCH.pillars={id:'pillars',dur:5.4,draw(c,T,t,dt,S){PS.dd=S.dd;CH.f
 NEWCH.thanks={id:'thanks',dur:7,draw(c,T,t,dt,S){aiBg(c,t,S,dt);const ca=seg(T,0,1.2);chipRays(c,W/2,470,140,t,.45*ca);
   kt(c,T,{s:'شكر خاص',x:W/2,y:170,size:40,font:FK,col:AM,in:'up',a:[.3]});
   kt(c,T,{s:'رئيس القسم',x:W/2,y:290,size:44,font:FK,col:DIM,in:'up',a:[.9]});
-  kt(c,T,{s:'الأستاذ حمدان',x:W/2,y:430,size:110,font:FN,shine:'cyan',in:'zoom',di:1.2,a:[1.5],glow:'rgba(1,73,173,.4)',glowR:34});
+  kt(c,T,{s:'الأستاذ حمدان المقهوي',x:W/2,y:430,size:96,font:FN,shine:'cyan',in:'zoom',di:1.2,a:[1.5],glow:'rgba(1,73,173,.4)',glowR:34});
   const g=easeOutBack(seg(T,3,3.8));if(g>0){c.save();c.globalAlpha=Math.min(1,g);c.translate(W/2,640);c.scale(g,g);const gr=c.createLinearGradient(-260,0,260,0);gr.addColorStop(0,'#B45309');gr.addColorStop(.5,'#F59E0B');gr.addColorStop(1,'#B45309');rr(c,-290,-52,580,104,52,gr);
     c.fillStyle='#fff';for(const sx of [-238,238]){c.save();c.translate(sx,0);c.rotate(t*.6);c.beginPath();for(let k=0;k<10;k++){const r=k%2?10:24,an=k*Math.PI/5-Math.PI/2;c.lineTo(Math.cos(an)*r,Math.sin(an)*r);}c.closePath();c.fill();c.restore();}c.restore();
     txt(c,'أحسن شخص',W/2,643,50,'#fff','center',FK,900,Math.min(1,g));}
@@ -1150,8 +1150,11 @@ CH.push({id:'credits',dur:8,draw(c,T,t,dt,S){aiBg(c,t,S,dt);
   kt(c,T,{s:'إعداد',x:W/2,y:225,size:30,col:DIM,font:FK,a:[.4]});
   ['جاسم القناعي','بدر الشافي','عبدالله السعدون'].forEach((n,i)=>kt(c,T,{s:n,x:W/2+(1-i)*470,y:320,size:72,font:FN,shine:'cyan',in:'up',di:1,a:[.8+i*.25]}));
   const ln=seg(T,1.8,2.6);if(ln>0){c.save();c.strokeStyle='#D3DEF4';c.lineWidth=2;line(c,W/2+520*ln,410,W/2-520*ln,410);c.restore();}
-  kt(c,T,{s:'بإشراف',x:W/2,y:455,size:26,col:DIM,font:FK,a:[2.2]});
-  kt(c,T,{s:'الأستاذ حسام الدين رياض',x:W/2,y:510,size:46,font:FN,col:NV,in:'wipe',a:[2.5]});
+  kt(c,T,{s:'بإشراف',x:W/2+330,y:455,size:26,col:DIM,font:FK,a:[2.2]});
+  kt(c,T,{s:'الأستاذ حسام الدين رياض',x:W/2+330,y:510,size:42,font:FN,col:NV,in:'wipe',a:[2.5]});
+  kt(c,T,{s:'رئيس قسم الكيمياء والفيزياء',x:W/2-330,y:455,size:26,col:DIM,font:FK,a:[2.4]});
+  kt(c,T,{s:'الأستاذ حمدان القهيدي',x:W/2-330,y:510,size:42,font:FN,col:NV,in:'wipe',a:[2.7]});
+  {const a=seg(T,2.4,3);if(a>0){c.save();c.globalAlpha=a;c.strokeStyle='#D3DEF4';c.lineWidth=2;line(c,W/2,440,W/2,535);c.restore();}}
   kt(c,T,{s:'المراجع',x:W/2,y:600,size:28,col:CY,font:FK,a:[3.4]});
   ['معلمو وطلاب ثانوية يوسف بن عيسى · استبيان في ١٢ مادة دراسية','Towards a New AI-TPACK Framework: Evidence from China · ResearchGate','Intelligent-TPACK (I-TPACK) · ResearchGate','MagicSchool AI · Lesson Plan Generator'].forEach((s,i)=>kt(c,T,{s,x:W/2,y:648+i*40,size:22,col:'#334155',a:[3.6+i*.2]}));
   kt(c,T,{s:'شكراً لحسن استماعكم',x:W/2,y:858,size:30,font:FK,col:CY,a:[5]});}});
