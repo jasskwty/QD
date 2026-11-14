@@ -1057,9 +1057,9 @@ function mkPresenter(id,name,en,num,ttl,col){return {id,dur:6,draw(c,T,t,dt,S){a
 NEWCH.sp1=mkPresenter('sp1','بدر كايد','Bader Kayed',1,'Chapter 01 · الطلاب','#7C3AED');
 NEWCH.sp2=mkPresenter('sp2','عبدالله السعدون','Abdullah Al-Saadoun',2,'Chapter 02 · المعلمين','#7C3AED');
 NEWCH.sp3=mkPresenter('sp3','جاسم القناعي','Jassim Al-Qanaei',3,'Chapter 03 · التجارب العملية','#059669');
-function keyword(c,T,w,col){const a=seg(T,.6,1.2);if(a<=0)return;col=col||(THEME==='purple'?'#7C3AED':'#0149AD');c.save();c.font='900 24px '+FK;const tw=c.measureText(w).width;c.restore();const bw=tw+142,x=28,y=52,p=easeOutBack(a);
+function keyword(c,T,w,col){const a=seg(T,.6,1.2);if(a<=0)return;col=col||(THEME==='purple'?'#7C3AED':'#0149AD');c.save();c.font='900 24px '+FK;const tw=c.measureText(w).width;c.restore();const bw=tw+48,x=28,y=52,p=easeOutBack(a);
   c.save();c.globalAlpha=Math.min(1,a);c.translate(x,y);c.scale(p,p);c.shadowColor='rgba(1,73,173,.25)';c.shadowBlur=20;const g=c.createLinearGradient(0,0,bw,0);g.addColorStop(0,THEME==='purple'?'#2E1065':'#041E52');g.addColorStop(1,col);rr(c,0,-27,bw,54,27,g);c.shadowColor='transparent';
-  rr(c,7,-20,96,40,20,'rgba(255,255,255,.16)');c.restore();ltr2(c,'KEY WORD',x+55,y,14,'#BFD4FF',Math.min(1,a));c.save();c.globalAlpha=Math.min(1,a);c.direction='ltr';c.textAlign='left';c.textBaseline='middle';c.font='900 24px '+FK;c.fillStyle='#fff';c.fillText(w,x+116,y+2);c.restore();}
+  c.restore();c.save();c.globalAlpha=Math.min(1,a);c.direction='ltr';c.textAlign='left';c.textBaseline='middle';c.font='900 24px '+FK;c.fillStyle='#fff';c.fillText(w,x+24,y+2);c.restore();}
 const CH=[];
 // ---------- subject panel: visual on the left, the subject's own use on the right ----------
 function subj(c,T,t,a0,a1,name,app,out,vis,note){a1=a1||undefined;const a=seg(T,a0,a0+.6)*(a1?1-seg(T,a1,a1+.5):1);if(a<=0)return;
