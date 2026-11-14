@@ -932,7 +932,7 @@ NEWCH.finale={id:'finale',dur:14,stops:[8.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt);con
   kt(c,T,{s:'الذكاء الاصطناعي يساعدنا نفكر… لكنه ما يفكر بدالنا',x:W/2,y:660,size:50,font:FK,col:NV,in:'slam',a:[8.8],box:1});
   ['جاسم القناعي','بدر كايد','عبدالله السعدون'].forEach((n,i)=>kt(c,T,{s:n,x:W/2+(1-i)*420,y:790,size:38,font:FN,col:CY,in:'up',a:[10+i*.25]}));
   kt(c,T,{s:'شكراً لكم!',x:W/2,y:860,size:30,col:AM,font:FK,a:[11]});}};
-function mkChap(id,num,title,who,from,to,axes,endl,col){return {id,dur:4+axes.length*.5+1.5,stops:[2.2],draw(c,T,t,dt,S){aiBg(c,t,S,dt);const ca=seg(T,0,1);
+function mkChap(id,num,title,who,from,to,axes,endl,col){return {id,dur:4+axes.length*.5+1.5,stops:[2.2],draw(c,T,t,dt,S){aiBg(c,t,S,dt);if(id==='ch1')keyword(c,T,'STUDENTS');const ca=seg(T,0,1);
   cpuChip(c,240,450,120,t,.18*ca);chipRays(c,240,450,120,t,.45*ca);
   const a=seg(T,.2,.8);txt(c,'هل نقدر نثق بالذكاء الاصطناعي؟',W/2,62,24,AM,'center',FK,800,a);ltr2(c,'CHAPTER',1275,150,34,DIM,a);
   c.save();c.globalAlpha=a;c.direction='ltr';c.textAlign='center';c.textBaseline='middle';c.font='900 '+(150+20*(1-ease(a)))+'px '+FK;const g=c.createLinearGradient(1115,0,1435,0);g.addColorStop(0,'#041E52');g.addColorStop(.5,col);g.addColorStop(1,'#60A5FA');c.fillStyle=g;c.fillText(num,1275,265);c.restore();
@@ -943,8 +943,8 @@ function mkChap(id,num,title,who,from,to,axes,endl,col){return {id,dur:4+axes.le
     c.shadowColor='rgba(1,73,173,.10)';c.shadowBlur=18;rr(c,420,y-30,540,60,30,'#fff');c.shadowColor='transparent';rr(c,420,y-30,540,60,30,null,'#D3DEF4',1.5);c.fillStyle=col;c.beginPath();c.arc(930,y,22,0,TAU);c.fill();c.restore();
     txt(c,AR(i+1),930,y+2,20,'#fff','center',FK,800,Math.min(1,p));txt(c,s,895,y+2,23,INK,'right',FB,700,Math.min(1,p));});
   const ea=seg(T,3+axes.length*.45,3.6+axes.length*.45);if(ea>0){c.save();c.globalAlpha=ea;rr(c,300,770,1000,62,31,'rgba(1,73,173,.06)',col,2);c.restore();txt(c,endl,W/2,802,28,col,'center',FK,800,ea);}}};}
-NEWCH.ch1=mkChap('ch1','01','محور الطلاب','المتحدث الأول · بدر كايد','00:00','15:00',['سؤال مفاجئ: منو استخدم ChatGPT؟','يساعدنا أو يضرنا؟','اختبار: تصدقون كل معلومة؟','شلون تغيّر دور الطالب والمعلم؟','انتقال لمحور المعلمين'],'طيب… والمعلم؟','#0149AD');
-NEWCH.ch2=mkChap('ch2','02','محور المعلمين','المتحدث الثاني · عبدالله السعدون','15:00','30:00',['سألنا معلمينا في ١٢ مادة','شنو يستخدمونه فيه؟','هل الذكاء الاصطناعي دائماً صح؟','الضوء الأخضر والضوء الأحمر','خصوصية الطلاب وحماية المعلومات'],'خلونا نجرب!','#7C3AED');
+NEWCH.ch1=mkChap('ch1','01','الطلاب','المتحدث الأول · بدر كايد','00:00','15:00',['سؤال مفاجئ: منو استخدم ChatGPT؟','يساعدنا أو يضرنا؟','اختبار: تصدقون كل معلومة؟','شلون تغيّر دور الطالب والمعلم؟','انتقال لـ Chapter 02 · المعلمين'],'طيب… والمعلم؟','#0149AD');
+NEWCH.ch2=mkChap('ch2','02','المعلمين','المتحدث الثاني · عبدالله السعدون','15:00','30:00',['سألنا معلمينا في ١٢ مادة','شنو يستخدمونه فيه؟','هل الذكاء الاصطناعي دائماً صح؟','الضوء الأخضر والضوء الأحمر','خصوصية الطلاب وحماية المعلومات'],'خلونا نجرب!','#7C3AED');
 NEWCH.ch3=mkChap('ch3','03','التجارب العملية','المتحدث الثالث · جاسم القناعي','30:00','45:00',['التاريخ واللغة','الرياضيات والعلوم','التحدي المباشر Live Challenge','شلون نطبقها في مدرستنا؟','الخاتمة الجماعية'],'الخاتمة الجماعية','#059669');
 // ===== SHOW chapters =====
 function qCard(c,T,a0,a1,s,y,size,col){const p=easeOutBack(seg(T,a0,a0+.7))*(a1?1-seg(T,a1,a1+.4):1);if(p<=0)return;c.save();c.font='800 '+size+'px '+FK;const w=Math.min(1400,c.measureText(s).width+120);c.restore();
@@ -952,7 +952,7 @@ function qCard(c,T,a0,a1,s,y,size,col){const p=easeOutBack(seg(T,a0,a0+.7))*(a1?
   c.fillStyle='#fff';c.beginPath();c.moveTo(-40,size*1.1-2);c.lineTo(0,size*1.1+34);c.lineTo(30,size*1.1-2);c.fill();c.strokeStyle=col||CY;c.lineWidth=3;c.beginPath();c.moveTo(-40,size*1.1);c.lineTo(0,size*1.1+34);c.lineTo(30,size*1.1);c.stroke();c.restore();
   txt(c,s,W/2,y+2,size,NV,'center',FK,800,Math.min(1,p));}
 function hands(c,cx,cy,t,a){if(a<=0)return;for(let i=0;i<9;i++){const x=cx+(i-4)*120,up=.5+.5*Math.sin(t*3+i*1.7),h=60+up*50;c.save();c.globalAlpha=a*(.35+.4*up);c.fillStyle=i%2?CY:AM;c.beginPath();c.arc(x,cy,26,0,TAU);c.fill();rr(c,x-8,cy-26-h,16,h,8,c.fillStyle);c.beginPath();c.arc(x,cy-30-h,13,0,TAU);c.fill();c.restore();}}
-NEWCH.poll={id:'poll',dur:13,stops:[3.6,7.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr(c,T,'Quick Poll · سؤال مفاجئ','ارفعوا أيديكم! Raise your hands');
+NEWCH.poll={id:'poll',dur:13,stops:[3.6,7.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt);keyword(c,T,'HONESTY');hdr(c,T,'Quick Poll · سؤال مفاجئ','ارفعوا أيديكم! Raise your hands');
   qCard(c,T,.4,3.8,'منو فيكم استخدم ChatGPT عشان يحل واجب؟',380,46,CY);hands(c,W/2,720,t,seg(T,1.2,1.8)*(1-seg(T,3.8,4.2)));
   qCard(c,T,4.2,7.8,'لو عطيتوا الذكاء الاصطناعي اختباركم… تتوقعون ينجح؟',360,44,'#7C3AED');
   ['إيه، ينجح','لا، ما ينجح'].forEach((s,i)=>{const p=easeOutBack(seg(T,5+i*.3,5.6+i*.3))*(1-seg(T,7.8,8.2));if(p<=0)return;const x=W/2+(i?-260:260);c.save();c.globalAlpha=Math.min(1,p);c.translate(x,600);c.scale(p,p);rr(c,-200,-50,400,100,50,i?'rgba(220,38,38,.08)':'rgba(5,150,105,.08)',i?RO:GR,3);c.restore();txt(c,s,x,602,36,i?RO:GR,'center',FK,800,Math.min(1,p));});
@@ -964,7 +964,7 @@ NEWCH.poll={id:'poll',dur:13,stops:[3.6,7.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr
     for(let k=0;k<4;k++){const f=((t*.9+k*.25)%1);c.globalAlpha=a*(1-f);c.fillStyle=CY;c.fillRect(1290-f*120,360+k*40-f*20,10,10);}c.restore();
     txt(c,'ينسخ الإجابة كاملة… بدون ما يفهمها',1170,620,26,INK,'center',FB,700,a);}
   const b=seg(T,10,10.6);if(b>0){c.save();c.globalAlpha=b;rr(c,170,300,520,90,45,'rgba(1,73,173,.07)',CY,2);c.restore();txt(c,'المعلم: «اشرح لي إجابتك»',430,346,32,NV,'center',FK,800,b);const d=seg(T,11,11.5);c.save();c.globalAlpha=d;rr(c,250,450,360,110,55,'rgba(220,38,38,.07)',RO,2);c.restore();txt(c,'الطالب: «… »',430,507,44,RO,'center',FK,900,d);txt(c,'ما يعرف يشرح!',430,610,28,DIM,'center',FB,700,seg(T,11.6,12));}}};
-NEWCH.helpharm={id:'helpharm',dur:12,stops:[4.4],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr(c,T,'Helpful or Harmful?','ينفعنا… أو يضرنا؟');
+NEWCH.helpharm={id:'helpharm',dur:12,stops:[4.4],draw(c,T,t,dt,S){aiBg(c,t,S,dt);keyword(c,T,'BALANCE');hdr(c,T,'Helpful or Harmful?','ينفعنا… أو يضرنا؟');
   const tilt=(seg(T,4.6,6)-seg(T,1,2.4))*.08+Math.sin(t*1.5)*.01,cx=W/2,cy=330;
   c.save();c.strokeStyle=NV;c.lineWidth=8;c.lineCap='round';line(c,cx,cy,cx,700);rr(c,cx-110,690,220,24,12,NV);c.translate(cx,cy);c.rotate(tilt);line(c,-480,0,480,0);c.fillStyle=CY;c.beginPath();c.arc(0,0,16,0,TAU);c.fill();c.restore();
   const pan=(sx,col,ttl,items,a0)=>{const px=cx+Math.cos(tilt)*sx,py=cy+Math.sin(tilt)*sx;c.save();c.strokeStyle='#94A3B8';c.lineWidth=2;line(c,px,py,px-150,py+120);line(c,px,py,px+150,py+120);c.restore();
@@ -973,23 +973,23 @@ NEWCH.helpharm={id:'helpharm',dur:12,stops:[4.4],draw(c,T,t,dt,S){aiBg(c,t,S,dt)
   pan(-330,RO,'يضرنا',['ننسخ بدون ما نفهم','يعطينا معلومة غلط','نعتمد عليه بكل شيء'],.6);
   pan(330,GR,'ينفعنا',['ملخصات وخرائط ذهنية','أسئلة تفاعلية ومسابقات','صور وفيديوهات تشرح الدرس'],4.6);
   kt(c,T,{s:'يعتمد على شلون نستخدمه · It depends',x:W/2,y:220,size:40,font:FK,shine:'cyan',in:'wipe',a:[7.4],box:1});}};
-NEWCH.roles={id:'roles',dur:11,stops:[5],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr(c,T,'Before & After · قبل وبعد','شلون تغيّر دور المعلم والطالب؟');
+NEWCH.roles={id:'roles',dur:11,stops:[5],draw(c,T,t,dt,S){aiBg(c,t,S,dt);keyword(c,T,'CRITICAL THINKING');hdr(c,T,'Before & After · قبل وبعد','شلون تغيّر دور المعلم والطالب؟');
   const R=[['المعلم','غرقان في التحضير الروتيني','مصمم وموجّه للتعلّم',CY],['الطالب','يتلقى ويبصم المعلومات','يفكر وينقد ويتعلم بطريقته',AM]];
   R.forEach(([who,b,a2,col],i)=>{const a0=.5+i*5,y=330+i*260,A=seg(T,a0,a0+.5);if(A<=0)return;txt(c,who,1400,y,52,col,'center',FK,900,A);
     panel(c,840,y-80,440,160,A,'#CBD5E1');txt(c,'قبل',1060,y-45,22,DIM,'center',FB,700,A);txt(c,b,1060,y+10,28,'#64748B','center',FB,700,A);
     const p=ease(seg(T,a0+1,a0+2.2));c.save();c.globalAlpha=A;c.strokeStyle=col;c.lineWidth=6;c.lineCap='round';line(c,820,y,820-120*p,y);if(p>.9){c.beginPath();c.moveTo(712,y-16);c.lineTo(696,y);c.lineTo(712,y+16);c.stroke();}c.restore();
     const B=easeOutBack(seg(T,a0+2,a0+2.8));if(B>0){c.save();c.globalAlpha=Math.min(1,B);c.translate(440,y);c.scale(B,B);c.shadowColor='rgba(1,73,173,.18)';c.shadowBlur=30;rr(c,-240,-80,480,160,26,'#fff');c.shadowColor='transparent';rr(c,-240,-80,480,160,26,null,col,3);c.restore();
       txt(c,'بعد',440,y-45,22,col,'center',FB,800,Math.min(1,B));txt(c,a2,440,y+10,30,NV,'center',FK,800,Math.min(1,B));}});}};
-NEWCH.bridge1={id:'bridge1',dur:7,draw(c,T,t,dt,S){aiBg(c,t,S,dt);
+NEWCH.bridge1={id:'bridge1',dur:7,draw(c,T,t,dt,S){aiBg(c,t,S,dt);keyword(c,T,'TEACHERS?');
   kt(c,T,{s:'عرفنا شلون يتعامل الطالب مع الذكاء الاصطناعي…',x:W/2,y:300,size:44,font:FK,col:INK,in:'wipe',a:[.4]});
   kt(c,T,{s:'طيب… والمعلم؟ شلون يستخدمه؟',x:W/2,y:440,size:68,font:FK,shine:'cyan',in:'zoom',a:[1.8],glow:'rgba(1,73,173,.4)',glowR:30});
   const a=seg(T,3.4,4);if(a>0){txt(c,'؟',W/2,640,160,CY,'center',FK,900,a*(.5+.5*Math.sin(t*3)));}
-  chip(c,'التالي: محور المعلمين · عبدالله السعدون',W/2,800,seg(T,4.2,4.8),CY,26);}};
+  chip(c,'Next: Chapter 02 · عبدالله السعدون',W/2,800,seg(T,4.2,4.8),CY,26);}};
 NEWCH.bridge2={id:'bridge2',dur:7,draw(c,T,t,dt,S){aiBg(c,t,S,dt);
   kt(c,T,{s:'عرفنا شلون يستخدمه المعلم… وشنو حدوده',x:W/2,y:300,size:44,font:FK,col:INK,in:'wipe',a:[.4]});
   kt(c,T,{s:'خلونا نشوفه وهو يشتغل داخل الفصل!',x:W/2,y:440,size:66,font:FK,shine:'cyan',in:'zoom',a:[1.8],glow:'rgba(1,73,173,.4)',glowR:30});
   const a=seg(T,3.2,3.8);if(a>0){c.save();c.globalAlpha=a;rr(c,W/2-110,560,220,90,45,RO);c.fillStyle='#fff';c.globalAlpha=a*(.5+.5*Math.sin(t*5));c.beginPath();c.arc(W/2-60,605,14,0,TAU);c.fill();c.restore();txt(c,'LIVE',W/2+20,607,40,'#fff','center',FK,900,a);}
-  chip(c,'التالي: التجارب العملية · جاسم القناعي',W/2,800,seg(T,4.2,4.8),GR,26);}};
+  chip(c,'Next: Chapter 03 · جاسم القناعي',W/2,800,seg(T,4.2,4.8),GR,26);}};
 NEWCH.traffic={id:'traffic',dur:14,stops:[6.4],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr(c,T,'مثل إشارة المرور','شنو نخليه يسوي… وشنو لا؟');
   const g=seg(T,.6,1),r=seg(T,6.6,7),cx=W/2,cy=470;c.save();c.shadowColor='rgba(4,30,82,.3)';c.shadowBlur=30;rr(c,cx-90,cy-250,180,500,40,'#1E293B');c.restore();rr(c,cx-14,cy+250,28,170,8,'#334155');
   [[RO,r],['#F59E0B',0],[GR,g*(1-r)]].forEach(([col,on],i)=>{const y=cy-160+i*160;c.fillStyle='#0F172A';c.beginPath();c.arc(cx,y,62,0,TAU);c.fill();c.save();c.globalAlpha=.15+.85*on;c.fillStyle=col;if(on>.5){c.shadowColor=col;c.shadowBlur=60;}c.beginPath();c.arc(cx,y,54,0,TAU);c.fill();c.restore();});
@@ -1005,7 +1005,7 @@ NEWCH.privacy={id:'privacy',dur:11,stops:[],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr(
   ['أسماء الطلاب','درجاتهم','بياناتهم الخاصة'].forEach((s,i)=>{const p=easeOutBack(seg(T,2.6+i*.6,3.3+i*.6));if(p<=0)return;const x=1180-i*380,y=680;c.save();c.globalAlpha=Math.min(1,p);c.translate(x,y);c.scale(p,p);c.shadowColor='rgba(1,73,173,.12)';c.shadowBlur=20;rr(c,-160,-55,320,110,24,'#fff');c.shadowColor='transparent';rr(c,-160,-55,320,110,24,null,RO,2);c.restore();
     txt(c,s,x,y+2,30,INK,'center',FK,800,Math.min(1,p));const st=seg(T,3.1+i*.6,3.5+i*.6);if(st>0){c.save();c.strokeStyle=RO;c.lineWidth=5;line(c,x-130,y,x-130+260*st,y);c.restore();}});
   kt(c,T,{s:'ما نرفعها في أي برنامج ذكاء اصطناعي عام',x:W/2,y:820,size:34,font:FK,col:RO,in:'wipe',a:[5.2],box:1});}};
-NEWCH.quiz={id:'quiz',dur:11,stops:[4.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt);hdr(c,T,'Quick Quiz · اختبار سريع','جاوبوا معانا!');
+NEWCH.quiz={id:'quiz',dur:11,stops:[4.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt);keyword(c,T,'DOUBLE-CHECK');hdr(c,T,'Quick Quiz · اختبار سريع','جاوبوا معانا!');
   qCard(c,T,.4,0,'إذا الذكاء الاصطناعي عطاكم معلومة تاريخية… تصدقونها مباشرة؟',330,40,'#7C3AED');
   const rv=seg(T,4.8,5.4);
   [['إيه، أصدقها',RO],['لا، أراجعها أول',GR]].forEach(([s,col],i)=>{const p=easeOutBack(seg(T,1.4+i*.4,2+i*.4));if(p<=0)return;const x=W/2+(i?-300:300),sc=i?1+.08*rv:1-.1*rv;c.save();c.globalAlpha=Math.min(1,p)*(i?1:1-.55*rv);c.translate(x,560);c.scale(p*sc,p*sc);rr(c,-240,-60,480,120,60,'#fff',col,3);c.restore();
@@ -1027,17 +1027,20 @@ NEWCH.thanks={id:'thanks',dur:7,draw(c,T,t,dt,S){aiBg(c,t,S,dt);const ca=seg(T,0
     c.fillStyle='#fff';for(const sx of [-238,238]){c.save();c.translate(sx,0);c.rotate(t*.6);c.beginPath();for(let k=0;k<10;k++){const r=k%2?10:24,an=k*Math.PI/5-Math.PI/2;c.lineTo(Math.cos(an)*r,Math.sin(an)*r);}c.closePath();c.fill();c.restore();}c.restore();
     txt(c,'أحسن شخص',W/2,643,50,'#fff','center',FK,900,Math.min(1,g));}
   for(let k=0;k<14;k++){const a=seg(T,3.4,4);if(a<=0)break;const f=((t*.35+k*.071)%1),x=W/2+Math.cos(k*2.4)*(320+f*260),y=640+Math.sin(k*2.4)*(90+f*140);glowDot(c,x,y,3,a*(1-f),'rgba(245,158,11,.9)');}}};
-function mkPresenter(id,name,en,num,ttl,col){return {id,dur:6,draw(c,T,t,dt,S){aiBg(c,t,S,dt);const ca=seg(T,0,1);chipRays(c,W/2,400,150,t,.4*ca);
+function mkPresenter(id,name,en,num,ttl,col){return {id,dur:6,draw(c,T,t,dt,S){aiBg(c,t,S,dt);if(id==='sp1')keyword(c,T,'WELCOME');const ca=seg(T,0,1);chipRays(c,W/2,400,150,t,.4*ca);
   const r=easeOutBack(seg(T,.3,1.1));if(r>0){c.save();c.translate(W/2,330);c.scale(r,r);for(let k=0;k<3;k++){c.globalAlpha=.18*(1-((t*.5+k/3)%1));c.strokeStyle=col;c.lineWidth=3;c.beginPath();c.arc(0,0,120+((t*.5+k/3)%1)*90,0,TAU);c.stroke();}
     c.globalAlpha=1;const g=c.createLinearGradient(-110,-110,110,110);g.addColorStop(0,'#041E52');g.addColorStop(1,col);c.fillStyle=g;c.shadowColor='rgba(1,73,173,.35)';c.shadowBlur=40;c.beginPath();c.arc(0,0,110,0,TAU);c.fill();c.shadowColor='transparent';
-    c.fillStyle='#fff';c.font='900 120px '+FK;c.textAlign='center';c.textBaseline='middle';c.direction='rtl';c.fillText(name.trim()[0],0,8);c.restore();}
-  kt(c,T,{s:'يقدّم المحور '+['الأول','الثاني','الثالث'][num-1],x:W/2,y:510,size:30,font:FK,col:DIM,in:'up',a:[1]});
+    c.fillStyle='#fff';c.strokeStyle='#fff';c.lineCap='round';rr(c,-24,-62,48,82,24,'#fff');c.lineWidth=9;c.beginPath();c.arc(0,-6,44,0.15*Math.PI,0.85*Math.PI);c.stroke();line(c,0,38,0,62);line(c,-24,64,24,64);c.globalAlpha=.35;for(let k=0;k<3;k++){rr(c,-14,-44+k*16,28,4,2,col);}c.restore();}
+  {const e0=seg(T,1,1.5);if(e0>0)ltr2(c,'CHAPTER 0'+num+' · PRESENTED BY',W/2,512,26,DIM,e0);}
   kt(c,T,{s:name,x:W/2,y:600,size:96,font:FK,shine:'cyan',in:'zoom',di:1.1,a:[1.3],glow:'rgba(1,73,173,.4)',glowR:30});
   const e=seg(T,2.2,2.8);if(e>0)ltr2(c,en,W/2,690,30,col,e);
   chip(c,ttl,W/2,780,seg(T,2.6,3.2),col,30);}};}
-NEWCH.sp1=mkPresenter('sp1','بدر كايد','Bader Kayed',1,'المحور الأول · الطلاب','#0149AD');
-NEWCH.sp2=mkPresenter('sp2','عبدالله السعدون','Abdullah Al-Saadoun',2,'المحور الثاني · المعلمين','#7C3AED');
-NEWCH.sp3=mkPresenter('sp3','جاسم القناعي','Jassim Al-Qanaei',3,'المحور الثالث · التجارب العملية','#059669');
+NEWCH.sp1=mkPresenter('sp1','بدر كايد','Bader Kayed',1,'Chapter 01 · الطلاب','#0149AD');
+NEWCH.sp2=mkPresenter('sp2','عبدالله السعدون','Abdullah Al-Saadoun',2,'Chapter 02 · المعلمين','#7C3AED');
+NEWCH.sp3=mkPresenter('sp3','جاسم القناعي','Jassim Al-Qanaei',3,'Chapter 03 · التجارب العملية','#059669');
+function keyword(c,T,w,col){const a=seg(T,.6,1.2);if(a<=0)return;col=col||'#0149AD';c.save();c.font='900 24px '+FK;const tw=c.measureText(w).width;c.restore();const bw=tw+142,x=28,y=52,p=easeOutBack(a);
+  c.save();c.globalAlpha=Math.min(1,a);c.translate(x,y);c.scale(p,p);c.shadowColor='rgba(1,73,173,.25)';c.shadowBlur=20;const g=c.createLinearGradient(0,0,bw,0);g.addColorStop(0,'#041E52');g.addColorStop(1,col);rr(c,0,-27,bw,54,27,g);c.shadowColor='transparent';
+  rr(c,7,-20,96,40,20,'rgba(255,255,255,.16)');c.restore();ltr2(c,'KEY WORD',x+55,y,14,'#BFD4FF',Math.min(1,a));c.save();c.globalAlpha=Math.min(1,a);c.direction='ltr';c.textAlign='left';c.textBaseline='middle';c.font='900 24px '+FK;c.fillStyle='#fff';c.fillText(w,x+116,y+2);c.restore();}
 const CH=[];
 // ---------- subject panel: visual on the left, the subject's own use on the right ----------
 function subj(c,T,t,a0,a1,name,app,out,vis,note){a1=a1||undefined;const a=seg(T,a0,a0+.6)*(a1?1-seg(T,a1,a1+.5):1);if(a<=0)return;
