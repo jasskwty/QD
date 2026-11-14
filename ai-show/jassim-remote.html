@@ -952,7 +952,7 @@ function qCard(c,T,a0,a1,s,y,size,col){const p=easeOutBack(seg(T,a0,a0+.7))*(a1?
   c.fillStyle='#fff';c.beginPath();c.moveTo(-40,size*1.1-2);c.lineTo(0,size*1.1+34);c.lineTo(30,size*1.1-2);c.fill();c.strokeStyle=col||CY;c.lineWidth=3;c.beginPath();c.moveTo(-40,size*1.1);c.lineTo(0,size*1.1+34);c.lineTo(30,size*1.1);c.stroke();c.restore();
   txt(c,s,W/2,y+2,size,NV,'center',FK,800,Math.min(1,p));}
 function hands(c,cx,cy,t,a){if(a<=0)return;for(let i=0;i<9;i++){const x=cx+(i-4)*120,up=.5+.5*Math.sin(t*3+i*1.7),h=60+up*50;c.save();c.globalAlpha=a*(.35+.4*up);c.fillStyle=i%2?CY:AM;c.beginPath();c.arc(x,cy,26,0,TAU);c.fill();rr(c,x-8,cy-26-h,16,h,8,c.fillStyle);c.beginPath();c.arc(x,cy-30-h,13,0,TAU);c.fill();c.restore();}}
-NEWCH.poll={id:'poll',dur:13,stops:[3.6,7.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt);keyword(c,T,'HONESTY');hdr(c,T,'Quick Poll · سؤال مفاجئ','ارفعوا أيديكم! Raise your hands');
+NEWCH.poll={id:'poll',dur:17.5,stops:[3.6,7.6,11],draw(c,T,t,dt,S){aiBg(c,t,S,dt);keyword(c,T,'HONESTY');hdr(c,T,'Quick Poll · سؤال مفاجئ','ارفعوا أيديكم! Raise your hands');
   qCard(c,T,.4,3.8,'منو فيكم استخدم ChatGPT عشان يحل واجب؟',380,46,CY);hands(c,W/2,720,t,seg(T,1.2,1.8)*(1-seg(T,3.8,4.2)));
   qCard(c,T,4.2,7.8,'لو عطيتوا الذكاء الاصطناعي اختباركم… تتوقعون ينجح؟',360,44,'#7C3AED');
   ['إيه، ينجح','لا، ما ينجح'].forEach((s,i)=>{const p=easeOutBack(seg(T,5+i*.3,5.6+i*.3))*(1-seg(T,7.8,8.2));if(p<=0)return;const x=W/2+(i?-260:260);c.save();c.globalAlpha=Math.min(1,p);c.translate(x,600);c.scale(p,p);rr(c,-200,-50,400,100,50,i?'rgba(220,38,38,.08)':'rgba(5,150,105,.08)',i?RO:GR,3);c.restore();txt(c,s,x,602,36,i?RO:GR,'center',FK,800,Math.min(1,p));});
@@ -963,16 +963,34 @@ NEWCH.poll={id:'poll',dur:13,stops:[3.6,7.6],draw(c,T,t,dt,S){aiBg(c,t,S,dt);key
     const q=seg(T,8.6,9.8);for(let i=0;i<5;i++){const w=260*(i===4?.6:1)*seg(q,i/5,(i+1)/5);rr(c,940,360+i*44,w,12,6,'#64748B');}
     for(let k=0;k<4;k++){const f=((t*.9+k*.25)%1);c.globalAlpha=a*(1-f);c.fillStyle=CY;c.fillRect(1290-f*120,360+k*40-f*20,10,10);}c.restore();
     txt(c,'ينسخ الإجابة كاملة… بدون ما يفهمها',1170,620,26,INK,'center',FB,700,a);}
-  const b=seg(T,10,10.6);if(b>0){c.save();c.globalAlpha=b;rr(c,170,300,520,90,45,'rgba(1,73,173,.07)',CY,2);c.restore();txt(c,'المعلم: «اشرح لي إجابتك»',430,346,32,NV,'center',FK,800,b);const d=seg(T,11,11.5);c.save();c.globalAlpha=d;rr(c,250,450,360,110,55,'rgba(220,38,38,.07)',RO,2);c.restore();txt(c,'الطالب: «… »',430,507,44,RO,'center',FK,900,d);txt(c,'ما يعرف يشرح!',430,610,28,DIM,'center',FB,700,seg(T,11.6,12));}}};
+  const b=seg(T,10,10.6);if(b<=0)return;c.save();c.globalAlpha=b;rr(c,170,290,520,84,42,'rgba(1,73,173,.07)',CY,2);c.restore();txt(c,'المعلم: «اشرح لي إجابتك»',430,333,32,NV,'center',FK,800,b);
+  // student
+  const fly=ease(seg(T,13.95,14.4)),ax=T<12.6?W+260:T<14.1?lerp(W+260,430,ease(seg(T,12.6,14.1))):T<14.7?430:lerp(430,-320,ease(seg(T,14.7,16.2)));
+  const sa=seg(T,10.4,10.9)*(1-fly);if(sa>0){const sx=lerp(430,ax+40,fly),sy=lerp(500,760,fly);c.save();c.globalAlpha=sa;c.translate(sx,sy);c.scale(1.5*(1-fly*.6),1.5*(1-fly*.6));
+    c.fillStyle='#1D63E0';rr(c,-38,-10,76,96,30,'#1D63E0');c.fillStyle='#FDE7C8';c.beginPath();c.arc(0,-46,34,0,TAU);c.fill();c.fillStyle='#0B1220';c.beginPath();c.arc(-11,-48,4,0,TAU);c.arc(11,-48,4,0,TAU);c.fill();
+    c.strokeStyle='#0B1220';c.lineWidth=3;c.beginPath();c.arc(0,-28,8,1.15*Math.PI,1.85*Math.PI);c.stroke();c.restore();
+    if(T<11.2){const q=.5+.5*Math.sin(t*5);txt(c,'؟',sx+95,sy-110,70,RO,'center',FK,900,sa*q);}}
+  // wrong stamp
+  const xa=seg(T,11.15,11.4)*(1-seg(T,13.4,13.7));if(xa>0){const sc=1+(1-ease(seg(T,11.15,11.4)))*1.2;c.save();c.globalAlpha=xa;c.translate(430,480);c.scale(sc,sc);c.rotate(-.12);c.strokeStyle=RO;c.lineWidth=22;c.lineCap='round';line(c,-100,-100,100,100);line(c,100,-100,-100,100);c.restore();
+    txt(c,'خطأ!',600,600,54,RO,'center',FK,900,xa);if(S.on)once(S,'wrongX',()=>{S.shake=.7;try{snd('boom',0)}catch(e){}});}
+  // ambulance
+  if(T>12.6&&T<16.3){const y=770,x=ax,bl=Math.floor(t*6)%2;c.save();c.shadowColor='rgba(4,30,82,.25)';c.shadowBlur=18;rr(c,x-120,y-80,250,112,16,'#fff');c.restore();rr(c,x-120,y-80,250,112,16,null,'#CBD5E1',2);
+    rr(c,x-175,y-45,70,77,14,'#fff','#CBD5E1',2);rr(c,x-165,y-35,44,30,8,'#BFDBFE');rr(c,x-175,y+2,305,14,0,RO);
+    c.fillStyle=RO;c.fillRect(x+10,y-66,22,62);c.fillRect(x-10,y-46,62,22);txt(c,'إسعاف',x-60,y-48,24,RO,'center',FK,900,1);
+    rr(c,x-30,y-98,52,20,8,bl?RO:'#2563EB');c.save();c.globalAlpha=.35;c.fillStyle=bl?RO:'#2563EB';c.beginPath();c.arc(x-4,y-88,40,0,TAU);c.fill();c.restore();
+    [x-120,x+80].forEach(wx=>{c.fillStyle='#0B1220';c.beginPath();c.arc(wx,y+36,24,0,TAU);c.fill();c.fillStyle='#94A3B8';c.beginPath();c.arc(wx,y+36,9,0,TAU);c.fill();});
+    if(S.on)once(S,'siren',()=>{try{snd('whoosh',0)}catch(e){}});}
+  {const z=easeOutBack(seg(T,15.6,16.1));if(z>0){c.save();c.globalAlpha=Math.min(1,z);c.translate(W/2,745);c.scale(z,z);c.shadowColor='rgba(220,38,38,.3)';c.shadowBlur=30;rr(c,-370,-62,740,124,62,'#fff');c.shadowColor='transparent';rr(c,-370,-62,740,124,62,null,RO,4);c.restore();
+    ltr2(c,'Absolute',W/2+150,745,72,RO,Math.min(1,z));txt(c,'وهقة!',W/2-180,750,72,NV,'center',FK,900,Math.min(1,z));}}}};
 NEWCH.helpharm={id:'helpharm',dur:12,stops:[4.4],draw(c,T,t,dt,S){aiBg(c,t,S,dt);keyword(c,T,'BALANCE');hdr(c,T,'Helpful or Harmful?','ينفعنا… أو يضرنا؟');
-  const tilt=(seg(T,4.6,6)-seg(T,1,2.4))*.08+Math.sin(t*1.5)*.01,cx=W/2,cy=330;
-  c.save();c.strokeStyle=NV;c.lineWidth=8;c.lineCap='round';line(c,cx,cy,cx,700);rr(c,cx-110,690,220,24,12,NV);c.translate(cx,cy);c.rotate(tilt);line(c,-480,0,480,0);c.fillStyle=CY;c.beginPath();c.arc(0,0,16,0,TAU);c.fill();c.restore();
+  const tilt=(seg(T,4.6,6)-seg(T,1,2.4))*.07+Math.sin(t*1.5)*.01,cx=W/2,cy=300;
+  c.save();c.strokeStyle=NV;c.lineWidth=8;c.lineCap='round';line(c,cx,cy,cx,775);rr(c,cx-110,765,220,24,12,NV);c.translate(cx,cy);c.rotate(tilt);line(c,-480,0,480,0);c.fillStyle=CY;c.beginPath();c.arc(0,0,16,0,TAU);c.fill();c.restore();
   const pan=(sx,col,ttl,items,a0)=>{const px=cx+Math.cos(tilt)*sx,py=cy+Math.sin(tilt)*sx;c.save();c.strokeStyle='#94A3B8';c.lineWidth=2;line(c,px,py,px-150,py+120);line(c,px,py,px+150,py+120);c.restore();
-    rr(c,px-200,py+120,400,14,7,col);txt(c,ttl,px,py+175,40,col,'center',FK,800,seg(T,a0,a0+.4));
-    items.forEach((s,i)=>{const q=seg(T,a0+.3+i*.4,a0+.7+i*.4);if(q<=0)return;const y=py+235+i*62;c.save();c.globalAlpha=q;rr(c,px-210,y-25,420,50,25,'#fff',col,1.5);c.restore();txt(c,s,px,y+2,23,INK,'center',FB,700,q);});};
+    rr(c,px-230,py+120,460,14,7,col);txt(c,ttl,px,py+188,58,col,'center',FK,900,seg(T,a0,a0+.4));
+    items.forEach((s,i)=>{const q=seg(T,a0+.3+i*.4,a0+.7+i*.4);if(q<=0)return;const y=py+268+i*78;c.save();c.globalAlpha=q;rr(c,px-262,y-31,524,62,31,'#fff',col,2);c.restore();txt(c,s,px,y+2,31,INK,'center',FB,800,q);});};
   pan(-330,RO,'يضرنا',['ننسخ بدون ما نفهم','يعطينا معلومة غلط','نعتمد عليه بكل شيء'],.6);
   pan(330,GR,'ينفعنا',['ملخصات وخرائط ذهنية','أسئلة تفاعلية ومسابقات','صور وفيديوهات تشرح الدرس'],4.6);
-  kt(c,T,{s:'يعتمد على شلون نستخدمه · It depends',x:W/2,y:220,size:40,font:FK,shine:'cyan',in:'wipe',a:[7.4],box:1});}};
+  kt(c,T,{s:'يعتمد على شلون نستخدمه · It depends',x:W/2,y:200,size:46,font:FK,shine:'cyan',in:'wipe',a:[7.4],box:1});}};
 NEWCH.roles={id:'roles',dur:11,stops:[5],draw(c,T,t,dt,S){aiBg(c,t,S,dt);keyword(c,T,'CRITICAL THINKING');hdr(c,T,'Before & After · قبل وبعد','شلون تغيّر دور المعلم والطالب؟');
   const R=[['المعلم','غرقان في التحضير الروتيني','مصمم وموجّه للتعلّم',CY],['الطالب','يتلقى ويبصم المعلومات','يفكر وينقد ويتعلم بطريقته',AM]];
   R.forEach(([who,b,a2,col],i)=>{const a0=.5+i*5,y=330+i*260,A=seg(T,a0,a0+.5);if(A<=0)return;txt(c,who,1400,y,52,col,'center',FK,900,A);
