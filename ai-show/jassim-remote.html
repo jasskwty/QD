@@ -854,7 +854,7 @@ function aiStart(q){const st={text:'',done:false,err:null};const h=aiHist();
     attempt(0);return st;}
   st.err='none';aiType(st,'أحتاج إنترنت عشان أرد… تأكدوا من الاتصال وجرّبوا مرة ثانية.');return st;}
 const KH_SUM='غزوة الخندق كانت سنة ٥ للهجرة، لما تحزّبت قريش وغطفان وحلفاؤهم بحوالي ١٠ آلاف مقاتل على المدينة. أشار سلمان الفارسي بحفر خندق، فحفره المسلمون مع النبي ﷺ. حاصروا المدينة قرابة شهر وما قدروا يعبرون، ثم أرسل الله عليهم ريحاً شديدة فانسحبوا.';
-const KV={el:null};function khVideo(){if(!KV.el){const v=document.createElement('video');v.src='khandaq.mp4';v.preload='auto';v.playsInline=true;v.setAttribute('playsinline','');KV.el=v;}return KV.el;}
+const KV={el:null};function khVideo(){if(!KV.el){const v=document.createElement('video');v.src=(typeof HOSTED!=='undefined'&&HOSTED&&/githack|github/.test(location.hostname))?'https://cdn.jsdelivr.net/gh/jasskwty/QD@cla'+'ude/same-presentation-yye3w4/ai-show/khandaq.mp4':'khandaq.mp4';v.preload='auto';v.playsInline=true;v.setAttribute('playsinline','');KV.el=v;}return KV.el;}
 function isVideoReq(q){return /(فيديو|فديو|مقطع|video)/i.test(q)&&/(خندق|الأحزاب|احزاب)/.test(q);}
 function videoFlow(q){const now=LIVE.now;const st={text:'',done:false};AIM.msgs.push({who:'a',st,t0:now+.3});
   setTimeout(()=>{st.text='جاري تصميم الفيديو…';},900);
