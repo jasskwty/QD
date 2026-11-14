@@ -843,7 +843,7 @@ function aiType(st,full){st.text='';const step=()=>{if(st.text.length>=full.leng
 function aiHist(){return AIM.msgs.filter(m=>m.who==='u'||(m.st&&m.st.done&&!m.st.err)).slice(-9,-1).map(m=>({role:m.who==='u'?'user':'assistant',content:m.who==='u'?m.text:m.st.text}));}
 function aiStart(q){const st={text:'',done:false,err:null};const h=aiHist();
   if(AIM.s){const prompt=YBE_SYS+(h.length?'\n\nالمحادثة السابقة:\n'+h.map(x=>(x.role==='user'?'المستخدم: ':'YBE: ')+x.content).join('\n'):'')+'\n\nرسالة المستخدم الآن: «'+q+'»\n\nاكتب رد YBE فقط.';
-    try{AIM.s(prompt,{modelTier:'default',cache:false,onText:u=>{st.text=u.text;}}).then(r=>aiFinish(st,(r&&r.text||st.text||'').trim())).catch(e=>{const c=(e&&e.code)||'err';if(c==='not_granted'||c==='unavailable')AIM.s=null;st.err=c;aiFinish(st,'ما قدرت أرد الحين… جرّبوا مرة ثانية');});}catch(e){st.err='err';aiFinish(st,'ما قدرت أرد الحين… جرّبوا مرة ثانية');}
+    try{AIM.s(prompt,{modelTier:'complex',cache:false,onText:u=>{st.text=u.text;}}).then(r=>aiFinish(st,(r&&r.text||st.text||'').trim())).catch(e=>{const c=(e&&e.code)||'err';if(c==='not_granted'||c==='unavailable')AIM.s=null;st.err=c;aiFinish(st,'ما قدرت أرد الحين… جرّبوا مرة ثانية');});}catch(e){st.err='err';aiFinish(st,'ما قدرت أرد الحين… جرّبوا مرة ثانية');}
     return st;}
   if(aiAvail()){const body=()=>JSON.stringify({model:'openai',temperature:0.3,seed:Math.floor(Math.random()*1e6),messages:[{role:'system',content:YBE_SYS},...h,{role:'user',content:q}]});
     const attempt=(n)=>{const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),25000);
