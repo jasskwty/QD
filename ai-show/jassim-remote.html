@@ -1296,7 +1296,7 @@ function go(i){i=Math.max(0,Math.min(CH.length-1,i));if(ci>=0){pcx.setTransform(
   snd('whoosh',0,.35);}
 function next(){const q=seq(),k=q.findIndex(i=>i>ci);if(k>=0)go(q[k]);}function prevCh(){const q=seq().filter(i=>i<ci);if(q.length)go(q[q.length-1]);}
 function resume(){if(paused){paused=false;lbl();return true;}if(holding){const st=stopsOf(CH[ci]);if(si<st.length-1){si++;holding=false;}else next();return true;}return false;}
-function clickOnce(){if(!started)return;if(!resume())next();}
+function clickOnce(){if(!started)return;if(resume())return;const st=stopsOf(CH[ci]);if(cont||tl>=CH[ci].dur){next();return;}tl=st[si];holding=true;}
 function advance(){if(!started)return;if(resume())return;const st=stopsOf(CH[ci]);tl=st[si];holding=true;}
 function frame(now){const raw=(now-last)/1000,dt=Math.min(.05,raw);last=now;if(!started){requestAnimationFrame(frame);return;}
   if(raw<.5){frames++;if(raw>.034)slow++;if(frames>=120){if(slow>70&&K>.8){setQ(K>1.1?1:.8);}frames=0;slow=0;}}
