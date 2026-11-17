@@ -216,7 +216,7 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 <p class="dim f" style="font-size:clamp(14px,1.6vw,18px)">تقديم: جاسم القناعي · فارس &nbsp;|&nbsp; تصميم: جاسم القناعي</p></section>
 
 <div class="foot">ورشة العروض التفاعلية</div>
-<div class="notes" id="notes"></div><div class="ov" id="rqr" style="display:none"><div style="display:grid;place-items:center;gap:16px;height:100%;text-align:center"><h2>امسح للتحكم من هاتفك</h2><div class="qr" id="rqrc"></div><p class="dim" id="rst">جاري الاتصال…</p></div></div>
+<div class="notes" id="notes"></div><div class="ov" id="rqr" style="display:none"><div style="display:grid;place-items:center;gap:16px;height:100%;text-align:center"><h2>امسح للتحكم من هاتفك</h2><div class="qr" id="rqrc"></div><p class="dim" id="rst">جاري الاتصال…</p><button class="btn" id="rskip" type="button">تخطّي</button></div></div>
 <div class="ov" id="ov"><h2 style="margin-bottom:3vh">كل الشرائح</h2><div class="g" id="ovg"></div><p class="keys">الأسهم أو المسافة: التالي · F: ملء الشاشة · N: ملاحظات المقدم · O: كل الشرائح</p></div>
 <div class="nav"><button id="bp">السابق</button><span id="n"></span><button id="bx">التالي</button>
 <button class="ico" id="bo" aria-label="كل الشرائح" title="كل الشرائح (O)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
@@ -335,8 +335,8 @@ else{wsStart(o=>{if(o.k==='cmd')cmd(o);},n=>{$('rst').textContent=n?'الريم�
 (function(){const _s=show;show=function(k){_s(k);try{pushSt()}catch(e){}};})();
 const _rt=rt;
 try{new QRCode($('rqrc'),{text:RURL,width:240,height:240,colorDark:'#041E52',colorLight:'#ffffff'});}catch(e){}
-$('br').onclick=e=>{e.stopPropagation();$('rqr').classList.toggle('on');};
+$('rskip').onclick=e=>{e.stopPropagation();$('rqr').classList.remove('on');};$('br').onclick=e=>{e.stopPropagation();$('rqr').classList.toggle('on');};
 addEventListener('keydown',e=>{if((e.key==='r'||e.key==='R'||e.key==='ق')&&!e.target.matches('input,select,textarea'))$('rqr').classList.toggle('on');});
 
-const h=parseInt((location.hash||'').slice(1));show(h>0?h-1:0);if(!MIRROR)$('rqr').classList.add('on');$('rqr').onclick=()=>$('rqr').classList.remove('on');
+const h=parseInt((location.hash||'').slice(1));show(h>0?h-1:0);$('rqr').onclick=()=>$('rqr').classList.remove('on');
 </script></body></html>
