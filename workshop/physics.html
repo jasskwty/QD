@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ضرب المتجهات</title>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@700;800;900&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* layout: full-screen slide deck, one idea per slide; physics-lab blue with vector red/green accents */
+:root{--bg:#F3F6FC;--ink:#0B1530;--dim:#56627A;--card:#FFFFFF;--line:#D6E0F0;--blue:#0149AD;--navy:#041E52;--A:#DC2626;--B:#0E7C66;--R:#7C3AED;--soft:#E8EEFA;--grid:#E3EAF6;
+--fd:"Alexandria","Segoe UI",Tahoma,sans-serif;--fb:"Readex Pro","Segoe UI",Tahoma,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1226;--ink:#E8EEFC;--dim:#9AA9C7;--card:#111C36;--line:#24324F;--blue:#6E9BF0;--navy:#BFD2FB;--A:#F87171;--B:#34D399;--R:#A78BFA;--soft:#16264A;--grid:#1A2747;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A1226;--ink:#E8EEFC;--dim:#9AA9C7;--card:#111C36;--line:#24324F;--blue:#6E9BF0;--navy:#BFD2FB;--A:#F87171;--B:#34D399;--R:#A78BFA;--soft:#16264A;--grid:#1A2747;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);direction:rtl;overflow:hidden}
+.s{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;gap:2vh;text-align:center;padding:6vh max(16px,5vw) 12vh}
+.s.on{display:flex}.s.on>*{animation:up .6s cubic-bezier(.2,.8,.2,1) both}.s.on>*:nth-child(2){animation-delay:.07s}.s.on>*:nth-child(3){animation-delay:.14s}.s.on>*:nth-child(4){animation-delay:.21s}
+@keyframes up{from{opacity:0;transform:translateY(18px)}}
+.tag{font:700 calc(clamp(12px,1.3vw,15px)*var(--fz,1)) var(--fb);color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:.4em 1.1em}
+h1{font:900 calc(clamp(36px,6.5vw,86px)*var(--fz,1))/1.15 var(--fd);margin:0;color:var(--navy);text-wrap:balance}
+h2{font:800 calc(clamp(24px,3.4vw,46px)*var(--fz,1))/1.25 var(--fd);margin:0;text-wrap:balance}
+p{margin:0;font-size:calc(clamp(16px,1.9vw,24px)*var(--fz,1));line-height:1.8;max-width:62ch}.dim{color:var(--dim)}
+.f{opacity:0;transform:translateY(12px);transition:.45s}.f.v{opacity:1;transform:none}
+.eq{direction:ltr;font:700 calc(clamp(22px,3vw,40px)*var(--fz,1)) "Times New Roman",serif;font-style:italic;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:.35em 1em;display:inline-block}
+.eq u{text-decoration:none;font-style:normal;color:var(--R)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2vw;max-width:1150px;width:100%;text-align:right}
+.c{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:2.2vh 1.8vw;display:grid;gap:.8vh;min-width:0}
+.c b{font:800 calc(clamp(18px,2.1vw,28px)*var(--fz,1)) var(--fd)}.c span{color:var(--dim);font-size:calc(clamp(14px,1.6vw,20px)*var(--fz,1));line-height:1.7}
+.lab{display:grid;grid-template-columns:1.25fr 1fr;gap:2vw;max-width:1250px;width:100%;align-items:center}
+.lab svg{width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:20px}
+.ctl{display:grid;gap:1.6vh;text-align:right}.ctl label{display:grid;gap:.4vh;font:600 calc(clamp(14px,1.5vw,18px)*var(--fz,1)) var(--fb)}
+.ctl label span{display:flex;justify-content:space-between}.ctl output{font:800 1em var(--fd);direction:ltr}
+input[type=range]{width:100%;accent-color:var(--blue)}
+.res{background:var(--navy);color:#fff;border-radius:16px;padding:1.6vh 1.4vw;display:grid;gap:.4vh}
+:root[data-theme="dark"] .res{background:#050B1A}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .res{background:#050B1A}}
+.res small{opacity:.75;font-size:calc(clamp(12px,1.3vw,15px)*var(--fz,1))}.res b{font:900 calc(clamp(22px,2.8vw,36px)*var(--fz,1)) var(--fd);direction:ltr;text-align:right}
+.steps{display:grid;gap:1.2vh;max-width:1000px;width:100%;text-align:right}
+.st{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.4vh 1.6vw;display:grid;grid-template-columns:auto 1fr;gap:1.2vw;align-items:center}
+.st i{font:900 18px var(--fd);font-style:normal;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff}
+.st div{font-size:calc(clamp(15px,1.7vw,21px)*var(--fz,1));line-height:1.7}.st .eq{font-size:calc(clamp(17px,2vw,26px)*var(--fz,1));margin-top:.4vh}
+table{border-collapse:collapse;font-size:calc(clamp(14px,1.6vw,20px)*var(--fz,1));background:var(--card);border-radius:16px;overflow:hidden;max-width:1050px;width:100%}
+th,td{padding:1.3vh 1.4vw;border-bottom:1px solid var(--line);text-align:right}th{font:800 1em var(--fd);background:var(--soft)}td.l{direction:ltr;text-align:right;font-family:"Times New Roman",serif;font-style:italic;font-weight:700}
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:2.4vh 2.4vw;max-width:860px;width:100%}
+.quiz .q{font:800 calc(clamp(18px,2.2vw,28px)*var(--fz,1)) var(--fd);margin-bottom:2vh}.opts{display:grid;grid-template-columns:1fr 1fr;gap:1vw}
+.opt{font:700 calc(clamp(15px,1.8vw,22px)*var(--fz,1)) var(--fb);padding:1.4vh 1vw;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.opt.ok{border-color:#059669;background:#05966922}.opt.no{border-color:#DC2626;background:#DC262622}.fb{min-height:1.8em;margin-top:1.4vh;font-weight:700}
+.btn{font:700 calc(clamp(13px,1.4vw,16px)*var(--fz,1)) var(--fb);border:0;border-radius:99px;padding:.6em 1.3em;cursor:pointer;background:var(--blue);color:#fff}
+.btn.g{background:var(--card);color:var(--blue);border:1px solid var(--line)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--R);outline-offset:3px}
+.nav{position:fixed;bottom:max(14px,env(safe-area-inset-bottom));left:0;right:0;display:flex;justify-content:center;gap:10px;align-items:center;z-index:5;pointer-events:none}
+.nav>*{pointer-events:auto}.nav button{font:600 15px var(--fb);border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 18px;cursor:pointer}.nav span{color:var(--dim);font-size:14px;min-width:64px;text-align:center}
+.prog{position:fixed;top:0;right:0;height:5px;background:var(--blue);transition:width .4s;z-index:5}
+.src{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));right:max(16px,3vw);font-size:12px;color:var(--dim)}
+.hand{width:min(300px,60vw)}
+@media (max-width:820px){.two,.lab,.opts{grid-template-columns:1fr}.s{justify-content:flex-start;overflow:auto;padding-top:5vh}.src{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body{margin:0}
+.emb .nav{display:none!important}
+</style>
+</head><body>
+
+
+<div class="prog" id="prog"></div>
+
+<section class="s"><span class="tag">فيزياء · الفصل الدراسي الأول · الدرس 1-1</span><h1>ضرب المتجهات</h1><p class="dim">من درس «الكمّيات العددية والكمّيات المتّجهة» · Vector and Scalar Quantities</p></section>
+
+<section class="s"><span class="tag">ليش نحتاجه؟</span><h2>ضرب متّجه بمتّجه آخر</h2>
+<p>ضرب المتّجه بكمّية قياسية سالبة أو موجبة ليس فقط ما نحتاجه في الفيزياء، إذ نحتاج في تحليل بعض المسائل الفيزيائية إلى ضرب متّجه بمتّجه آخر.</p>
+<div class="two"><div class="c f" style="border-top:5px solid var(--blue)"><b>١. الضرب القياسي</b><span>ويُسمّى أيضاً الضرب العددي أو الضرب النقطي.</span><span class="eq" style="justify-self:start">A · B</span></div>
+<div class="c f" style="border-top:5px solid var(--R)"><b>٢. الضرب الاتّجاهي</b><span>ويُسمّى أيضاً الضرب التقاطعي.</span><span class="eq" style="justify-self:start">A × B</span></div></div></section>
+
+<section class="s"><span class="tag">1.3 الضرب القياسي</span><h2>المتّجهان A و B بينهما زاوية α</h2>
+<span class="eq">A · B = A × B cos α</span>
+<p class="f">حيث α هي الزاوية المحصورة بين المتّجهين، وA وB يمثّلان مقدار كل متّجه.</p>
+<p class="f"><b>لاحظ:</b> حاصل الضرب القياسي للمتّجهين هو <b>كمّية قياسية</b>، وهذا يفسّر سبب تسميته بالضرب القياسي.</p></section>
+
+<section class="s"><span class="tag">جرّب بنفسك</span><h2>مختبر الضرب القياسي</h2>
+<div class="lab"><svg id="sv1" viewBox="0 0 520 360" role="img" aria-label="رسم المتجهين والزاوية بينهما"></svg>
+<div class="ctl"><label><span>مقدار A <output id="o1a"></output></span><input type="range" id="r1a" min="1" max="10" value="5"></label>
+<label><span>مقدار B <output id="o1b"></output></span><input type="range" id="r1b" min="1" max="10" value="4"></label>
+<label><span>الزاوية α <output id="o1t"></output></span><input type="range" id="r1t" min="0" max="180" value="60"></label>
+<div class="res"><small>A · B = A B cos α</small><b id="x1"></b><small id="n1"></small></div></div></div></section>
+
+<section class="s"><span class="tag">مثال (5) من الكتاب</span><h2>الشغل ضرب قياسي للقوة والإزاحة</h2>
+<p class="dim">قوة مقدارها 50 N تصنع زاوية 60° مع متّجه الإزاحة، والجسم يُزاح مسافة 10 m. احسب الشغل.</p>
+<div class="steps"><div class="st f"><i>١</i><div><b>حلّل:</b> المعلوم: F = 50 N بزاوية 60° مع الإزاحة، وx = 10 m. غير المعلوم: الشغل.</div></div>
+<div class="st f"><i>٢</i><div><b>احسب غير المعلوم:</b><br><span class="eq">W = F · x = F x cos 60 = 50 × 10 × 0.5 = 250 J</span></div></div>
+<div class="st f"><i>٣</i><div><b>قيّم:</b> النتيجة مقبولة لأنّ الضرب القياسي للمتّجهين يساوي كمّية قياسية.</div></div></div></section>
+
+<section class="s"><span class="tag">2.3 الضرب الاتّجاهي</span><h2>حاصله متّجه… مو رقم</h2>
+<span class="eq">R = A × B</span><span class="eq f">R = A × B = A B sin α</span>
+<div class="two"><div class="c f"><b>المقدار</b><span>يمثّل مساحة متوازي الأضلاع الناشئ عن المتّجهين.</span></div>
+<div class="c f"><b>الاتّجاه</b><span>رأسي على المستوى المكوّن من المتّجهين، ويُحدّد بقاعدة اليد اليمنى.</span></div></div></section>
+
+<section class="s"><span class="tag">قاعدة اليد اليمنى</span><h2>من المتّجه الأول إلى الثاني</h2>
+<svg class="hand" viewBox="0 0 300 260" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+<g style="color:var(--A)"><line x1="70" y1="200" x2="250" y2="200" stroke="currentColor" stroke-width="6" marker-end="url(#ah)"/><text x="255" y="230" fill="currentColor" font-size="22" font-weight="800">A</text></g>
+<g style="color:var(--B)"><line x1="70" y1="200" x2="190" y2="110" stroke="currentColor" stroke-width="6" marker-end="url(#ah)"/><text x="196" y="104" fill="currentColor" font-size="22" font-weight="800">B</text></g>
+<path d="M150 200 A80 80 0 0 0 134 152" fill="none" stroke="var(--dim)" stroke-width="3" stroke-dasharray="5 5" marker-end="url(#ah)" style="color:var(--dim)"><animate attributeName="stroke-dashoffset" from="20" to="0" dur="1s" repeatCount="indefinite"/></path>
+<g style="color:var(--R)"><line x1="70" y1="200" x2="70" y2="30" stroke="currentColor" stroke-width="6" marker-end="url(#ah)"><animate attributeName="y2" values="200;30;30" dur="2.4s" repeatCount="indefinite"/></line><text x="82" y="40" fill="currentColor" font-size="22" font-weight="800">R</text></g></svg>
+<p>دوّر أصابع اليد اليمنى من المتّجه الأول إلى الثاني عبر الزاوية الأصغر بينهما، فيشير الإبهام إلى اتّجاه المتّجه الناتج.</p></section>
+
+<section class="s"><span class="tag">جرّب بنفسك</span><h2>مختبر الضرب الاتّجاهي</h2>
+<div class="lab"><svg id="sv2" viewBox="0 0 520 360" role="img" aria-label="متوازي الأضلاع الناتج عن المتجهين"></svg>
+<div class="ctl"><label><span>مقدار A <output id="o2a"></output></span><input type="range" id="r2a" min="1" max="10" value="5"></label>
+<label><span>مقدار B <output id="o2b"></output></span><input type="range" id="r2b" min="1" max="10" value="4"></label>
+<label><span>الزاوية α <output id="o2t"></output></span><input type="range" id="r2t" min="0" max="180" value="120"></label>
+<div class="res"><small>|A × B| = A B sin α · مساحة متوازي الأضلاع المظلل</small><b id="x2"></b><small id="n2"></small></div></div></div></section>
+
+<section class="s"><span class="tag">مثال (6) من الكتاب</span><h2>حاصل الضرب الاتّجاهي لقوّتين</h2>
+<p class="dim">F₁ مقدارها 5 N وF₂ مقدارها 4 N، والزاوية بينهما 120°. احسب F₁ × F₂.</p>
+<div class="steps"><div class="st f"><i>١</i><div><b>حلّل:</b> F₁ = 5 N بالاتّجاه الموجب على المحور x′x، وF₂ = 4 N تصنع زاوية 120° معه.</div></div>
+<div class="st f"><i>٢</i><div><b>المقدار:</b><br><span class="eq">F = F₁ F₂ sin 120 = 5 × 4 × sin 120 = 17.32 N</span></div></div>
+<div class="st f"><i>٣</i><div><b>الاتّجاه:</b> بقاعدة اليد اليمنى من F₁ إلى F₂ عبر الزاوية الصغرى، اتّجاه F رأسي على المستوى نحو الداخل.</div></div>
+<div class="st f"><i>٤</i><div><b>قيّم:</b> النتيجة مقبولة لأنّ الضرب الاتّجاهي للمتّجهين هو كمّية متّجهة.</div></div></div></section>
+
+<section class="s"><span class="tag">قارن</span><h2>القياسي مقابل الاتّجاهي</h2>
+<table><thead><tr><th></th><th>الضرب القياسي (النقطي)</th><th>الضرب الاتّجاهي (التقاطعي)</th></tr></thead><tbody>
+<tr><td>العلاقة</td><td class="l">A · B = A B cos α</td><td class="l">|A × B| = A B sin α</td></tr>
+<tr class="f"><td>نوع الناتج</td><td>كمّية قياسية</td><td>كمّية متّجهة</td></tr>
+<tr class="f"><td>الاتّجاه</td><td>بدون اتّجاه</td><td>رأسي على مستوى المتّجهين (اليد اليمنى)</td></tr>
+<tr class="f"><td>مثال من الكتاب</td><td>الشغل W = F · x</td><td>F = F₁ × F₂</td></tr></tbody></table></section>
+
+<section class="s"><span class="tag">اختبر نفسك</span><h2>ثلاث أسئلة سريعة</h2>
+<div class="quiz"><div class="q" id="qq"></div><div class="opts" id="qo"></div><div class="fb" id="qf"></div><button class="btn" id="qn" hidden>التالي</button></div></section>
+
+<section class="s"><span class="tag">التفكير الناقد · من الكتاب</span><h2>نافورة الماء</h2>
+<p>ينطلق الماء في نافورة الماء ليرتفع (85) m، قبل أن يعود إلى نقطة الانطلاق.</p>
+<p class="f" style="font:800 clamp(20px,2.6vw,34px) var(--fd);color:var(--blue)">ما هي إزاحة نقاط الماء خلال دورة واحدة؟</p>
+<p class="dim f">ناقشوها مع بعض قبل لا نكمل.</p></section>
+
+<section class="s"><span class="tag">الخلاصة</span><h2>تذكّر</h2>
+<div class="two"><div class="c f" style="border-top:5px solid var(--blue)"><b>الضرب القياسي</b><span class="eq" style="justify-self:start">A · B = A B cos α</span><span>ناتجه كمّية قياسية، مثل الشغل.</span></div>
+<div class="c f" style="border-top:5px solid var(--R)"><b>الضرب الاتّجاهي</b><span class="eq" style="justify-self:start">|A × B| = A B sin α</span><span>ناتجه متّجه رأسي على المستوى، واتّجاهه بقاعدة اليد اليمنى.</span></div></div></section>
+
+<div class="src">المصدر: كتاب الفيزياء، الفصل الدراسي الأول ٢٠٢٦/٢٠٢٧ · وزارة التربية، الكويت</div>
+<div class="nav"><button id="bp" type="button">السابق</button><span id="n"></span><button id="bx" type="button">التالي</button></div>
+<script>
+const $=id=>document.getElementById(id);const S=[...document.querySelectorAll('.s')];let i=0;
+const AR=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+function frags(){return [...S[i].querySelectorAll('.f')];}
+function show(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>s.classList.toggle('on',j===i));frags().forEach(f=>f.classList.remove('v'));$('n').textContent=AR(i+1)+' / '+AR(S.length);$('prog').style.width=((i+1)/S.length*100)+'%';}
+function next(){const h=frags().find(f=>!f.classList.contains('v'));if(h){h.classList.add('v');return;}show(i+1);}
+$('bx').onclick=e=>{e.stopPropagation();next();};$('bp').onclick=e=>{e.stopPropagation();show(i-1);};
+addEventListener('keydown',e=>{if(e.target.matches('input'))return;if(['ArrowLeft','ArrowDown',' ','Enter','PageDown'].includes(e.key)){e.preventDefault();next();}if(['ArrowRight','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();show(i-1);}});
+document.body.addEventListener('click',e=>{if(e.target.closest('button,input,label,.lab,.quiz,.nav'))return;next();});
+/* vector labs */
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function arrow(x1,y1,x2,y2,col,lab,lx,ly){const a=Math.atan2(y2-y1,x2-x1),h=14;return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="5" stroke-linecap="round"/><path d="M${x2} ${y2}L${x2-h*Math.cos(a-0.4)} ${y2-h*Math.sin(a-0.4)}L${x2-h*Math.cos(a+0.4)} ${y2-h*Math.sin(a+0.4)}Z" fill="${col}"/><text x="${lx}" y="${ly}" fill="${col}" font-size="24" font-weight="800" font-family="Times New Roman" font-style="italic">${lab}</text>`;}
+function grid(){let g='';for(let x=20;x<520;x+=25)g+=`<line x1="${x}" y1="0" x2="${x}" y2="360" stroke="${css('--grid')}"/>`;for(let y=10;y<360;y+=25)g+=`<line x1="0" y1="${y}" x2="520" y2="${y}" stroke="${css('--grid')}"/>`;return g;}
+function lab(id,mode){const A=+$('r'+id+'a').value,Bm=+$('r'+id+'b').value,t=+$('r'+id+'t').value,r=t*Math.PI/180;
+ $('o'+id+'a').textContent=A;$('o'+id+'b').textContent=Bm;$('o'+id+'t').textContent=t+'°';
+ const O=[mode==='dot'?120:150,mode==='dot'?250:300],k=30;const ax=O[0]+A*k,ay=O[1],bx=O[0]+Bm*k*Math.cos(r),by=O[1]-Bm*k*Math.sin(r);
+ let g=grid();
+ if(mode==='dot'){const px=O[0]+Bm*k*Math.cos(r);g+=`<line x1="${bx}" y1="${by}" x2="${px}" y2="${O[1]}" stroke="${css('--dim')}" stroke-dasharray="6 6" stroke-width="2"/><line x1="${O[0]}" y1="${O[1]+18}" x2="${px}" y2="${O[1]+18}" stroke="${css('--B')}" stroke-width="4" opacity=".6"/><text x="${(O[0]+px)/2}" y="${O[1]+44}" text-anchor="middle" fill="${css('--dim')}" font-size="16" font-family="Times New Roman" font-style="italic">B cos α</text>`;}
+ else{g+=`<path d="M${O[0]} ${O[1]}L${ax} ${ay}L${ax+bx-O[0]} ${ay+by-O[1]}L${bx} ${by}Z" fill="${css('--R')}" opacity=".18" stroke="${css('--R')}" stroke-dasharray="5 5"/>`;}
+ const ar=36;g+=`<path d="M${O[0]+ar} ${O[1]} A${ar} ${ar} 0 0 0 ${O[0]+ar*Math.cos(r)} ${O[1]-ar*Math.sin(r)}" fill="none" stroke="${css('--dim')}" stroke-width="2"/><text x="${O[0]+(ar+16)*Math.cos(r/2)}" y="${O[1]-(ar+16)*Math.sin(r/2)+6}" fill="${css('--dim')}" font-size="18">α</text>`;
+ g+=arrow(O[0],O[1],ax,ay,css('--A'),'A',ax+6,ay+26)+arrow(O[0],O[1],bx,by,css('--B'),'B',bx+8,by-6);
+ if(mode==='cross'){const v=A*Bm*Math.sin(r);if(v>0.001){g+=`<circle cx="470" cy="50" r="22" fill="none" stroke="${css('--R')}" stroke-width="3"/><path d="M455 35L485 65M485 35L455 65" stroke="${css('--R')}" stroke-width="3"/><text x="470" y="96" text-anchor="middle" fill="${css('--R')}" font-size="13">R</text>`;}}
+ $('sv'+(id)).innerHTML=g;
+ if(mode==='dot'){const v=A*Bm*Math.cos(r);$('x1').textContent='A · B = '+A+' × '+Bm+' × cos '+t+'° = '+(Math.abs(v)<0.005?'0':v.toFixed(2));$('n1').textContent='الناتج كمّية قياسية (رقم بدون اتّجاه)';}
+ else{const v=A*Bm*Math.sin(r);$('x2').textContent='|A × B| = '+A+' × '+Bm+' × sin '+t+'° = '+(Math.abs(v)<0.005?'0':v.toFixed(2));$('n2').textContent=v>0.005?'من A إلى B: الاتّجاه رأسي على المستوى حسب قاعدة اليد اليمنى (الرمز ⊗ يمثّل مثال الكتاب: نحو الداخل)':'المتّجهان على خط واحد، فلا ينشأ متوازي أضلاع';}}
+['a','b','t'].forEach(k=>{$('r1'+k).addEventListener('input',()=>lab(1,'dot'));$('r2'+k).addEventListener('input',()=>lab(2,'cross'));});
+lab(1,'dot');lab(2,'cross');matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{lab(1,'dot');lab(2,'cross');});
+/* quiz from book content */
+const Q=[['حاصل الضرب القياسي لمتّجهين هو:',['كمّية قياسية','كمّية متّجهة'],0],
+ ['قوة 50 N بزاوية 60° مع إزاحة 10 m. الشغل يساوي:',['500 J','250 J','433 J','50 J'],1],
+ ['اتّجاه حاصل الضرب الاتّجاهي A × B يكون:',['بنفس اتّجاه A','رأسياً على مستوى المتّجهين','بنفس اتّجاه B','بدون اتّجاه'],1]];
+let qi=0,sc=0;const qo=$('qo');
+function rq(){if(qi>=Q.length){$('qq').textContent='النتيجة: '+AR(sc)+' من '+AR(Q.length);qo.innerHTML='';$('qf').textContent='';$('qn').textContent='أعد';$('qn').hidden=false;return;}
+ const [q,o,a]=Q[qi];$('qq').textContent=AR(qi+1)+'. '+q;$('qf').textContent='';$('qn').hidden=true;qo.innerHTML='';let done=false;
+ o.forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.type='button';b.textContent=t;b.style.direction=/[A-Za-z0-9]/.test(t)&&!/[؀-ۿ]/.test(t)?'ltr':'rtl';b.onclick=e=>{e.stopPropagation();if(done)return;done=true;b.classList.add(k===a?'ok':'no');if(k!==a)qo.children[a].classList.add('ok');else sc++;$('qf').textContent=k===a?'صح!':'الإجابة الصحيحة بالأخضر';$('qn').textContent=qi<Q.length-1?'التالي':'النتيجة';$('qn').hidden=false;};qo.appendChild(b);});}
+$('qn').onclick=e=>{e.stopPropagation();if(qi>=Q.length){qi=0;sc=0;}else qi++;rq();};rq();
+show(0);
+</script>
+
+<script>
+(function(){const EMB=window.parent!==window;const R=document.documentElement;if(EMB)R.classList.add('emb');
+function lst(){const s=S[i];if(s.querySelector('#sv1'))return{id:1,a:+$('r1a').value,b:+$('r1b').value,t:+$('r1t').value};if(s.querySelector('#sv2'))return{id:2,a:+$('r2a').value,b:+$('r2b').value,t:+$('r2t').value};return null;}
+function post(ready){if(!EMB)return;const fr=frags();const h=S[i].querySelector('h1,h2');try{parent.postMessage({physState:{i,n:S.length,t:h?h.textContent.trim():'',fl:fr.filter(f=>!f.classList.contains('v')).length,lab:lst()},ready:!!ready},'*');}catch(e){}}
+const _show=show;show=function(k){_show(k);post();};const _next=next;next=function(){_next();post();};
+['1','2'].forEach(id=>['a','b','t'].forEach(k=>{const el=$('r'+id+k);el&&el.addEventListener('input',()=>post());}));
+function redraw(){lab(1,'dot');lab(2,'cross');}
+function edit(d){if(d.reset){R.style.removeProperty('--blue');R.style.removeProperty('--navy');R.style.removeProperty('--fz');delete R.dataset.theme;}
+ if(d.accent){R.style.setProperty('--blue',d.accent);R.style.setProperty('--navy','color-mix(in srgb,'+d.accent+' 72%,var(--ink))');}
+ if(d.scale)R.style.setProperty('--fz',d.scale);if(d.theme)R.dataset.theme=d.theme;setTimeout(redraw,40);}
+addEventListener('message',e=>{const d=e.data||{};if(!d.phys)return;
+ if(d.phys==='go'){show(Math.max(0,Math.min(S.length-1,+d.i||0)));if(d.all)frags().forEach(f=>f.classList.add('v'));post();}
+ else if(d.phys==='next')next();else if(d.phys==='prev')show(i-1);
+ else if(d.phys==='edit')edit(d);
+ else if(d.phys==='lab'){const id=+d.id;if(!$('r'+id+'a'))return;$('r'+id+'a').value=d.a;$('r'+id+'b').value=d.b;$('r'+id+'t').value=d.t;lab(id,id===1?'dot':'cross');post();}
+ else if(d.phys==='ping')post(true);});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&EMB)try{parent.postMessage({physKey:'Escape'},'*')}catch(x){}});
+post(true);})();
+</script>
+</body></html>

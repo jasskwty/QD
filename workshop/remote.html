@@ -1,60 +1,483 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070D1C"><title>ريموت الورشة</title>
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@800;900&family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-<style>:root{--bg:#070D1C;--card:#111A30;--card2:#16223F;--ink:#EAF0FF;--dim:#93A3C4;--line:#23304F;--c1:#3B82F6;--c2:#8B5CF6;--pc:var(--c1);--ok:#34D399;--red:#EF4444}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}[hidden]{display:none!important}html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Readex Pro",sans-serif;padding:max(12px,env(safe-area-inset-top)) 12px max(90px,calc(env(safe-area-inset-bottom) + 90px));display:grid;gap:10px;user-select:none;max-width:560px;margin:0 auto}
-.top{display:flex;justify-content:space-between;align-items:center;gap:8px}.top h1{font:900 16px Alexandria;margin:0}
-.dot{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--dim)}.dot i{width:9px;height:9px;border-radius:50%;background:#F59E0B}.dot.ok i{background:var(--ok);box-shadow:0 0 8px var(--ok)}.dot.bad i{background:var(--red)}
-.who{display:flex;align-items:center;gap:10px;background:color-mix(in srgb,var(--pc) 16%,var(--card));border:1px solid color-mix(in srgb,var(--pc) 45%,transparent);border-radius:14px;padding:8px 12px;transition:.3s}
-.who b{font:800 14px Alexandria}.who span{font-size:11.5px;color:var(--dim)}.av{width:32px;height:32px;border-radius:50%;background:var(--pc);display:grid;place-items:center;font:900 14px Alexandria;flex:none}.who .tm{margin-inline-start:auto;font:900 16px Alexandria;direction:ltr}
-.mirror{position:relative;border-radius:14px;overflow:hidden;border:2px solid var(--line);aspect-ratio:16/9;background:#fff}
-.mirror iframe{position:absolute;top:0;left:0;width:1600px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
-.mirror .tp{position:absolute;inset:0;touch-action:none}.mirror.lz{border-color:var(--red)}
-.mirror .badge{position:absolute;bottom:6px;left:6px;font:700 11px "Readex Pro";background:#000a;color:#fff;border-radius:99px;padding:2px 9px}
-.prog{height:5px;border-radius:99px;display:flex;gap:2px}.prog i{flex:1;background:var(--line);border-radius:2px}.prog i.d{background:var(--c1)}.prog i.d2{background:var(--c2)}.prog i.cur{background:#fff}
-.cur{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
-.cur .n{font-size:12px;color:var(--dim);display:flex;justify-content:space-between;gap:8px}.cur b{font:900 21px Alexandria;display:block;margin:2px 0}
-.notes{color:#C4B5FD;font-size:15.5px;line-height:1.75}.nx{font-size:12px;color:var(--dim);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
-.frs{display:flex;gap:5px;margin-top:8px;align-items:center;font-size:12px;color:#FBBF24}.frs i{width:18px;height:6px;border-radius:9px;background:var(--line)}.frs i.v{background:#FBBF24}
-.pad{display:grid;grid-template-columns:1fr 2.3fr;gap:10px;height:150px}
-.pad button{border:1px solid var(--line);border-radius:20px;font:800 20px Alexandria;color:#fff;background:var(--card);touch-action:manipulation;transition:transform .08s}
-.pad button:active,.tg button:active,.ctx button:active{transform:scale(.96)}.pad .nb{background:linear-gradient(160deg,var(--pc),color-mix(in srgb,var(--pc) 55%,#000));border:0;font-size:28px}.pad .nb small{display:block;font:600 12px "Readex Pro";opacity:.85;margin-top:4px}
-.ctx{background:var(--card2);border:1px solid color-mix(in srgb,var(--pc) 40%,var(--line));border-radius:16px;padding:12px;display:grid;gap:8px}.ctx h3{margin:0;font:800 13px Alexandria;color:var(--dim)}
-.ctx .r{display:flex;flex-wrap:wrap;gap:8px}.ctx button{flex:1 1 auto;min-width:72px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:11px 8px;font:700 14px "Readex Pro"}
-.ctx button.ok{border-color:var(--ok);color:var(--ok)}.ctx .pv{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}.ctx .pv span{font-size:13px}.ctx .pv b{font:900 16px Alexandria}
-.ctx input[type=range]{width:100%;accent-color:var(--pc)}
-.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.tg button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:10px 4px;font:700 12px "Readex Pro";display:grid;gap:4px;place-items:center}
-.tg button svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.tg button.on{border-color:var(--pc);background:color-mix(in srgb,var(--pc) 22%,var(--card));color:#fff}
-.dock{position:fixed;inset:auto 0 0 0;padding:10px 12px max(10px,env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 30%);display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;max-width:560px;margin:0 auto;z-index:3}
-.dock button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:12px 4px;font:700 13px "Readex Pro"}
-.sheet{position:fixed;inset:auto 0 0 0;max-height:75vh;background:#0C1530;border-radius:22px 22px 0 0;border-top:1px solid var(--line);padding:16px 14px max(16px,env(safe-area-inset-bottom));overflow:auto;transform:translateY(105%);transition:transform .3s;z-index:6;max-width:560px;margin:0 auto}.sheet.on{transform:none}
-.sheet h3{font:800 13px Alexandria;margin:14px 0 6px;color:var(--dim)}.sheet h3:first-child{margin-top:0}
-.sheet .g{display:grid;grid-template-columns:1fr 1fr;gap:8px}.sheet .g button{text-align:right;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:10px;font:600 12.5px "Readex Pro"}.sheet .g button.on{border-color:#fff}
-.shade{position:fixed;inset:0;background:#0009;opacity:0;pointer-events:none;transition:.3s;z-index:5}.shade.on{opacity:1;pointer-events:auto}
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><script>window.__MODE='remote'</script><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ورشة العروض التفاعلية</title>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;800;900&family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F7FF;--ink:#0B1220;--dim:#56627A;--card:#FFFFFF;--line:#D9E2F3;--blue:#0149AD;--sky:#1D63E0;--vio:#7C3AED;--org:#EA580C;--grn:#059669;--term:#0F1B3D;--net:1,73,173}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1020;--ink:#EAF0FF;--dim:#9AA8C4;--card:#121B30;--line:#24314F;--term:#050A16;--net:120,160,255}}
+:root[data-theme="dark"]{--bg:#0A1020;--ink:#EAF0FF;--dim:#9AA8C4;--card:#121B30;--line:#24314F;--term:#050A16;--net:120,160,255}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Readex Pro",sans-serif;overflow:hidden}
+#net{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+.blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.38;pointer-events:none;animation:float 16s ease-in-out infinite}
+.b1{width:46vw;height:46vw;background:#93C5FD;top:-18vw;left:-10vw}.b2{width:40vw;height:40vw;background:#C4B5FD;bottom:-16vw;right:-8vw;animation-delay:-5s}.b3{width:28vw;height:28vw;background:#6EE7B7;bottom:-10vw;left:30vw;opacity:.22;animation-delay:-9s}
+@keyframes float{50%{transform:translate(3vw,2vw) scale(1.06)}}
+.s{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;padding:6vh 6vw 11vh;text-align:center;gap:2.2vh}
+.s.on{display:flex}
+.s.on>*{animation:up .7s cubic-bezier(.2,.8,.2,1) both}
+.s.on>*:nth-child(2){animation-delay:.08s}.s.on>*:nth-child(3){animation-delay:.16s}.s.on>*:nth-child(4){animation-delay:.24s}.s.on>*:nth-child(5){animation-delay:.32s}.s.on>*:nth-child(6){animation-delay:.4s}
+@keyframes up{from{opacity:0;transform:translateY(22px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+.tag{font:700 clamp(12px,1.4vw,16px) "Readex Pro";color:var(--blue);background:color-mix(in srgb,var(--blue) 10%,transparent);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:.5em 1.2em;border-radius:999px}
+h1{font:900 clamp(34px,6.2vw,84px)/1.15 Alexandria,sans-serif;margin:0}
+h1 .w{display:inline-block;background:linear-gradient(90deg,var(--blue),var(--sky),var(--vio),var(--blue));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:wd .8s cubic-bezier(.2,.8,.2,1) both,sh 6s linear infinite;padding-bottom:.08em}
+@keyframes wd{from{opacity:0;transform:translateY(.4em) rotate(-4deg)}}@keyframes sh{to{background-position:300% 0}}
+h2{font:800 clamp(24px,3.6vw,48px)/1.2 Alexandria,sans-serif;margin:0}
+p{margin:0;font-size:clamp(16px,2vw,25px);line-height:1.75}.dim{color:var(--dim)}
+.f{opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s}.f.v{opacity:1;transform:none}
+.bubble{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:1.6vh 2.4vw;box-shadow:0 18px 40px rgba(1,73,173,.12);max-width:900px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;max-width:1180px;width:100%}
+.c{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:2.2vh 1.8vw;text-align:right;box-shadow:0 14px 34px rgba(1,73,173,.08);position:relative;overflow:hidden}
+.c::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--k,var(--blue))}
+.c b{display:block;font:800 clamp(17px,2vw,26px) Alexandria;color:var(--k,var(--blue));margin-bottom:.6vh}.c span{font-size:clamp(14px,1.55vw,20px);color:var(--dim);line-height:1.7}
+.ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:color-mix(in srgb,var(--k,var(--blue)) 12%,transparent);margin-bottom:1.2vh}.ic svg{width:28px;height:28px;stroke:var(--k,var(--blue));fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{font:700 clamp(13px,1.4vw,16px) "Readex Pro";border:0;border-radius:999px;padding:.6em 1.3em;cursor:pointer;background:linear-gradient(90deg,var(--blue),var(--sky));color:#fff;box-shadow:0 8px 20px rgba(1,73,173,.25)}
+.btn.ghost{background:var(--card);color:var(--blue);border:1.5px solid var(--line);box-shadow:none}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--vio);outline-offset:3px}
+.term{direction:ltr;text-align:left;background:var(--term);color:#E2E8F0;border-radius:18px;width:100%;box-shadow:0 26px 60px rgba(4,30,82,.35);overflow:hidden;font:500 clamp(12px,1.45vw,19px)/1.8 ui-monospace,Menlo,Consolas,monospace}
+.term .bar{display:flex;gap:8px;padding:12px 16px;background:rgba(255,255,255,.06);align-items:center}.term .bar i{width:12px;height:12px;border-radius:50%;background:#F87171}.term .bar i:nth-child(2){background:#FBBF24}.term .bar i:nth-child(3){background:#34D399}.term .bar em{font-style:normal;color:#94A3B8;font-size:.8em;margin-left:10px}
+.term pre{margin:0;padding:16px 22px;min-height:8.5em;white-space:pre-wrap}.term pre div{unicode-bidi:plaintext;text-align:left}
+.term .g{color:#6EE7B7}.term .p{color:#93C5FD}.term .a{color:#FDE68A}.term .o{color:#C4B5FD}.term .ar{font-family:"Readex Pro",sans-serif}
+.cur{display:inline-block;width:.6em;background:#E2E8F0;animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.poll{display:grid;gap:1.4vh;max-width:900px;width:100%}
+.pb{display:grid;grid-template-columns:minmax(150px,30%) 1fr 54px;align-items:center;gap:1vw;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:1.2vh 1.2vw;cursor:pointer;font:700 clamp(14px,1.7vw,21px) "Readex Pro";color:var(--ink);text-align:right}
+.pb:hover{border-color:var(--sky)}.pb .tr{height:16px;border-radius:99px;background:color-mix(in srgb,var(--line) 70%,transparent);overflow:hidden}.pb .fl{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--sky),var(--vio));transition:width .5s cubic-bezier(.2,.8,.2,1)}.pb .ct{font:800 clamp(16px,2vw,24px) Alexandria;color:var(--blue)}
+.lb{display:grid;grid-template-columns:1fr 1.15fr;gap:2vw;max-width:1280px;width:100%;align-items:center}
+.browser{background:var(--card);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 26px 60px rgba(1,73,173,.18)}
+.browser .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);direction:ltr}.browser .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}.browser .url{flex:1;background:var(--bg);border-radius:8px;padding:4px 10px;font:500 12px ui-monospace,monospace;color:var(--dim);text-align:left}
+.stage{aspect-ratio:16/9;position:relative;background:#fff;overflow:hidden;transition:background .8s}
+.stage.bg{background:radial-gradient(circle at 80% 10%,#DBEAFE,transparent 50%),radial-gradient(circle at 10% 90%,#EDE9FE,transparent 50%),#F8FAFF}
+.stage>*{position:absolute;opacity:0;transition:all .7s cubic-bezier(.2,.8,.2,1)}.stage>.in{opacity:1;transform:none!important}
+.stage .hd{top:0;left:0;right:0;height:7%;background:linear-gradient(90deg,#0149AD,#7C3AED);transform:scaleX(0);transform-origin:right}
+.stage .tt{top:13%;right:6%;text-align:right;transform:translateY(20px)}.stage .tt b{display:block;font:900 clamp(18px,2.6vw,36px) Alexandria;color:#0149AD}.stage .tt span{font:600 clamp(10px,1.1vw,15px) "Readex Pro";color:#56627A}
+.stage .pie{left:7%;top:20%;width:34%;transform:scale(.6) rotate(-30deg)}
+.stage .pts{right:6%;top:42%;display:grid;gap:8px;transform:translateX(30px)}.stage .pts i{font:600 clamp(10px,1.15vw,15px) "Readex Pro";font-style:normal;color:#0B1220;background:#fff;border:1px solid #D9E2F3;border-radius:10px;padding:5px 12px;text-align:right;box-shadow:0 4px 10px rgba(1,73,173,.08)}
+.stage .qz{bottom:5%;left:8%;font:700 clamp(10px,1.15vw,15px) "Readex Pro";background:linear-gradient(90deg,#059669,#10B981);color:#fff;border-radius:99px;padding:6px 16px;transform:scale(.4)}
+.stage .qz.in{animation:pop 1.6s ease-in-out infinite 1s}@keyframes pop{50%{transform:scale(1.08)}}
+.lbctl{display:flex;gap:10px;justify-content:center}
+.cmp{position:relative;width:min(1000px,100%);aspect-ratio:16/8;border-radius:22px;overflow:hidden;box-shadow:0 26px 60px rgba(1,73,173,.2);border:1.5px solid var(--line);user-select:none;touch-action:none;cursor:ew-resize}
+.cmp .L{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.4vh}
+.cmp .old{background:#fff;color:#334155;font-family:Arial,sans-serif;padding:4% 50% 4% 4%;text-align:right;direction:rtl}
+.cmp .old ul{margin:0;padding-right:1.2em;align-self:center}.cmp .old h3{font:700 clamp(20px,2.8vw,38px) Arial;margin:0;color:#1E293B;align-self:stretch;text-align:center;border-bottom:2px solid #CBD5E1;padding-bottom:1vh}.cmp .old li{font:400 clamp(14px,1.8vw,24px) Arial;margin:.5vh 0}
+.cmp .new{background:linear-gradient(135deg,#041E52,#0149AD 50%,#7C3AED);color:#fff;clip-path:inset(0 0 0 var(--x,50%));padding:4% 4% 4% 50%;text-align:center}
+.cmp .new h3{font:900 clamp(22px,3.4vw,46px) Alexandria;margin:0}.cmp .new .chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.cmp .new .chips i{font:700 clamp(12px,1.5vw,19px) "Readex Pro";font-style:normal;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:.4em 1em;animation:bob 3s ease-in-out infinite}.cmp .new .chips i:nth-child(2){animation-delay:-1s}.cmp .new .chips i:nth-child(3){animation-delay:-2s}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.cmp .orbit{width:110px;height:110px;border-radius:50%;border:2px dashed rgba(255,255,255,.4);position:relative;animation:spin 8s linear infinite}.cmp .orbit::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#6EE7B7;top:-9px;left:calc(50% - 9px);box-shadow:0 0 18px #6EE7B7}@keyframes spin{to{transform:rotate(360deg)}}
+.cmp .hdl{position:absolute;top:0;bottom:0;left:var(--x,50%);width:4px;margin-left:-2px;background:#fff;box-shadow:0 0 12px rgba(0,0,0,.3)}.cmp .hdl::after{content:"";position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.cmp .lab{position:absolute;top:14px;font:700 13px "Readex Pro";padding:4px 12px;border-radius:99px;z-index:2}.cmp .lab.a{left:14px;background:#F1F5F9;color:#334155}.cmp .lab.b{right:14px;background:rgba(255,255,255,.2);color:#fff}
+.show{display:grid;grid-template-columns:1fr 2.2fr;gap:2vw;max-width:1250px;width:100%;align-items:center}
+.gal{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;box-shadow:0 26px 60px rgba(1,73,173,.22);border:1.5px solid var(--line);background:#fff}
+.gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s;transform:scale(1.04)}.gal img.on{opacity:1;animation:kb 5s linear both}@keyframes kb{to{transform:scale(1)}}
+.gal .cap{position:absolute;bottom:12px;right:12px;font:700 14px "Readex Pro";background:rgba(4,30,82,.82);color:#fff;border-radius:99px;padding:5px 14px}
+.phone{width:min(210px,100%);margin:auto;border-radius:30px;border:8px solid #0B1220;overflow:hidden;box-shadow:0 26px 50px rgba(4,30,82,.3);aspect-ratio:9/19.5;background:#fff}.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+.stats{display:flex;gap:1.2vw;justify-content:center;flex-wrap:wrap}.stat{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:1vh 1.4vw;min-width:150px}.stat b{display:block;font:900 clamp(22px,2.8vw,38px) Alexandria;color:var(--blue)}.stat span{font-size:clamp(12px,1.3vw,16px);color:var(--dim)}
+.steps{display:flex;gap:1.6vw;max-width:1150px;width:100%;position:relative;margin-top:3vh}
+.steps::before{content:"";position:absolute;top:0;right:8%;left:8%;height:3px;background:linear-gradient(90deg,var(--vio),var(--sky),var(--blue));transform-origin:right;animation:grow 1.4s .3s cubic-bezier(.2,.8,.2,1) both}@keyframes grow{from{transform:scaleX(0)}}
+.st{flex:1;background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:2.6vh 1.6vw;position:relative}
+.st .n{width:56px;height:56px;border-radius:50%;margin:-5.6vh auto 1.4vh;display:grid;place-items:center;color:#fff;font:900 24px Alexandria;background:linear-gradient(135deg,var(--blue),var(--sky));box-shadow:0 10px 24px rgba(1,73,173,.35)}
+.st b{font:800 clamp(17px,2vw,26px) Alexandria;display:block;margin-bottom:.6vh}.st span{color:var(--dim);font-size:clamp(14px,1.6vw,20px);line-height:1.7}
+.cmd{direction:ltr;display:inline-block;background:var(--term);color:#6EE7B7;border-radius:10px;padding:.2em .8em;font:600 clamp(14px,1.7vw,20px) ui-monospace,monospace;margin-top:.8vh}
+.bld{display:grid;grid-template-columns:1fr 1.25fr;gap:2vw;max-width:1250px;width:100%;text-align:right}
+.fm{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:2vh 1.6vw;display:grid;gap:1.3vh}
+.fm label{font:700 clamp(13px,1.4vw,17px) "Readex Pro";color:var(--dim);display:grid;gap:.5vh}
+.fm select,.fm input[type=text]{font:600 clamp(14px,1.5vw,18px) "Readex Pro";padding:.5em .8em;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.fm input[type=range]{accent-color:var(--vio)}
+.chk{display:flex;flex-wrap:wrap;gap:8px}.chk label{display:flex;flex-direction:row;align-items:center;gap:6px;background:var(--bg);border:1.5px solid var(--line);border-radius:99px;padding:.35em .9em;cursor:pointer;color:var(--ink)}.chk input{accent-color:var(--vio)}
+.out{background:var(--term);color:#F1F5F9;border-radius:22px;padding:2.2vh 1.8vw;display:flex;flex-direction:column;gap:1.4vh;box-shadow:0 26px 60px rgba(4,30,82,.3)}
+.out .lb2{font:800 clamp(13px,1.4vw,16px) Alexandria;color:#C4B5FD}.out p{font-size:clamp(14px,1.6vw,20px);line-height:1.9;flex:1}.out .btn{align-self:flex-start}
+.prompt{background:var(--card);border:1.5px dashed var(--vio);border-radius:20px;padding:1.8vh 2vw;max-width:1100px;width:100%;text-align:right;position:relative}
+.prompt p{font-size:clamp(15px,1.8vw,22px);padding-left:90px}.prompt .lb3{font:800 clamp(13px,1.5vw,17px) Alexandria;color:var(--vio);margin-bottom:.6vh}
+.prompt .btn{position:absolute;left:1.4vw;top:1.4vh}
+.quiz{background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:2.6vh 2.6vw;max-width:880px;width:100%;box-shadow:0 18px 40px rgba(1,73,173,.1)}
+.quiz .q{font:800 clamp(18px,2.4vw,30px) Alexandria;margin-bottom:2vh}.opts{display:grid;grid-template-columns:1fr 1fr;gap:1.2vw}
+.opt{font:700 clamp(16px,2vw,24px) "Readex Pro";padding:1.4vh 1vw;border-radius:16px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;transition:.2s}
+.opt:hover{border-color:var(--sky)}.opt.ok{background:#DCFCE7;border-color:var(--grn);color:#065F46}.opt.no{background:#FEE2E2;border-color:#DC2626;color:#991B1B;animation:shk .4s}@keyframes shk{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{min-height:1.8em;margin-top:1.4vh;font-weight:700}.qbar{height:6px;border-radius:99px;background:var(--line);margin-bottom:2vh;overflow:hidden}.qbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--grn),var(--sky));transition:width .5s}
+.tw{position:relative;width:clamp(200px,26vw,330px);aspect-ratio:1}.tw svg{width:100%;height:100%;transform:rotate(-90deg)}.tw circle{fill:none;stroke-width:10}.tw .bgc{stroke:var(--line)}.tw .fgc{stroke:url(#tg);stroke-linecap:round;transition:stroke-dashoffset 1s linear}
+.tw .tv{position:absolute;inset:0;display:grid;place-items:center;font:900 clamp(44px,6vw,80px) Alexandria;direction:ltr;color:var(--ink)}
+.tw.end .tv{color:var(--org);animation:pop 1s ease-in-out infinite}
+.row{display:flex;gap:2vw;align-items:center;justify-content:center;flex-wrap:wrap;max-width:1250px;width:100%}.row .cards{flex:1;grid-template-columns:1fr;min-width:300px;max-width:560px}
+.ring{display:flex;gap:10px;justify-content:center}
+.tips{display:grid;grid-template-columns:1fr 1fr;gap:1.4vw;max-width:1100px;width:100%}
+.qr{background:#fff;padding:12px;border-radius:18px;box-shadow:0 18px 40px rgba(1,73,173,.15);display:inline-block}
+.endrow{display:flex;gap:3vw;align-items:center;justify-content:center;flex-wrap:wrap}
+.nav{position:fixed;bottom:2vh;left:0;right:0;display:flex;justify-content:center;gap:10px;align-items:center;z-index:5;pointer-events:none}
+.nav>*{pointer-events:auto}.nav button{font:600 15px "Readex Pro";border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 18px;cursor:pointer}
+.nav .ico{padding:8px 12px;display:grid;place-items:center}.nav .ico svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round}
+.nav span{color:var(--dim);font-size:14px;min-width:60px;text-align:center}
+.prog{position:fixed;top:0;right:0;height:5px;background:linear-gradient(90deg,var(--vio),var(--sky),var(--blue));transition:width .5s;z-index:5}
+.foot{position:fixed;bottom:2.6vh;right:3vw;font:600 13px "Readex Pro";color:var(--dim)}
+.notes{position:fixed;bottom:9vh;left:50%;transform:translateX(-50%);width:min(900px,92vw);background:var(--term);color:#F1F5F9;border-radius:16px;padding:14px 20px;font-size:17px;line-height:1.8;z-index:6;display:none;text-align:right;box-shadow:0 20px 50px rgba(0,0,0,.35)}.notes.on{display:block}.notes b{color:#C4B5FD;font:800 13px Alexandria;display:block}
+.ov{position:fixed;inset:0;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);z-index:8;display:none;padding:6vh 6vw;overflow:auto}.ov.on{display:block}
+.ov .g{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}.ov button{font:700 16px "Readex Pro";text-align:right;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;min-height:84px}.ov button i{display:block;font:800 13px Alexandria;color:var(--vio);font-style:normal;margin-bottom:4px}.ov button.cur2{border-color:var(--vio);box-shadow:0 0 0 3px color-mix(in srgb,var(--vio) 30%,transparent)}
+#rqr.on{display:block!important}.pres .mic{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--pc),#1D63E0);box-shadow:0 18px 40px color-mix(in srgb,var(--pc) 40%,transparent);animation:pop 2.4s ease-in-out infinite}.pres .mic svg{width:52px;height:52px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round}.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:1vw;max-width:1300px;width:100%}.g5 .c{padding:2vh 1.1vw}.g5 .c b{font-size:clamp(14px,1.45vw,20px)}.g5 .c span{font-size:clamp(12px,1.2vw,16px);display:block}.g5 .c i{display:block;font-style:normal;font-size:clamp(11.5px,1.1vw,15px);color:var(--k);background:color-mix(in srgb,var(--k) 9%,transparent);border-radius:10px;padding:6px 8px;margin-top:1vh;line-height:1.6}.gn{display:grid!important;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--k);color:#fff!important;font:900 16px Alexandria!important;margin-bottom:.8vh}.gall{background:var(--term);color:#F1F5F9;border-radius:18px;padding:1.6vh 2vw;max-width:1300px;width:100%;text-align:right;font-size:clamp(13px,1.4vw,18px);line-height:1.9}.gall b{color:#fff;font-family:Alexandria}@media (max-width:820px){.g5{grid-template-columns:1fr}}#laser{position:fixed;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:radial-gradient(circle,#ff2d2d 30%,rgba(255,45,45,.35) 60%,transparent 70%);box-shadow:0 0 22px #ff2d2d;z-index:20;pointer-events:none;opacity:0;transition:opacity .2s,left .06s linear,top .06s linear}#laser.on{opacity:1}#blk{position:fixed;inset:0;background:#000;z-index:19;opacity:0;pointer-events:none;transition:opacity .4s}#blk.on{opacity:1;pointer-events:auto}.mirror .nav,.mirror .foot,.mirror #rqr,.mirror .notes,.mirror .ov{display:none!important}.keys{font-size:13px;color:var(--dim);margin-top:2vh;text-align:center}
+@media (max-width:820px){.cards,.tips,.opts,.lb,.show,.bld{grid-template-columns:1fr}.steps{flex-direction:column;gap:5vh}.steps::before{display:none}.s{padding:6vh 16px 13vh;overflow:auto;justify-content:flex-start}.foot{display:none}.prompt p{padding-left:0}.prompt .btn{position:static;margin-top:1.2vh}.pb{grid-template-columns:1fr 1fr 40px}.phone{display:none}.cmp{aspect-ratio:4/3}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+[hidden]{display:none!important}
+/* ===== YBE live AI slide ===== */
+.s.ai{padding:3vh 3vw 9.5vh;gap:1.3vh}
+.aihd{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap}
+.s.ai h2{font-size:clamp(20px,2.5vw,36px)}
+.ybrand{background:linear-gradient(90deg,#0149AD,#7C3AED);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tab{position:relative;width:min(1340px,94vw);height:min(73vh,54vw);background:#0B1220;border-radius:clamp(20px,2.4vw,36px);padding:clamp(8px,.9vw,14px);box-shadow:0 40px 90px rgba(4,30,82,.32),inset 0 0 0 2px #1E293B,inset 0 0 0 5px #0F172A}
+.tab::before{content:"";position:absolute;left:calc(clamp(8px,.9vw,14px)/2 - 3px);top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:#334155}
+.tabscr{height:100%;border-radius:clamp(14px,1.6vw,24px);overflow:hidden;display:grid;grid-template-columns:clamp(180px,16vw,240px) minmax(0,1fr);background:var(--bg);text-align:right}
+.yside{background:linear-gradient(170deg,#041E52,#0149AD 62%,#3B2FA8);color:#fff;display:flex;flex-direction:column;align-items:center;gap:1.1vh;padding:3vh 1vw 2.4vh;text-align:center}
+.ylogo{width:clamp(52px,4.8vw,74px);aspect-ratio:1;border-radius:28%;background:linear-gradient(135deg,#0149AD,#7C3AED);display:grid;place-items:center;box-shadow:0 10px 30px rgba(124,58,237,.45);flex:none}
+.yside .ylogo{background:linear-gradient(135deg,#2563EB,#8B5CF6);box-shadow:0 0 0 3px rgba(255,255,255,.18),0 12px 30px rgba(0,0,0,.3)}
+.ylogo svg{width:62%;height:62%}
+.ylogo.spin svg{animation:yspin 1.6s linear infinite}
+@keyframes yspin{to{transform:rotate(360deg)}}
+.yname{font:900 clamp(20px,1.9vw,30px) Alexandria,sans-serif;letter-spacing:.06em}
+.ysub{font-size:clamp(12px,1vw,15px);opacity:.82;margin-top:-.8vh}
+.ystat{display:inline-flex;align-items:center;gap:6px;font-size:clamp(11px,.95vw,14px);background:rgba(255,255,255,.12);border-radius:99px;padding:3px 12px}
+.ystat i{width:8px;height:8px;border-radius:50%;background:#34D399;box-shadow:0 0 8px #34D399}
+.ystat.busy i{background:#FBBF24;box-shadow:0 0 8px #FBBF24;animation:ypulse 1s infinite}
+@keyframes ypulse{50%{opacity:.3}}
+.yqr{margin-top:auto;background:#fff;border-radius:14px;padding:8px 8px 6px;display:grid;gap:4px;justify-items:center}
+.yqr small{color:#041E52;font-size:clamp(10px,.82vw,12.5px);font-weight:700;line-height:1.4}
+.yqr canvas,.yqr img{width:clamp(84px,7.6vw,118px)!important;height:auto!important;display:block}
+.ymain{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--bg)}
+.ylog{flex:1;min-height:0;overflow-y:auto;padding:2vh 1.8vw 1vh;display:flex;flex-direction:column;gap:1.3vh;scroll-behavior:smooth;overscroll-behavior:contain}
+.ylog>*{flex-shrink:0}
+.yempty{margin:auto;display:grid;justify-items:center;gap:1.5vh;text-align:center;max-width:780px;width:100%}
+.yempty .ylogo{width:clamp(60px,5.6vw,88px)}
+.yempty h3{font:800 clamp(20px,2vw,32px) Alexandria,sans-serif;margin:0}
+.yempty p{font-size:clamp(13px,1.1vw,17px);color:var(--dim)}
+.ysug{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1vw;width:100%}
+.ysug button{font:600 clamp(13px,1.05vw,17px) "Readex Pro",sans-serif;text-align:right;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:16px;padding:1.3vh 1.2vw;cursor:pointer;line-height:1.55;display:grid;gap:3px}
+.ysug button b{font:800 .78em Alexandria,sans-serif;color:var(--vio)}
+.ysug button.main{grid-column:1/-1;border-color:color-mix(in srgb,var(--vio) 55%,var(--line));background:linear-gradient(135deg,color-mix(in srgb,var(--blue) 9%,var(--card)),color-mix(in srgb,var(--vio) 12%,var(--card)))}
+.ysug button:hover,.ychips button:hover{border-color:var(--vio)}
+.ym{display:flex;gap:10px;align-items:flex-end;max-width:84%;animation:yin .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes yin{from{opacity:0;transform:translateY(10px) scale(.98)}}
+.ym.u{align-self:flex-start}
+.ym.a{align-self:flex-end;flex-direction:row-reverse}
+.ybub{border-radius:20px;padding:1.1vh 1.2vw;font-size:clamp(14px,1.18vw,19px);line-height:1.75;min-width:0;overflow-wrap:anywhere;box-shadow:0 6px 18px rgba(1,73,173,.07)}
+.ym.u .ybub{background:linear-gradient(135deg,#0149AD,#1D63E0);color:#fff;border-end-start-radius:6px}
+.ym.a .ybub{background:var(--card);border:1px solid var(--line);color:var(--ink);border-end-end-radius:6px}
+.ybub ul{margin:.25em 0;padding-inline-start:1.2em}.ybub li{margin:.12em 0}.ybub b{font-weight:800}
+.ybub bdi{direction:ltr;unicode-bidi:isolate}
+.ym.u .ybub.long{font-size:clamp(12px,.98vw,15.5px);line-height:1.85;max-height:31vh;overflow:auto}
+.gr{display:inline-block;font:800 .8em Alexandria,sans-serif;border-radius:99px;padding:0 .75em;background:#fff;color:var(--k);margin:.2em 0}
+.yav{flex:none;width:clamp(28px,2.4vw,36px);aspect-ratio:1;border-radius:30%;background:linear-gradient(135deg,#0149AD,#7C3AED);display:grid;place-items:center}
+.yav svg{width:62%;height:62%}
+.ydots{display:inline-flex;gap:5px;padding:.35em 0}.ydots i{width:8px;height:8px;border-radius:50%;background:var(--dim);animation:ydot 1.2s infinite}
+.ydots i:nth-child(2){animation-delay:.15s}.ydots i:nth-child(3){animation-delay:.3s}
+@keyframes ydot{0%,60%,100%{transform:none;opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.ycaret::after{content:"";display:inline-block;width:.45em;height:1em;vertical-align:-.15em;background:var(--vio);margin-inline-start:3px;animation:bl 1s steps(1) infinite}
+.yimg{max-width:min(300px,100%);border-radius:12px;display:block}
+/* build card */
+.ycard{align-self:flex-end;width:min(780px,92%);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:1.5vh 1.4vw;display:grid;gap:1.1vh;box-shadow:0 14px 34px rgba(1,73,173,.1);animation:yin .5s both}
+.ych{display:flex;align-items:center;gap:10px}.ych b{font:800 clamp(14px,1.18vw,18px) Alexandria,sans-serif;flex:1}
+.ych .pc{font:800 clamp(13px,1.05vw,16px) Alexandria,sans-serif;color:var(--vio);direction:ltr}
+.yspin{flex:none;width:20px;height:20px;border-radius:50%;border:3px solid color-mix(in srgb,var(--vio) 25%,transparent);border-top-color:var(--vio);animation:yspin .8s linear infinite;position:relative}
+.ycard.done .yspin{animation:none;border-color:var(--grn);background:var(--grn)}
+.ycard.done .yspin::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.ybar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}.ybar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--vio));transition:width .6s}
+.ybody{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1.3vw;align-items:start}
+.ybook{display:flex;gap:6px;position:relative;align-self:center}
+.ybook img{width:clamp(58px,5.2vw,90px);border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.15);border:1px solid var(--line);background:#fff;transition:filter .4s,opacity .4s}
+.ybook::after{content:"";position:absolute;left:-4px;right:-4px;height:3px;top:0;background:linear-gradient(90deg,transparent,#22D3EE,transparent);box-shadow:0 0 12px #22D3EE;animation:yscan 1.5s ease-in-out infinite}
+.ybook.stop::after{display:none}.ybook.stop img{opacity:.75}
+@keyframes yscan{0%,100%{top:0}50%{top:calc(100% - 3px)}}
+.ysteps{list-style:none;margin:0;padding:0;display:grid;gap:.55vh;font-size:clamp(12px,1.02vw,16px);line-height:1.55}
+.ysteps li{display:flex;gap:8px;align-items:flex-start;opacity:.32;transition:opacity .35s}
+.ysteps li.on{opacity:1}
+.ysteps li i{flex:none;width:17px;height:17px;border-radius:50%;border:2px solid var(--line);margin-top:.22em;position:relative}
+.ysteps li.on:not(.ok) i{border-color:var(--vio);border-top-color:transparent;animation:yspin .8s linear infinite}
+.ysteps li.ok i{background:var(--grn);border-color:var(--grn)}
+.ysteps li.ok i::after{content:"";position:absolute;left:3.5px;top:.5px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.ysteps bdi{direction:ltr;unicode-bidi:isolate;font-family:"Times New Roman",serif;font-style:italic;font-weight:700}
+.ycode{direction:ltr;text-align:left;font:600 clamp(11px,.88vw,13px) ui-monospace,Menlo,Consolas,monospace;color:var(--dim);background:var(--bg);border-radius:10px;padding:6px 10px;display:flex;justify-content:space-between;gap:10px}
+.ycode b{color:var(--vio)}
+/* result card */
+.yres{align-self:flex-end;width:min(780px,92%);background:var(--card);border:1.5px solid color-mix(in srgb,var(--vio) 45%,var(--line));border-radius:22px;overflow:hidden;box-shadow:0 18px 44px rgba(124,58,237,.16);animation:yin .6s both}
+.ypv{position:relative;aspect-ratio:16/9;overflow:hidden;background:#fff;cursor:zoom-in}
+.ypv iframe{position:absolute;top:0;left:0;width:1600px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
+.ylive{position:absolute;top:10px;right:10px;font:700 12px "Readex Pro",sans-serif;color:#fff;background:rgba(4,30,82,.82);border-radius:99px;padding:3px 10px;display:inline-flex;align-items:center;gap:6px}
+.ylive::before{content:"";width:7px;height:7px;border-radius:50%;background:#34D399;box-shadow:0 0 8px #34D399}
+.yrb{display:flex;align-items:center;gap:12px;padding:1.1vh 1.2vw;flex-wrap:wrap}
+.yrb div{flex:1;min-width:0}.yrb b{font:800 clamp(14px,1.2vw,19px) Alexandria,sans-serif;display:block}.yrb small{color:var(--dim);font-size:clamp(11.5px,.92vw,14px)}
+.yrb .btn{font-size:clamp(13px,1.05vw,16px)}
+.yvid{align-self:flex-end;width:min(640px,88%);border-radius:18px;overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(0,0,0,.3);animation:yin .5s both}
+.yvid video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.ychips{display:flex;gap:8px;padding:.4vh 1.6vw 1vh;overflow-x:auto;scrollbar-width:none;flex:none}
+.ychips:empty{display:none}
+.ychips button{flex:none;font:600 clamp(12px,.98vw,15px) "Readex Pro",sans-serif;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:.45em 1em;cursor:pointer}
+.ychips button.main{background:linear-gradient(90deg,var(--blue),var(--vio));color:#fff;border-color:transparent}
+.yin{flex:none;display:flex;gap:10px;align-items:flex-end;margin:0 1.6vw 1.7vh;background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:7px;box-shadow:0 8px 24px rgba(1,73,173,.08)}
+.yin:focus-within{border-color:var(--vio)}
+.yin textarea{flex:1;min-width:0;resize:none;border:0;outline:0;background:transparent;color:var(--ink);font:500 clamp(14px,1.12vw,18px) "Readex Pro",sans-serif;line-height:1.6;max-height:16vh;padding:6px 10px}
+.yin button{flex:none;width:clamp(38px,3.1vw,48px);aspect-ratio:1;border-radius:50%;border:0;background:linear-gradient(135deg,var(--blue),var(--vio));display:grid;place-items:center;cursor:pointer}
+.yin button:disabled{opacity:.45;cursor:default}
+.yin svg,.r-snd svg{transform:scaleX(-1)}
+.yin button svg{width:48%;height:48%;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:820px){.s.ai{padding:5vh 12px 13vh}.tabscr{grid-template-columns:1fr}.yside{display:none}.tab{height:72vh;width:100%;border-radius:22px}.ysug{grid-template-columns:1fr}.ym{max-width:94%}.ybody{grid-template-columns:1fr}.ybook{display:none}}
+@media (max-width:560px){.nav .ico{display:none}.nav button{padding:8px 14px}}
+/* ===== physics overlay ===== */
+html.phopen .nav,html.phopen .foot{visibility:hidden}
+#physOv{position:fixed;inset:0;z-index:16;display:none;background:rgba(3,8,22,0);transition:background .45s}
+#physOv.on{display:block}#physOv.vis{background:rgba(3,8,22,.86)}
+#physOv .pbox{position:absolute;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 40px 100px rgba(0,0,0,.55);transform-origin:0 0;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .4s}
+#physOv .pbox iframe{display:block;width:100%;height:100%;border:0}
+#physOv .pbar{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;color:#fff;opacity:0;transition:opacity .4s .25s;white-space:nowrap;max-width:96vw}
+#physOv.vis .pbar{opacity:1}
+#physOv .pbar.t{top:max(10px,env(safe-area-inset-top,0px))}#physOv .pbar.b{bottom:max(12px,env(safe-area-inset-bottom,0px))}
+#physOv .pbar b{font:800 15px Alexandria,sans-serif;overflow:hidden;text-overflow:ellipsis}#physOv .pbar span{font-size:13px;opacity:.8}
+#physOv .pbar button{font:700 14px "Readex Pro",sans-serif;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#fff;border-radius:99px;padding:7px 16px;cursor:pointer}
+#physOv .pbar button:focus-visible{outline:3px solid #A78BFA;outline-offset:2px}
+.ybadge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(90deg,#0149AD,#7C3AED);border-radius:99px;padding:4px 12px 4px 6px;font:800 12px Alexandria,sans-serif;color:#fff}
+.ybadge i{width:20px;height:20px;border-radius:30%;background:rgba(255,255,255,.18);display:grid;place-items:center}.ybadge svg{width:70%;height:70%}
+.mirror #physOv .pbar{display:none}
+/* ===== phone remote (same file, remote mode) ===== */
+html.rmode,html.rmode body{background:#070D1C;color-scheme:dark}
+html.rmode body{overflow:auto;height:auto;min-height:100%}
+html.rmode #net,html.rmode .blob,html.rmode .prog,html.rmode .s,html.rmode .foot,html.rmode .nav,html.rmode .notes,html.rmode #rqr,html.rmode #ov,html.rmode #physOv,html.rmode #laser,html.rmode #blk{display:none!important}
+#R{--rbg:#070D1C;--rc:#111A30;--rc2:#16223F;--ri:#EAF0FF;--rd:#93A3C4;--rl:#23304F;--c1:#3B82F6;--c2:#8B5CF6;--pc:var(--c1);--rok:#34D399;--rred:#EF4444;max-width:560px;margin:0 auto;padding:12px max(12px,env(safe-area-inset-right,0px)) calc(86px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));display:grid;gap:10px;color:var(--ri);font-family:"Readex Pro",sans-serif;user-select:none;-webkit-tap-highlight-color:transparent;text-align:right}
+#R button{font-family:inherit;cursor:pointer}
+#R button:focus-visible,#R textarea:focus-visible,#R input:focus-visible{outline:3px solid #A78BFA;outline-offset:2px}
+.r-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.r-top b{font:900 17px Alexandria,sans-serif}
+.r-dot{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--rd)}.r-dot i{width:9px;height:9px;border-radius:50%;background:#F59E0B}
+.r-dot.ok i{background:var(--rok);box-shadow:0 0 8px var(--rok)}.r-dot.bad i{background:var(--rred)}
+#rFull{display:grid;gap:10px}
+.r-who{display:flex;align-items:center;gap:10px;background:color-mix(in srgb,var(--pc) 16%,var(--rc));border:1px solid color-mix(in srgb,var(--pc) 45%,transparent);border-radius:14px;padding:8px 12px;transition:.3s}
+.r-who b{font:800 14px Alexandria,sans-serif;display:block}.r-who small{font-size:11.5px;color:var(--rd)}
+.r-av{width:34px;height:34px;border-radius:50%;background:var(--pc);display:grid;place-items:center;font:900 15px Alexandria,sans-serif;flex:none}
+.r-tm{margin-inline-start:auto;font:900 17px Alexandria,sans-serif;direction:ltr}
+.r-mir{position:relative;border-radius:14px;overflow:hidden;border:2px solid var(--rl);aspect-ratio:16/9;background:#F4F7FF}
+.r-mir iframe{position:absolute;top:0;left:0;width:1600px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
+.r-tp{position:absolute;inset:0;touch-action:none}.r-mir.lz{border-color:var(--rred)}
+.r-badge{position:absolute;bottom:6px;left:6px;font:700 11px "Readex Pro",sans-serif;background:#000a;color:#fff;border-radius:99px;padding:2px 9px;pointer-events:none}
+.r-prog{height:5px;display:flex;gap:2px}.r-prog i{flex:1;background:var(--rl);border-radius:2px}.r-prog i.d{background:var(--c1)}.r-prog i.d2{background:var(--c2)}.r-prog i.cur{background:#fff}
+.r-cur{background:var(--rc);border:1px solid var(--rl);border-radius:16px;padding:12px}
+.r-n{font-size:12px;color:var(--rd);display:flex;justify-content:space-between;gap:8px}
+.r-cur>b{font:900 21px Alexandria,sans-serif;display:block;margin:2px 0}
+.r-notes{color:#C4B5FD;font-size:15.5px;line-height:1.75}
+.r-frs{display:flex;gap:5px;margin-top:8px;align-items:center;font-size:12px;color:#FBBF24}.r-frs i{width:18px;height:6px;border-radius:9px;background:var(--rl)}.r-frs i.v{background:#FBBF24}
+.r-nx{font-size:12px;color:var(--rd);margin-top:8px;border-top:1px dashed var(--rl);padding-top:8px}
+.r-pad{display:grid;grid-template-columns:1fr 2.3fr;gap:10px;height:150px}
+.r-pad button{border:1px solid var(--rl);border-radius:20px;font:800 20px Alexandria,sans-serif;color:#fff;background:var(--rc);touch-action:manipulation;transition:transform .08s}
+.r-pad button:active,.r-tg button:active,.r-ctx button:active,.r-chips button:active{transform:scale(.96)}
+.r-pad .r-nb{background:linear-gradient(160deg,var(--pc),color-mix(in srgb,var(--pc) 55%,#000));border:0;font-size:24px;display:grid;place-content:center;gap:4px;padding:6px;line-height:1.3}
+.r-nb small{font:600 12px "Readex Pro",sans-serif;opacity:.85}
+.r-ctx{background:var(--rc2);border:1px solid color-mix(in srgb,var(--pc) 40%,var(--rl));border-radius:16px;padding:12px;display:grid;gap:8px}
+.r-ctx h3{margin:0;font:800 13px Alexandria,sans-serif;color:var(--rd)}
+.r-ctx p{margin:0;font-size:14px;line-height:1.6;color:var(--ri)}
+.r-row{display:flex;flex-wrap:wrap;gap:8px}
+.r-ctx button{flex:1 1 auto;min-width:72px;border:1px solid var(--rl);background:var(--rc);color:var(--ri);border-radius:12px;padding:11px 8px;font:700 14px "Readex Pro",sans-serif}
+.r-ctx button.ok{border-color:var(--rok);color:var(--rok)}
+.r-pv{display:grid;grid-template-columns:1fr auto;gap:6px 10px;align-items:center}.r-pv b{font:900 16px Alexandria,sans-serif}
+.r-ctx input[type=range]{width:100%;accent-color:var(--pc)}
+.r-lab{display:grid;gap:8px}.r-lab label{display:grid;gap:2px;font-size:13px;color:var(--rd)}.r-lab span{display:flex;justify-content:space-between}.r-lab output{color:var(--ri);font:800 14px Alexandria,sans-serif;direction:ltr}
+.r-chat{background:var(--rc);border:1px solid var(--rl);border-radius:18px;padding:12px;display:grid;gap:10px}
+.r-chh{display:flex;align-items:center;gap:10px}.r-chh b{font:900 15px Alexandria,sans-serif;display:block}.r-chh small{font-size:11.5px;color:var(--rd)}
+.r-yl{width:34px;height:34px;border-radius:30%;background:linear-gradient(135deg,#0149AD,#7C3AED);display:grid;place-items:center;flex:none}.r-yl svg{width:62%;height:62%}
+.r-log{max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:2px;overscroll-behavior:contain}
+.r-empty{color:var(--rd);font-size:13px;text-align:center;padding:10px;line-height:1.7}
+.r-m{max-width:88%;border-radius:16px;padding:8px 12px;font-size:14px;line-height:1.7;overflow-wrap:anywhere}
+.r-m.u{align-self:flex-start;background:#0149AD;color:#fff;border-end-start-radius:5px}
+.r-m.a{align-self:flex-end;background:var(--rc2);border:1px solid var(--rl);border-end-end-radius:5px}
+.r-m.pend{opacity:.6}.r-m small{display:block;font-size:11px;opacity:.75}.r-m img{max-width:160px;border-radius:10px;display:block}
+.r-sys{align-self:center;font-size:12px;color:var(--rd);background:var(--rbg);border:1px dashed var(--rl);border-radius:99px;padding:3px 12px;text-align:center}
+.r-card{align-self:stretch;background:linear-gradient(135deg,#0149AD33,#7C3AED33);border:1px solid #7C3AED66;border-radius:14px;padding:10px;display:flex;align-items:center;gap:10px}
+.r-card b{flex:1;font:800 13.5px Alexandria,sans-serif}.r-card button{border:0;border-radius:99px;padding:7px 14px;background:#7C3AED;color:#fff;font:700 13px "Readex Pro",sans-serif}
+.r-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.r-chips:empty{display:none}
+.r-chips button{flex:none;border:1px solid var(--rl);background:var(--rc2);color:var(--ri);border-radius:99px;padding:8px 14px;font:600 13px "Readex Pro",sans-serif}
+.r-chips button.main{background:linear-gradient(90deg,#0149AD,#7C3AED);border-color:transparent;color:#fff}
+.r-in{display:flex;gap:8px;align-items:flex-end;background:var(--rbg);border:1px solid var(--rl);border-radius:18px;padding:6px}
+.r-in textarea{flex:1;min-width:0;resize:none;border:0;outline:0;background:transparent;color:var(--ri);font:500 16px "Readex Pro",sans-serif;line-height:1.5;max-height:120px;padding:7px 6px}
+.r-in button{flex:none;width:40px;height:40px;border-radius:50%;border:0;display:grid;place-items:center}
+.r-cam{background:var(--rc2);color:var(--ri)}.r-snd{background:linear-gradient(135deg,#0149AD,#7C3AED);color:#fff}
+.r-in svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.r-part{border:1px dashed var(--rl);background:transparent;color:var(--rd);border-radius:12px;padding:9px;font:600 13px "Readex Pro",sans-serif}
+.r-tg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.r-tg button{border:1px solid var(--rl);background:var(--rc);color:var(--ri);border-radius:14px;padding:10px 4px;font:700 12px "Readex Pro",sans-serif;display:grid;gap:4px;place-items:center}
+.r-tg button svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.r-tg button.on{border-color:var(--pc);background:color-mix(in srgb,var(--pc) 22%,var(--rc));color:#fff}
+.r-dock{position:fixed;inset:auto 0 0 0;padding:10px max(12px,env(safe-area-inset-right,0px)) max(10px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:linear-gradient(transparent,#070D1C 30%);display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;max-width:560px;margin:0 auto;z-index:3}
+.r-dock button{border:1px solid var(--rl);background:var(--rc);color:var(--ri);border-radius:14px;padding:12px 4px;font:700 13px "Readex Pro",sans-serif}
+.r-sheet{position:fixed;inset:auto 0 0 0;max-height:75vh;background:#0C1530;border-radius:22px 22px 0 0;border-top:1px solid var(--rl);padding:16px 14px max(16px,env(safe-area-inset-bottom,0px));overflow:auto;transform:translateY(105%);transition:transform .3s;z-index:6;max-width:560px;margin:0 auto}
+.r-sheet:not(.on){visibility:hidden;transition:transform .3s,visibility 0s .3s}.r-sheet.on{transform:none}.r-sheet h3{font:800 13px Alexandria,sans-serif;margin:14px 0 6px;color:var(--rd)}.r-sheet h3:first-child{margin-top:0}
+.r-g{display:grid;grid-template-columns:1fr 1fr;gap:8px}.r-g button{text-align:right;border:1px solid var(--rl);background:var(--rc);color:var(--ri);border-radius:12px;padding:10px;font:600 12.5px "Readex Pro",sans-serif}.r-g button.on{border-color:#fff}
+.r-shade{position:fixed;inset:0;background:#0009;opacity:0;pointer-events:none;transition:.3s;z-index:5}.r-shade.on{opacity:1;pointer-events:auto}
+#R.part #rFull,#R.part .r-tg,#R.part .r-dock,#R.part .r-part{display:none!important}
+#R.part{padding-bottom:max(12px,env(safe-area-inset-bottom,0px))}
+#R.part .r-chat{min-height:calc(100vh - 70px);grid-template-rows:auto 1fr auto auto;align-content:stretch}
+#R.part .r-log{max-height:none}
 </style></head><body>
-<div class="top"><h1>ريموت الورشة</h1><div class="dot" id="dot"><i></i><span id="st">جاري الاتصال…</span></div></div>
-<div class="who" id="who"><div class="av" id="av">—</div><div><b id="wn">—</b><br><span id="wc">بانتظار العرض</span></div><span class="tm" id="tl"></span></div>
-<div class="mirror" id="mir"><iframe id="ifr" src="index.html?mirror" title="معاينة العرض" tabindex="-1"></iframe><div class="tp" id="tp"></div><span class="badge" id="mb">معاينة مباشرة</span></div>
-<div class="prog" id="prog"></div>
-<div class="cur"><div class="n"><span id="num">—</span><span id="chn"></span></div><b id="tt">افتح العرض على الشاشة</b><div class="notes" id="nt"></div><div class="frs" id="frs" hidden></div><div class="nx" id="nx" hidden></div></div>
-<div class="pad"><button id="pv">السابق</button><button class="nb" id="nb">التالي<small id="nbs"></small></button></div>
-<div class="ctx" id="ctx" hidden></div>
-<div class="tg">
-<button id="t_lz"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>ليزر</button>
-<button id="t_bk"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 5l18 14"/></svg>شاشة سودا</button>
-<button id="t_nt"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10"/></svg>ملاحظات بالشاشة</button>
-<button id="t_qr"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3M21 21v-4"/></svg>رمز QR</button>
-<button id="t_all"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>أظهر الكل</button>
-<button id="t_hid"><svg viewBox="0 0 24 24"><path d="M3 12s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7z"/><path d="M4 4l16 16"/></svg>أخفِ العناصر</button>
-<button id="t_ov"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>الشبكة بالشاشة</button>
-<button id="t_vb"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M3 9v6M21 9v6"/></svg>اهتزاز</button>
+<canvas id="net"></canvas><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="prog" id="prog"></div>
+
+<section class="s" data-t="البداية" data-n="رحّب بالمعلمين، واسألهم السؤال اللي في الفقاعة قبل لا تكمل. خلّ اثنين أو ثلاثة يجاوبون."><span class="tag">ورشة عمل تطبيقية للمعلمين</span>
+<h1><span class="w">من</span> <span class="w">تحضير</span> <span class="w">الدرس</span><br><span class="w">إلى</span> <span class="w">عرض</span> <span class="w">تفاعلي</span> <span class="w">في</span> <span class="w">دقائق</span></h1>
+<p class="dim">باستخدام Claude Code · وكيل ذكاء اصطناعي يبني العرض على جهازك</p>
+<div class="bubble f"><p>هل جربتم تطلبون من الذكاء الاصطناعي يبني <b>ملف عرض كامل</b> على جهازكم مباشرة… بدل نسخ النصوص يدوياً؟</p></div></section>
+
+<section class="s pres" data-t="جاسم القناعي" data-n="عرّف بنفسك، وقل إن التشابتر الأول عن الأداة وشلون تشتغل." style="--pc:#0149AD"><span class="tag">CHAPTER 01 · PRESENTED BY</span><div class="mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h1 style="color:var(--pc)">جاسم القناعي</h1><p class="dim" style="direction:ltr">Jassim Al-Qanaei</p><div class="bubble f"><p>الفكرة والأداة: شنو Claude Code وشلون يبني العرض</p></div></section>
+<section class="s" data-t="سؤال سريع" data-n="اسألهم يرفعون أيديهم، واضغط على كل خيار بعدد الأيادي. الهدف نبين كم وقت يروح على العروض."><span class="tag">سؤال سريع · ارفعوا أيديكم</span><h2>كم ياخذ منك تحضير عرض لدرس واحد؟</h2>
+<div class="poll" id="poll"></div><button class="btn ghost" id="pr">تصفير</button></section>
+
+<section class="s" data-t="ليش تفاعلي؟" data-n="الفكرة: الطالب يشارك بدل ما يتفرج. لا تذكر أرقام."><span class="tag">ليش نهتم؟</span><h2>ليش العرض التفاعلي؟</h2><div class="tips"><div class="c f" style="--k:var(--blue)"><b>الطالب يشارك</b><span>يجاوب ويصوّت ويجرب بنفسه بدل ما يتفرج بس.</span></div><div class="c f" style="--k:var(--vio)"><b>تشوف الفهم فوراً</b><span>اختبار سريع داخل الشريحة يبين لك منو فهم ومنو يحتاج إعادة.</span></div><div class="c f" style="--k:var(--org)"><b>الفكرة الصعبة تتحرك</b><span>رسم يتحرك خطوة خطوة يوضح اللي يصعب شرحه بالكلام.</span></div><div class="c f" style="--k:var(--grn)"><b>وقتك يتوفر</b><span>الأداة تبني الشكل، وأنت تركز على الشرح.</span></div></div></section>
+<section class="s" data-t="القاعدة الذهبية" data-n="اشرح العناصر الخمسة واحد واحد مع كل ضغطة، وبعدين اقرأ المثال المجمّع في الأخير."><span class="tag">القاعدة الذهبية</span><h2>البرومبت الاحترافي = ٥ عناصر</h2>
+<div class="g5">
+<div class="c f" style="--k:#0149AD"><span class="gn">١</span><b>الدور · Role</b><span>امنحه شخصية متخصصة</span><i>«أنت خبير تسويق رقمي ذو خبرة ١٠ سنوات»</i></div>
+<div class="c f" style="--k:#1D63E0"><span class="gn">٢</span><b>السياق · Context</b><span>خلفية واضحة عن الموضوع أو المشكلة</span><i>«أريد إطلاق مشروع صغير لبيع القهوة المختصة عبر إنستغرام في الخليج»</i></div>
+<div class="c f" style="--k:#7C3AED"><span class="gn">٣</span><b>المهمة · Task</b><span>حدد المطلوب بدقة</span><i>«اكتب لي خطة محتوى لأول أسبوعين»</i></div>
+<div class="c f" style="--k:#EA580C"><span class="gn">٤</span><b>التنسيق · Format</b><span>شكل النتيجة</span><i>«جدول: اليوم، فكرة المنشور، النص، الهاشتاغات»</i></div>
+<div class="c f" style="--k:#059669"><span class="gn">٥</span><b>القيود · Constraints</b><span>الطول واللهجة وما يُتجنب</span><i>«لهجة ودودة للشباب، والفقرة لا تزيد عن ٣ أسطر»</i></div>
 </div>
-<div class="dock"><button id="d_first">البداية</button><button id="d_list">كل الشرائح</button><button id="d_last">النهاية</button></div>
-<div class="shade" id="shade"></div><div class="sheet" id="sheet"></div>
-<script>function MQ(url,clientId,onMsg,onState,auth){const enc=new TextEncoder(),dec=new TextDecoder();let ws,ping,subs=[],open=false,closedByUser=false,retry=1000;
+<div class="gall f"><b>البرومبت كامل:</b> <span style="color:#93C5FD">أنت خبير تسويق رقمي ذو خبرة ١٠ سنوات.</span> <span style="color:#A5C8FF">أريد إطلاق مشروع صغير لبيع القهوة المختصة عبر إنستغرام في الخليج.</span> <span style="color:#C4B5FD">اكتب لي خطة محتوى لأول أسبوعين</span> <span style="color:#FDBA74">على شكل جدول يوضح: اليوم، فكرة المنشور، النص المرفق، والهاشتاغات.</span> <span style="color:#6EE7B7">اجعل اللهجة ودودة وقريبة للشباب، ولا تزيد الفقرة الواحدة عن ٣ أسطر.</span></div></section>
+<section class="s" data-t="ضعيف وقوي" data-n="اقرأ البرومبت الضعيف، واسألهم شنو ناقصه، وبعدين اضغط للقوي."><span class="tag">قارن</span><h2>برومبت ضعيف… وبرومبت قوي</h2><div class="tips"><div class="c" style="--k:#DC2626"><b>ضعيف</b><span>«سوّ لي عرض عن الكسور»</span><span style="display:block;margin-top:1vh;font-size:.85em">ما فيه صف، ولا عدد شرائح، ولا شكل، ولا قيود. والنتيجة عامة وممكن يضيف معلومات من عنده.</span></div><div class="c f" style="--k:var(--grn)"><b>قوي</b><span>«أنت معلم رياضيات خبير. عندي درس الكسور للصف السادس في ملف PDF بالمجلد. صمّم عرض HTML من ٨ شرائح فيه رسم متحرك واختبار من ٣ أسئلة. خط عربي كبير، من اليمين لليسار، ولا تضف معلومات من خارج الملف.»</span></div></div></section>
+<section class="s" data-t="طبّقها على درسك" data-n="خذ مثال الفيزياء وبيّن كل عنصر."><span class="tag">مثال من المدرسة</span><h2>القاعدة الذهبية على درس فيزياء</h2><div class="tips"><div class="c f" style="--k:var(--blue)"><b>الدور</b><span>أنت معلم فيزياء ومصمم عروض تعليمية.</span></div><div class="c f" style="--k:var(--sky)"><b>السياق</b><span>درس ضرب المتجهات للصف الحادي عشر، والطلاب يصعب عليهم تحديد الاتجاه.</span></div><div class="c f" style="--k:var(--vio)"><b>المهمة</b><span>صمّم عرض تفاعلي يشرح الدرس من ملف الكتاب في المجلد.</span></div><div class="c f" style="--k:var(--org)"><b>التنسيق</b><span>١٢ شريحة، رسم متجهات يتحرك، واختبار في النهاية.</span></div></div><div class="c f" style="--k:var(--grn);max-width:1100px;width:100%"><b>القيود</b><span>خط واضح يُقرأ من آخر الفصل، بدون إيموجي، ولا تضف قوانين أو أرقام من خارج الكتاب.</span></div></section>
+<section class="s" data-t="ما هو Claude Code" data-n="وضّح إنه مو موقع شات: هو أداة تشتغل داخل مجلدات الجهاز وتقرأ الملفات وتكتبها."><span class="tag">ما هو Claude Code؟</span><h2>مساعد يشتغل داخل مجلداتك</h2>
+<div class="term" style="max-width:980px"><div class="bar"><i></i><i></i><i></i><em>~/Desktop/lesson</em></div><pre id="tt"></pre></div>
+<div class="cards"><div class="c f" style="--k:var(--blue)"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 9l3 3-3 3M12 15h5"/></svg></div><b>وكيل على جهازك</b><span>أداة من Anthropic تشتغل من الطرفية داخل مجلدات حاسوبك.</span></div>
+<div class="c f" style="--k:var(--vio)"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><b>بدون نسخ ولصق</b><span>يقرأ ملفاتك (PDF، Word، صور المنهج) ويبني العرض في نفس المجلد.</span></div>
+<div class="c f" style="--k:var(--grn)"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><b>نوعين من المخرجات</b><span>ملف PowerPoint (.pptx)، أو عرض ويب تفاعلي يفتح في أي متصفح.</span></div></div></section>
+
+<section class="s" data-t="التثبيت" data-n="وضّح إنه يحتاج حساب Claude مدفوع أو حساب API، والتثبيت من الموقع الرسمي."><span class="tag">قبل ما تبدأ</span><h2>شلون تجهّز Claude Code؟</h2><div class="steps"><div class="st f"><div class="n">١</div><b>الحساب</b><span>تحتاج اشتراك Claude أو حساب API.</span></div><div class="st f"><div class="n">٢</div><b>التثبيت</b><span>ثبّته باتباع الخطوات في التوثيق الرسمي:</span><br><span class="cmd">code.claude.com/docs</span></div><div class="st f"><div class="n">٣</div><b>تسجيل الدخول</b><span>أول مرة تكتب claude يطلب منك تسجل دخول بحسابك.</span></div></div></section>
+<section class="s" data-t="الطرفية" data-n="طمّنهم: الطرفية بس مكان تكتب فيه، ما يحتاج برمجة."><span class="tag">لا تخاف منها</span><h2>الطرفية للمبتدئين</h2><div class="cards"><div class="c f" style="--k:var(--blue)"><b>ويندوز</b><span>افتح المجلد، اضغط بالزر اليمين داخل المجلد واختر «فتح في Terminal».</span></div><div class="c f" style="--k:var(--vio)"><b>ماك</b><span>افتح Terminal، واكتب cd ثم اسحب المجلد داخل النافذة واضغط Enter.</span></div><div class="c f" style="--k:var(--grn)"><b>بعدها</b><span>اكتب claude واضغط Enter، وكلّمه بالعربي عادي.</span></div></div></section>
+<section class="s" data-t="شاهده يبني" data-n="خلهم يتابعون: كل سطر بالطرفية يضيف جزء بالشريحة. اضغط (إعادة) إذا تبي تعيده."><span class="tag">شاهده وهو يبني</span><h2>من أمر واحد… إلى شريحة كاملة</h2>
+<div class="lb"><div class="term"><div class="bar"><i></i><i></i><i></i><em>claude</em></div><pre id="lbt" style="min-height:14em"></pre></div>
+<div class="browser"><div class="bar"><i></i><i></i><i></i><div class="url">fractions.html</div></div>
+<div class="stage" id="stg"><div class="hd"></div><div class="tt"><b>الكسور</b><span>الصف السادس · الوحدة الثالثة</span></div>
+<svg class="pie" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#E0E7FF"/><path d="M50 50 L50 10 A40 40 0 0 1 90 50 Z" fill="#0149AD"/><path d="M50 50 L90 50 A40 40 0 0 1 50 90 Z" fill="#7C3AED"/><circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-width="2"/></svg>
+<div class="pts"><i>البسط والمقام</i><i>الكسور المتكافئة</i><i>جمع الكسور</i></div><div class="qz">ابدأ الاختبار</div></div></div></div>
+<div class="lbctl"><button class="btn ghost" id="lbr">إعادة</button></div></section>
+
+<section class="s" data-t="الفرق" data-n="اسحب الخط يمين ويسار عشان يشوفون الفرق بين نفس الدرس بالطريقتين."><span class="tag">اسحب وشوف الفرق</span><h2>نفس الدرس… بطريقتين</h2>
+<div class="cmp" id="cmp"><div class="L old"><h3>الكسور</h3><ul><li>تعريف الكسر</li><li>البسط والمقام</li><li>أمثلة</li><li>تمارين</li></ul></div>
+<div class="L new"><div class="orbit"></div><h3>الكسور… بطريقة ممتعة!</h3><div class="chips"><i>رسم متحرك</i><i>اختبار فوري</i><i>مؤقت نشاط</i></div></div>
+<div class="hdl"></div><span class="lab a">بوربوينت تقليدي</span><span class="lab b">عرض ويب تفاعلي</span></div>
+<p class="dim" style="font-size:clamp(13px,1.5vw,18px)">العرض التفاعلي يفتح على متصفح السبورة الذكية بدون برامج إضافية</p></section>
+
+<section class="s" data-t="من تجربتنا" data-n="هذا العرض اللي قدمناه بالمدرسة، انبنى كله بنفس الطريقة. اذكر الريموت بالهاتف والشات المباشر."><span class="tag">من تجربتنا</span><h2>عرض سويناه بنفس الطريقة</h2>
+<div class="show"><div class="phone"><img src="show/remote.jpg" alt="ريموت العرض على الهاتف"></div>
+<div class="gal" id="gal"><img src="show/title.jpg" alt="الشريحة الأولى" data-c="الشريحة الأولى"><img src="show/presenter.jpg" alt="تقديم المتحدث" data-c="تقديم كل متحدث"><img src="show/balance.jpg" alt="ميزان متحرك" data-c="ميزان متحرك"><img src="show/doll.jpg" alt="لعبة الضوء" data-c="لعبة الضوء الأحمر والأخضر"><img src="show/ybe.jpg" alt="تحدي مباشر" data-c="تحدي مباشر مع الذكاء الاصطناعي"><img src="show/fixes.jpg" alt="أخطاء وعلاجها" data-c="أخطاء شائعة وعلاجها"><span class="cap" id="cap"></span></div></div>
+<div class="stats f"><div class="stat"><b>٢٨</b><span>مشهد متحرك</span></div><div class="stat"><b>٣</b><span>تشابترات بثلاث ثيمات</span></div><div class="stat"><b>QR</b><span>ريموت من الهاتف</span></div><div class="stat"><b>مباشر</b><span>شات ذكاء اصطناعي</span></div></div></section>
+
+<section class="s" data-t="سير العمل" data-n="الخطوات ثلاث بس. أكّد إن الملف لازم يكون داخل المجلد قبل تشغيل الأداة."><span class="tag">سير العمل</span><h2>٣ خطوات… ٣ دقائق</h2>
+<div class="steps"><div class="st f"><div class="n">١</div><b>جهّز المجلد</b><span>حط ملف الدرس (PDF أو ملخص) في مجلد على سطح المكتب.</span></div>
+<div class="st f"><div class="n">٢</div><b>شغّل الأداة</b><span>افتح الطرفية داخل المجلد واكتب:</span><br><span class="cmd">claude</span></div>
+<div class="st f"><div class="n">٣</div><b>أعطه الأمر</b><span>اطلب منه يقرأ الملف ويبني العرض بالمواصفات والألوان اللي تبيها.</span></div></div></section>
+
+<section class="s pres" data-t="فارس" data-n="فارس يعرّف بنفسه، والتشابتر الثاني تطبيق عملي." style="--pc:#7C3AED"><span class="tag">CHAPTER 02 · PRESENTED BY</span><div class="mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h1 style="color:var(--pc)">فارس</h1><p class="dim" style="direction:ltr">Fares</p><div class="bubble f"><p>التطبيق: المهارات والأوامر والنشاط العملي</p></div></section>
+<section class="s" data-t="المهارات" data-n="المهارات مثل قوالب جاهزة. نبّه إن الأسماء تختلف حسب المصدر."><span class="tag">سر الاحتراف</span><h2>المهارات · Skills</h2><p class="dim">تعليمات وقوالب جاهزة تنضاف لـ Claude Code عشان يتقن مهمة معينة</p>
+<div class="cards"><div class="c f" style="--k:var(--sky)"><b>عروض الويب</b><span>تحوّل مسودة نصية إلى عرض منسّق بتخطيطات متنوعة.</span></div>
+<div class="c f" style="--k:var(--org)"><b>ملفات PowerPoint</b><span>تولّد ملفات .pptx فيها جداول ورسوم بيانية.</span></div>
+<div class="c f" style="--k:var(--grn)"><b>مهارتك الخاصة</b><span>تقدر تكتب مهارة فيها هوية مدرستك وألوانها، وكل عرض يطلع بنفس الستايل.</span></div></div>
+<p class="dim f" style="font-size:clamp(12px,1.4vw,16px)">أسماء المهارات وطريقة تثبيتها تختلف حسب المصدر · تأكدوا منها قبل الاستخدام</p></section>
+
+<section class="s" data-t="دورة التحسين" data-n="أول نسخة نادراً تكون النهائية. الشغل كله تعديلات قصيرة."><span class="tag">الشغل الحقيقي</span><h2>أول نسخة… مو آخر نسخة</h2><div class="steps"><div class="st f"><div class="n">١</div><b>اطلب</b><span>أمر واضح بالقاعدة الذهبية.</span></div><div class="st f"><div class="n">٢</div><b>افتح وراجع</b><span>افتح الملف بالمتصفح وتأكد من المحتوى.</span></div><div class="st f"><div class="n">٣</div><b>عدّل بجملة</b><span>«كبّر الخط»، «احذف الشريحة ٤»، «غيّر اللون».</span></div><div class="st f"><div class="n">٤</div><b>اعرض</b><span>لما ترضى عنه، جاهز للفصل.</span></div></div></section>
+<section class="s" data-t="صانع الأوامر" data-n="خذ اقتراح مادة من أحد المعلمين وغيّر الخيارات قدامهم، الأمر يتغير مباشرة."><span class="tag">صانع الأوامر</span><h2>اختر… والأمر ينكتب لك</h2>
+<div class="bld"><div class="fm">
+<label>المادة<select id="b_sub"><option>الرياضيات</option><option>العلوم</option><option>الكيمياء</option><option>الفيزياء</option><option>الأحياء</option><option>اللغة العربية</option><option>اللغة الإنجليزية</option><option>التربية الإسلامية</option><option>الاجتماعيات</option><option>الحاسوب</option></select></label>
+<label>موضوع الدرس<input type="text" id="b_top" value="الكسور"></label>
+<label>الصف<select id="b_gr"><option>الصف الرابع</option><option>الصف الخامس</option><option selected>الصف السادس</option><option>الصف السابع</option><option>الصف الثامن</option><option>الصف التاسع</option><option>الصف العاشر</option><option>الصف الحادي عشر</option><option>الصف الثاني عشر</option></select></label>
+<label>عدد الشرائح: <b id="b_nv">٨</b><input type="range" id="b_n" min="4" max="15" value="8"></label>
+<label>الأسلوب<select id="b_st"><option value="بخلفية فاتحة وألوان هادئة">فاتح وهادئ</option><option value="بألوان مرحة وحركات مناسبة للأطفال">ملوّن ومرح</option><option value="بتصميم رسمي بسيط">رسمي بسيط</option><option value="بخلفية داكنة وألوان زاهية">داكن عصري</option></select></label>
+<div class="chk"><label><input type="checkbox" id="x_q" checked>اختبار تفاعلي</label><label><input type="checkbox" id="x_t">مؤقت نشاط</label><label><input type="checkbox" id="x_a" checked>رسوم متحركة</label><label><input type="checkbox" id="x_p">ملف PowerPoint</label></div>
+</div><div class="out"><div class="lb2">الأمر الجاهز</div><p id="b_out"></p><button class="btn" id="b_cp">نسخ الأمر</button></div></div></section>
+
+<section class="s" data-t="أوامر جاهزة" data-n="ثلاث أوامر يقدرون ينسخونها ويستخدمونها اليوم."><span class="tag">انسخ وجرّب</span><h2>أوامر جاهزة للمعلم</h2>
+<div class="prompt f"><div class="lb3">عرض تفاعلي جديد</div><p id="p1">اقرأ ملف الدرس الموجود في المجلد، وصمّم لي عرضاً تقديمياً تفاعلياً بصيغة HTML من ٨ شرائح لطلاب الصف السادس، بخلفية فاتحة وخط عربي واضح واتجاه من اليمين لليسار، وأضف شريحة اختبار تفاعلي من ٣ أسئلة في النهاية.</p><button class="btn ghost" data-copy="p1">نسخ</button></div>
+<div class="prompt f"><div class="lb3">تحديث عرض قديم</div><p id="p2">حوّل ملف PowerPoint الموجود في المجلد إلى عرض ويب تفاعلي حديث مع الحفاظ على الصور والمعلومات.</p><button class="btn ghost" data-copy="p2">نسخ</button></div>
+<div class="prompt f"><div class="lb3">تعديل بجملة وحدة</div><p id="p3">كبّر حجم الخط، واجعل اللون الرئيسي أزرق داكن، وأضف مؤقت ٥ دقائق في شريحة النشاط.</p><button class="btn ghost" data-copy="p3">نسخ</button></div></section>
+<section class="s ai" data-t="YBE مباشر" data-n="اضغط التالي: YBE يكتب البرومبت الاحترافي ويبني عرض الفيزياء من الكتاب. اضغط التالي مرة ثانية: يفتح العرض، وكمّل بالتالي بين شرائحه. بعدين اكتب «خل اللون بنفسجي» أو «كبّر الخط». العرض انبنى فعلاً بنفس البرومبت من صفحات الكتاب قبل الورشة، وهنا YBE يعرض النتيجة بسرعة."><div class="aihd"><span class="tag">تجربة مباشرة · ذكاء اصطناعي حقيقي</span><h2>نطلبها من <span class="ybrand">YBE</span>… قدامكم</h2></div>
+<div class="tab"><div class="tabscr">
+<aside class="yside"><div class="ylogo" id="ySideLogo"></div><b class="yname">YBE</b><span class="ysub">المساعد الذكي</span><span class="ystat" id="ystat"><i></i><span id="ystatT">متصل</span></span><div class="yqr"><div id="yqr"></div><small>امسح واسأل YBE<br>من هاتفك</small></div></aside>
+<div class="ymain"><div class="ylog" id="ylog" aria-live="polite"></div><div class="ychips" id="ychips"></div>
+<form class="yin" id="yform" autocomplete="off"><textarea id="yinp" rows="1" placeholder="اكتب طلبك لـ YBE…" aria-label="رسالة لـ YBE"></textarea><button id="ysend" type="submit" aria-label="إرسال"><svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l7 3 3 7z"/><path d="M10 13.5L21 3"/></svg></button></form></div>
+</div></div></section>
+
+<section class="s" data-t="أوامر تعديل" data-n="اقرأ الأمثلة بسرعة، واطلب منهم يقترحون تعديل."><span class="tag">تعديلات سريعة</span><h2>جمل تعديل جاهزة</h2><div class="tips"><div class="c f" style="--k:var(--blue)"><b>الشكل</b><span>«كبّر الخط في كل الشرائح ٢٠٪، وخل العناوين أوضح.»</span></div><div class="c f" style="--k:var(--vio)"><b>المحتوى</b><span>«اختصر الشريحة الثالثة إلى ثلاث نقاط فقط.»</span></div><div class="c f" style="--k:var(--org)"><b>التفاعل</b><span>«أضف سؤال صح أو خطأ بعد كل شريحتين.»</span></div><div class="c f" style="--k:var(--grn)"><b>الترتيب</b><span>«انقل شريحة الأمثلة قبل شريحة القانون.»</span></div></div></section>
+<section class="s" data-t="مشاكل وحلول" data-n="هذي مشاكل بتصير معاهم أكيد، والحل جملة وحدة."><span class="tag">لا تشيل هم</span><h2>مشاكل شائعة… وحلها</h2><div class="tips"><div class="c f" style="--k:#DC2626"><b>العربي طالع مقلوب أو مخربط</b><span>«اجعل اتجاه الصفحة من اليمين لليسار واستخدم ترميز UTF-8.»</span></div><div class="c f" style="--k:var(--org)"><b>أضاف معلومات من عنده</b><span>«احذف أي معلومة مو موجودة في ملف الدرس.»</span></div><div class="c f" style="--k:var(--vio)"><b>الكلام كثير بالشريحة</b><span>«لا تزيد أي شريحة عن ٤ أسطر.»</span></div><div class="c f" style="--k:var(--blue)"><b>زر ما يشتغل</b><span>«الزر الفلاني ما يشتغل، صلّحه.» وإذا فيه خطأ، الصقه له.</span></div></div></section>
+<section class="s" data-t="مثال حي" data-n="اطلب من متطوع يجاوب. وضّح إن هالشريحة تنطلب بجملة وحدة."><span class="tag">مثال حي</span><h2>هذا اللي يقدر يسويه لك</h2><p class="dim">شريحة اختبار تفاعلي مثل اللي تطلبها بأمر واحد · جرّبوها</p>
+<div class="quiz"><div class="qbar"><i id="qb"></i></div><div class="q" id="qq"></div><div class="opts" id="qo"></div><div class="fb" id="qf"></div><button class="btn" id="qn" style="display:none">السؤال التالي</button></div></section>
+
+<section class="s" data-t="النشاط" data-n="شغّل المؤقت وامشِ بين المعلمين. لما يخلص الوقت يطلع صوت تنبيه."><span class="tag">نشاط تطبيقي</span><h2>دوركم الحين!</h2>
+<div class="row"><div><div class="tw" id="tw"><svg viewBox="0 0 120 120"><defs><linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#EA580C"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs><circle class="bgc" cx="60" cy="60" r="52"/><circle class="fgc" id="tc" cx="60" cy="60" r="52"/></svg><div class="tv" id="tm">15:00</div></div>
+<div class="ring" style="margin-top:1.6vh"><button class="btn" id="ts">ابدأ المؤقت</button><button class="btn ghost" id="tr">إعادة</button></div></div>
+<div class="cards"><div class="c f" style="--k:var(--blue)"><b>المهمة</b><span>أنشئ مجلد باسم درسك القادم وحط فيه صورة أو ملف من الكتاب.</span></div>
+<div class="c f" style="--k:var(--vio)"><b>التنفيذ</b><span>شغّل Claude Code واطلب عرض من ٥ شرائح فيه جدول مقارنة وسؤال عصف ذهني.</span></div>
+<div class="c f" style="--k:var(--grn)"><b>المعاينة</b><span>افتحه في المتصفح، وإذا ما عجبك شي عدّله بجملة وحدة.</span></div></div></div></section>
+
+<section class="s" data-t="في الفصل" data-n="وضّح إنه ملف واحد يفتح بدون إنترنت إذا ما فيه مكتبات خارجية."><span class="tag">يوم العرض</span><h2>شلون تعرضه في الفصل؟</h2><div class="cards"><div class="c f" style="--k:var(--blue)"><b>على السبورة الذكية</b><span>انسخ الملف على فلاش أو أرسله لنفسك، وافتحه بالمتصفح.</span></div><div class="c f" style="--k:var(--vio)"><b>ملء الشاشة</b><span>اضغط F أو F11، والتنقل بالأسهم أو بالضغط.</span></div><div class="c f" style="--k:var(--grn)"><b>بدون إنترنت</b><span>اطلب منه «اجعله ملف واحد يعمل بدون إنترنت» عشان ما يتعطل.</span></div></div></section>
+<section class="s" data-t="نصائح ذهبية" data-n="ركّز على مراجعة المحتوى والخصوصية."><span class="tag">نصائح ذهبية</span><h2>عشان ينجح عرضك في الفصل</h2>
+<div class="tips"><div class="c f" style="--k:var(--blue)"><b>ابدأ بالهيكل</b><span>اطلب خطة الشرائح أول وراجعها قبل التصميم.</span></div>
+<div class="c f" style="--k:var(--vio)"><b>حدد الهوية</b><span>المرحلة الدراسية، الألوان، والكتابة من اليمين لليسار (RTL).</span></div>
+<div class="c f" style="--k:var(--org)"><b>راجع المحتوى</b><span>الذكاء الاصطناعي ممكن يغلط · تأكد من المعلومات قبل العرض.</span></div>
+<div class="c f" style="--k:var(--grn)"><b>احمِ الخصوصية</b><span>لا ترفع أسماء الطلاب ولا درجاتهم ولا بياناتهم.</span></div></div></section>
+
+<section class="s" data-t="ملخص الورشة" data-n="لخّص بسرعة قبل الختام."><span class="tag">الخلاصة</span><h2>اللي تعلمناه اليوم</h2><div class="tips"><div class="c f" style="--k:var(--blue)"><b>القاعدة الذهبية</b><span>دور + سياق + مهمة + تنسيق + قيود.</span></div><div class="c f" style="--k:var(--vio)"><b>الأداة</b><span>Claude Code يقرأ ملفاتك ويبني العرض داخل المجلد.</span></div><div class="c f" style="--k:var(--org)"><b>التحسين</b><span>أول نسخة مسودة، والتعديل بجملة.</span></div><div class="c f" style="--k:var(--grn)"><b>المسؤولية</b><span>راجع المحتوى واحمِ بيانات الطلاب.</span></div></div></section>
+<section class="s" data-t="أسئلة" data-n="افتح المجال للأسئلة."><span class="tag">حوار مفتوح</span><h2>أسئلتكم</h2><p class="dim">نجاوب عن أي سؤال قبل لا نختم</p><div class="bubble f"><p>شنو أكثر شي تبي تسويه بأول عرض لك؟</p></div></section>
+<section class="s" data-t="الختام" data-n="اشكرهم، وخلهم يمسحون الرمز عشان ياخذون الأوامر والعرض."><h1><span class="w">جاهزين</span> <span class="w">نبدأ؟</span></h1><p class="dim">الذكاء الاصطناعي يبني الشرائح… والمعلم يصنع الدرس</p>
+<div class="endrow"><div class="qr f" id="qr"></div><div class="bubble f"><p>شكراً لكم · أسئلتكم مرحّب فيها</p><p class="dim" style="font-size:clamp(13px,1.5vw,17px)">امسح الرمز وخذ الأوامر والعرض</p></div></div>
+<p class="dim f" style="font-size:clamp(14px,1.6vw,18px)">تقديم: جاسم القناعي · فارس &nbsp;|&nbsp; تصميم: جاسم القناعي</p></section>
+
+<div class="foot">ورشة العروض التفاعلية</div>
+<div class="notes" id="notes"></div><div class="ov" id="rqr" style="display:none"><div style="display:grid;place-items:center;gap:16px;height:100%;text-align:center"><h2>امسح للتحكم من هاتفك</h2><div class="qr" id="rqrc"></div><p class="dim" id="rst">جاري الاتصال…</p><button class="btn" id="rskip" type="button">تخطّي</button></div></div>
+<div class="ov" id="ov"><h2 style="margin-bottom:3vh">كل الشرائح</h2><div class="g" id="ovg"></div><p class="keys">الأسهم أو المسافة: التالي · F: ملء الشاشة · N: ملاحظات المقدم · O: كل الشرائح</p></div>
+<div class="nav"><button id="bp">السابق</button><span id="n"></span><button id="bx">التالي</button>
+<button class="ico" id="bo" aria-label="كل الشرائح" title="كل الشرائح (O)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
+<button class="ico" id="bn" aria-label="ملاحظات المقدم" title="ملاحظات المقدم (N)"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10"/></svg></button>
+<button class="ico" id="br" aria-label="ريموت الهاتف" title="ريموت الهاتف (R)"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></button><button class="ico" id="bf" aria-label="ملء الشاشة" title="ملء الشاشة (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
+<div id="physOv"><div class="pbar t"><span class="ybadge"><i id="phBadge"></i>من تصميم YBE</span><b id="phT"></b><span id="phCnt"></span><button type="button" id="phClose">إغلاق</button></div><div class="pbox" id="phBox"><iframe id="phFull" title="عرض ضرب المتجهات"></iframe></div><div class="pbar b"><button type="button" id="phPrvB">السابق</button><button type="button" id="phNxtB">التالي</button></div></div>
+<div id="R" hidden>
+<header class="r-top"><b id="rTtl">ريموت الورشة</b><span class="r-dot" id="rDot"><i></i><span id="rStat">جاري الاتصال…</span></span></header>
+<div id="rFull">
+<div class="r-who"><span class="r-av" id="rAv">—</span><div><b id="rWn">—</b><small id="rWc">بانتظار العرض</small></div><span class="r-tm" id="rTm"></span></div>
+<div class="r-mir" id="rMir"><iframe id="rIfr" name="ws-mirror" title="معاينة العرض" tabindex="-1"></iframe><div class="r-tp" id="rTp"></div><span class="r-badge" id="rMb">معاينة مباشرة</span></div>
+<div class="r-prog" id="rProg"></div>
+<div class="r-cur"><div class="r-n"><span id="rNum">—</span><span id="rChn"></span></div><b id="rT">افتح العرض على الشاشة</b><div class="r-notes" id="rNotes"></div><div class="r-frs" id="rFrs" hidden></div><div class="r-nx" id="rNx" hidden></div></div>
+<div class="r-pad"><button type="button" id="rPv">السابق</button><button type="button" class="r-nb" id="rNb"><span id="rNbT">التالي</span><small id="rNbs"></small></button></div>
+<div class="r-ctx" id="rCtx" hidden></div>
+</div>
+<section class="r-chat" id="rChat"><div class="r-chh"><span class="r-yl" id="rLogo"></span><div><b>YBE</b><small id="rChS">بانتظار شاشة العرض…</small></div></div>
+<div class="r-log" id="rLog"></div><div class="r-chips" id="rChips"></div>
+<form class="r-in" id="rForm" autocomplete="off"><button type="button" class="r-cam" id="rCamB" aria-label="صوّر مسألة"><svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></svg></button><textarea id="rIn" rows="1" placeholder="اكتب لـ YBE…" enterkeyhint="send" aria-label="رسالة لـ YBE"></textarea><button type="submit" class="r-snd" id="rSend" aria-label="إرسال"><svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l7 3 3 7z"/><path d="M10 13.5L21 3"/></svg></button><input type="file" id="rCam" accept="image/*" capture="environment" hidden></form>
+<button type="button" class="r-part" id="rPartB">مشاركة الحضور: سلّم الهاتف لأحد يسأل YBE بس</button></section>
+<div class="r-tg" id="rTg">
+<button type="button" id="rLz"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>ليزر</button>
+<button type="button" id="rBk"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 5l18 14"/></svg>شاشة سودا</button>
+<button type="button" id="rNt"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10"/></svg>ملاحظات بالشاشة</button>
+<button type="button" id="rQr"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3M21 21v-4"/></svg>رمز الريموت</button>
+<button type="button" id="rAll"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>أظهر الكل</button>
+<button type="button" id="rHid"><svg viewBox="0 0 24 24"><path d="M3 12s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7z"/><path d="M4 4l16 16"/></svg>أخفِ العناصر</button>
+<button type="button" id="rOv"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>الشبكة بالشاشة</button>
+<button type="button" id="rVb"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M3 9v6M21 9v6"/></svg>اهتزاز</button>
+</div>
+<nav class="r-dock" id="rDock"><button type="button" id="rFirst">البداية</button><button type="button" id="rList">كل الشرائح</button><button type="button" id="rLast">النهاية</button></nav>
+<div class="r-shade" id="rShade"></div><div class="r-sheet" id="rSheet"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>const PHYS_HTML="<!doctype html>\n<html lang=\"ar\" dir=\"rtl\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>ضرب المتجهات<\/title>\n<link href=\"https://fonts.googleapis.com/css2?family=Alexandria:wght@700;800;900&family=Readex+Pro:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">\n<style>\n/* layout: full-screen slide deck, one idea per slide; physics-lab blue with vector red/green accents */\n:root{--bg:#F3F6FC;--ink:#0B1530;--dim:#56627A;--card:#FFFFFF;--line:#D6E0F0;--blue:#0149AD;--navy:#041E52;--A:#DC2626;--B:#0E7C66;--R:#7C3AED;--soft:#E8EEFA;--grid:#E3EAF6;\n--fd:\"Alexandria\",\"Segoe UI\",Tahoma,sans-serif;--fb:\"Readex Pro\",\"Segoe UI\",Tahoma,sans-serif}\n@media (prefers-color-scheme:dark){:root:not([data-theme=\"light\"]){--bg:#0A1226;--ink:#E8EEFC;--dim:#9AA9C7;--card:#111C36;--line:#24324F;--blue:#6E9BF0;--navy:#BFD2FB;--A:#F87171;--B:#34D399;--R:#A78BFA;--soft:#16264A;--grid:#1A2747;color-scheme:dark}}\n:root[data-theme=\"dark\"]{--bg:#0A1226;--ink:#E8EEFC;--dim:#9AA9C7;--card:#111C36;--line:#24324F;--blue:#6E9BF0;--navy:#BFD2FB;--A:#F87171;--B:#34D399;--R:#A78BFA;--soft:#16264A;--grid:#1A2747;color-scheme:dark}\n*{box-sizing:border-box}[hidden]{display:none!important}html,body{height:100%}\nbody{background:var(--bg);color:var(--ink);font-family:var(--fb);direction:rtl;overflow:hidden}\n.s{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;gap:2vh;text-align:center;padding:6vh max(16px,5vw) 12vh}\n.s.on{display:flex}.s.on>*{animation:up .6s cubic-bezier(.2,.8,.2,1) both}.s.on>*:nth-child(2){animation-delay:.07s}.s.on>*:nth-child(3){animation-delay:.14s}.s.on>*:nth-child(4){animation-delay:.21s}\n@keyframes up{from{opacity:0;transform:translateY(18px)}}\n.tag{font:700 calc(clamp(12px,1.3vw,15px)*var(--fz,1)) var(--fb);color:var(--blue);background:var(--soft);border:1px solid var(--line);border-radius:99px;padding:.4em 1.1em}\nh1{font:900 calc(clamp(36px,6.5vw,86px)*var(--fz,1))/1.15 var(--fd);margin:0;color:var(--navy);text-wrap:balance}\nh2{font:800 calc(clamp(24px,3.4vw,46px)*var(--fz,1))/1.25 var(--fd);margin:0;text-wrap:balance}\np{margin:0;font-size:calc(clamp(16px,1.9vw,24px)*var(--fz,1));line-height:1.8;max-width:62ch}.dim{color:var(--dim)}\n.f{opacity:0;transform:translateY(12px);transition:.45s}.f.v{opacity:1;transform:none}\n.eq{direction:ltr;font:700 calc(clamp(22px,3vw,40px)*var(--fz,1)) \"Times New Roman\",serif;font-style:italic;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:.35em 1em;display:inline-block}\n.eq u{text-decoration:none;font-style:normal;color:var(--R)}\n.two{display:grid;grid-template-columns:1fr 1fr;gap:2vw;max-width:1150px;width:100%;text-align:right}\n.c{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:2.2vh 1.8vw;display:grid;gap:.8vh;min-width:0}\n.c b{font:800 calc(clamp(18px,2.1vw,28px)*var(--fz,1)) var(--fd)}.c span{color:var(--dim);font-size:calc(clamp(14px,1.6vw,20px)*var(--fz,1));line-height:1.7}\n.lab{display:grid;grid-template-columns:1.25fr 1fr;gap:2vw;max-width:1250px;width:100%;align-items:center}\n.lab svg{width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:20px}\n.ctl{display:grid;gap:1.6vh;text-align:right}.ctl label{display:grid;gap:.4vh;font:600 calc(clamp(14px,1.5vw,18px)*var(--fz,1)) var(--fb)}\n.ctl label span{display:flex;justify-content:space-between}.ctl output{font:800 1em var(--fd);direction:ltr}\ninput[type=range]{width:100%;accent-color:var(--blue)}\n.res{background:var(--navy);color:#fff;border-radius:16px;padding:1.6vh 1.4vw;display:grid;gap:.4vh}\n:root[data-theme=\"dark\"] .res{background:#050B1A}@media (prefers-color-scheme:dark){:root:not([data-theme=\"light\"]) .res{background:#050B1A}}\n.res small{opacity:.75;font-size:calc(clamp(12px,1.3vw,15px)*var(--fz,1))}.res b{font:900 calc(clamp(22px,2.8vw,36px)*var(--fz,1)) var(--fd);direction:ltr;text-align:right}\n.steps{display:grid;gap:1.2vh;max-width:1000px;width:100%;text-align:right}\n.st{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.4vh 1.6vw;display:grid;grid-template-columns:auto 1fr;gap:1.2vw;align-items:center}\n.st i{font:900 18px var(--fd);font-style:normal;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff}\n.st div{font-size:calc(clamp(15px,1.7vw,21px)*var(--fz,1));line-height:1.7}.st .eq{font-size:calc(clamp(17px,2vw,26px)*var(--fz,1));margin-top:.4vh}\ntable{border-collapse:collapse;font-size:calc(clamp(14px,1.6vw,20px)*var(--fz,1));background:var(--card);border-radius:16px;overflow:hidden;max-width:1050px;width:100%}\nth,td{padding:1.3vh 1.4vw;border-bottom:1px solid var(--line);text-align:right}th{font:800 1em var(--fd);background:var(--soft)}td.l{direction:ltr;text-align:right;font-family:\"Times New Roman\",serif;font-style:italic;font-weight:700}\n.quiz{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:2.4vh 2.4vw;max-width:860px;width:100%}\n.quiz .q{font:800 calc(clamp(18px,2.2vw,28px)*var(--fz,1)) var(--fd);margin-bottom:2vh}.opts{display:grid;grid-template-columns:1fr 1fr;gap:1vw}\n.opt{font:700 calc(clamp(15px,1.8vw,22px)*var(--fz,1)) var(--fb);padding:1.4vh 1vw;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}\n.opt.ok{border-color:#059669;background:#05966922}.opt.no{border-color:#DC2626;background:#DC262622}.fb{min-height:1.8em;margin-top:1.4vh;font-weight:700}\n.btn{font:700 calc(clamp(13px,1.4vw,16px)*var(--fz,1)) var(--fb);border:0;border-radius:99px;padding:.6em 1.3em;cursor:pointer;background:var(--blue);color:#fff}\n.btn.g{background:var(--card);color:var(--blue);border:1px solid var(--line)}\nbutton:focus-visible,input:focus-visible{outline:3px solid var(--R);outline-offset:3px}\n.nav{position:fixed;bottom:max(14px,env(safe-area-inset-bottom));left:0;right:0;display:flex;justify-content:center;gap:10px;align-items:center;z-index:5;pointer-events:none}\n.nav>*{pointer-events:auto}.nav button{font:600 15px var(--fb);border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 18px;cursor:pointer}.nav span{color:var(--dim);font-size:14px;min-width:64px;text-align:center}\n.prog{position:fixed;top:0;right:0;height:5px;background:var(--blue);transition:width .4s;z-index:5}\n.src{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));right:max(16px,3vw);font-size:12px;color:var(--dim)}\n.hand{width:min(300px,60vw)}\n@media (max-width:820px){.two,.lab,.opts{grid-template-columns:1fr}.s{justify-content:flex-start;overflow:auto;padding-top:5vh}.src{display:none}}\n@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}\nbody{margin:0}\n.emb .nav{display:none!important}\n<\/style>\n<\/head><body>\n\n\n<div class=\"prog\" id=\"prog\"><\/div>\n\n<section class=\"s\"><span class=\"tag\">فيزياء · الفصل الدراسي الأول · الدرس 1-1<\/span><h1>ضرب المتجهات<\/h1><p class=\"dim\">من درس «الكمّيات العددية والكمّيات المتّجهة» · Vector and Scalar Quantities<\/p><\/section>\n\n<section class=\"s\"><span class=\"tag\">ليش نحتاجه؟<\/span><h2>ضرب متّجه بمتّجه آخر<\/h2>\n<p>ضرب المتّجه بكمّية قياسية سالبة أو موجبة ليس فقط ما نحتاجه في الفيزياء، إذ نحتاج في تحليل بعض المسائل الفيزيائية إلى ضرب متّجه بمتّجه آخر.<\/p>\n<div class=\"two\"><div class=\"c f\" style=\"border-top:5px solid var(--blue)\"><b>١. الضرب القياسي<\/b><span>ويُسمّى أيضاً الضرب العددي أو الضرب النقطي.<\/span><span class=\"eq\" style=\"justify-self:start\">A · B<\/span><\/div>\n<div class=\"c f\" style=\"border-top:5px solid var(--R)\"><b>٢. الضرب الاتّجاهي<\/b><span>ويُسمّى أيضاً الضرب التقاطعي.<\/span><span class=\"eq\" style=\"justify-self:start\">A × B<\/span><\/div><\/div><\/section>\n\n<section class=\"s\"><span class=\"tag\">1.3 الضرب القياسي<\/span><h2>المتّجهان A و B بينهما زاوية α<\/h2>\n<span class=\"eq\">A · B = A × B cos α<\/span>\n<p class=\"f\">حيث α هي الزاوية المحصورة بين المتّجهين، وA وB يمثّلان مقدار كل متّجه.<\/p>\n<p class=\"f\"><b>لاحظ:<\/b> حاصل الضرب القياسي للمتّجهين هو <b>كمّية قياسية<\/b>، وهذا يفسّر سبب تسميته بالضرب القياسي.<\/p><\/section>\n\n<section class=\"s\"><span class=\"tag\">جرّب بنفسك<\/span><h2>مختبر الضرب القياسي<\/h2>\n<div class=\"lab\"><svg id=\"sv1\" viewBox=\"0 0 520 360\" role=\"img\" aria-label=\"رسم المتجهين والزاوية بينهما\"><\/svg>\n<div class=\"ctl\"><label><span>مقدار A <output id=\"o1a\"><\/output><\/span><input type=\"range\" id=\"r1a\" min=\"1\" max=\"10\" value=\"5\"><\/label>\n<label><span>مقدار B <output id=\"o1b\"><\/output><\/span><input type=\"range\" id=\"r1b\" min=\"1\" max=\"10\" value=\"4\"><\/label>\n<label><span>الزاوية α <output id=\"o1t\"><\/output><\/span><input type=\"range\" id=\"r1t\" min=\"0\" max=\"180\" value=\"60\"><\/label>\n<div class=\"res\"><small>A · B = A B cos α<\/small><b id=\"x1\"><\/b><small id=\"n1\"><\/small><\/div><\/div><\/div><\/section>\n\n<section class=\"s\"><span class=\"tag\">مثال (5) من الكتاب<\/span><h2>الشغل ضرب قياسي للقوة والإزاحة<\/h2>\n<p class=\"dim\">قوة مقدارها 50 N تصنع زاوية 60° مع متّجه الإزاحة، والجسم يُزاح مسافة 10 m. احسب الشغل.<\/p>\n<div class=\"steps\"><div class=\"st f\"><i>١<\/i><div><b>حلّل:<\/b> المعلوم: F = 50 N بزاوية 60° مع الإزاحة، وx = 10 m. غير المعلوم: الشغل.<\/div><\/div>\n<div class=\"st f\"><i>٢<\/i><div><b>احسب غير المعلوم:<\/b><br><span class=\"eq\">W = F · x = F x cos 60 = 50 × 10 × 0.5 = 250 J<\/span><\/div><\/div>\n<div class=\"st f\"><i>٣<\/i><div><b>قيّم:<\/b> النتيجة مقبولة لأنّ الضرب القياسي للمتّجهين يساوي كمّية قياسية.<\/div><\/div><\/div><\/section>\n\n<section class=\"s\"><span class=\"tag\">2.3 الضرب الاتّجاهي<\/span><h2>حاصله متّجه… مو رقم<\/h2>\n<span class=\"eq\">R = A × B<\/span><span class=\"eq f\">R = A × B = A B sin α<\/span>\n<div class=\"two\"><div class=\"c f\"><b>المقدار<\/b><span>يمثّل مساحة متوازي الأضلاع الناشئ عن المتّجهين.<\/span><\/div>\n<div class=\"c f\"><b>الاتّجاه<\/b><span>رأسي على المستوى المكوّن من المتّجهين، ويُحدّد بقاعدة اليد اليمنى.<\/span><\/div><\/div><\/section>\n\n<section class=\"s\"><span class=\"tag\">قاعدة اليد اليمنى<\/span><h2>من المتّجه الأول إلى الثاني<\/h2>\n<svg class=\"hand\" viewBox=\"0 0 300 260\" aria-hidden=\"true\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0 0L10 5L0 10z\" fill=\"currentColor\"/><\/marker><\/defs>\n<g style=\"color:var(--A)\"><line x1=\"70\" y1=\"200\" x2=\"250\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"6\" marker-end=\"url(#ah)\"/><text x=\"255\" y=\"230\" fill=\"currentColor\" font-size=\"22\" font-weight=\"800\">A<\/text><\/g>\n<g style=\"color:var(--B)\"><line x1=\"70\" y1=\"200\" x2=\"190\" y2=\"110\" stroke=\"currentColor\" stroke-width=\"6\" marker-end=\"url(#ah)\"/><text x=\"196\" y=\"104\" fill=\"currentColor\" font-size=\"22\" font-weight=\"800\">B<\/text><\/g>\n<path d=\"M150 200 A80 80 0 0 0 134 152\" fill=\"none\" stroke=\"var(--dim)\" stroke-width=\"3\" stroke-dasharray=\"5 5\" marker-end=\"url(#ah)\" style=\"color:var(--dim)\"><animate attributeName=\"stroke-dashoffset\" from=\"20\" to=\"0\" dur=\"1s\" repeatCount=\"indefinite\"/><\/path>\n<g style=\"color:var(--R)\"><line x1=\"70\" y1=\"200\" x2=\"70\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"6\" marker-end=\"url(#ah)\"><animate attributeName=\"y2\" values=\"200;30;30\" dur=\"2.4s\" repeatCount=\"indefinite\"/><\/line><text x=\"82\" y=\"40\" fill=\"currentColor\" font-size=\"22\" font-weight=\"800\">R<\/text><\/g><\/svg>\n<p>دوّر أصابع اليد اليمنى من المتّجه الأول إلى الثاني عبر الزاوية الأصغر بينهما، فيشير الإبهام إلى اتّجاه المتّجه الناتج.<\/p><\/section>\n\n<section class=\"s\"><span class=\"tag\">جرّب بنفسك<\/span><h2>مختبر الضرب الاتّجاهي<\/h2>\n<div class=\"lab\"><svg id=\"sv2\" viewBox=\"0 0 520 360\" role=\"img\" aria-label=\"متوازي الأضلاع الناتج عن المتجهين\"><\/svg>\n<div class=\"ctl\"><label><span>مقدار A <output id=\"o2a\"><\/output><\/span><input type=\"range\" id=\"r2a\" min=\"1\" max=\"10\" value=\"5\"><\/label>\n<label><span>مقدار B <output id=\"o2b\"><\/output><\/span><input type=\"range\" id=\"r2b\" min=\"1\" max=\"10\" value=\"4\"><\/label>\n<label><span>الزاوية α <output id=\"o2t\"><\/output><\/span><input type=\"range\" id=\"r2t\" min=\"0\" max=\"180\" value=\"120\"><\/label>\n<div class=\"res\"><small>|A × B| = A B sin α · مساحة متوازي الأضلاع المظلل<\/small><b id=\"x2\"><\/b><small id=\"n2\"><\/small><\/div><\/div><\/div><\/section>\n\n<section class=\"s\"><span class=\"tag\">مثال (6) من الكتاب<\/span><h2>حاصل الضرب الاتّجاهي لقوّتين<\/h2>\n<p class=\"dim\">F₁ مقدارها 5 N وF₂ مقدارها 4 N، والزاوية بينهما 120°. احسب F₁ × F₂.<\/p>\n<div class=\"steps\"><div class=\"st f\"><i>١<\/i><div><b>حلّل:<\/b> F₁ = 5 N بالاتّجاه الموجب على المحور x′x، وF₂ = 4 N تصنع زاوية 120° معه.<\/div><\/div>\n<div class=\"st f\"><i>٢<\/i><div><b>المقدار:<\/b><br><span class=\"eq\">F = F₁ F₂ sin 120 = 5 × 4 × sin 120 = 17.32 N<\/span><\/div><\/div>\n<div class=\"st f\"><i>٣<\/i><div><b>الاتّجاه:<\/b> بقاعدة اليد اليمنى من F₁ إلى F₂ عبر الزاوية الصغرى، اتّجاه F رأسي على المستوى نحو الداخل.<\/div><\/div>\n<div class=\"st f\"><i>٤<\/i><div><b>قيّم:<\/b> النتيجة مقبولة لأنّ الضرب الاتّجاهي للمتّجهين هو كمّية متّجهة.<\/div><\/div><\/div><\/section>\n\n<section class=\"s\"><span class=\"tag\">قارن<\/span><h2>القياسي مقابل الاتّجاهي<\/h2>\n<table><thead><tr><th><\/th><th>الضرب القياسي (النقطي)<\/th><th>الضرب الاتّجاهي (التقاطعي)<\/th><\/tr><\/thead><tbody>\n<tr><td>العلاقة<\/td><td class=\"l\">A · B = A B cos α<\/td><td class=\"l\">|A × B| = A B sin α<\/td><\/tr>\n<tr class=\"f\"><td>نوع الناتج<\/td><td>كمّية قياسية<\/td><td>كمّية متّجهة<\/td><\/tr>\n<tr class=\"f\"><td>الاتّجاه<\/td><td>بدون اتّجاه<\/td><td>رأسي على مستوى المتّجهين (اليد اليمنى)<\/td><\/tr>\n<tr class=\"f\"><td>مثال من الكتاب<\/td><td>الشغل W = F · x<\/td><td>F = F₁ × F₂<\/td><\/tr><\/tbody><\/table><\/section>\n\n<section class=\"s\"><span class=\"tag\">اختبر نفسك<\/span><h2>ثلاث أسئلة سريعة<\/h2>\n<div class=\"quiz\"><div class=\"q\" id=\"qq\"><\/div><div class=\"opts\" id=\"qo\"><\/div><div class=\"fb\" id=\"qf\"><\/div><button class=\"btn\" id=\"qn\" hidden>التالي<\/button><\/div><\/section>\n\n<section class=\"s\"><span class=\"tag\">التفكير الناقد · من الكتاب<\/span><h2>نافورة الماء<\/h2>\n<p>ينطلق الماء في نافورة الماء ليرتفع (85) m، قبل أن يعود إلى نقطة الانطلاق.<\/p>\n<p class=\"f\" style=\"font:800 clamp(20px,2.6vw,34px) var(--fd);color:var(--blue)\">ما هي إزاحة نقاط الماء خلال دورة واحدة؟<\/p>\n<p class=\"dim f\">ناقشوها مع بعض قبل لا نكمل.<\/p><\/section>\n\n<section class=\"s\"><span class=\"tag\">الخلاصة<\/span><h2>تذكّر<\/h2>\n<div class=\"two\"><div class=\"c f\" style=\"border-top:5px solid var(--blue)\"><b>الضرب القياسي<\/b><span class=\"eq\" style=\"justify-self:start\">A · B = A B cos α<\/span><span>ناتجه كمّية قياسية، مثل الشغل.<\/span><\/div>\n<div class=\"c f\" style=\"border-top:5px solid var(--R)\"><b>الضرب الاتّجاهي<\/b><span class=\"eq\" style=\"justify-self:start\">|A × B| = A B sin α<\/span><span>ناتجه متّجه رأسي على المستوى، واتّجاهه بقاعدة اليد اليمنى.<\/span><\/div><\/div><\/section>\n\n<div class=\"src\">المصدر: كتاب الفيزياء، الفصل الدراسي الأول ٢٠٢٦/٢٠٢٧ · وزارة التربية، الكويت<\/div>\n<div class=\"nav\"><button id=\"bp\" type=\"button\">السابق<\/button><span id=\"n\"><\/span><button id=\"bx\" type=\"button\">التالي<\/button><\/div>\n<script>\nconst $=id=>document.getElementById(id);const S=[...document.querySelectorAll('.s')];let i=0;\nconst AR=n=>String(n).replace(/\\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);\nfunction frags(){return [...S[i].querySelectorAll('.f')];}\nfunction show(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>s.classList.toggle('on',j===i));frags().forEach(f=>f.classList.remove('v'));$('n').textContent=AR(i+1)+' / '+AR(S.length);$('prog').style.width=((i+1)/S.length*100)+'%';}\nfunction next(){const h=frags().find(f=>!f.classList.contains('v'));if(h){h.classList.add('v');return;}show(i+1);}\n$('bx').onclick=e=>{e.stopPropagation();next();};$('bp').onclick=e=>{e.stopPropagation();show(i-1);};\naddEventListener('keydown',e=>{if(e.target.matches('input'))return;if(['ArrowLeft','ArrowDown',' ','Enter','PageDown'].includes(e.key)){e.preventDefault();next();}if(['ArrowRight','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();show(i-1);}});\ndocument.body.addEventListener('click',e=>{if(e.target.closest('button,input,label,.lab,.quiz,.nav'))return;next();});\n/* vector labs */\nconst css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();\nfunction arrow(x1,y1,x2,y2,col,lab,lx,ly){const a=Math.atan2(y2-y1,x2-x1),h=14;return `<line x1=\"${x1}\" y1=\"${y1}\" x2=\"${x2}\" y2=\"${y2}\" stroke=\"${col}\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M${x2} ${y2}L${x2-h*Math.cos(a-0.4)} ${y2-h*Math.sin(a-0.4)}L${x2-h*Math.cos(a+0.4)} ${y2-h*Math.sin(a+0.4)}Z\" fill=\"${col}\"/><text x=\"${lx}\" y=\"${ly}\" fill=\"${col}\" font-size=\"24\" font-weight=\"800\" font-family=\"Times New Roman\" font-style=\"italic\">${lab}<\/text>`;}\nfunction grid(){let g='';for(let x=20;x<520;x+=25)g+=`<line x1=\"${x}\" y1=\"0\" x2=\"${x}\" y2=\"360\" stroke=\"${css('--grid')}\"/>`;for(let y=10;y<360;y+=25)g+=`<line x1=\"0\" y1=\"${y}\" x2=\"520\" y2=\"${y}\" stroke=\"${css('--grid')}\"/>`;return g;}\nfunction lab(id,mode){const A=+$('r'+id+'a').value,Bm=+$('r'+id+'b').value,t=+$('r'+id+'t').value,r=t*Math.PI/180;\n $('o'+id+'a').textContent=A;$('o'+id+'b').textContent=Bm;$('o'+id+'t').textContent=t+'°';\n const O=[mode==='dot'?120:150,mode==='dot'?250:300],k=30;const ax=O[0]+A*k,ay=O[1],bx=O[0]+Bm*k*Math.cos(r),by=O[1]-Bm*k*Math.sin(r);\n let g=grid();\n if(mode==='dot'){const px=O[0]+Bm*k*Math.cos(r);g+=`<line x1=\"${bx}\" y1=\"${by}\" x2=\"${px}\" y2=\"${O[1]}\" stroke=\"${css('--dim')}\" stroke-dasharray=\"6 6\" stroke-width=\"2\"/><line x1=\"${O[0]}\" y1=\"${O[1]+18}\" x2=\"${px}\" y2=\"${O[1]+18}\" stroke=\"${css('--B')}\" stroke-width=\"4\" opacity=\".6\"/><text x=\"${(O[0]+px)/2}\" y=\"${O[1]+44}\" text-anchor=\"middle\" fill=\"${css('--dim')}\" font-size=\"16\" font-family=\"Times New Roman\" font-style=\"italic\">B cos α<\/text>`;}\n else{g+=`<path d=\"M${O[0]} ${O[1]}L${ax} ${ay}L${ax+bx-O[0]} ${ay+by-O[1]}L${bx} ${by}Z\" fill=\"${css('--R')}\" opacity=\".18\" stroke=\"${css('--R')}\" stroke-dasharray=\"5 5\"/>`;}\n const ar=36;g+=`<path d=\"M${O[0]+ar} ${O[1]} A${ar} ${ar} 0 0 0 ${O[0]+ar*Math.cos(r)} ${O[1]-ar*Math.sin(r)}\" fill=\"none\" stroke=\"${css('--dim')}\" stroke-width=\"2\"/><text x=\"${O[0]+(ar+16)*Math.cos(r/2)}\" y=\"${O[1]-(ar+16)*Math.sin(r/2)+6}\" fill=\"${css('--dim')}\" font-size=\"18\">α<\/text>`;\n g+=arrow(O[0],O[1],ax,ay,css('--A'),'A',ax+6,ay+26)+arrow(O[0],O[1],bx,by,css('--B'),'B',bx+8,by-6);\n if(mode==='cross'){const v=A*Bm*Math.sin(r);if(v>0.001){g+=`<circle cx=\"470\" cy=\"50\" r=\"22\" fill=\"none\" stroke=\"${css('--R')}\" stroke-width=\"3\"/><path d=\"M455 35L485 65M485 35L455 65\" stroke=\"${css('--R')}\" stroke-width=\"3\"/><text x=\"470\" y=\"96\" text-anchor=\"middle\" fill=\"${css('--R')}\" font-size=\"13\">R<\/text>`;}}\n $('sv'+(id)).innerHTML=g;\n if(mode==='dot'){const v=A*Bm*Math.cos(r);$('x1').textContent='A · B = '+A+' × '+Bm+' × cos '+t+'° = '+(Math.abs(v)<0.005?'0':v.toFixed(2));$('n1').textContent='الناتج كمّية قياسية (رقم بدون اتّجاه)';}\n else{const v=A*Bm*Math.sin(r);$('x2').textContent='|A × B| = '+A+' × '+Bm+' × sin '+t+'° = '+(Math.abs(v)<0.005?'0':v.toFixed(2));$('n2').textContent=v>0.005?'من A إلى B: الاتّجاه رأسي على المستوى حسب قاعدة اليد اليمنى (الرمز ⊗ يمثّل مثال الكتاب: نحو الداخل)':'المتّجهان على خط واحد، فلا ينشأ متوازي أضلاع';}}\n['a','b','t'].forEach(k=>{$('r1'+k).addEventListener('input',()=>lab(1,'dot'));$('r2'+k).addEventListener('input',()=>lab(2,'cross'));});\nlab(1,'dot');lab(2,'cross');matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{lab(1,'dot');lab(2,'cross');});\n/* quiz from book content */\nconst Q=[['حاصل الضرب القياسي لمتّجهين هو:',['كمّية قياسية','كمّية متّجهة'],0],\n ['قوة 50 N بزاوية 60° مع إزاحة 10 m. الشغل يساوي:',['500 J','250 J','433 J','50 J'],1],\n ['اتّجاه حاصل الضرب الاتّجاهي A × B يكون:',['بنفس اتّجاه A','رأسياً على مستوى المتّجهين','بنفس اتّجاه B','بدون اتّجاه'],1]];\nlet qi=0,sc=0;const qo=$('qo');\nfunction rq(){if(qi>=Q.length){$('qq').textContent='النتيجة: '+AR(sc)+' من '+AR(Q.length);qo.innerHTML='';$('qf').textContent='';$('qn').textContent='أعد';$('qn').hidden=false;return;}\n const [q,o,a]=Q[qi];$('qq').textContent=AR(qi+1)+'. '+q;$('qf').textContent='';$('qn').hidden=true;qo.innerHTML='';let done=false;\n o.forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.type='button';b.textContent=t;b.style.direction=/[A-Za-z0-9]/.test(t)&&!/[؀-ۿ]/.test(t)?'ltr':'rtl';b.onclick=e=>{e.stopPropagation();if(done)return;done=true;b.classList.add(k===a?'ok':'no');if(k!==a)qo.children[a].classList.add('ok');else sc++;$('qf').textContent=k===a?'صح!':'الإجابة الصحيحة بالأخضر';$('qn').textContent=qi<Q.length-1?'التالي':'النتيجة';$('qn').hidden=false;};qo.appendChild(b);});}\n$('qn').onclick=e=>{e.stopPropagation();if(qi>=Q.length){qi=0;sc=0;}else qi++;rq();};rq();\nshow(0);\n<\/script>\n\n<script>\n(function(){const EMB=window.parent!==window;const R=document.documentElement;if(EMB)R.classList.add('emb');\nfunction lst(){const s=S[i];if(s.querySelector('#sv1'))return{id:1,a:+$('r1a').value,b:+$('r1b').value,t:+$('r1t').value};if(s.querySelector('#sv2'))return{id:2,a:+$('r2a').value,b:+$('r2b').value,t:+$('r2t').value};return null;}\nfunction post(ready){if(!EMB)return;const fr=frags();const h=S[i].querySelector('h1,h2');try{parent.postMessage({physState:{i,n:S.length,t:h?h.textContent.trim():'',fl:fr.filter(f=>!f.classList.contains('v')).length,lab:lst()},ready:!!ready},'*');}catch(e){}}\nconst _show=show;show=function(k){_show(k);post();};const _next=next;next=function(){_next();post();};\n['1','2'].forEach(id=>['a','b','t'].forEach(k=>{const el=$('r'+id+k);el&&el.addEventListener('input',()=>post());}));\nfunction redraw(){lab(1,'dot');lab(2,'cross');}\nfunction edit(d){if(d.reset){R.style.removeProperty('--blue');R.style.removeProperty('--navy');R.style.removeProperty('--fz');delete R.dataset.theme;}\n if(d.accent){R.style.setProperty('--blue',d.accent);R.style.setProperty('--navy','color-mix(in srgb,'+d.accent+' 72%,var(--ink))');}\n if(d.scale)R.style.setProperty('--fz',d.scale);if(d.theme)R.dataset.theme=d.theme;setTimeout(redraw,40);}\naddEventListener('message',e=>{const d=e.data||{};if(!d.phys)return;\n if(d.phys==='go'){show(Math.max(0,Math.min(S.length-1,+d.i||0)));if(d.all)frags().forEach(f=>f.classList.add('v'));post();}\n else if(d.phys==='next')next();else if(d.phys==='prev')show(i-1);\n else if(d.phys==='edit')edit(d);\n else if(d.phys==='lab'){const id=+d.id;if(!$('r'+id+'a'))return;$('r'+id+'a').value=d.a;$('r'+id+'b').value=d.b;$('r'+id+'t').value=d.t;lab(id,id===1?'dot':'cross');post();}\n else if(d.phys==='ping')post(true);});\naddEventListener('keydown',e=>{if(e.key==='Escape'&&EMB)try{parent.postMessage({physKey:'Escape'},'*')}catch(x){}});\npost(true);})();\n<\/script>\n<\/body><\/html>\n";const PHYS_BYTES=24709;</script>
+<script>
+/* ورشة العروض التفاعلية · العرض + YBE + عرض الفيزياء + الريموت (ملف واحد) */
+const $=id=>document.getElementById(id);
+const AR=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+const HOSTED=!window.__FORCE_ART&&/^https?:$/.test(location.protocol)&&!/cla[u]de|anthropic/i.test(location.hostname);
+const MIRROR=window.name==='ws-mirror';
+const RMODE=!MIRROR&&(window.__MODE==='remote'||/^#(remote|chat)\b/.test(location.hash)||/remote\.html$/i.test(location.pathname));
+const CHATONLY=RMODE&&/^#chat\b/.test(location.hash);
+const ART_URL='https://claude.ai/artifact/Xyd8No5zkJWUQPZNNvKEq1';
+const BASE=location.href.split('#')[0].split('?')[0].replace(/[^\/]*$/,'');
+const DECK_URL=HOSTED?BASE+'index.html':ART_URL;
+const RURL=HOSTED?BASE+'remote.html':ART_URL+'#remote';
+const CURL=HOSTED?BASE+'remote.html#chat':ART_URL+'#chat';
+const MIRROR_SRC=HOSTED?'index.html':'deck.html';
+const TOPIC='ybe-workshop/2a23b94d033a';
+const YLOGO='<svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#fff">'+[0,90,180,270].map(a=>'<ellipse cx="20" cy="11.6" rx="2.7" ry="6.4" transform="rotate('+a+' 20 20)"/>').join('')+'</g></svg>';
+const ENC=new TextEncoder();
+if(RMODE)document.documentElement.classList.add('rmode');
+if(MIRROR)document.documentElement.classList.add('mirror');
+
+/* ---------- transport: room + db (claude.ai) · MQTT (QD) ---------- */
+function MQ(url,clientId,onMsg,onState,auth){const enc=new TextEncoder(),dec=new TextDecoder();let ws,ping,subs=[],open=false,closedByUser=false,retry=1000;
   const str=s=>{const b=enc.encode(s);return [b.length>>8,b.length&255,...b];};
   const len=n=>{const o=[];do{let d=n%128;n=Math.floor(n/128);if(n>0)d|=128;o.push(d);}while(n>0);return o;};
-  const pkt=(h,body)=>new Uint8Array([h,...len(body.length),...body]);
+  const pkt=(h,body)=>{const L=len(body.length);const u=new Uint8Array(1+L.length+body.length);u[0]=h;u.set(L,1);u.set(body,1+L.length);return u;};
   function connect(){try{ws=new WebSocket(url,'mqtt');}catch(e){onState&&onState(false);return later();}ws.binaryType='arraybuffer';
     ws.onopen=()=>{ws.send(pkt(0x10,auth?[...str('MQTT'),4,0xC2,0,60,...str(clientId),...str(auth[0]),...str(auth[1])]:[...str('MQTT'),4,2,0,60,...str(clientId)]));};
     let buf=new Uint8Array(0);
@@ -65,57 +488,406 @@ body{background:var(--bg);color:var(--ink);font-family:"Readex Pro",sans-serif;p
         else if(t===3){const tl=(body[0]<<8)|body[1];const topic=dec.decode(body.slice(2,2+tl));let p=2+tl;if((h0>>1&3)>0)p+=2;onMsg&&onMsg(topic,dec.decode(body.slice(p)));}}};
     ws.onclose=()=>{open=false;clearInterval(ping);onState&&onState(false);if(!closedByUser)later();};ws.onerror=()=>{try{ws.close()}catch(e){}};}
   function later(){setTimeout(connect,retry);retry=Math.min(retry*2,8000);}
-
-  let pid=1;function sub(t,re){if(!re&&!subs.includes(t))subs.push(t);if(open)ws.send(pkt(0x82,[pid>>8,pid++&255,...str(t),0]));}
-  function pub(t,msg){if(!open)return false;const p=enc.encode(msg);ws.send(pkt(0x30,[...str(t),...p]));return true;}
+  let pid=1;function sub(t,re){if(!re&&!subs.includes(t))subs.push(t);if(open)ws.send(pkt(0x82,[pid>>8&255,pid++&255,...str(t),0]));}
+  function pub(t,msg){if(!open)return false;const p=enc.encode(msg);const head=str(t);const body=new Uint8Array(head.length+p.length);body.set(head);body.set(p,head.length);ws.send(pkt(0x30,body));return true;}
   connect();return {sub,pub,get open(){return open},close(){closedByUser=true;try{ws.close()}catch(e){}}};}
-const WT='ybe-workshop/2a23b94d033a';const WS=[];
-function wsStart(onMsg,onSt){['wss://mqtt.eclipseprojects.io:443/mqtt',['wss://public.cloud.shiftr.io:443',['public','public']],'wss://broker.hivemq.com:8884/mqtt','wss://broker.emqx.io:8084/mqtt'].forEach(u=>{const a=Array.isArray(u)?u[1]:null;u=Array.isArray(u)?u[0]:u;const m=MQ(u,'ws'+Math.random().toString(36).slice(2,10),(t,r)=>{try{const o=JSON.parse(r);if(o&&o.id&&!wsSeen[o.id]){wsSeen[o.id]=1;onMsg(o);}}catch(e){}},()=>onSt&&onSt(WS.filter(x=>x.open).length),a);m.sub(WT);WS.push(m);});}
-const wsSeen={};function wsSend(o){o.id=Math.random().toString(36).slice(2);wsSeen[o.id]=1;const s=JSON.stringify(o);WS.forEach(m=>{try{m.pub(WT,s)}catch(e){}});}
+const T={room:null,db:null,mq:[],seen:Object.create(null),hs:[],onStatus:null,
+  send(o){if(!o.id)o.id=rid();T.seen[o.id]=1;let s;try{s=JSON.stringify(o);}catch(e){return o;}
+    if(T.room&&ENC.encode(s).length<4000){try{const p=T.room.emit(o.k==='cmd'?'cmd':'st',o);p&&p.catch&&p.catch(()=>{});}catch(e){}}
+    T.mq.forEach(m=>{try{m.pub(TOPIC,s)}catch(e){}});return o;},
+  recv(o){if(!o||typeof o!=='object'||!o.id||T.seen[o.id])return;T.seen[o.id]=1;T.hs.forEach(f=>{try{f(o)}catch(e){console.error(e)}});},
+  on(f){T.hs.push(f);},
+  live(){let r=false;try{r=!!T.room&&(typeof T.room.connected!=='function'||T.room.connected());}catch(e){}return r||T.mq.some(m=>m.open);}};
+const DBQ={};
+function dbSet(path,data){if(!T.db)return;const q=DBQ[path]||(DBQ[path]={busy:false,nx:null});if(q.busy){q.nx=data;return;}q.busy=true;let p;
+  try{p=T.db.doc(path).set(JSON.parse(JSON.stringify(data)));}catch(e){q.busy=false;return;}
+  Promise.resolve(p).catch(()=>{}).then(()=>{q.busy=false;if(q.nx){const n=q.nx;q.nx=null;dbSet(path,n);}});}
+function dbWatch(path,skipFirst){if(!T.db)return;let first=true;try{T.db.doc(path).onSnapshot(s=>{const d=s&&s.exists?s.data():null;if(first&&skipFirst){first=false;if(d&&d.id)T.seen[d.id]=1;return;}first=false;if(d)T.recv(d);},()=>{});}catch(e){}}
+async function tStart(role){const C=window.claude;
+  if(C&&typeof C.use==='function'){try{const [room,db]=await Promise.all([C.use('room').catch(()=>null),C.use('db').catch(()=>null)]);
+    if(room){T.room=room;try{room.on(role==='screen'?'cmd':'st',m=>T.recv(m&&m.data));}catch(e){}try{room.onConnection&&room.onConnection(()=>T.onStatus&&T.onStatus());}catch(e){}}
+    if(db){T.db=db;if(role==='screen'){dbWatch('wr/cmd',true);dbWatch('wr/img',true);}else{dbWatch('wr/mt',false);dbWatch('wr/st',false);dbWatch('wr/ch',false);}}}catch(e){}}
+  if(HOSTED&&typeof WebSocket!=='undefined'){[['wss://mqtt.eclipseprojects.io:443/mqtt'],['wss://public.cloud.shiftr.io:443',['public','public']],['wss://broker.hivemq.com:8884/mqtt'],['wss://broker.emqx.io:8084/mqtt']].forEach(([u,a])=>{
+    try{const m=MQ(u,'ws'+Math.random().toString(36).slice(2,10),(t,r)=>{try{T.recv(JSON.parse(r))}catch(e){}},()=>T.onStatus&&T.onStatus(),a);m.sub(TOPIC);T.mq.push(m);}catch(e){}});}
+  T.onStatus&&T.onStatus();}
+function dataBlob(d){const m=/^data:([^;]+);base64,(.*)$/.exec(d||'');if(!m)return null;const b=atob(m[2]);const u=new Uint8Array(b.length);for(let k=0;k<b.length;k++)u[k]=b.charCodeAt(k);return new Blob([u],{type:m[1]});}
 
+/* ================= العرض على الشاشة ================= */
+function deckApp(){
+const S=[...document.querySelectorAll('.s')];let i=0;
+const n=$('n'),prog=$('prog'),notes=$('notes');
+const AIX=S.findIndex(s=>s.classList.contains('ai'));
+const CHS=(()=>{let c=0;return S.map(x=>{if(x.classList.contains('pres'))c=x.dataset.t==='فارس'?2:1;return c;});})();
+const AI={s:null,busy:false,phase:0,log:[],hist:[],q:[]};
+const PH={open:false,opened:false,ready:{prev:false,full:false},pend:{prev:[],full:[]},st:{i:0,n:13,t:'',fl:0,lab:null},ed:{},cyc:null,ci:0,mi:-1,mes:'',msig:''};
+if(MIRROR)document.querySelectorAll('#net,.blob').forEach(e=>e.remove());else bgNet();
+function bgNet(){const c=$('net'),x=c.getContext('2d');let W,H,P=[];const dp=Math.min(2,devicePixelRatio||1);const rs=()=>{W=c.width=innerWidth*dp;H=c.height=innerHeight*dp;P=Array.from({length:Math.min(90,Math.round(innerWidth*innerHeight/24000))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3*dp,vy:(Math.random()-.5)*.3*dp}));};rs();addEventListener('resize',rs);
+  const red=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function f(){if(document.hidden){requestAnimationFrame(f);return;}const rgb=getComputedStyle(document.documentElement).getPropertyValue('--net').trim();x.clearRect(0,0,W,H);const D=140*dp;
+    for(const p of P){if(!red){p.x+=p.vx;p.y+=p.vy;}if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
+    x.lineWidth=dp;for(let a=0;a<P.length;a++)for(let b=a+1;b<P.length;b++){const dx=P[a].x-P[b].x,dy=P[a].y-P[b].y,d=Math.hypot(dx,dy);if(d<D){x.strokeStyle='rgba('+rgb+','+((1-d/D)*.16)+')';x.beginPath();x.moveTo(P[a].x,P[a].y);x.lineTo(P[b].x,P[b].y);x.stroke();}}
+    x.fillStyle='rgba('+rgb+',.35)';for(const p of P){x.beginPath();x.arc(p.x,p.y,2*dp,0,7);x.fill();}if(!red)requestAnimationFrame(f);}f();}
+function frags(){return [...S[i].querySelectorAll('.f')];}
+function reveal(k){frags().forEach((f,j)=>f.classList.toggle('v',j<k));}
+function show(k){const was=i;i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>s.classList.toggle('on',j===i));frags().forEach(f=>f.classList.remove('v'));
+  n.textContent=AR(i+1)+' / '+AR(S.length);prog.style.width=((i+1)/S.length*100)+'%';
+  notes.innerHTML='<b>ملاحظة للمقدم · '+esc(S[i].dataset.t)+'</b>'+esc(S[i].dataset.n||'');
+  [...$('ovg').children].forEach((b,j)=>b.classList.toggle('cur2',j===i));
+  const s=S[i];if(s.querySelector('#tt'))typeTerm();if(s.querySelector('#lbt'))build();gal(!!s.querySelector('#gal'));
+  if(was===AIX&&i!==AIX&&PH.open)closePhys(true);
+  if(i===AIX)aiEnter();
+  if(!MIRROR){try{history.replaceState(null,'','#'+(i+1));}catch(e){}}
+  pushSoon();}
+function next(){if(PH.open){physNav(1);return;}if(i===AIX&&aiStep())return;const h=frags().find(f=>!f.classList.contains('v'));if(h){h.classList.add('v');pushSoon();return;}show(i+1);}
+function prev(){if(PH.open){physNav(-1);return;}show(i-1);}
+S.forEach((s,j)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<i>'+AR(j+1)+'</i>'+esc(s.dataset.t);b.onclick=e=>{e.stopPropagation();ov(false);if(PH.open)closePhys(true);show(j);};$('ovg').appendChild(b);});
+function ov(v){$('ov').classList.toggle('on',v);pushSoon();}
+function fs(){try{if(document.fullscreenElement)document.exitFullscreen();else{const p=document.documentElement.requestFullscreen();p&&p.catch&&p.catch(()=>{});}}catch(e){}}
+$('bx').onclick=e=>{e.stopPropagation();next();};$('bp').onclick=e=>{e.stopPropagation();prev();};
+$('bo').onclick=e=>{e.stopPropagation();ov(!$('ov').classList.contains('on'));};$('bn').onclick=e=>{e.stopPropagation();notes.classList.toggle('on');pushSoon();};$('bf').onclick=e=>{e.stopPropagation();fs();};
+$('ov').onclick=e=>{if(e.target===$('ov'))ov(false);};
+const laser=document.createElement('div');laser.id='laser';document.body.appendChild(laser);
+const blk=document.createElement('div');blk.id='blk';document.body.appendChild(blk);let lzT=null;
+addEventListener('keydown',e=>{const t=e.target;if(t&&t.matches&&t.matches('input,select,textarea'))return;const k=e.key;
+  if(PH.open){if(k==='Escape'){closePhys();return;}if(['ArrowLeft','ArrowDown',' ','Enter','PageDown'].includes(k)){e.preventDefault();physNav(1);return;}if(['ArrowRight','ArrowUp','PageUp'].includes(k)){e.preventDefault();physNav(-1);return;}}
+  if(k==='Escape'||k==='o'||k==='O'||k==='خ'){ov(!$('ov').classList.contains('on'));return;}
+  if(k==='n'||k==='N'||k==='ى'){notes.classList.toggle('on');pushSoon();return;}if(k==='f'||k==='F'||k==='ب'){fs();return;}
+  if(k==='r'||k==='R'||k==='ق'){$('rqr').classList.toggle('on');pushSoon();return;}
+  if(k==='b'||k==='B'||k==='لا'){blk.classList.toggle('on');pushSoon();return;}
+  if(t&&t.closest&&t.closest('button'))return;if(k==='Home'){show(0);return;}if(k==='End'){show(S.length-1);return;}
+  if(['ArrowLeft','ArrowDown',' ','Enter','PageDown'].includes(k)){e.preventDefault();next();}if(['ArrowRight','ArrowUp','PageUp'].includes(k)){e.preventDefault();prev();}});
+const SKIP='button,.opt,.prompt,.quiz,a,.cmp,.fm,.out,.poll,.ov,input,select,label,textarea,.nav,.tab,#physOv,#blk';
+document.body.addEventListener('click',e=>{if(MIRROR||e.target.closest(SKIP))return;next();});
+blk.addEventListener('click',()=>{blk.classList.remove('on');pushSoon();});
+let tx=null;addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});addEventListener('touchend',e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)>60&&!e.target.closest('.cmp,.fm,input,textarea,.tab,#physOv'))d>0?next():prev();});
+/* --- widgets --- */
+function typer(el,lines){let li=0,ci=0,html='',tm=null;const st=()=>{if(li>=lines.length){el.innerHTML=html+'<div><span class="cur">&nbsp;</span></div>';return;}const [c,t,fn]=lines[li];ci++;const ar=/[؀-ۿ]/.test(t)?' ar':'';const body='<div class="'+c+ar+'">'+t.slice(0,ci).replace(/</g,'&lt;');el.innerHTML=html+body+'<span class="cur">&nbsp;</span></div>';
+  if(ci>=t.length){html+=body+'</div>';fn&&fn();li++;ci=0;tm=setTimeout(st,c==='a'?700:c==='g'?650:400);}else tm=setTimeout(st,c==='a'?26:c==='g'?14:45);};st();return ()=>clearTimeout(tm);}
+let stop1=null;function typeTerm(){stop1&&stop1();stop1=typer($('tt'),[['p','$ claude'],['a','> اقرأ درس-الكسور.pdf وصمّم عرض تفاعلي من ٨ شرائح للصف السادس'],['g','✓ قرأت الملف: درس-الكسور.pdf'],['g','✓ خطة العرض: ٨ شرائح + اختبار من ٣ أسئلة'],['g','✓ أنشأت الملف: عرض-الكسور.html']]);}
+let stop2=null;function build(){stop2&&stop2();const st=$('stg');st.className='stage';[...st.children].forEach(c=>c.classList.remove('in'));const on=s=>()=>st.querySelector(s).classList.add('in');
+  stop2=typer($('lbt'),[['p','$ claude'],['a','> صمّم شريحة عن الكسور للصف السادس'],['o','● أقرأ ملف الدرس…'],['g','✓ خلفية وهوية المدرسة',()=>{st.classList.add('bg');on('.hd')();}],['g','✓ العنوان',on('.tt')],['g','✓ رسم توضيحي متحرك',on('.pie')],['g','✓ النقاط الرئيسية',on('.pts')],['g','✓ زر اختبار تفاعلي',on('.qz')],['p','Done: fractions.html']]);}
+$('lbr').onclick=e=>{e.stopPropagation();build();};
+const PO=['أقل من ساعة','من ساعة إلى ٣ ساعات','أكثر من ٣ ساعات','ما أسوي عروض'];const PV=PO.map(()=>0);
+function rp(){const m=Math.max(1,...PV);$('poll').innerHTML='';PO.forEach((t,k)=>{const b=document.createElement('button');b.type='button';b.className='pb';b.innerHTML='<span>'+t+'</span><div class="tr"><div class="fl"></div></div><span class="ct">'+AR(PV[k])+'</span>';b.onclick=e=>{e.stopPropagation();PV[k]++;rp();pushSoon();};$('poll').appendChild(b);requestAnimationFrame(()=>requestAnimationFrame(()=>{b.querySelector('.fl').style.width=(PV[k]/m*100)+'%';}));});}
+rp();$('pr').onclick=e=>{e.stopPropagation();PV.fill(0);rp();pushSoon();};
+(()=>{const c=$('cmp');let dr=false;const set=ev=>{const r=c.getBoundingClientRect();const p=Math.max(0,Math.min(100,(ev.clientX-r.left)/r.width*100));c.style.setProperty('--x',p+'%');};
+  c.addEventListener('pointerdown',e=>{dr=true;try{c.setPointerCapture(e.pointerId);}catch(x){}set(e);e.stopPropagation();});c.addEventListener('pointermove',e=>{if(dr)set(e);});c.addEventListener('pointerup',()=>{dr=false;pushSoon();});c.addEventListener('click',e=>e.stopPropagation());})();
+let gt=null,gi=0;function gal(on){clearInterval(gt);if(!on)return;const im=[...$('gal').querySelectorAll('img')];const sh=()=>{im.forEach((x,k)=>x.classList.toggle('on',k===gi));$('cap').textContent=im[gi].dataset.c;};gi=0;sh();gt=setInterval(()=>{gi=(gi+1)%im.length;sh();},3200);}
+const B=()=>{const g=id=>$(id).value;const nn=$('b_n').value;$('b_nv').textContent=AR(nn);const ex=[];if($('x_q').checked)ex.push('شريحة اختبار تفاعلي من ٣ أسئلة مع تصحيح فوري');if($('x_t').checked)ex.push('مؤقت للنشاط الجماعي');if($('x_a').checked)ex.push('رسوم توضيحية متحركة تشرح الفكرة');
+  const fmt=$('x_p').checked?'ملف PowerPoint (.pptx)':'عرضاً تفاعلياً بصيغة HTML';
+  $('b_out').textContent='اقرأ ملف الدرس الموجود في المجلد، وصمّم '+fmt+' لمادة '+g('b_sub')+' عن «'+(g('b_top').trim()||'موضوع الدرس')+'» لطلاب '+g('b_gr')+'، من '+AR(nn)+' شرائح، '+g('b_st')+'، بخط عربي واضح واتجاه من اليمين لليسار'+(ex.length?'، وأضف: '+ex.join('، '):'')+'. خذ المعلومات من ملف الدرس فقط ولا تضف معلومات من عندك.';};
+['b_sub','b_top','b_gr','b_n','b_st','x_q','x_t','x_a','x_p'].forEach(id=>$(id).addEventListener('input',B));B();
+async function copy(el,b,lbl){const t=el.textContent;try{await navigator.clipboard.writeText(t);b.textContent='تم النسخ';}catch(x){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='انسخه الحين';}setTimeout(()=>{b.textContent=lbl;},1800);}
+$('b_cp').onclick=e=>{e.stopPropagation();copy($('b_out'),$('b_cp'),'نسخ الأمر');};
+document.querySelectorAll('[data-copy]').forEach(b=>{b.onclick=e=>{e.stopPropagation();copy($(b.dataset.copy),b,'نسخ');};});
+const Q=[['كم يساوي ½ + ¼ ؟',['¾','⅔','½','¼'],0],['أي كسر أكبر؟',['⅓','⅖','½','¼'],2],['½ يساوي كم من ١٠٠؟',['٢٥','٥٠','٧٥','١٠'],1]];let qi=0,score=0;
+const qq=$('qq'),qo=$('qo'),qf=$('qf'),qn=$('qn');
+function rq(){$('qb').style.width=(qi/Q.length*100)+'%';if(qi>=Q.length){qq.textContent='خلصت! نتيجتك '+AR(score)+' من '+AR(Q.length);qo.innerHTML='';delete qo.dataset.done;qf.textContent=score===Q.length?'ممتاز! العلامة الكاملة':'';qn.textContent='أعد الاختبار';qn.style.display='inline-block';return;}
+  const [q,o,a]=Q[qi];qq.textContent='سؤال '+AR(qi+1)+': '+q;qf.textContent='';qn.style.display='none';qo.innerHTML='';delete qo.dataset.done;
+  o.forEach((t,k)=>{const b=document.createElement('button');b.type='button';b.className='opt';b.textContent=t;b.onclick=e=>{e.stopPropagation();if(qo.dataset.done)return;qo.dataset.done=1;b.classList.add(k===a?'ok':'no');if(k!==a)qo.children[a].classList.add('ok');else score++;qf.textContent=k===a?'إجابة صحيحة!':'قريب… الإجابة الصحيحة باللون الأخضر';qn.textContent=qi<Q.length-1?'السؤال التالي':'النتيجة';qn.style.display='inline-block';pushSoon();};qo.appendChild(b);});}
+qn.onclick=e=>{e.stopPropagation();if(qi>=Q.length){qi=0;score=0;}else qi++;rq();pushSoon();};rq();
+const TOT=900;let left=TOT,tick=null;const tm=$('tm'),ts=$('ts'),tc=$('tc'),CIR=2*Math.PI*52;tc.style.strokeDasharray=CIR;
+const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+const rt=()=>{tm.textContent=fmt(left);tc.style.strokeDashoffset=CIR*(1-Math.min(1,left/TOT));$('tw').classList.toggle('end',left===0);};rt();
+function chime(){try{const a=new (window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach((d,k)=>{const o=a.createOscillator(),g=a.createGain();o.frequency.value=[660,880,1100][k];g.gain.setValueAtTime(.0001,a.currentTime+d);g.gain.exponentialRampToValueAtTime(.3,a.currentTime+d+.02);g.gain.exponentialRampToValueAtTime(.0001,a.currentTime+d+.5);o.connect(g).connect(a.destination);o.start(a.currentTime+d);o.stop(a.currentTime+d+.6);});}catch(e){}}
+ts.onclick=e=>{e.stopPropagation();if(tick){clearInterval(tick);tick=null;ts.textContent='كمّل';pushSoon();return;}if(!left)left=TOT;ts.textContent='إيقاف';tick=setInterval(()=>{left=Math.max(0,left-1);rt();if(!left){clearInterval(tick);tick=null;ts.textContent='ابدأ من جديد';chime();pushSoon();}},1000);pushSoon();};
+$('tr').onclick=e=>{e.stopPropagation();clearInterval(tick);tick=null;left=TOT;rt();ts.textContent='ابدأ المؤقت';pushSoon();};
+/* --- QR codes --- */
+function qr(el,text,size){try{if(el&&typeof QRCode!=='undefined')new QRCode(el,{text,width:size,height:size,colorDark:'#041E52',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});else if(el)el.style.display='none';}catch(e){}}
+if(!MIRROR){qr($('qr'),DECK_URL,170);qr($('rqrc'),RURL,240);qr($('yqr'),CURL,160);}
+$('rskip').onclick=e=>{e.stopPropagation();$('rqr').classList.remove('on');pushSoon();};$('br').onclick=e=>{e.stopPropagation();$('rqr').classList.toggle('on');pushSoon();};
+$('rqr').onclick=()=>{$('rqr').classList.remove('on');pushSoon();};
 
-const $=i=>document.getElementById(i);const AR=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);let last=0,S=null,nOpen=0,vib=true,lz=false;
-try{vib=localStorage.getItem('wsvib')!=='0'}catch(e){}
-const P={1:['جاسم القناعي','ج','التشابتر الأول · الفكرة والأداة','var(--c1)'],2:['فارس','ف','التشابتر الثاني · التطبيق','var(--c2)'],0:['الورشة','و','البداية','var(--c1)']};
-const buzz=()=>{if(vib)try{navigator.vibrate&&navigator.vibrate(15)}catch(e){}};
-const c=(a,v)=>{wsSend({k:'cmd',a,v});buzz();};
-$('nb').onclick=()=>c('next');$('pv').onclick=()=>c('prev');$('d_first').onclick=()=>c('first');$('d_last').onclick=()=>c('last');
-$('t_bk').onclick=()=>c('black');$('t_nt').onclick=()=>c('notes');$('t_qr').onclick=()=>c('qr');$('t_all').onclick=()=>c('all');$('t_hid').onclick=()=>c('hideall');$('t_ov').onclick=()=>c('ov');
-$('t_vb').onclick=()=>{vib=!vib;try{localStorage.setItem('wsvib',vib?'1':'0')}catch(e){}$('t_vb').classList.toggle('on',vib);buzz();};$('t_vb').classList.toggle('on',vib);
-$('t_lz').onclick=()=>{lz=!lz;$('t_lz').classList.toggle('on',lz);$('mir').classList.toggle('lz',lz);$('mb').textContent=lz?'المس المعاينة لتأشر على الشاشة':'معاينة مباشرة';buzz();};
-const sheet=on=>{$('sheet').classList.toggle('on',on);$('shade').classList.toggle('on',on);};$('d_list').onclick=()=>sheet(true);$('shade').onclick=()=>sheet(false);
-/* mirror scale */
-function fit(){const w=$('mir').clientWidth;$('ifr').style.transform='scale('+(w/1600)+')';}addEventListener('resize',fit);fit();
-let mirOk=false;$('ifr').onload=()=>{mirOk=true;sync();};
-function sync(){if(!S||!mirOk)return;try{$('ifr').contentWindow.postMessage({mi:S.i,mv:S.ft-S.fl},'*');}catch(e){}}
-/* laser + swipe on preview */
-let lt=0,sx=null;const tp=$('tp');
-function ptr(e){const r=tp.getBoundingClientRect();const x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));const t=Date.now();if(t-lt>50){lt=t;wsSend({k:'cmd',a:'ptr',v:[+x.toFixed(4),+y.toFixed(4)]});}}
-tp.addEventListener('pointerdown',e=>{if(lz){tp.setPointerCapture(e.pointerId);ptr(e);}else sx=e.clientX;});
-tp.addEventListener('pointermove',e=>{if(lz&&e.buttons)ptr(e);});
-tp.addEventListener('pointerup',e=>{if(!lz&&sx!=null){const d=e.clientX-sx;if(Math.abs(d)>50)d>0?c('next'):c('prev');else c('next');}sx=null;});
-function dot(){const d=$('dot');const live=last&&Date.now()-last<11000;d.className='dot '+(live?'ok':nOpen?'':'bad');$('st').textContent=live?'متصل بالعرض':nOpen?'متصل · افتح العرض على الشاشة':'غير متصل…';}
-const B=(t,f,cls)=>{const b=document.createElement('button');b.textContent=t;b.onclick=f;if(cls)b.className=cls;return b;};
-function ctx(o){const x=$('ctx');x.innerHTML='';const k=o.ctl||{};let any=false;const H=t=>{const h=document.createElement('h3');h.textContent=t;x.appendChild(h);};const R=()=>{const r=document.createElement('div');r.className='r';x.appendChild(r);return r;};
- if(k.timer){any=true;H('المؤقت');const r=R();r.append(B(o.run?'إيقاف':'تشغيل',()=>c('timer'),'ok'),B('−١ دقيقة',()=>c('tadd',-60)),B('+١ دقيقة',()=>c('tadd',60)),B('إعادة',()=>c('treset')));}
- if(k.poll&&o.poll){any=true;H('التصويت · اضغط لتضيف صوت');const pv=document.createElement('div');pv.className='pv';o.poll.o.forEach((t,j)=>{const b=B(t,()=>c('poll',j));b.style.textAlign='right';const n=document.createElement('b');n.textContent=AR(o.poll.v[j]);pv.append(b,n);});x.appendChild(pv);R().append(B('تصفير الأصوات',()=>c('pollreset')));}
- if(k.quiz&&o.quiz){any=true;if(o.quiz.end){H('الاختبار خلص · النتيجة '+AR(o.quiz.score)+' من '+AR(o.quiz.n));R().append(B('أعد الاختبار',()=>c('qnext'),'ok'));}else{H('سؤال '+AR(o.quiz.n)+': '+o.quiz.q);const r=R();o.quiz.o.forEach((t,j)=>r.append(B(t,()=>c('quiz',j))));if(o.quiz.done)R().append(B('السؤال التالي',()=>c('qnext'),'ok'));}}
- if(k.cmp){any=true;H('خط المقارنة');const rg=document.createElement('input');rg.type='range';rg.min=0;rg.max=100;rg.value=o.cmp;let tt=0;rg.oninput=()=>{const t=Date.now();if(t-tt>60){tt=t;wsSend({k:'cmd',a:'cmp',v:+rg.value});}};rg.onchange=()=>c('cmp',+rg.value);x.appendChild(rg);R().append(B('تقليدي',()=>c('cmp',100)),B('النص',()=>c('cmp',50)),B('تفاعلي',()=>c('cmp',0)));}
- if(k.build){any=true;H('البناء الحي');R().append(B('أعد البناء من البداية',()=>c('build'),'ok'));}
- x.hidden=!any;}
-let lastSig='';
-function render(o){S=o;const p=P[o.ch]||P[0];document.documentElement.style.setProperty('--pc',p[3]);$('av').textContent=p[1];$('wn').textContent=p[0];$('wc').textContent=p[2];
- $('num').textContent='شريحة '+AR(o.i+1)+' من '+AR(o.n);$('chn').textContent=o.ch?'التشابتر '+AR(o.ch):'';$('tt').textContent=o.t;$('nt').textContent=o.notes||'';
- const f=$('frs');f.hidden=!o.ft;f.innerHTML='';for(let k=0;k<o.ft;k++){const i=document.createElement('i');if(k<o.ft-o.fl)i.className='v';f.appendChild(i);}if(o.ft){const s=document.createElement('span');s.textContent=o.fl?'باقي '+AR(o.fl):'كل العناصر ظاهرة';f.appendChild(s);}
- $('nb').firstChild.textContent=o.fl?'أظهر التالي':'التالي';$('nbs').textContent=!o.fl&&o.nt?o.nt:'';
- $('nx').hidden=!o.nt;$('nx').textContent='الجاية: '+o.nt+(o.chs&&o.chs[o.i+1]!==o.ch&&o.chs[o.i+1]?' · يبدأ دور '+(P[o.chs[o.i+1]]||P[0])[0]:'');
- const m=Math.floor(o.left/60),s=o.left%60;$('tl').textContent=(o.run||o.left<900)?String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'):'';
- ['t_bk','black','t_nt','notes_on','t_ov','ov','t_qr','qr'].reduce((a,v,i,arr)=>{if(i%2===0)$(v).classList.toggle('on',!!o[arr[i+1]]);return a;},0);
- const pg=$('prog');pg.innerHTML='';for(let k=0;k<o.n;k++){const x=document.createElement('i');if(k<o.i)x.className=(o.chs&&o.chs[k]===2)?'d2':'d';if(k===o.i)x.className='cur';pg.appendChild(x);}
- const sig=JSON.stringify([o.i,o.ctl,o.poll&&o.poll.v,o.quiz,o.run]);if(sig!==lastSig){lastSig=sig;ctx(o);}
- const sh=$('sheet');sh.innerHTML='';[[0,'البداية'],[1,'التشابتر الأول · جاسم القناعي'],[2,'التشابتر الثاني · فارس']].forEach(([ch,lab])=>{const ks=o.titles.map((t,k)=>k).filter(k=>(o.chs?o.chs[k]:0)===ch);if(!ks.length)return;const h=document.createElement('h3');h.textContent=lab;sh.appendChild(h);const g=document.createElement('div');g.className='g';ks.forEach(k=>{const b=document.createElement('button');b.textContent=AR(k+1)+'. '+o.titles[k];if(k===o.i)b.classList.add('on');b.onclick=()=>{c('go',k);sheet(false);};g.appendChild(b);});sh.appendChild(g);});
- sync();}
-wsStart(o=>{if(o.k!=='st')return;last=Date.now();render(o);dot();},n=>{nOpen=n;if(n)c('hello');dot();});
-setInterval(dot,2000);
-async function wake(){try{if(navigator.wakeLock)await navigator.wakeLock.request('screen');}catch(e){}}wake();document.addEventListener('visibilitychange',()=>{if(!document.hidden){wake();c('hello');}});
+/* ================= YBE ================= */
+const SYS='أنت YBE، مساعد ذكاء اصطناعي متمكن يظهر على شاشة كبيرة في ورشة عمل لمعلمي ثانوية يوسف بن عيسى في الكويت عن صناعة العروض التقديمية التفاعلية بالذكاء الاصطناعي باستخدام Claude Code. افهم المقصود حتى لو السؤال مكتوب بلهجة أو فيه أخطاء، وجاوب مباشرة وبدقة بنفس لغة ولهجة السائل، وإذا السؤال بالعربي اكتب بالعربي. لا تعرّف بنفسك ولا تبدأ بتحية أو مقدمة، إلا إذا سألوك صراحة منو أنت (وقتها قل إنك YBE). خلك مختصر لأن الرد على شاشة: أقل من ٩٠ كلمة، وتقدر تستخدم نقاط قصيرة تبدأ بـ «-» إذا تحتاج. إذا طلبوا برومبت اكتبه بالقاعدة الذهبية: الدور، السياق، المهمة، التنسيق، القيود. لا تخترع أرقام أو إحصائيات أو مصادر، وإذا ما تعرف شي قل ما أعرف. بدون إيموجي. كن محترماً ومناسباً للمدرسة، وإذا الطلب غير مناسب اعتذر بلطف وباختصار.';
+const PHYS_PROMPT='[الدور]\nأنت معلم فيزياء خبير ومصمم عروض تعليمية تفاعلية.\n\n[السياق]\nعندي كتاب الفيزياء للفصل الدراسي الأول (وزارة التربية - الكويت) بصيغة PDF في المجلد.\nالدرس: «ضرب المتجهات» من الدرس 1-1 «الكميات العددية والكميات المتجهة» (صفحات 22-23).\nالطلاب يصعب عليهم تحديد اتجاه حاصل الضرب الاتجاهي والتفريق بين النوعين.\n\n[المهمة]\nصمّم عرضاً تفاعلياً يشرح الضرب القياسي والضرب الاتجاهي، فيه:\n- مختبر تفاعلي لكل نوع: منزلقات لمقدار A ومقدار B والزاوية، ورسم المتجهين، والناتج يتحدث مباشرة.\n- مثال (5) ومثال (6) من الكتاب، يظهر الحل خطوة خطوة بالضغط (حلّل، احسب، قيّم).\n- رسم متحرك لقاعدة اليد اليمنى.\n- جدول مقارنة بين النوعين، واختبار من 3 أسئلة مع تصحيح فوري.\n\n[التنسيق]\nملف HTML واحد، 12 إلى 14 شريحة، عنصر واحد يظهر مع كل ضغطة.\nالقوانين بخط واضح من اليسار لليمين داخل نص عربي من اليمين لليسار.\n\n[القيود]\n- خذ كل المعلومات والقوانين والأمثلة من صفحات الكتاب فقط، ولا تضف أي معلومة أو رقم من عندك.\n- خط عربي كبير يُقرأ من آخر الفصل، بدون إيموجي، ويعمل على السبورة الذكية والهاتف.\n- اكتب المصدر في أسفل الشرائح.';
+const GR={'الدور':'#0149AD','السياق':'#1D63E0','المهمة':'#7C3AED','التنسيق':'#EA580C','القيود':'#059669'};
+const KH_SUM='غزوة الخندق كانت سنة ٥ للهجرة، لما تحزّبت قريش وغطفان وحلفاؤهم بحوالي ١٠ آلاف مقاتل على المدينة. أشار سلمان الفارسي بحفر خندق، فحفره المسلمون مع النبي ﷺ. حاصروا المدينة قرابة شهر وما قدروا يعبرون، ثم أرسل الله عليهم ريحاً شديدة فانسحبوا.';
+const STEPS=[['فتحت كتاب الفيزياء · الفصل الدراسي الأول · ١١٤ صفحة',1100],['لقيت الدرس 1-1 · «ضرب المتجهات» في صفحة ٢٢ و٢٣',1300],['طلّعت القانونين: <bdi>A · B = A B cos α</bdi> و <bdi>|A × B| = A B sin α</bdi>',1200],['أخذت مثال (5) ومثال (6) بحلولهم خطوة خطوة',1000],['بنيت مختبرين تفاعليين للضرب القياسي والاتجاهي',1400],['رسمت قاعدة اليد اليمنى وجدول مقارنة',900],['أضفت اختبار من ٣ أسئلة وسؤال التفكير الناقد',900],['العرض جاهز · ١٣ شريحة',600]];
+const COLORS=[['بنفسجي','#7C3AED','البنفسجي'],['موف','#7C3AED','البنفسجي'],['احمر','#DC2626','الأحمر'],['اخضر','#059669','الأخضر'],['برتقالي','#EA580C','البرتقالي'],['ازرق','#0149AD','الأزرق'],['وردي','#DB2777','الوردي'],['ذهبي','#B8892B','الذهبي'],['سماوي','#0284C7','السماوي'],['تركواز','#0E7490','التركوازي']];
+const ylog=$('ylog'),yinp=$('yinp'),ysend=$('ysend'),ychips=$('ychips');
+$('ySideLogo').innerHTML=YLOGO;$('phBadge').innerHTML=YLOGO;
+const el=(tag,cls,html)=>{const d=document.createElement(tag);if(cls)d.className=cls;if(html!=null)d.innerHTML=html;return d;};
+const norm=q=>String(q).replace(/[ً-ْـ]/g,'').replace(/[أإآ]/g,'ا');
+function fmtUser(q){return esc(q).replace(/\[(الدور|السياق|المهمة|التنسيق|القيود)\]/g,(m,w)=>'<span class="gr" style="--k:'+GR[w]+'">'+w+'</span>').replace(/\n/g,'<br>');}
+function fmtAI(t){const L=esc(t).replace(/\*\*([^*\n]+)\*\*/g,'<b>$1</b>').replace(/[#`]/g,'').split(/\n/);let h='',ul=false;
+  for(const raw of L){const l=raw.trim();const m=l.match(/^[-•*]\s+(.*)$/);if(m){if(!ul){h+='<ul>';ul=true;}h+='<li>'+m[1]+'</li>';continue;}if(ul){h+='</ul>';ul=false;}if(l)h+='<div>'+l+'</div>';}
+  if(ul)h+='</ul>';return h;}
+const DOTS='<span class="ydots"><i></i><i></i><i></i></span>';
+function scrollLog(){ylog.scrollTop=ylog.scrollHeight;}
+function logPush(o){AI.log.push(o);if(AI.log.length>40)AI.log.splice(0,AI.log.length-40);chDirty();return o;}
+function hideEmpty(){const e=$('yempty');if(e){e.remove();setChips();}}
+function setEmpty(){ylog.innerHTML='';const e=el('div','yempty');e.id='yempty';e.innerHTML='<div class="ylogo">'+YLOGO+'</div><h3>وش نسوي اليوم؟</h3><p>اكتب أي طلب… أو جرّب واحد من هذي</p>';const g=el('div','ysug');
+  [['phys','البرومبت الاحترافي','صمّم عرض تفاعلي لدرس «ضرب المتجهات» من كتاب الفيزياء',1],['اكتب لي برومبت لدرس الكسور للصف السادس بالقاعدة الذهبية','برومبت','اكتب لي برومبت لدرس الكسور'],['شنو الفرق بين الضرب القياسي والضرب الاتجاهي؟','سؤال','الفرق بين الضرب القياسي والاتجاهي']].forEach(([k,b,t,main])=>{const x=el('button',main?'main':'','<b>'+esc(b)+'</b>'+esc(t));x.type='button';x.onclick=ev=>{ev.stopPropagation();chip(k);};g.appendChild(x);});
+  e.appendChild(g);ylog.appendChild(e);}
+function addUser(q){hideEmpty();const m=el('div','ym u');m.appendChild(el('div','ybub'+(q.length>160?' long':''),fmtUser(q)));ylog.appendChild(m);scrollLog();logPush({w:'u',x:q});return m;}
+function addAI(){hideEmpty();const m=el('div','ym a');m.appendChild(el('span','yav',YLOGO));const b=el('div','ybub',DOTS);m.appendChild(b);ylog.appendChild(m);scrollLog();return {m,b,e:logPush({w:'a',x:''})};}
+function setAI(o,txt,caret){o.b.innerHTML=txt?fmtAI(txt):DOTS;o.b.classList.toggle('ycaret',!!caret&&!!txt);o.e.x=txt||'';chDirty();scrollLog();}
+function typeOut(o,full,done,sp){let k=0;const step=()=>{k=Math.min(full.length,k+(sp||3));setAI(o,full.slice(0,k),k<full.length);if(k<full.length)setTimeout(step,24);else done&&done(full);};step();}
+function setBusy(b){AI.busy=b;ysend.disabled=b;$('ystat').classList.toggle('busy',b);$('ystatT').textContent=b?'يكتب…':'متصل';$('ySideLogo').classList.toggle('spin',b);pushSoon();
+  if(!b&&AI.q.length){const q=AI.q.shift();setTimeout(()=>ySend(q),450);}}
+function autoSize(){yinp.style.height='auto';yinp.style.height=Math.min(yinp.scrollHeight,innerHeight*.16)+'px';}
+yinp.addEventListener('input',autoSize);
+yinp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();ySend(yinp.value);}});
+$('yform').addEventListener('submit',e=>{e.preventDefault();ySend(yinp.value);});
+$('yform').addEventListener('click',e=>e.stopPropagation());
+const isPhysReq=q=>{const t=norm(q);return /(عرض|برزنتيشن|برزنتيشين|شرائح|بوربوينت|presentation|slides)/i.test(t)&&/(متجه|فيزي|vector)/i.test(t);};
+const isVideoReq=q=>/(فيديو|فديو|مقطع|video)/i.test(q)&&/(خندق|الأحزاب|احزاب)/.test(q);
+function ySend(raw){const q=String(raw||'').trim().slice(0,2500);if(!q)return false;if(AI.busy){if(AI.q.length<3)AI.q.push(q);return true;}
+  clearTimeout(atT);yinp.value='';autoSize();addUser(q);
+  const ed=AI.phase===2?editOf(q):null;
+  if(isPhysReq(q))physFlow();else if(ed)editFlow(ed);else if(isVideoReq(q))videoFlow();else aiAnswer(q);return true;}
+let atT=null;function autoType(text){if(AI.busy){if(AI.q.length<3)AI.q.push(text);return;}clearTimeout(atT);hideEmpty();yinp.value='';let k=0;const sp=Math.max(2,Math.ceil(text.length/90));
+  const step=()=>{k=Math.min(text.length,k+sp);yinp.value=text.slice(0,k);autoSize();yinp.scrollTop=yinp.scrollHeight;if(k<text.length)atT=setTimeout(step,18);else atT=setTimeout(()=>ySend(yinp.value),380);};step();}
+function chip(k){if(k==='phys')autoType(PHYS_PROMPT);else if(k==='open')openPhys();else autoType(String(k));}
+function setChips(){ychips.innerHTML='';if($('yempty'))return;const L=AI.phase===2?[['open','افتح العرض',1],['خل اللون بنفسجي'],['كبّر الخط'],['خله داكن'],['رجّعه مثل ما كان']]:AI.phase===0?[['phys','اطلب عرض الفيزياء بالبرومبت الاحترافي',1],['اكتب لي برومبت لدرس الكسور للصف السادس بالقاعدة الذهبية'],['شنو الفرق بين الضرب القياسي والضرب الاتجاهي؟'],['عطني ٣ أفكار تفاعلية لحصة علوم']]:[];
+  L.forEach(([k,t,main])=>{const b=el('button',main?'main':'',esc(t||k));b.type='button';b.onclick=e=>{e.stopPropagation();chip(k);};ychips.appendChild(b);});}
+function polli(messages,o,ok,bad){const attempt=n=>{const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),30000);
+  fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({model:'openai',temperature:.4,seed:Math.floor(Math.random()*1e6),messages})})
+   .then(async r=>{clearTimeout(to);const j=await r.json().catch(()=>null);
+     if(!r.ok){const m=j&&j.error?(j.error.message||j.error):'';const w=Math.min(50,+((String(m).match(/after (\d+)s/)||[])[1]||0)+1);
+       if((r.status===402||r.status===429)&&n<3){setAI(o,'ثواني وأرد… الخدمة المجانية مزحومة شوي.',true);setTimeout(()=>attempt(n+1),(w||16)*1000);return;}throw new Error('http '+r.status);}
+     const a=(j&&j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content||'').trim();if(!a)throw new Error('empty');ok(a.replace(/[#`>]/g,''));})
+   .catch(()=>{clearTimeout(to);if(n<1){setTimeout(()=>attempt(n+1),1500);return;}bad('الشبكة ضعيفة شوي… جرّبوا ترسلون السؤال مرة ثانية.');});};attempt(0);}
+function aiAnswer(q){const o=addAI();setBusy(true);
+  const fin=(txt,ok)=>{txt=String(txt||'').replace(/[#`]/g,'').trim()||'ما قدرت أرد الحين… جرّبوا مرة ثانية.';setAI(o,txt,false);if(ok){AI.hist.push({role:'user',content:q},{role:'assistant',content:txt});AI.hist=AI.hist.slice(-10);}setBusy(false);};
+  if(AI.s){const prompt=SYS+(AI.hist.length?'\n\nالمحادثة السابقة:\n'+AI.hist.map(m=>(m.role==='user'?'المعلم: ':'YBE: ')+m.content).join('\n'):'')+'\n\nالرسالة الآن: «'+q+'»\n\nاكتب رد YBE فقط.';
+    try{AI.s(prompt,{modelTier:'complex',cache:false,onText:u=>setAI(o,(u&&u.text)||'',true)}).then(r=>fin((r&&r.text)||o.e.x,true)).catch(e=>{const c=e&&e.code;if(c==='not_granted')AI.s=null;fin(e&&e.text?e.text:(c==='rate_limited'?'ضغط كبير الحين… جرّبوا بعد دقيقة.':'ما قدرت أرد الحين… جرّبوا مرة ثانية.'),!!(e&&e.text));});}catch(e){fin('',false);}return;}
+  if(HOSTED&&typeof fetch!=='undefined'){polli([{role:'system',content:SYS},...AI.hist,{role:'user',content:q}],o,txt=>typeOut(o,txt,()=>fin(txt,true)),msg=>fin(msg,false));return;}
+  fin('أحتاج اتصال إنترنت عشان أرد.',false);}
+function physFlow(){if(AI.phase===1)return;if(AI.phase===2){const o=addAI();setBusy(true);typeOut(o,'العرض جاهز من قبل، بفتحه لك الحين.',()=>{setBusy(false);openPhys();});return;}
+  AI.phase=1;setBusy(true);setChips();const o=addAI();
+  typeOut(o,'تمام! بفتح كتاب الفيزياء، وأبني لك العرض من صفحات الدرس نفسه.',()=>{buildCard(()=>{resultCard();const o2=addAI();
+    typeOut(o2,'جاهز! سويت عرض «ضرب المتجهات» من ١٣ شريحة من صفحات الكتاب ٢٢ و٢٣: مختبرين تفاعليين، ومثال (5) ومثال (6) بحلولهم، وقاعدة اليد اليمنى، واختبار.\nتبي أعدّل شي؟ اكتب مثلاً: «خل اللون بنفسجي» أو «كبّر الخط».',()=>{AI.phase=2;setBusy(false);setChips();pushAll(true);});});});}
+function buildCard(done){const c=el('div','ycard');
+  c.innerHTML='<div class="ych"><span class="yspin"></span><b>YBE يبني العرض</b><span class="pc">0%</span></div><div class="ybar"><i></i></div><div class="ybody"><div class="ybook"><img src="show/book22.jpg" alt="صفحة ٢٢ من الكتاب"><img src="show/book23.jpg" alt="صفحة ٢٣ من الكتاب"></div><ul class="ysteps">'+STEPS.map(s=>'<li><i></i><span>'+s[0]+'</span></li>').join('')+'</ul></div><div class="ycode"><span>physics.html</span><span><b class="kb">0</b> bytes</span></div>';
+  ylog.appendChild(c);scrollLog();const li=[...c.querySelectorAll('.ysteps li')],pc=c.querySelector('.pc'),bar=c.querySelector('.ybar i'),kb=c.querySelector('.kb'),book=c.querySelector('.ybook');
+  const e=logPush({w:'b',x:'YBE يبني العرض…'});const total=STEPS.reduce((a,s)=>a+s[1],0);const t0=Date.now();let k=0;
+  const ct=setInterval(()=>{const p=Math.min(1,(Date.now()-t0)/total);kb.textContent=Math.round(PHYS_BYTES*Math.max(0,(p-.25)/.75)).toLocaleString('en-US');},90);
+  const step=()=>{if(k>0)li[k-1].classList.add('ok');
+    if(k>=STEPS.length){clearInterval(ct);kb.textContent=PHYS_BYTES.toLocaleString('en-US');c.classList.add('done');c.querySelector('.ych b').textContent='العرض جاهز';pc.textContent='100%';bar.style.width='100%';e.x='بنى عرض «ضرب المتجهات» · ١٣ شريحة';chDirty();setTimeout(done,500);return;}
+    li[k].classList.add('on');if(k===2)book.classList.add('stop');const p=Math.round(STEPS.slice(0,k+1).reduce((a,s)=>a+s[1],0)/total*100);setTimeout(()=>{pc.textContent=p+'%';bar.style.width=p+'%';},STEPS[k][1]*.5);
+    e.x=STEPS[k][0].replace(/<[^>]+>/g,'');chDirty();scrollLog();setTimeout(step,STEPS[k][1]);k++;};
+  step();}
+function resultCard(){const c=el('div','yres');c.innerHTML='<div class="ypv" id="ypv"><iframe id="phPrev" title="معاينة عرض الفيزياء" tabindex="-1"></iframe><span class="ylive">معاينة حية</span></div><div class="yrb"><div><b>ضرب المتجهات · عرض تفاعلي</b><small>١٣ شريحة · من كتاب الفيزياء صفحة ٢٢ و٢٣</small></div><button class="btn" id="phOpen" type="button">افتح العرض</button></div>';
+  ylog.appendChild(c);scrollLog();logPush({w:'r',x:'عرض «ضرب المتجهات» · ١٣ شريحة'});
+  PH.ready.prev=false;$('phPrev').srcdoc=PHYS_HTML;fitPrev();try{new ResizeObserver(fitPrev).observe($('ypv'));}catch(e){}
+  $('phOpen').onclick=e=>{e.stopPropagation();openPhys();};$('ypv').onclick=e=>{e.stopPropagation();openPhys();};
+  ensureFull();clearInterval(PH.cyc);PH.ci=0;PH.cyc=setInterval(()=>{if(PH.open||i!==AIX||document.hidden)return;PH.ci=(PH.ci+1)%13;phPost('prev',{phys:'go',i:PH.ci,all:true});},2600);}
+function fitPrev(){const b=$('ypv'),f=$('phPrev');if(!b||!f)return;const w=b.clientWidth;if(w)f.style.transform='scale('+(w/1600)+')';}
+function ensureFull(){const f=$('phFull');if(f.dataset.l)return;f.dataset.l='1';PH.ready.full=false;f.srcdoc=PHYS_HTML;}
+function editOf(q){const t=norm(q);const e={};
+  if(/(خل|غير|حط|سو|اجعل|بدل|لون|ابي|ابغى|حول)/.test(t)){for(const [w,c,d] of COLORS)if(t.includes(w)){e.accent=c;e.cn=d;break;}}
+  if(/(كبر|زيد|اكبر|عظم)/.test(t)&&/(خط|كلام|نص|حجم|كتاب)/.test(t))e.scale=Math.min(1.45,+((PH.ed.scale||1)+.15).toFixed(2));
+  else if(/(صغر|قلل|اصغر)/.test(t)&&/(خط|كلام|نص|حجم|كتاب)/.test(t))e.scale=Math.max(.85,+((PH.ed.scale||1)-.15).toFixed(2));
+  if(/(داكن|ليلي|غامق|اسود|dark)/i.test(t))e.theme='dark';else if(/(فاتح|نهاري|ابيض|light)/i.test(t))e.theme='light';
+  if(/(رجعه|رجعيه|رجع العرض|الاصلي|الاصل|مثل ما كان|زي ما كان|reset)/i.test(t))e.reset=true;
+  return (e.accent||e.scale||e.theme||e.reset)?e:null;}
+function miniCard(parts,done){const c=el('div','ycard');c.innerHTML='<div class="ych"><span class="yspin"></span><b>YBE يعدّل العرض</b></div><ul class="ysteps">'+parts.map(p=>'<li><i></i><span>'+esc(p)+'</span></li>').join('')+'</ul>';
+  ylog.appendChild(c);scrollLog();const li=[...c.querySelectorAll('li')];const e=logPush({w:'b',x:'YBE يعدّل العرض…'});let k=0;
+  const step=()=>{if(k>0)li[k-1].classList.add('ok');if(k>=li.length){c.classList.add('done');c.querySelector('.ych b').textContent='تم التعديل';e.x='عدّل العرض: '+parts.join('، ');chDirty();setTimeout(done,350);return;}li[k].classList.add('on');setTimeout(step,750);k++;};step();}
+function editFlow(e){setBusy(true);const parts=[];
+  if(e.reset)parts.push('رجّعت العرض لشكله الأصلي');
+  if(e.accent)parts.push('غيّرت اللون الأساسي إلى '+e.cn);
+  if(e.scale)parts.push(e.scale>(PH.ed.scale||1)?'كبّرت الخط في كل الشرائح':'صغّرت الخط في كل الشرائح');
+  if(e.theme)parts.push(e.theme==='dark'?'حوّلت العرض للوضع الداكن':'حوّلت العرض للوضع الفاتح');
+  const o=addAI();typeOut(o,'تمام، أعدّل العرض…',()=>{miniCard(parts,()=>{
+    if(e.reset)PH.ed={};if(e.accent)PH.ed.accent=e.accent;if(e.scale)PH.ed.scale=e.scale;if(e.theme)PH.ed.theme=e.theme;
+    const msg={phys:'edit'};if(e.reset)msg.reset=true;if(e.accent)msg.accent=e.accent;if(e.scale)msg.scale=e.scale;if(e.theme)msg.theme=e.theme;
+    phPost('prev',msg);phPost('full',msg);const o2=addAI();typeOut(o2,'تم! '+parts.join('، ')+'. بجملة وحدة، بدون ما نفتح أي برنامج.',()=>{setBusy(false);pushAll(true);});});});}
+function videoFlow(){setBusy(true);const o=addAI();typeOut(o,'جاري تصميم الفيديو…',()=>{setTimeout(()=>{const c=el('div','yvid');const v=document.createElement('video');
+  v.src=HOSTED?'https://cdn.jsdelivr.net/gh/jasskwty/QD@claude/same-presentation-yye3w4/ai-show/khandaq.mp4':'khandaq.mp4';v.playsInline=true;v.setAttribute('playsinline','');v.controls=true;v.preload='auto';c.appendChild(v);ylog.appendChild(c);scrollLog();logPush({w:'v',x:'فيديو غزوة الخندق'});
+  const go=()=>{const p=v.play();p&&p.catch&&p.catch(()=>{v.muted=true;v.play().catch(()=>{});});};go();setBusy(false);
+  v.onended=()=>{const o2=addAI();typeOut(o2,KH_SUM);};v.onerror=()=>{const o2=addAI();typeOut(o2,'ما قدرت أشغّل الفيديو الحين.');};},1800);});}
+function imgFlow(data,txt){hideEmpty();const m=el('div','ym u');const b=el('div','ybub');const im=new Image();im.src=data;im.className='yimg';im.alt='صورة مسألة';b.appendChild(im);if(txt)b.appendChild(el('div','',esc(txt)));m.appendChild(b);ylog.appendChild(m);scrollLog();logPush({w:'i',x:txt||'صورة مسألة'});
+  const o=addAI();setBusy(true);const prompt=SYS+'\n\nالمعلم صوّر مسألة وأرسلها كصورة'+(txt?' مع هذا الطلب: «'+txt+'»':'')+'. اقرأ المسألة من الصورة وحلّها خطوة بخطوة باختصار، واكتب الناتج النهائي بوضوح. إذا الصورة مو واضحة قل لهم يصورونها مرة ثانية أوضح.';
+  const fin=t=>{setAI(o,String(t||'').trim()||'ما قدرت أقرأ الصورة الحين.',false);setBusy(false);};
+  if(AI.s){const bl=dataBlob(data);Promise.resolve().then(()=>AI.s(prompt,{modelTier:'complex',cache:false,images:bl?[bl]:[],onText:u=>setAI(o,(u&&u.text)||'',true)})).then(r=>fin((r&&r.text)||o.e.x)).catch(()=>fin('ما قدرت أقرأ الصورة الحين… جرّبوا تصورونها مرة ثانية.'));return;}
+  if(HOSTED){polli([{role:'system',content:SYS},{role:'user',content:[{type:'text',text:prompt},{type:'image_url',image_url:{url:data}}]}],o,t=>typeOut(o,t,()=>fin(t)),()=>fin('وصلت الصورة! قراءة الصور تشتغل أقوى من رابط Claude للورشة.'));return;}
+  fin('أحتاج اتصال إنترنت عشان أقرأ الصورة.');}
+function aiStep(){if(AI.phase===0&&!AI.busy){chip('phys');return true;}if(AI.phase===1)return true;if(AI.phase===2&&!PH.opened){openPhys();return true;}return false;}
+function aiEnter(){setTimeout(()=>{fitPrev();scrollLog();},60);}
+/* --- physics overlay --- */
+function phPost(who,msg){const f=$(who==='full'?'phFull':'phPrev');if(!f)return;if(!PH.ready[who]){PH.pend[who].push(msg);return;}try{f.contentWindow.postMessage(msg,'*');}catch(e){}}
+function physRect(){const W=innerWidth,H=innerHeight;const mw=W-Math.max(24,W*.04),mh=H-130;let w=mw,h=w*9/16;if(h>mh){h=mh;w=h*16/9;}return {x:(W-w)/2,y:(H-h)/2+4,w,h};}
+function placeBox(){const F=physRect();Object.assign($('phBox').style,{left:F.x+'px',top:F.y+'px',width:F.w+'px',height:F.h+'px'});return F;}
+function showOv(anim){const ov=$('physOv'),box=$('phBox');const F=placeBox();ov.classList.add('on');const pv=$('ypv');let tr='';
+  if(anim&&pv&&i===AIX){const r=pv.getBoundingClientRect();if(r.width>0)tr='translate('+(r.left-F.x)+'px,'+(r.top-F.y)+'px) scale('+(r.width/F.w)+')';}
+  document.documentElement.classList.add('phopen');box.style.transition='none';box.style.transform=tr||'translateY(24px) scale(.94)';box.style.opacity=tr?'1':'0';void box.offsetWidth;
+  requestAnimationFrame(()=>{box.style.transition='';box.style.transform='none';box.style.opacity='1';ov.classList.add('vis');});PH.open=true;}
+function openPhys(){if(!MIRROR&&AI.phase!==2)return;ensureFull();showOv(true);PH.opened=true;phPost('full',{phys:'go',i:PH.st.i||0});updBar();setChips();pushAll(true);setTimeout(()=>{try{$('phNxtB').focus({preventScroll:true});}catch(e){}},650);}
+function closePhys(fast){if(!PH.open)return;PH.open=false;const ov=$('physOv'),box=$('phBox');const pv=$('ypv');let tr='translateY(24px) scale(.94)';
+  if(!fast&&pv&&i===AIX){const r=pv.getBoundingClientRect();const L=parseFloat(box.style.left),Tp=parseFloat(box.style.top),Wd=parseFloat(box.style.width);if(r.width>0)tr='translate('+(r.left-L)+'px,'+(r.top-Tp)+'px) scale('+(r.width/Wd)+')';}
+  document.documentElement.classList.remove('phopen');ov.classList.remove('vis');box.style.transform=tr;if(fast){box.style.opacity='0';ov.classList.remove('on');}else setTimeout(()=>{if(!PH.open)ov.classList.remove('on');},620);
+  PH.ci=PH.st.i||0;phPost('prev',{phys:'go',i:PH.ci,all:true});setChips();pushAll(true);}
+function physNav(d){const s=PH.st;if(d>0){if(s.i>=s.n-1&&!s.fl){closePhys();return;}phPost('full',{phys:'next'});}else{if(s.i<=0){closePhys();return;}phPost('full',{phys:'prev'});}}
+function updBar(){$('phCnt').textContent=AR((PH.st.i||0)+1)+' / '+AR(PH.st.n||13);$('phT').textContent=PH.st.t||'';}
+$('phClose').onclick=e=>{e.stopPropagation();closePhys();};$('phPrvB').onclick=e=>{e.stopPropagation();physNav(-1);};$('phNxtB').onclick=e=>{e.stopPropagation();physNav(1);};
+$('physOv').addEventListener('click',e=>{if(e.target===$('physOv'))closePhys();});
+addEventListener('resize',()=>{if(PH.open)placeBox();fitPrev();});
+addEventListener('message',e=>{const d=e.data||{};
+  if(d.physState){const fF=$('phFull'),fP=$('phPrev');const who=fF&&e.source===fF.contentWindow?'full':(fP&&e.source===fP.contentWindow?'prev':null);if(!who)return;
+    if(d.ready&&!PH.ready[who]){PH.ready[who]=true;const q=PH.pend[who];PH.pend[who]=[];if(Object.keys(PH.ed).length)phPost(who,Object.assign({phys:'edit'},PH.ed));q.forEach(m=>phPost(who,m));}
+    if(who==='full'){PH.st=d.physState;updBar();pushSoon();}return;}
+  if(d.physKey==='Escape'){if(PH.open)closePhys();return;}
+  if(MIRROR&&d.mi!=null){if(d.mi!==i)show(d.mi);reveal(d.mv||0);if(d.log)mirrorChat(d.log);if(d.ai)mirrorPhys(d.ai);}});
+function mirrorChat(log){const sig=JSON.stringify(log);if(sig===PH.msig)return;PH.msig=sig;if(!log.length){setEmpty();return;}ylog.innerHTML='';
+  log.forEach(m=>{const x=String(m.x||'');if(m.w==='u'){const d=el('div','ym u');d.appendChild(el('div','ybub'+(x.length>160?' long':''),fmtUser(x)));ylog.appendChild(d);}
+    else if(m.w==='a'){const d=el('div','ym a');d.appendChild(el('span','yav',YLOGO));d.appendChild(el('div','ybub',x?fmtAI(x):DOTS));ylog.appendChild(d);}
+    else if(m.w==='b')ylog.appendChild(el('div','ycard done','<div class="ych"><span class="yspin"></span><b>'+esc(x)+'</b></div>'));
+    else if(m.w==='r')ylog.appendChild(el('div','yres','<div class="yrb"><div><b>ضرب المتجهات · عرض تفاعلي</b><small>١٣ شريحة · من كتاب الفيزياء صفحة ٢٢ و٢٣</small></div></div>'));
+    else{const d=el('div','ym '+(m.w==='i'?'u':'a'));d.appendChild(el('div','ybub',esc(m.w==='v'?'فيديو غزوة الخندق':x||'صورة')));ylog.appendChild(d);}});
+  ylog.scrollTop=ylog.scrollHeight;}
+function mirrorPhys(a){if(a.open){if(!PH.open){ensureFull();showOv(false);}if(PH.mi!==a.pi){PH.mi=a.pi;phPost('full',{phys:'go',i:a.pi,all:true});}const es=JSON.stringify(a.ed||{});if(es!==PH.mes){PH.mes=es;phPost('full',Object.assign({phys:'edit',reset:true},a.ed||{}));}}else if(PH.open)closePhys(true);}
+
+/* ================= state + remote commands ================= */
+let pT=null,pLast=0,chD=false,dbSig='',dbChT=null;
+function chDirty(){chD=true;pushSoon();}
+function pushSoon(){if(MIRROR||pT)return;pT=setTimeout(()=>{pT=null;pushAll(false);},Math.max(90,260-(Date.now()-pLast)));}
+function ctlOf(){const s=S[i];return {poll:!!s.querySelector('#poll'),quiz:!!s.querySelector('.quiz'),timer:!!s.querySelector('#tw'),cmp:!!s.querySelector('#cmp'),build:!!s.querySelector('#lbt'),ai:i===AIX};}
+function nlabel(){if(PH.open)return PH.st.i>=PH.st.n-1&&!PH.st.fl?'سكّر عرض الفيزياء':'التالي في عرض الفيزياء';
+  if(i===AIX){if(AI.phase===0&&!AI.busy)return 'اطلب عرض الفيزياء';if(AI.phase===1)return 'YBE يبني…';if(AI.phase===2&&!PH.opened)return 'افتح عرض الفيزياء';}return '';}
+function core(){const fr=frags();const fl=fr.filter(f=>!f.classList.contains('v')).length;
+  return {k:'st',i,n:S.length,t:S[i].dataset.t,nt:S[i+1]?S[i+1].dataset.t:'',notes:String(S[i].dataset.n||'').slice(0,280),ch:CHS[i],fl,ft:fr.length,nl:nlabel(),
+    tl:left,run:!!tick,ctl:ctlOf(),pv:PV.slice(),quiz:qi<Q.length?{q:Q[qi][0],o:Q[qi][1],done:qo.dataset.done?1:0,n:qi+1,sc:score}:{end:1,sc:score,n:Q.length},
+    cmp:Math.round(parseFloat($('cmp').style.getPropertyValue('--x'))||50),black:blk.classList.contains('on'),non:notes.classList.contains('on'),ov:$('ov').classList.contains('on'),qr:$('rqr').classList.contains('on'),
+    ai:{busy:AI.busy,ph:AI.phase,open:PH.open,opened:PH.opened,pi:PH.st.i||0,pn:PH.st.n||13,pt:PH.st.t||'',pfl:PH.st.fl||0,lab:PH.open?PH.st.lab:null,ed:PH.ed}};}
+function meta(){return {k:'mt',titles:S.map(s=>s.dataset.t),chs:CHS,po:PO};}
+function chat(){let log=AI.log.map(m=>({w:m.w,x:String(m.x||'').slice(0,600)}));while(log.length>1&&ENC.encode(JSON.stringify(log)).length>3300)log.shift();if(log.length&&ENC.encode(JSON.stringify(log)).length>3300)log[0].x=log[0].x.slice(0,300);return {k:'ch',log,busy:AI.busy};}
+let lastSt='';function pushAll(force,hb){if(MIRROR)return;pLast=Date.now();const st=core();const ss=JSON.stringify(st);if(force||hb||ss!==lastSt){lastSt=ss;T.send(st);}if(force)T.send(meta());const hadCh=chD;if(force||chD){T.send(chat());chD=false;}
+  if(T.db){const sig=JSON.stringify([st.i,st.fl,st.nl,st.ai.ph,st.ai.open,st.ai.pi,st.ai.pfl,st.ai.busy,st.ai.ed,st.black,st.non,st.ov,st.qr,st.pv,st.quiz,st.run,st.cmp]);if(sig!==dbSig){dbSig=sig;dbSet('wr/st',st);}
+    if(force)dbSet('wr/mt',meta());if((force||hadCh)&&!dbChT)dbChT=setTimeout(()=>{dbChT=null;dbSet('wr/ch',chat());},1000);}}
+function goAI(then){if(i!==AIX){if(PH.open)closePhys(true);show(AIX);setTimeout(then,650);}else then();}
+function cmd(o){const a=o.a,v=o.v;if(a!=='ptr'&&a!=='hello')$('rqr').classList.remove('on');
+  switch(a){
+    case 'hello':pushAll(true);return;
+    case 'next':next();break;case 'prev':prev();break;
+    case 'go':if(PH.open)closePhys(true);show(+v|0);break;case 'first':if(PH.open)closePhys(true);show(0);break;case 'last':if(PH.open)closePhys(true);show(S.length-1);break;
+    case 'all':frags().forEach(f=>f.classList.add('v'));break;case 'hideall':reveal(0);break;
+    case 'timer':ts.click();break;case 'treset':$('tr').click();break;case 'tadd':left=Math.max(0,Math.min(5999,left+(+v||0)));rt();break;
+    case 'poll':{const k=+v;if(PV[k]!=null){PV[k]++;rp();}}break;case 'pollreset':PV.fill(0);rp();break;
+    case 'quiz':{const b=qo.children[+v];b&&b.click();}break;case 'qnext':qn.click();break;
+    case 'cmp':$('cmp').style.setProperty('--x',Math.max(0,Math.min(100,+v||0))+'%');break;
+    case 'build':build();break;
+    case 'notes':notes.classList.toggle('on');break;case 'ov':ov(!$('ov').classList.contains('on'));break;case 'qr':$('rqr').classList.toggle('on');break;
+    case 'black':blk.classList.toggle('on');break;
+    case 'ptr':if(Array.isArray(v)){laser.style.left=(+v[0]*100)+'%';laser.style.top=(+v[1]*100)+'%';laser.classList.add('on');clearTimeout(lzT);lzT=setTimeout(()=>laser.classList.remove('on'),1500);}return;
+    case 'chat':if(typeof v==='string'&&v.trim())goAI(()=>ySend(v.slice(0,2500)));break;
+    case 'chip':if(typeof v==='string'&&v)goAI(()=>chip(v.slice(0,2500)));break;
+    case 'img':if(typeof v==='string'&&/^data:image\/(jpeg|png|webp);base64,/.test(v)&&v.length<400000)goAI(()=>imgFlow(v,typeof o.t==='string'?o.t.slice(0,300):''));break;
+    case 'phys':if(v==='open')goAI(()=>openPhys());else if(v==='close')closePhys();else if(v==='next'&&PH.open)physNav(1);else if(v==='prev'&&PH.open)physNav(-1);break;
+    case 'plab':if(PH.open&&v&&typeof v==='object')phPost('full',{phys:'lab',id:+v.id,a:+v.a,b:+v.b,t:+v.t});return;
+  }
+  pushSoon();}
+/* ================= start ================= */
+setEmpty();setChips();
+const h0=parseInt((location.hash||'').slice(1),10);show(h0>0?h0-1:0);
+if(!MIRROR){T.on(o=>{if(o.k==='cmd')cmd(o);});let stT=0;T.onStatus=()=>{$('rst').textContent=T.live()?'الريموت جاهز':'جاري الاتصال…';const now=Date.now();if(T.live()&&now-stT>800){stT=now;setTimeout(()=>pushAll(true),150);}};
+  tStart('screen').then(()=>pushAll(true));setInterval(()=>pushAll(false,true),5000);
+  (async()=>{try{if(window.claude&&typeof window.claude.use==='function'){AI.s=await window.claude.use('sample');}}catch(e){}})();}
+window.__WS={show,next,prev,get i(){return i},AI,PH,ySend,openPhys,closePhys,chip,cmd};
+}
+
+/* ================= الريموت على الهاتف ================= */
+function remoteApp(){
+const R=$('R');R.hidden=false;document.title='ريموت الورشة';
+const st={s:null,m:null,c:null,last:0,rcv:0,pend:[],lz:false,vib:true,part:false,csig:'',lsig:'',labRefs:null,labDrag:false};
+try{st.vib=localStorage.getItem('wsvib')!=='0';}catch(e){}
+const P={1:['جاسم القناعي','ج','التشابتر الأول · الفكرة والأداة','#3B82F6'],2:['فارس','ف','التشابتر الثاني · التطبيق','#8B5CF6'],0:['الورشة','و','البداية','#3B82F6']};
+const SECRET=x=>x.replace(/\s+/g,'').replace(/[إأآ]/g,'ا')==='عسعسالغلس';
+const buzz=()=>{if(st.vib)try{navigator.vibrate&&navigator.vibrate(15)}catch(e){}};
+const mk=(tag,cls,html)=>{const d=document.createElement(tag);if(cls)d.className=cls;if(html!=null)d.innerHTML=html;return d;};
+function c(a,v,opt){opt=opt||{};const o=T.send({k:'cmd',a,v});if(T.db&&!opt.nodb&&a!=='ptr')dbSet('wr/cmd',o);if(!opt.quiet&&a!=='ptr')buzz();return o;}
+$('rLogo').innerHTML=YLOGO;
+/* participant mode */
+function setPart(on){st.part=on;R.classList.toggle('part',on);$('rTtl').textContent=on?'YBE':'ريموت الورشة';try{localStorage.setItem('wsPart',on?'1':'0');}catch(e){}if(!on)loadMirror();renderChips();renderCh(true);}
+$('rPartB').onclick=()=>setPart(true);
+/* mirror preview */
+let mirL=false;function loadMirror(){if(mirL||st.part)return;mirL=true;const f=$('rIfr');f.onload=()=>{fitM();syncM();};
+  fetch(MIRROR_SRC,{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.text();}).then(t=>{f.srcdoc=t;}).catch(()=>{f.src=MIRROR_SRC;});}
+function fitM(){const w=$('rMir').clientWidth;if(w)$('rIfr').style.transform='scale('+(w/1600)+')';}addEventListener('resize',fitM);
+function syncM(){const f=$('rIfr');if(!st.s||!f||!f.contentWindow)return;try{f.contentWindow.postMessage({mi:st.s.i,mv:Math.max(0,(st.s.ft||0)-(st.s.fl||0)),ai:st.s.ai,log:st.c?st.c.log:[]},'*');}catch(e){}}
+/* laser + swipe on the preview */
+let lt=0,sx=null;const tp=$('rTp');
+function ptr(e){const r=tp.getBoundingClientRect();const x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));const t=Date.now();if(t-lt>50){lt=t;c('ptr',[+x.toFixed(4),+y.toFixed(4)]);}}
+tp.addEventListener('pointerdown',e=>{if(st.lz){try{tp.setPointerCapture(e.pointerId);}catch(x){}ptr(e);}else sx=e.clientX;});
+tp.addEventListener('pointermove',e=>{if(st.lz&&e.buttons)ptr(e);});
+tp.addEventListener('pointerup',e=>{if(!st.lz&&sx!=null){const d=e.clientX-sx;if(Math.abs(d)>50)d>0?c('next'):c('prev');else c('next');}sx=null;});
+/* buttons */
+$('rNb').onclick=()=>c('next');$('rPv').onclick=()=>c('prev');$('rFirst').onclick=()=>c('first');$('rLast').onclick=()=>c('last');
+$('rBk').onclick=()=>c('black');$('rNt').onclick=()=>c('notes');$('rQr').onclick=()=>c('qr');$('rAll').onclick=()=>c('all');$('rHid').onclick=()=>c('hideall');$('rOv').onclick=()=>c('ov');
+$('rVb').onclick=()=>{st.vib=!st.vib;try{localStorage.setItem('wsvib',st.vib?'1':'0')}catch(e){}$('rVb').classList.toggle('on',st.vib);buzz();};$('rVb').classList.toggle('on',st.vib);
+$('rLz').onclick=()=>{st.lz=!st.lz;$('rLz').classList.toggle('on',st.lz);$('rMir').classList.toggle('lz',st.lz);$('rMb').textContent=st.lz?'المس المعاينة وتطلع نقطة على الشاشة':'معاينة مباشرة';buzz();};
+const sheet=on=>{$('rSheet').classList.toggle('on',on);$('rShade').classList.toggle('on',on);};$('rList').onclick=()=>sheet(true);$('rShade').onclick=()=>sheet(false);
+/* chat */
+const rIn=$('rIn');function auto(){rIn.style.height='auto';rIn.style.height=Math.min(rIn.scrollHeight,120)+'px';}rIn.addEventListener('input',auto);
+function sendText(v){v=String(v||'').trim();if(!v)return;if(SECRET(v)){rIn.value='';auto();setPart(false);return;}c('chat',v.slice(0,2500));st.pend.push(v);rIn.value='';auto();renderCh(true);}
+$('rForm').addEventListener('submit',e=>{e.preventDefault();sendText(rIn.value);});
+rIn.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();sendText(rIn.value);}});
+$('rCamB').onclick=()=>$('rCam').click();
+$('rCam').onchange=e=>{const f=e.target.files&&e.target.files[0];e.target.value='';if(!f)return;const im=new Image();const u=URL.createObjectURL(f);
+  im.onload=()=>{const mx=900,sc=Math.min(1,mx/Math.max(im.width,im.height));const cv=document.createElement('canvas');cv.width=Math.round(im.width*sc);cv.height=Math.round(im.height*sc);cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);URL.revokeObjectURL(u);
+    let q=.72,data=cv.toDataURL('image/jpeg',q);while(data.length>140000&&q>.3){q-=.1;data=cv.toDataURL('image/jpeg',q);}
+    const txt=rIn.value.trim();rIn.value='';auto();const o=T.send({k:'cmd',a:'img',v:data,t:txt});if(T.db)dbSet('wr/img',o);buzz();
+    const L=$('rLog');const d=mk('div','r-m u pend');const pi=new Image();pi.src=data;pi.alt='صورة مسألة';d.appendChild(pi);d.appendChild(mk('small','','يرسل…'));L.appendChild(d);L.scrollTop=L.scrollHeight;};
+  im.onerror=()=>URL.revokeObjectURL(u);im.src=u;};
+function renderChips(){const box=$('rChips');box.innerHTML='';const ph=st.s&&st.s.ai?st.s.ai.ph:0;let L=[];
+  if(ph===0)L=[['اطلب عرض الفيزياء',()=>c('chip','phys'),'main'],['اكتب لي برومبت لدرس الكسور بالقاعدة الذهبية'],['شنو الفرق بين الضرب القياسي والاتجاهي؟'],['عطني ٣ أفكار تفاعلية لحصة علوم']];
+  else if(ph===2)L=[['افتح العرض على الشاشة',()=>c('phys','open'),'main'],['خل اللون بنفسجي'],['كبّر الخط'],['خله داكن'],['رجّعه مثل ما كان']];
+  L.forEach(([t,f,cls])=>{const b=mk('button',cls||'',esc(t));b.type='button';b.onclick=f||(()=>{c('chip',t);st.pend.push(t);renderCh(true);});box.appendChild(b);});}
+function renderCh(force){const log=(st.c&&st.c.log)||[];st.pend=st.pend.filter(p=>!log.some(m=>m.w==='u'&&m.x===p));const sig=JSON.stringify(log)+'|'+st.pend.join('|');if(!force&&sig===st.lsig)return;st.lsig=sig;
+  const L=$('rLog');L.innerHTML='';if(!log.length&&!st.pend.length)L.appendChild(mk('div','r-empty','اكتب سؤالك لـ YBE… ويطلع الرد على شاشة العرض.<br>تقدر بعد تصوّر مسألة بزر الكاميرا.'));
+  log.forEach(m=>{const x=String(m.x||'');if(m.w==='u')L.appendChild(mk('div','r-m u',esc(x.length>220?x.slice(0,220)+'…':x).replace(/\n/g,'<br>')));
+    else if(m.w==='a')L.appendChild(mk('div','r-m a',x?esc(x.replace(/\*\*/g,'')).replace(/\n/g,'<br>'):'<small>يكتب…</small>'));
+    else if(m.w==='r'){const d=mk('div','r-card','<b>'+esc(x)+'</b>');const b=mk('button','','افتح على الشاشة');b.type='button';b.onclick=()=>c('phys','open');d.appendChild(b);L.appendChild(d);}
+    else if(m.w==='i')L.appendChild(mk('div','r-m u','<small>صورة مسألة</small>'+esc(x==='صورة مسألة'?'':x)));
+    else L.appendChild(mk('div','r-sys',esc(x)));});
+  st.pend.forEach(p=>L.appendChild(mk('div','r-m u pend',esc(p.length>220?p.slice(0,220)+'…':p)+'<small>يرسل…</small>')));L.scrollTop=L.scrollHeight;}
+/* context controls */
+function labUI(x,lab){const box=mk('div','r-lab');const mkS=(lbl,min,max,val,unit)=>{const w=mk('label','');const s=mk('span','',esc(lbl)+' <output>'+val+unit+'</output>');w.appendChild(s);const r=document.createElement('input');r.type='range';r.min=min;r.max=max;r.value=val;w.appendChild(r);box.appendChild(w);return r;};
+  const ra=mkS('مقدار A',1,10,lab.a,''),rb=mkS('مقدار B',1,10,lab.b,''),rt=mkS('الزاوية α',0,180,lab.t,'°');st.labRefs={id:lab.id,ra,rb,rt};let tt=0;
+  const out=()=>{[ra,rb,rt].forEach(r=>{r.parentNode.querySelector('output').textContent=r.value+(r===rt?'°':'');});};
+  const send=fin=>{out();const v={id:lab.id,a:+ra.value,b:+rb.value,t:+rt.value};const now=Date.now();if(fin||now-tt>80){tt=now;c('plab',v,{nodb:!fin,quiet:true});}};
+  [ra,rb,rt].forEach(r=>{r.addEventListener('input',()=>{st.labDrag=true;send(false);});r.addEventListener('change',()=>{st.labDrag=false;send(true);});});x.appendChild(box);}
+function updLab(s){const L=st.labRefs,lab=s.ai&&s.ai.lab;if(!L||!lab||st.labDrag||lab.id!==L.id)return;L.ra.value=lab.a;L.rb.value=lab.b;L.rt.value=lab.t;[L.ra,L.rb,L.rt].forEach(r=>{r.parentNode.querySelector('output').textContent=r.value+(r===L.rt?'°':'');});}
+function ctx(o){const x=$('rCtx');x.innerHTML='';st.labRefs=null;const k=o.ctl||{};let any=false;const a=o.ai||{};
+  const H=t=>x.appendChild(mk('h3','',esc(t)));const Rw=()=>{const r=mk('div','r-row');x.appendChild(r);return r;};const Bt=(t,f,cls)=>{const b=mk('button',cls||'',esc(t));b.type='button';b.onclick=f;return b;};
+  if(a.open){any=true;H('عرض الفيزياء على الشاشة · '+AR(a.pi+1)+' / '+AR(a.pn));if(a.pt)x.appendChild(mk('p','',esc(a.pt)));Rw().append(Bt('السابق',()=>c('phys','prev')),Bt('التالي',()=>c('phys','next'),'ok'),Bt('إغلاق',()=>c('phys','close')));
+    if(a.lab){H(a.lab.id===1?'مختبر الضرب القياسي · حرّك من هاتفك':'مختبر الضرب الاتجاهي · حرّك من هاتفك');labUI(x,a.lab);}}
+  else if(k.ai){any=true;if(a.ph===2){H('YBE · العرض جاهز');Rw().append(Bt('افتح عرض الفيزياء',()=>c('phys','open'),'ok'));}else if(a.ph===1)H('YBE يبني العرض الحين…');else{H('YBE · تجربة مباشرة');Rw().append(Bt('اطلب عرض الفيزياء بالبرومبت الاحترافي',()=>c('chip','phys'),'ok'));}}
+  if(!a.open&&k.timer){any=true;H('المؤقت');Rw().append(Bt(o.run?'إيقاف':'تشغيل',()=>c('timer'),'ok'),Bt('−١ دقيقة',()=>c('tadd',-60)),Bt('+١ دقيقة',()=>c('tadd',60)),Bt('إعادة',()=>c('treset')));}
+  if(!a.open&&k.poll&&st.m){any=true;H('التصويت · اضغط عشان تضيف صوت');const pv=mk('div','r-pv');st.m.po.forEach((t,j)=>{const b=Bt(t,()=>c('poll',j));b.style.textAlign='right';pv.append(b,mk('b','',AR((o.pv||[])[j]||0)));});x.appendChild(pv);Rw().append(Bt('تصفير الأصوات',()=>c('pollreset')));}
+  if(!a.open&&k.quiz&&o.quiz){any=true;const q=o.quiz;if(q.end){H('الاختبار خلص · النتيجة '+AR(q.sc)+' من '+AR(q.n));Rw().append(Bt('أعد الاختبار',()=>c('qnext'),'ok'));}else{H('سؤال '+AR(q.n)+': '+q.q);const r=Rw();q.o.forEach((t,j)=>r.append(Bt(t,()=>c('quiz',j))));if(q.done)Rw().append(Bt('السؤال التالي',()=>c('qnext'),'ok'));}}
+  if(!a.open&&k.cmp){any=true;H('خط المقارنة');const rg=document.createElement('input');rg.type='range';rg.min=0;rg.max=100;rg.value=o.cmp;let tt=0;rg.oninput=()=>{const t=Date.now();if(t-tt>60){tt=t;c('cmp',+rg.value,{nodb:true,quiet:true});}};rg.onchange=()=>c('cmp',+rg.value);x.appendChild(rg);Rw().append(Bt('تقليدي',()=>c('cmp',100)),Bt('النص',()=>c('cmp',50)),Bt('تفاعلي',()=>c('cmp',0)));}
+  if(!a.open&&k.build){any=true;H('البناء الحي');Rw().append(Bt('أعد البناء من البداية',()=>c('build'),'ok'));}
+  x.hidden=!any;}
+/* render state */
+function renderProg(){const s=st.s;if(!s)return;const pg=$('rProg');if(pg.children.length!==s.n){pg.innerHTML='';for(let k=0;k<s.n;k++)pg.appendChild(document.createElement('i'));}const chs=st.m?st.m.chs:[];[...pg.children].forEach((x,k)=>{x.className=k===s.i?'cur':(k<s.i?(chs[k]===2?'d2':'d'):'');});}
+function renderMt(){const m=st.m;if(!m)return;const sh=$('rSheet');sh.innerHTML='';[[0,'البداية'],[1,'التشابتر الأول · جاسم القناعي'],[2,'التشابتر الثاني · فارس']].forEach(([ch,lab])=>{const ks=m.titles.map((t,k)=>k).filter(k=>(m.chs[k]||0)===ch);if(!ks.length)return;sh.appendChild(mk('h3','',esc(lab)));const g=mk('div','r-g');
+  ks.forEach(k=>{const b=mk('button',st.s&&st.s.i===k?'on':'',AR(k+1)+'. '+esc(m.titles[k]));b.type='button';b.onclick=()=>{c('go',k);sheet(false);};g.appendChild(b);});sh.appendChild(g);});}
+function tickTm(){const s=st.s;const el=$('rTm');if(!s){el.textContent='';return;}let l=s.tl;if(s.run)l=Math.max(0,Math.round(s.tl-(Date.now()-st.rcv)/1000));el.textContent=(s.run||l<900)?String(Math.floor(l/60)).padStart(2,'0')+':'+String(l%60).padStart(2,'0'):'';}
+function renderSt(s){const p=P[s.ch]||P[0];R.style.setProperty('--pc',p[3]);$('rAv').textContent=p[1];$('rWn').textContent=p[0];$('rWc').textContent=p[2];
+  $('rNum').textContent='شريحة '+AR(s.i+1)+' من '+AR(s.n);$('rChn').textContent=s.ch?'التشابتر '+AR(s.ch):'';$('rT').textContent=s.t||'';$('rNotes').textContent=s.notes||'';
+  const f=$('rFrs');f.hidden=!s.ft;f.innerHTML='';for(let k=0;k<(s.ft||0);k++)f.appendChild(mk('i',k<s.ft-s.fl?'v':''));if(s.ft)f.appendChild(mk('span','',s.fl?'باقي '+AR(s.fl):'كل العناصر ظاهرة'));
+  $('rNbT').textContent=s.nl||(s.fl?'أظهر التالي':'التالي');$('rNbs').textContent=!s.nl&&!s.fl&&s.nt?s.nt:'';
+  const nx=$('rNx');const chs=st.m&&st.m.chs;nx.hidden=!s.nt;nx.textContent='الجاية: '+(s.nt||'')+(chs&&chs[s.i+1]&&chs[s.i+1]!==s.ch?' · يبدأ دور '+(P[chs[s.i+1]]||P[0])[0]:'');
+  [['rBk','black'],['rNt','non'],['rOv','ov'],['rQr','qr']].forEach(([id,k])=>$(id).classList.toggle('on',!!s[k]));
+  renderProg();if(st.lastI!==s.i){st.lastI=s.i;renderMt();}
+  const a=s.ai||{};const sig=JSON.stringify([s.i,s.ctl,s.pv,s.quiz,s.run,a.ph,a.open,a.pi,a.pn,a.pt,a.lab&&a.lab.id,!!st.m]);if(sig!==st.csig){st.csig=sig;ctx(s);}else updLab(s);
+  tickTm();renderChips();syncM();}
+function dot(){const live=st.last&&Date.now()-st.last<12000;$('rDot').className='r-dot '+(live?'ok':(T.live()?'':'bad'));$('rStat').textContent=live?'متصل بالعرض':(T.live()?'افتح العرض على الشاشة':'غير متصل…');$('rChS').textContent=live?'اكتب ويطلع على شاشة العرض':'بانتظار شاشة العرض…';}
+T.on(o=>{if(o.k==='st'){st.s=o;st.last=st.rcv=Date.now();renderSt(o);}else if(o.k==='mt'){st.m=o;renderMt();if(st.s){st.csig='';renderSt(st.s);}}else if(o.k==='ch'){st.c=o;renderCh();syncM();}dot();});
+let hT=0;T.onStatus=()=>{dot();const now=Date.now();if(T.live()&&(!st.last||now-st.last>12000)&&now-hT>800){hT=now;setTimeout(()=>c('hello',null,{quiet:true,nodb:true}),150);}};
+let initPart=CHATONLY;try{if(!initPart&&localStorage.getItem('wsPart')==='1')initPart=true;}catch(e){}
+setPart(initPart);renderCh(true);dot();
+tStart('remote').then(()=>{c('hello',null,{quiet:true});});
+setInterval(()=>{dot();if(!st.last||Date.now()-st.last>12000)c('hello',null,{quiet:true,nodb:true});},6000);
+setInterval(tickTm,1000);
+async function wake(){try{if(navigator.wakeLock)await navigator.wakeLock.request('screen');}catch(e){}}wake();
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){wake();c('hello',null,{quiet:true,nodb:true});}});
+window.__WR={st,c,setPart};
+}
+
+if(RMODE)remoteApp();else deckApp();
+
 </script></body></html>
