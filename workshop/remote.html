@@ -1,14 +1,36 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ريموت الورشة</title>
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@800&family=Readex+Pro:wght@400;700&display=swap" rel="stylesheet">
-<style>:root{--bg:#0A1226;--card:#121B30;--ink:#EAF0FF;--dim:#9AA8C4;--blue:#1D63E0;--line:#24314F}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Readex Pro",sans-serif;padding:16px;display:grid;gap:12px}
-h1{font:800 18px Alexandria;margin:0}.st{font-size:13px;color:var(--dim)}.cur{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}.cur b{font:800 22px Alexandria;display:block}.notes{color:#C4B5FD;font-size:15px;line-height:1.8;margin-top:6px}
-.big{display:grid;grid-template-columns:1fr 2fr;gap:10px}button{font:700 18px "Readex Pro";border:0;border-radius:16px;padding:22px 10px;background:var(--card);color:var(--ink);border:1px solid var(--line)}button.p{background:var(--blue);border-color:var(--blue);font-size:22px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row button{padding:14px;font-size:15px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid button{padding:10px;font-size:13px;text-align:right}.grid button.on{border-color:var(--blue);color:#93C5FD}</style></head><body>
-<h1>ريموت الورشة</h1><div class="st" id="st">جاري الاتصال…</div>
-<div class="cur"><span class="st" id="num">—</span><b id="tt">—</b><div class="notes" id="nt"></div></div>
-<div class="big"><button id="pv">السابق</button><button class="p" id="nx">التالي</button></div>
-<div class="row"><button id="tm">المؤقت: تشغيل / إيقاف</button><button id="trs">إعادة المؤقت</button></div>
-<div class="st" id="tl"></div><div class="grid" id="gr"></div>
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0A1226"><title>ريموت الورشة</title>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@800;900&family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>:root{--bg:#0A1226;--card:#121B30;--ink:#EAF0FF;--dim:#9AA8C4;--line:#24314F;--c1:#3B82F6;--c2:#8B5CF6;--pc:var(--c1)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}[hidden]{display:none!important}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Readex Pro",sans-serif;padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:10px;user-select:none}
+.top{display:flex;justify-content:space-between;align-items:center}.top h1{font:900 17px Alexandria;margin:0}
+.dot{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--dim)}.dot i{width:9px;height:9px;border-radius:50%;background:#F59E0B}.dot.ok i{background:#34D399;box-shadow:0 0 8px #34D399}.dot.bad i{background:#EF4444}
+.who{display:flex;align-items:center;gap:10px;background:color-mix(in srgb,var(--pc) 18%,var(--card));border:1px solid color-mix(in srgb,var(--pc) 50%,transparent);border-radius:14px;padding:8px 12px;font-weight:700;transition:.3s}
+.who b{font:800 15px Alexandria}.who span{font-size:12px;color:var(--dim)}.av{width:34px;height:34px;border-radius:50%;background:var(--pc);display:grid;place-items:center;font:900 15px Alexandria}
+.prog{height:6px;border-radius:99px;background:var(--line);overflow:hidden;display:flex;gap:2px}.prog i{flex:1;background:var(--line)}.prog i.d{background:var(--c1)}.prog i.d2{background:var(--c2)}.prog i.cur{background:#fff}
+.cur{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;flex:0 0 auto}
+.cur .n{font-size:12px;color:var(--dim);display:flex;justify-content:space-between}.cur b{font:900 24px Alexandria;display:block;margin:2px 0}
+.notes{color:#C4B5FD;font-size:16px;line-height:1.75}.nx{font-size:12.5px;color:var(--dim);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
+.fl{display:inline-block;font-size:12px;background:#F59E0B22;color:#FBBF24;border-radius:99px;padding:2px 10px;margin-top:6px}
+.pad{flex:1;min-height:170px;display:grid;grid-template-columns:1fr 2.2fr;gap:10px}
+.pad button{border:0;border-radius:22px;font:800 22px Alexandria;color:#fff;background:var(--card);border:1px solid var(--line);touch-action:manipulation;transition:transform .08s}
+.pad button:active{transform:scale(.97)}.pad .nb{background:linear-gradient(160deg,var(--pc),color-mix(in srgb,var(--pc) 60%,#000));border:0;font-size:30px}
+.pad .nb small{display:block;font:600 13px "Readex Pro";opacity:.8;margin-top:6px}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.tools button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:12px 6px;font:700 13.5px "Readex Pro"}
+.tm{font:900 15px Alexandria;direction:ltr}
+.sheet{position:fixed;inset:auto 0 0 0;max-height:72vh;background:#0E1730;border-radius:22px 22px 0 0;border-top:1px solid var(--line);padding:16px 14px max(16px,env(safe-area-inset-bottom));overflow:auto;transform:translateY(105%);transition:transform .3s;z-index:5}.sheet.on{transform:none}
+.sheet h3{font:800 14px Alexandria;margin:12px 0 6px;color:var(--dim)}.sheet h3:first-child{margin-top:0}
+.sheet .g{display:grid;grid-template-columns:1fr 1fr;gap:8px}.sheet .g button{text-align:right;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:10px;font:600 13px "Readex Pro"}.sheet .g button.on{border-color:#fff}
+.sheet .g button.p{grid-column:1/-1;font-weight:800}
+.shade{position:fixed;inset:0;background:#0008;opacity:0;pointer-events:none;transition:.3s;z-index:4}.shade.on{opacity:1;pointer-events:auto}
+</style></head><body>
+<div class="top"><h1>ريموت الورشة</h1><div class="dot" id="dot"><i></i><span id="st">جاري الاتصال…</span></div></div>
+<div class="who" id="who"><div class="av" id="av">—</div><div><b id="wn">—</b><br><span id="wc">بانتظار العرض</span></div></div>
+<div class="prog" id="prog"></div>
+<div class="cur"><div class="n"><span id="num">—</span><span id="tl" class="tm"></span></div><b id="tt">افتح العرض على الشاشة</b><div class="notes" id="nt"></div><span class="fl" id="fl" hidden></span><div class="nx" id="nx" hidden></div></div>
+<div class="pad"><button id="pv">السابق</button><button class="nb" id="nb">التالي<small id="nbs"></small></button></div>
+<div class="tools"><button id="tm">تشغيل المؤقت</button><button id="trs">إعادة المؤقت</button><button id="ls">كل الشرائح</button></div>
+<div class="shade" id="shade"></div><div class="sheet" id="sheet"></div>
 <script>function MQ(url,clientId,onMsg,onState,auth){const enc=new TextEncoder(),dec=new TextDecoder();let ws,ping,subs=[],open=false,closedByUser=false,retry=1000;
   const str=s=>{const b=enc.encode(s);return [b.length>>8,b.length&255,...b];};
   const len=n=>{const o=[];do{let d=n%128;n=Math.floor(n/128);if(n>0)d|=128;o.push(d);}while(n>0);return o;};
@@ -30,12 +52,22 @@ h1{font:800 18px Alexandria;margin:0}.st{font-size:13px;color:var(--dim)}.cur{ba
 const WT='ybe-workshop/2a23b94d033a';const WS=[];
 function wsStart(onMsg,onSt){['wss://mqtt.eclipseprojects.io:443/mqtt',['wss://public.cloud.shiftr.io:443',['public','public']],'wss://broker.hivemq.com:8884/mqtt','wss://broker.emqx.io:8084/mqtt'].forEach(u=>{const a=Array.isArray(u)?u[1]:null;u=Array.isArray(u)?u[0]:u;const m=MQ(u,'ws'+Math.random().toString(36).slice(2,10),(t,r)=>{try{const o=JSON.parse(r);if(o&&o.id&&!wsSeen[o.id]){wsSeen[o.id]=1;onMsg(o);}}catch(e){}},()=>onSt&&onSt(WS.filter(x=>x.open).length),a);m.sub(WT);WS.push(m);});}
 const wsSeen={};function wsSend(o){o.id=Math.random().toString(36).slice(2);wsSeen[o.id]=1;const s=JSON.stringify(o);WS.forEach(m=>{try{m.pub(WT,s)}catch(e){}});}
-const $=i=>document.getElementById(i);const AR=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);let last=null;
-const c=(a,v)=>{wsSend({k:'cmd',a,v});if(navigator.vibrate)navigator.vibrate(15);};
-$('nx').onclick=()=>c('next');$('pv').onclick=()=>c('prev');$('tm').onclick=()=>c('timer');$('trs').onclick=()=>c('treset');
-wsStart(o=>{if(o.k!=='st')return;last=Date.now();$('st').textContent='متصل بالعرض';$('num').textContent=AR(o.i+1)+' / '+AR(o.n);$('tt').textContent=o.t;$('nt').textContent=o.notes||'';
- const m=Math.floor(o.left/60),s=o.left%60;$('tl').textContent='المؤقت: '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+(o.run?' (يعمل)':'');
- const g=$('gr');if(g.children.length!==o.titles.length){g.innerHTML='';o.titles.forEach((t,k)=>{const b=document.createElement('button');b.textContent=AR(k+1)+'. '+t;b.onclick=()=>c('go',k);g.appendChild(b);});}[...g.children].forEach((b,k)=>b.classList.toggle('on',k===o.i));},
- n=>{if(n){c('hello');}if(!last)$('st').textContent=n?'متصل بالسيرفر · افتح العرض على الشاشة':'جاري الاتصال…';});
-setInterval(()=>{if(last&&Date.now()-last>12000)$('st').textContent='ما يوصل رد من العرض…';},3000);
+
+const $=i=>document.getElementById(i);const AR=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);let last=0,S=null,nOpen=0;
+const P={1:['جاسم القناعي','ج','التشابتر الأول · الفكرة والأداة','var(--c1)'],2:['فارس','ف','التشابتر الثاني · التطبيق','var(--c2)'],0:['الورشة','و','البداية','var(--c1)']};
+const c=(a,v)=>{wsSend({k:'cmd',a,v});try{navigator.vibrate&&navigator.vibrate(18)}catch(e){}};
+$('nb').onclick=()=>c('next');$('pv').onclick=()=>c('prev');$('tm').onclick=()=>c('timer');$('trs').onclick=()=>c('treset');
+const sheet=on=>{$('sheet').classList.toggle('on',on);$('shade').classList.toggle('on',on);};$('ls').onclick=()=>sheet(true);$('shade').onclick=()=>sheet(false);
+let sx=null;$('pad')&&0;document.querySelector('.pad').addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});document.querySelector('.pad').addEventListener('touchend',e=>{if(sx==null)return;const d=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(d)>70){d>0?c('next'):c('prev');}},{passive:true});
+function dot(){const d=$('dot');const live=last&&Date.now()-last<12000;d.className='dot '+(live?'ok':nOpen?'':'bad');$('st').textContent=live?'متصل بالعرض':nOpen?'متصل · افتح العرض على الشاشة':'غير متصل…';}
+function render(o){S=o;const p=P[o.ch]||P[0];document.documentElement.style.setProperty('--pc',p[3]);$('av').textContent=p[1];$('wn').textContent=p[0];$('wc').textContent=p[2];
+ $('num').textContent='شريحة '+AR(o.i+1)+' من '+AR(o.n);$('tt').textContent=o.t;$('nt').textContent=o.notes||'';
+ $('fl').hidden=!o.fl;$('fl').textContent='باقي '+AR(o.fl)+' عناصر في هالشريحة';$('nb').firstChild.textContent=o.fl?'أظهر التالي':'التالي';
+ $('nx').hidden=!o.nt;$('nx').textContent='الشريحة الجاية: '+o.nt+(o.chs&&o.chs[o.i+1]!==o.ch?' · يبدأ دور '+(P[o.chs[o.i+1]]||P[0])[0]:'');$('nbs').textContent=o.nt&&!o.fl?o.nt:'';
+ const m=Math.floor(o.left/60),s=o.left%60;$('tl').textContent=(o.run||o.left<900)?String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'):'';$('tm').textContent=o.run?'إيقاف المؤقت':'تشغيل المؤقت';
+ const pg=$('prog');pg.innerHTML='';for(let k=0;k<o.n;k++){const x=document.createElement('i');if(k<o.i)x.className=(o.chs&&o.chs[k]===2)?'d2':'d';if(k===o.i)x.className='cur';pg.appendChild(x);}
+ const sh=$('sheet');sh.innerHTML='';[[0,'البداية'],[1,'التشابتر الأول · جاسم القناعي'],[2,'التشابتر الثاني · فارس']].forEach(([ch,lab])=>{const ks=o.titles.map((t,k)=>k).filter(k=>(o.chs?o.chs[k]:0)===ch);if(!ks.length)return;const h=document.createElement('h3');h.textContent=lab;sh.appendChild(h);const g=document.createElement('div');g.className='g';ks.forEach(k=>{const b=document.createElement('button');b.textContent=AR(k+1)+'. '+o.titles[k];if(k===o.i)b.classList.add('on');b.onclick=()=>{c('go',k);sheet(false);};g.appendChild(b);});sh.appendChild(g);});}
+wsStart(o=>{if(o.k!=='st')return;last=Date.now();render(o);dot();},n=>{nOpen=n;if(n)c('hello');dot();});
+setInterval(dot,2000);
+async function wake(){try{if(navigator.wakeLock)await navigator.wakeLock.request('screen');}catch(e){}}wake();document.addEventListener('visibilitychange',()=>{if(!document.hidden){wake();c('hello');}});
 </script></body></html>
