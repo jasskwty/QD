@@ -233,7 +233,7 @@ html.phopen .nav,html.phopen .foot{visibility:hidden}
 html.rmode,html.rmode body{background:#070D1C;color-scheme:dark}
 html.rmode body{overflow:auto;height:auto;min-height:100%}
 html.rmode #net,html.rmode .blob,html.rmode .prog,html.rmode .s,html.rmode .foot,html.rmode .nav,html.rmode .notes,html.rmode #rqr,html.rmode #ov,html.rmode #physOv,html.rmode #laser,html.rmode #blk{display:none!important}
-#R{--rbg:#070D1C;--rc:#111A30;--rc2:#16223F;--ri:#EAF0FF;--rd:#93A3C4;--rl:#23304F;--c1:#3B82F6;--c2:#8B5CF6;--pc:var(--c1);--rok:#34D399;--rred:#EF4444;max-width:560px;margin:0 auto;padding:12px max(12px,env(safe-area-inset-right,0px)) calc(86px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));display:grid;gap:10px;color:var(--ri);font-family:"Readex Pro",sans-serif;user-select:none;-webkit-tap-highlight-color:transparent;text-align:right}
+#R{--rbg:#070D1C;--rc:#111A30;--rc2:#16223F;--ri:#EAF0FF;--rd:#93A3C4;--rl:#23304F;--c1:#EAB308;--c2:#10B981;--pc:var(--c1);--rok:#34D399;--rred:#EF4444;max-width:560px;margin:0 auto;padding:12px max(12px,env(safe-area-inset-right,0px)) calc(86px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));display:grid;gap:10px;color:var(--ri);font-family:"Readex Pro",sans-serif;user-select:none;-webkit-tap-highlight-color:transparent;text-align:right}
 #R button{font-family:inherit;cursor:pointer}
 #R button:focus-visible,#R textarea:focus-visible,#R input:focus-visible{outline:3px solid #A78BFA;outline-offset:2px}
 .r-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.r-top b{font:900 17px Alexandria,sans-serif}
@@ -306,11 +306,11 @@ html.rmode #net,html.rmode .blob,html.rmode .prog,html.rmode .s,html.rmode .foot
 #R.part .r-log{max-height:none}
 /* ===== chapter identity: ch1 Jassim = emerald (as in the main show), ch2 Fares = violet ===== */
 html{--b1:#93C5FD;--b2:#C4B5FD;--b3:#6EE7B7}
-html[data-ch="1"]{--blue:#047857;--sky:#059669;--vio:#0D9488;--net:4,120,87;--b1:#6EE7B7;--b2:#A7F3D0;--b3:#93C5FD}
-html[data-ch="2"]{--blue:#5B21B6;--sky:#7C3AED;--vio:#C026D3;--net:109,40,217;--b1:#C4B5FD;--b2:#F0ABFC;--b3:#93C5FD}
-@media (prefers-color-scheme:dark){html:not([data-theme="light"])[data-ch="1"]{--blue:#34D399;--sky:#10B981;--vio:#2DD4BF;--net:52,211,153}html:not([data-theme="light"])[data-ch="2"]{--blue:#A78BFA;--sky:#8B5CF6;--vio:#E879F9;--net:167,139,250}}
-html[data-theme="dark"][data-ch="1"]{--blue:#34D399;--sky:#10B981;--vio:#2DD4BF;--net:52,211,153}
-html[data-theme="dark"][data-ch="2"]{--blue:#A78BFA;--sky:#8B5CF6;--vio:#E879F9;--net:167,139,250}
+html[data-ch="1"]{--blue:#A16207;--sky:#CA8A04;--vio:#D97706;--net:202,138,4;--b1:#FDE68A;--b2:#FEF3C7;--b3:#FCD34D}
+html[data-ch="2"]{--blue:#047857;--sky:#059669;--vio:#0D9488;--net:4,120,87;--b1:#6EE7B7;--b2:#A7F3D0;--b3:#93C5FD}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"])[data-ch="1"]{--blue:#FACC15;--sky:#EAB308;--vio:#F59E0B;--net:250,204,21}html:not([data-theme="light"])[data-ch="2"]{--blue:#34D399;--sky:#10B981;--vio:#2DD4BF;--net:52,211,153}}
+html[data-theme="dark"][data-ch="1"]{--blue:#FACC15;--sky:#EAB308;--vio:#F59E0B;--net:250,204,21}
+html[data-theme="dark"][data-ch="2"]{--blue:#34D399;--sky:#10B981;--vio:#2DD4BF;--net:52,211,153}
 .b1{background:var(--b1)!important}.b2{background:var(--b2)!important}.b3{background:var(--b3)!important}.blob{transition:background 1.4s}
 .prog{transition:width .5s,background 1s}
 /* slide exit transition */
@@ -415,6 +415,8 @@ html.jmode #R{display:none!important}
 .j-react button[data-r="heart"] i{background:linear-gradient(135deg,#F43F5E,#EC4899)}.j-react button[data-r="idea"] i{background:linear-gradient(135deg,#F59E0B,#EAB308)}.j-react button[data-r="clap"] i{background:linear-gradient(135deg,#0149AD,#7C3AED)}
 .j-react button.pop i{animation:jpop .45s}@keyframes jpop{40%{transform:scale(1.25)}}
 .j-foot{margin:0;text-align:center;font-size:12px;color:var(--rd)}
+
+.pname{display:flex;align-items:center;gap:.25em;justify-content:center}.clublogo{height:1.05em;width:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.18))}
 </style></head><body>
 <canvas id="net"></canvas><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="prog" id="prog"></div>
 
@@ -423,7 +425,7 @@ html.jmode #R{display:none!important}
 <p class="dim">بأي أداة ذكاء اصطناعي · مجانية أو باشتراك</p><div class="hero"><div class="hpb"><span class="hpi"></span><span class="ht" id="heroT"></span><span class="hcar"></span></div><div class="htiles" id="heroTiles"><div><svg viewBox="0 0 160 100"><rect x="20" y="14" width="74" height="8" rx="4" fill="#CBD5E1"/><rect x="108" y="54" width="18" height="34" rx="3" fill="#7C3AED"/><rect x="76" y="34" width="18" height="54" rx="3" fill="#1D63E0"/><rect x="44" y="62" width="18" height="26" rx="3" fill="#93C5FD"/></svg></div><div><svg viewBox="0 0 160 100"><rect x="20" y="12" width="120" height="9" rx="4" fill="#CBD5E1"/><rect x="20" y="32" width="56" height="24" rx="7" fill="#DCFCE7" stroke="#059669" stroke-width="2"/><rect x="84" y="32" width="56" height="24" rx="7" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="2"/><rect x="20" y="64" width="56" height="24" rx="7" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="2"/><rect x="84" y="64" width="56" height="24" rx="7" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="2"/></svg></div><div><svg viewBox="0 0 160 100"><circle cx="80" cy="50" r="31" fill="none" stroke="#E2E8F0" stroke-width="9"/><circle cx="80" cy="50" r="31" fill="none" stroke="#EA580C" stroke-width="9" stroke-dasharray="195" stroke-dashoffset="62" stroke-linecap="round" transform="rotate(-90 80 50)"/><text x="80" y="56" text-anchor="middle" font-size="16" font-weight="800" fill="#0B1220" font-family="Alexandria,sans-serif">15:00</text></svg></div><div><svg viewBox="0 0 160 100"><path d="M30 80H128" stroke="#DC2626" stroke-width="5" stroke-linecap="round"/><path d="M120 73l10 7-10 7" fill="#DC2626"/><path d="M30 80L92 30" stroke="#0E7C66" stroke-width="5" stroke-linecap="round"/><path d="M83 29l12-2-4 12" fill="#0E7C66"/><path d="M58 80a28 28 0 0 0-6-17" fill="none" stroke="#94A3B8" stroke-width="2"/><text x="66" y="72" font-size="13" fill="#64748B" font-family="serif" font-style="italic">α</text></svg></div><div><svg viewBox="0 0 160 100"><rect x="66" y="14" width="76" height="20" rx="10" fill="#0149AD"/><rect x="34" y="44" width="94" height="20" rx="10" fill="#E2E8F0"/><rect x="34" y="70" width="62" height="16" rx="8" fill="#E2E8F0"/><rect x="16" y="46" width="14" height="14" rx="4" fill="#7C3AED"/></svg></div></div></div>
 <div class="bubble f"><p>هل جربتم تطلبون من الذكاء الاصطناعي يبني <b>ملف عرض كامل</b> على جهازكم مباشرة… بدل نسخ النصوص يدوياً؟</p></div><div class="joinc"><div class="jq" id="jq0"></div><div><b>شارك من هاتفك</b><span>صوّت وجاوب واسأل YBE</span><span class="jn"></span></div></div></section>
 
-<section class="s pres" data-m="30" data-t="جاسم القناعي" data-n="عرّف بنفسك، وقل إن التشابتر الأول عن البرومبت والأدوات، المجانية والمدفوعة." data-num="01" style="--pc:#047857"><span class="tag">CHAPTER 01 · PRESENTED BY</span><div class="mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h1 style="color:var(--pc)">جاسم القناعي</h1><p class="dim" style="direction:ltr">Jassim Al-Qanaei</p><div class="bubble f"><p>الفكرة والأدوات: البرومبت والأدوات المجانية والمدفوعة</p></div></section>
+<section class="s pres" data-m="30" data-t="فارس حسام" data-n="فارس يعرّف بنفسه، ويقول إن التشابتر الأول عن البرومبت والأدوات، المجانية والمدفوعة." data-num="01" style="--pc:#CA8A04"><span class="tag">CHAPTER 01 · PRESENTED BY</span><div class="mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h1 style="color:var(--pc)">فارس حسام</h1><p class="dim" style="direction:ltr">Fares Hussam</p><div class="bubble f"><p>الفكرة والأدوات: البرومبت والأدوات المجانية والمدفوعة</p></div></section>
 <section class="s" data-m="120" data-t="سؤال سريع" data-n="خلهم يصوتون من هواتفهم والأعمدة تتحرك مباشرة، وتقدر تضيف أصوات الأيادي بالضغط على الخيار. الهدف نبين كم وقت يروح على العروض."><span class="tag">سؤال سريع · ارفعوا أيديكم</span><h2>كم ياخذ منك تحضير عرض لدرس واحد؟</h2>
 <div class="poll" id="poll"></div><button class="btn ghost" id="pr">تصفير</button><div class="joinc"><div class="jq" id="jq1"></div><div><b>صوّتوا من هواتفكم</b><span>امسح الرمز واختر جوابك</span><span class="jn"></span></div></div></section>
 
@@ -469,7 +471,7 @@ html.jmode #R{display:none!important}
 <div class="st f"><div class="n">٢</div><b>اكتب البرومبت</b><span>بالقاعدة الذهبية، واطلب ملف HTML واحد.</span></div>
 <div class="st f"><div class="n">٣</div><b>احفظه وافتحه</b><span>انسخ الكود واحفظه باسم:</span><br><span class="cmd">عرض.html</span></div></div></section>
 
-<section class="s pres" data-m="30" data-t="فارس" data-n="فارس يعرّف بنفسه، والتشابتر الثاني تطبيق عملي." data-num="02" style="--pc:#7C3AED"><span class="tag">CHAPTER 02 · PRESENTED BY</span><div class="mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h1 style="color:var(--pc)">فارس</h1><p class="dim" style="direction:ltr">Fares</p><div class="bubble f"><p>التطبيق: الأوامر وYBE والنشاط العملي</p></div></section>
+<section class="s pres" data-m="30" data-t="جاسم القناعي" data-n="جاسم يعرّف بنفسه، والتشابتر الثاني تطبيق عملي." data-num="02" style="--pc:#047857"><span class="tag">CHAPTER 02 · PRESENTED BY</span><div class="mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h1 style="color:var(--pc)" class="pname"><img class="clublogo" src="show/qadsia.png" alt="شعار نادي القادسية">جاسم القناعي</h1><p class="dim" style="direction:ltr">Jassim Al-Qanaei</p><div class="bubble f"><p>التطبيق: الأوامر وYBE والنشاط العملي</p></div></section>
 <section class="s" data-m="120" data-t="اشتغل بذكاء" data-n="هذي عادات تخلي أي أداة تعطيك نتيجة أقوى، حتى المجانية."><span class="tag">سر الاحتراف</span><h2>اشتغل بذكاء… مع أي أداة</h2><p class="dim">عادات بسيطة تخلي النتيجة احترافية حتى بدون اشتراك</p>
 <div class="cards"><div class="c f" style="--k:var(--sky)"><b>ابدأ من قالب</b><span>احفظ عرض عجبك، وفي المرة الجاية قل: «سوّ لي عرض جديد بنفس هالتصميم».</span></div><div class="c f" style="--k:var(--org)"><b>مكتبة برومبتات</b><span>احفظ البرومبتات الناجحة بملف، وغيّر فيها المادة والدرس بس.</span></div><div class="c f" style="--k:var(--grn)"><b>تعليمات ثابتة</b><span>بعض الأدوات تسمح تحفظ تعليمات دائمة مثل هوية مدرستك وألوانها، فتطلع كل العروض بنفس الستايل.</span></div></div></section>
 
@@ -500,7 +502,7 @@ html.jmode #R{display:none!important}
 <section class="s" data-m="120" data-t="مثال حي" data-n="خلهم يجاوبون من هواتفهم، وبعدين اضغط «اكشف الإجابة». بآخر سؤال تطلع لوحة المتصدرين. وضّح إن هالشريحة تنطلب بجملة وحدة."><span class="tag">مثال حي</span><h2>هذا اللي يقدر يسويه لك</h2><p class="dim">شريحة اختبار تفاعلي مثل اللي تطلبها بأمر واحد · جرّبوها</p>
 <div class="quiz"><div class="qbar"><i id="qb"></i></div><div class="q" id="qq"></div><div class="opts" id="qo"></div><div class="fb" id="qf"></div><button class="btn ghost qrev" id="qrev" type="button" hidden>اكشف الإجابة</button><button class="btn" id="qn" style="display:none">السؤال التالي</button></div><div class="joinc"><div class="jq" id="jq2"></div><div><b>جاوبوا من هواتفكم</b><span>وبالآخر لوحة المتصدرين</span><span class="jn"></span></div></div></section>
 
-<section class="s" data-m="900" data-t="النشاط" data-n="شغّل المؤقت وامشِ بين المعلمين. لما يخلص الوقت يطلع صوت تنبيه."><span class="tag">نشاط تطبيقي</span><h2>دوركم الحين!</h2>
+<section class="s" data-m="900" data-t="النشاط" data-n="شغّل المؤقت وامشِ بين المعلمين. لما يخلص الوقت يطلع صوت تنبيه."><span class="tag">نشاط تطبيقي</span><h2>الحين بنطبق</h2>
 <div class="row"><div><div class="tw" id="tw"><svg viewBox="0 0 120 120"><defs><linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#EA580C"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs><circle class="bgc" cx="60" cy="60" r="52"/><circle class="fgc" id="tc" cx="60" cy="60" r="52"/></svg><div class="tv" id="tm">15:00</div></div>
 <div class="ring" style="margin-top:1.6vh"><button class="btn" id="ts">ابدأ المؤقت</button><button class="btn ghost" id="tr">إعادة</button></div></div>
 <div class="cards"><div class="c f" style="--k:var(--blue)"><b>المهمة</b><span>جهّز درسك القادم: صورة أو نص من الكتاب.</span></div>
@@ -518,7 +520,7 @@ html.jmode #R{display:none!important}
 <section class="s" data-m="300" data-t="أسئلة" data-n="افتح المجال للأسئلة."><span class="tag">حوار مفتوح</span><h2>أسئلتكم</h2><p class="dim">نجاوب عن أي سؤال قبل لا نختم</p><div class="bubble f"><p>شنو أكثر شي تبي تسويه بأول عرض لك؟</p></div></section>
 <section class="s" data-m="60" data-t="الختام" data-n="اشكرهم، وخلهم يمسحون الرمز عشان ياخذون الأوامر والعرض."><h1><span class="w">جاهزين</span> <span class="w">نبدأ؟</span></h1><p class="dim">الذكاء الاصطناعي يبني الشرائح… والمعلم يصنع الدرس</p>
 <div class="endrow"><div class="qr f" id="qr"></div><div class="bubble f"><p>شكراً لكم · أسئلتكم مرحّب فيها</p><p class="dim" style="font-size:clamp(13px,1.5vw,17px)">امسح الرمز وخذ الأوامر والعرض</p></div></div>
-<p class="dim f" style="font-size:clamp(14px,1.6vw,18px)">تقديم: جاسم القناعي · فارس &nbsp;|&nbsp; تصميم: جاسم القناعي</p></section>
+<p class="dim f" style="font-size:clamp(14px,1.6vw,18px)">تقديم: فارس حسام · جاسم القناعي &nbsp;|&nbsp; تصميم: جاسم القناعي</p></section>
 
 <div class="foot">ورشة العروض التفاعلية</div>
 <div class="notes" id="notes"></div><div class="ov" id="rqr" style="display:none"><div style="display:grid;place-items:center;gap:16px;height:100%;text-align:center"><h2>امسح للتحكم من هاتفك</h2><div class="qr" id="rqrc"></div><p class="dim" id="rst">جاري الاتصال…</p><button class="btn" id="rskip" type="button">تخطّي</button></div></div>
@@ -629,7 +631,7 @@ function deckApp(){
 const S=[...document.querySelectorAll('.s')];let i=0;
 const n=$('n'),prog=$('prog'),notes=$('notes');
 const AIX=S.findIndex(s=>s.classList.contains('ai'));
-const CHS=(()=>{let c=0;return S.map(x=>{if(x.classList.contains('pres'))c=x.dataset.t==='فارس'?2:1;return c;});})();
+const CHS=(()=>{let c=0;return S.map(x=>{if(x.classList.contains('pres'))c=x.dataset.t.indexOf('جاسم')>=0?2:1;return c;});})();
 const AI={s:null,busy:false,phase:0,log:[],hist:[],q:[]};
 const AUD={p:{},votes:{},ans:{},score:{},asks:[],qd:false};
 const PM=S.map(s=>+s.dataset.m||0),PE=PM.map((_,k)=>PM.slice(0,k).reduce((a,b)=>a+b,0)),PT=PM.reduce((a,b)=>a+b,0);let t0=0,sStart=Date.now();
@@ -952,7 +954,7 @@ function remoteApp(){
 const R=$('R');R.hidden=false;document.title='ريموت الورشة';
 const st={s:null,m:null,c:null,last:0,rcv:0,pend:[],lz:false,vib:true,part:false,csig:'',lsig:'',labRefs:null,labDrag:false};
 try{st.vib=localStorage.getItem('wsvib')!=='0';}catch(e){}
-const P={1:['جاسم القناعي','ج','التشابتر الأول · الفكرة والأداة','#10B981'],2:['فارس','ف','التشابتر الثاني · التطبيق','#8B5CF6'],0:['الورشة','و','البداية','#3B82F6']};
+const P={1:['فارس حسام','ف','التشابتر الأول · الفكرة والأدوات','#EAB308'],2:['جاسم القناعي','ج','التشابتر الثاني · التطبيق','#10B981'],0:['الورشة','و','البداية','#3B82F6']};
 const SECRET=x=>x.replace(/\s+/g,'').replace(/[إأآ]/g,'ا')==='عسعسالغلس';
 const buzz=()=>{if(st.vib)try{navigator.vibrate&&navigator.vibrate(15)}catch(e){}};
 const mk=(tag,cls,html)=>{const d=document.createElement(tag);if(cls)d.className=cls;if(html!=null)d.innerHTML=html;return d;};
@@ -1023,7 +1025,7 @@ function ctx(o){const x=$('rCtx');x.innerHTML='';st.labRefs=null;const k=o.ctl||
   x.hidden=!any;}
 /* render state */
 function renderProg(){const s=st.s;if(!s)return;const pg=$('rProg');if(pg.children.length!==s.n){pg.innerHTML='';for(let k=0;k<s.n;k++)pg.appendChild(document.createElement('i'));}const chs=st.m?st.m.chs:[];[...pg.children].forEach((x,k)=>{x.className=k===s.i?'cur':(k<s.i?(chs[k]===2?'d2':'d'):'');});}
-function renderMt(){const m=st.m;if(!m)return;const sh=$('rSheet');sh.innerHTML='';[[0,'البداية'],[1,'التشابتر الأول · جاسم القناعي'],[2,'التشابتر الثاني · فارس']].forEach(([ch,lab])=>{const ks=m.titles.map((t,k)=>k).filter(k=>(m.chs[k]||0)===ch);if(!ks.length)return;sh.appendChild(mk('h3','',esc(lab)));const g=mk('div','r-g');
+function renderMt(){const m=st.m;if(!m)return;const sh=$('rSheet');sh.innerHTML='';[[0,'البداية'],[1,'التشابتر الأول · فارس حسام'],[2,'التشابتر الثاني · جاسم القناعي']].forEach(([ch,lab])=>{const ks=m.titles.map((t,k)=>k).filter(k=>(m.chs[k]||0)===ch);if(!ks.length)return;sh.appendChild(mk('h3','',esc(lab)));const g=mk('div','r-g');
   ks.forEach(k=>{const b=mk('button',st.s&&st.s.i===k?'on':'',AR(k+1)+'. '+esc(m.titles[k]));b.type='button';b.onclick=()=>{c('go',k);sheet(false);};g.appendChild(b);});sh.appendChild(g);});}
 function tickTm(){const s=st.s;const el=$('rTm');if(!s){el.textContent='';return;}let l=s.tl;if(s.run)l=Math.max(0,Math.round(s.tl-(Date.now()-st.rcv)/1000));el.textContent=(s.run||l<900)?String(Math.floor(l/60)).padStart(2,'0')+':'+String(l%60).padStart(2,'0'):'';}
 function renderSt(s){const p=P[s.ch]||P[0];R.style.setProperty('--pc',p[3]);$('rAv').textContent=p[1];$('rWn').textContent=p[0];$('rWc').textContent=p[2];
@@ -1092,7 +1094,7 @@ function render(){const s=st.s,C=$('jCard');
       f.onsubmit=e=>{e.preventDefault();const v=$('jQ').value.trim();if(!v)return;send('ask',v);$('jQ').value='';const ok=$('jAskOk');ok.hidden=false;buzz();clearTimeout(st.okT);st.okT=setTimeout(()=>{ok.hidden=true;},4000);};C.appendChild(f);
       const ok=mk('p','j-note','وصل سؤالك للمقدم.');ok.id='jAskOk';ok.hidden=true;C.appendChild(ok);const la=mk('div','j-ai');la.id='jAI';la.hidden=true;C.appendChild(la);}
     const la=$('jAI'),x=lastAI();if(la){la.hidden=!x;la.innerHTML=x?'<small>آخر رد من YBE على الشاشة</small>'+esc(x.replace(/\*\*/g,'')).replace(/\n/g,'<br>'):'';}return;}
-  const sig='f|'+s.i;if(sig===st.sig)return;st.sig=sig;const pr=s.ch===2?'فارس':(s.ch===1?'جاسم القناعي':'');C.innerHTML='';C.appendChild(mk('span','j-tag','تابع العرض'));C.appendChild(mk('h2','',esc(s.h||s.t||'')));
+  const sig='f|'+s.i;if(sig===st.sig)return;st.sig=sig;const pr=s.ch===2?'جاسم القناعي':(s.ch===1?'فارس حسام':'');C.innerHTML='';C.appendChild(mk('span','j-tag','تابع العرض'));C.appendChild(mk('h2','',esc(s.h||s.t||'')));
   C.appendChild(mk('p','sub',(pr?'يقدّم الحين: '+esc(pr)+' · ':'')+'شريحة '+AR(s.i+1)+' من '+AR(s.n)));C.appendChild(mk('p','j-note','لما يجي تصويت أو اختبار أو وقت الأسئلة لـ YBE، يطلع لك هني على طول. وتقدر ترسل تفاعلك تحت.'));}
 function dot(){const live=st.last&&Date.now()-st.last<12000;$('jDot').className='j-dot'+(live?' ok':'');$('jStat').textContent=live?'متصل بالعرض':(T.live()?'بانتظار شاشة العرض…':'جاري الاتصال…');}
 T.on(o=>{if(o.k==='st'){st.s=o;st.last=Date.now();render();}else if(o.k==='ch'){st.c=o;if(st.s&&st.s.ctl&&st.s.ctl.ai)render();}dot();});
