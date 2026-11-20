@@ -10,14 +10,14 @@ cd /home/user/QD 2>/dev/null || cd QD
 git checkout claude/multi-agent-company-9dst9p && git pull --ff-only
 npm ci --no-audit --no-fund && npm test 2>&1 | tail -4
 git log --since="7 days ago" --oneline
-date +%V   # رقم الأسبوع W
+N=$(ls company/meetings/*.md 2>/dev/null | wc -l); echo "N=$N"   # عدد الاجتماعات اللي قبل
 ```
 
 ## ② دورة العمل (مسارين كل أسبوع)
 
 ### المسار أ: خلايا الفئات
 57 فئة، لكل فئة خلية من 5 موظفين، مقسمة على 9 مجموعات (الحقل `group` في `org.json`).
-مجموعة هالأسبوع = `(W mod 9) + 1`، يعني كل فئة تشتغل مرة كل 9 أسابيع.
+مجموعة هالاجتماع = `(N mod 9) + 1`، يعني كل فئة تشتغل مرة كل 9 اجتماعات.
 
 خلايا المجموعة تشتغل **مع بعض**، بس داخل الخلية الخطوات **بالترتيب**. اسم المجلد: `company/work/categories/<cat-XX>/<تاريخ اليوم>/`.
 
@@ -31,7 +31,7 @@ date +%V   # رقم الأسبوع W
 أعط كل موظف اسم مجلد اليوم. بعد كل خطوة كومت: `git add company && git commit -m "Cells group G step N"`.
 
 ### المسار ب: باقي اللجان
-لجنة وحدة بالأسبوع = `(W mod 7) + 1`:
+لجنة وحدة بالاجتماع = `(N mod 7) + 1`:
 
 | الرقم | اللجنة (cslug في `org.json`) |
 |---|---|
