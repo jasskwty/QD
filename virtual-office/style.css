@@ -85,20 +85,30 @@ a { color: #8cc8ff; }
   background: #ffffff14; border: 2px solid #ffffff40; touch-action: none; display: flex; align-items: center; justify-content: center; }
 #stick[hidden] { display: none; }
 #stick i { width: 52px; height: 52px; border-radius: 50%; background: #ffd23fcc; display: block; pointer-events: none; transition: transform 40ms; }
+#joy-mini, #btn-map { display: none; }
 @media (max-width: 900px) {
-  .card:not(#joy-card) { display: none; }
-  #search { width: 140px; }
-  #prompt { max-width: calc(100% - 32px); bottom: 190px; }
-  #help { display: none; }
-  .brand, #search, #btn-sound, #btn-zoom-in, #btn-zoom-out, .wide { display: none; }
-  #hud { gap: 6px; }
-  #joy-card { min-width: 0; flex: 1; padding: 4px 10px; }
-  .joy-row { font-size: 11px; grid-template-columns: 56px 1fr 34px; }
-  .actions { margin-inline-start: 0; padding: 4px; }
-  .actions button { padding: 6px 10px; }
-  #dept-live { bottom: 128px; padding: 6px; }
-  #panel { top: 80px; }
-  #dept-live { top: auto; bottom: 180px; max-width: 46%; }
-  #dept-live button:nth-of-type(n+3) { display: none; }
+  /* phone: two slim rows on top, controls at the bottom, map and lists folded away */
+  .brand, .card, #search, #btn-sound, #btn-zoom-in, #btn-zoom-out, .wide, #help, #source { display: none !important; }
+  #hud { top: 6px; inset-inline: 8px; gap: 6px; flex-direction: column; flex-wrap: nowrap; }
+  #joy-mini { display: flex; gap: 10px; justify-content: center; align-items: center; background: var(--card); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 12px; font-size: 12px; white-space: nowrap; overflow: hidden; }
+  #joy-mini b { color: var(--gold); font-variant-numeric: tabular-nums; }
+  #joy-mini .ours { color: var(--gold); font-weight: 700; }
+  .actions { margin: 0; padding: 4px; border-radius: 999px; justify-content: space-between; flex-wrap: nowrap; }
+  .actions button { flex: 1; padding: 7px 0; font-size: 18px; border-radius: 999px; min-width: 0; }
+  #btn-map { display: block; }
+  #btn-sprint.on { background: #3a5a1e; }
+  #banner { top: 96px; font-size: 12px; padding: 8px 12px; }
+  #toast { top: 96px; inset-inline: 16px; text-align: center; }
+  #prompt { left: 12px; right: 140px; inset-inline: auto; left: 12px; right: 140px; transform: none; bottom: calc(30px + env(safe-area-inset-bottom, 0px)); max-width: none;
+    font-size: 13px; padding: 10px 12px; background: #1f2735f2; box-shadow: 0 4px 16px #0008; }
+  #prompt kbd { display: none; }
+  #stick { width: 112px; height: 112px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+  #dept-live { top: auto; bottom: calc(96px + env(safe-area-inset-bottom, 0px)); inset-inline-start: auto; left: 12px; max-width: 62%; padding: 4px 10px; border-radius: 999px; }
+  #dept-live.open { border-radius: 14px; padding: 8px; }
+  #dept-live button { display: none; }
+  #dept-live.open button { display: block; }
+  #dept-live .lbl { font-size: 12px; color: var(--text); cursor: pointer; }
+  #panel { top: auto; bottom: 0; inset-inline: 0; width: 100%; max-height: 80vh; border-radius: 18px 18px 0 0; padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
   .travel { grid-template-columns: 1fr; }
 }

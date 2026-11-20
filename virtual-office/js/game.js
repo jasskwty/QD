@@ -56,6 +56,7 @@ class Office extends Phaser.Scene {
       onTravel: (dest) => this.travel(dest),
       travelList: () => this.travelList(),
       toggleSprint: () => (this.sprint = !this.sprint),
+      toggleMap: () => { this.mini.setVisible(!this.mini.visible); },
       zoom: (d) => this.cameras.main.setZoom(Phaser.Math.Clamp(this.cameras.main.zoom + d, 0.4, 1.6)),
       setStick: (x, y) => { this.stick = x || y ? { x, y } : null; },
       onPromptTap: () => { if (this.nearNPC) ui.openAgent(this.nearNPC.e, this.state); else if (this.inRoom) ui.openRoom(this.inRoom, this.state); },
@@ -256,14 +257,16 @@ class Office extends Phaser.Scene {
 
   setupCameras() {
     const cam = this.cameras.main;
-    cam.setBounds(0, 0, WORLD_W, WORLD_H).startFollow(this.player, true, 0.12, 0.12).setZoom(1);
-    const mw = this.scale.width < 600 ? 150 : 240, mh = mw * 2 / 3;
-    this.mini = this.cameras.add(12, this.scale.height - mh - 12, mw, mh).setZoom(mw / WORLD_W).setBackgroundColor(0x0b0d12).centerOn(WORLD_W / 2, WORLD_H / 2);
+    const phone = this.scale.width < 600;
+    cam.setBounds(0, 0, WORLD_W, WORLD_H).startFollow(this.player, true, 0.12, 0.12).setZoom(phone ? 0.8 : 1);
+    const mw = this.scale.width < 600 ? 180 : 240, mh = mw * 2 / 3, my = (h) => (this.scale.width < 600 ? 104 : h - mh - 12);
+    this.mini = this.cameras.add(12, my(this.scale.height), mw, mh).setZoom(mw / WORLD_W).setBackgroundColor(0x0b0d12).centerOn(WORLD_W / 2, WORLD_H / 2);
     this.mini.setName('mini');
+    if (phone) this.mini.setVisible(false);
     this.dot = this.add.circle(0, 0, 60, 0xffd23f).setDepth(50);
     cam.ignore(this.dot);
     this.mini.ignore([this.nameTag, this.playerTag, ...[...this.npcs.values()].map(n => n.emo)]);
-    this.scale.on('resize', (sz) => { this.mini.setPosition(12, sz.height - mh - 12); });
+    this.scale.on('resize', (sz) => { this.mini.setPosition(12, my(sz.height)); });
   }
 
   setupInput() {

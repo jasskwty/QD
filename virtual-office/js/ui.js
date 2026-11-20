@@ -15,6 +15,8 @@ export function initUI(c) {
   $('#btn-travel').onclick = () => openTravel();
   $('#btn-sprint').onclick = () => { const on = ctx.toggleSprint(); $('#btn-sprint').classList.toggle('on', on); toast(on ? '🏃 الركض شغال' : '🚶 مشي عادي'); };
   $('#btn-zoom-in').onclick = () => ctx.zoom(0.15);
+  $('#btn-map').onclick = () => ctx.toggleMap();
+  $('#dept-live').addEventListener('click', (ev) => { if (ev.target.closest('.lbl')) $('#dept-live').classList.toggle('open'); });
   $('#btn-zoom-out').onclick = () => ctx.zoom(-0.15);
   setupStick();
   $('#btn-emergency').onclick = () => ctx.onEmergency();
@@ -46,6 +48,7 @@ export function updateHUD(state, shift) {
     return `<div class="joy-row ${k === 'diwaniya' ? 'ours' : ''} ${lead ? 'lead' : ''}"><span class="joy-name">${name}</span>
       <span class="joy-bar"><i style="width:${typeof v === 'number' ? Math.max(2, Math.min(100, v)) : 0}%"></i></span><b>${pct(v)}</b></div>`;
   }).join('') + (j.updated ? '' : '<div class="muted small">ما فيه قياس بعد: مختبر الفرحة ما لعب لين الحين</div>');
+  $('#joy-mini').innerHTML = games.map(([k, name], i) => `<span class="${k === 'diwaniya' ? 'ours' : ''}">${name} <b>${pct(vals[i])}</b></span>`).join('<span class="muted">·</span>');
   const f = state.status.finance || {};
   const achieved = typeof f.achieved === 'number' ? f.achieved : null;
   $('#finance').innerHTML = `<span class="lbl">🎯 التارقت (المستوى ${f.level ?? 1})</span><b>${achieved ?? '—'} / ${f.target ?? 200} ${esc(f.currency || 'د.ك')}</b>
@@ -94,7 +97,7 @@ function openTravel() {
 // ── department meetings running now ──
 export function setDeptMeetings(list) {
   const el = $('#dept-live'); if (!el) return;
-  el.innerHTML = `<div class="lbl">🗣️ اجتماعات الأقسام الحين (${list.length})</div>` +
+  el.innerHTML = `<div class="lbl">🗣️ ${list.length} اجتماعات أقسام الحين <span class="muted small">▾</span></div>` +
     list.map(m => `<button data-travel="${esc(m.key)}" title="روح للاجتماع">${esc(m.label.replace(/^خلية فئة /, 'خلية '))} · ${m.n}</button>`).join('');
   el.querySelectorAll('[data-travel]').forEach(b => b.onclick = () => ctx.onTravel(b.dataset.travel));
 }
