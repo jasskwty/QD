@@ -161,834 +161,3885 @@
  },
  {
   "no": "E-011",
-  "id": "author-01",
-  "title": "مؤلف أسئلة - الرياضة الكويتية والخليجية",
+  "id": "cat-01-rival",
+  "title": "محلل أنماط المنافسين - الرياضة الكويتية والخليجية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-1",
+  "committee": "خلية فئة الرياضة الكويتية والخليجية",
+  "cslug": "categories",
+  "sup": "cat-01-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-012",
-  "id": "author-02",
-  "title": "مؤلف أسئلة - كرة القدم العالمية وكأس العالم",
+  "id": "cat-01-writer",
+  "title": "كاتب الأسئلة - الرياضة الكويتية والخليجية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-1",
+  "committee": "خلية فئة الرياضة الكويتية والخليجية",
+  "cslug": "categories",
+  "sup": "cat-01-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-013",
-  "id": "author-03",
-  "title": "مؤلف أسئلة - الرياضات القتالية والأولمبية",
+  "id": "cat-01-media",
+  "title": "صياد الصور - الرياضة الكويتية والخليجية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-1",
+  "committee": "خلية فئة الرياضة الكويتية والخليجية",
+  "cslug": "categories",
+  "sup": "cat-01-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-014",
-  "id": "author-04",
-  "title": "مؤلف أسئلة - المسلسلات الكويتية القديمة",
+  "id": "cat-01-checker",
+  "title": "مدقق الحقائق - الرياضة الكويتية والخليجية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-1",
+  "committee": "خلية فئة الرياضة الكويتية والخليجية",
+  "cslug": "categories",
+  "sup": "cat-01-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-015",
-  "id": "author-05",
-  "title": "مؤلف أسئلة - المسلسلات الخليجية والعربية الحديثة",
+  "id": "cat-01-monitor",
+  "title": "مراقب العملية - الرياضة الكويتية والخليجية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
+  "committee": "خلية فئة الرياضة الكويتية والخليجية",
+  "cslug": "categories",
   "sup": "monitor-questions-1",
-  "kind": "worker",
-  "supervises": []
+  "kind": "monitor",
+  "supervises": [
+   "cat-01-rival",
+   "cat-01-writer",
+   "cat-01-media",
+   "cat-01-checker"
+  ],
+  "group": 1
  },
  {
   "no": "E-016",
-  "id": "author-06",
-  "title": "مؤلف أسئلة - المسلسلات الأجنبية والمنصات",
+  "id": "cat-02-rival",
+  "title": "محلل أنماط المنافسين - كرة القدم العالمية وكأس العالم",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-1",
+  "committee": "خلية فئة كرة القدم العالمية وكأس العالم",
+  "cslug": "categories",
+  "sup": "cat-02-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-017",
-  "id": "author-07",
-  "title": "مؤلف أسئلة - الأفلام العربية الكلاسيكية",
+  "id": "cat-02-writer",
+  "title": "كاتب الأسئلة - كرة القدم العالمية وكأس العالم",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-1",
+  "committee": "خلية فئة كرة القدم العالمية وكأس العالم",
+  "cslug": "categories",
+  "sup": "cat-02-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-018",
-  "id": "author-08",
-  "title": "مؤلف أسئلة - أفلام هوليوود والسينما العالمية",
+  "id": "cat-02-media",
+  "title": "صياد الصور - كرة القدم العالمية وكأس العالم",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-2",
+  "committee": "خلية فئة كرة القدم العالمية وكأس العالم",
+  "cslug": "categories",
+  "sup": "cat-02-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-019",
-  "id": "author-09",
-  "title": "مؤلف أسئلة - الأنمي والمانجا",
+  "id": "cat-02-checker",
+  "title": "مدقق الحقائق - كرة القدم العالمية وكأس العالم",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-2",
+  "committee": "خلية فئة كرة القدم العالمية وكأس العالم",
+  "cslug": "categories",
+  "sup": "cat-02-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-020",
-  "id": "author-10",
-  "title": "مؤلف أسئلة - الكرتون وأفلام ديزني",
+  "id": "cat-02-monitor",
+  "title": "مراقب العملية - كرة القدم العالمية وكأس العالم",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-2",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة كرة القدم العالمية وكأس العالم",
+  "cslug": "categories",
+  "sup": "monitor-questions-1",
+  "kind": "monitor",
+  "supervises": [
+   "cat-02-rival",
+   "cat-02-writer",
+   "cat-02-media",
+   "cat-02-checker"
+  ],
+  "group": 1
  },
  {
   "no": "E-021",
-  "id": "author-11",
-  "title": "مؤلف أسئلة - اللهجة الكويتية والمصطلحات القديمة",
+  "id": "cat-03-rival",
+  "title": "محلل أنماط المنافسين - الرياضات القتالية والأولمبية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-2",
+  "committee": "خلية فئة الرياضات القتالية والأولمبية",
+  "cslug": "categories",
+  "sup": "cat-03-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-022",
-  "id": "author-12",
-  "title": "مؤلف أسئلة - اللهجات الخليجية والعربية",
+  "id": "cat-03-writer",
+  "title": "كاتب الأسئلة - الرياضات القتالية والأولمبية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-2",
+  "committee": "خلية فئة الرياضات القتالية والأولمبية",
+  "cslug": "categories",
+  "sup": "cat-03-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-023",
-  "id": "author-13",
-  "title": "مؤلف أسئلة - الأمثال الشعبية والألغاز",
+  "id": "cat-03-media",
+  "title": "صياد الصور - الرياضات القتالية والأولمبية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-2",
+  "committee": "خلية فئة الرياضات القتالية والأولمبية",
+  "cslug": "categories",
+  "sup": "cat-03-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-024",
-  "id": "author-14",
-  "title": "مؤلف أسئلة - شارع المطاعم والمقاهي",
+  "id": "cat-03-checker",
+  "title": "مدقق الحقائق - الرياضات القتالية والأولمبية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-2",
+  "committee": "خلية فئة الرياضات القتالية والأولمبية",
+  "cslug": "categories",
+  "sup": "cat-03-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-025",
-  "id": "author-15",
-  "title": "مؤلف أسئلة - الأكلات الشعبية والمطبخ العالمي",
+  "id": "cat-03-monitor",
+  "title": "مراقب العملية - الرياضات القتالية والأولمبية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-3",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة الرياضات القتالية والأولمبية",
+  "cslug": "categories",
+  "sup": "monitor-questions-1",
+  "kind": "monitor",
+  "supervises": [
+   "cat-03-rival",
+   "cat-03-writer",
+   "cat-03-media",
+   "cat-03-checker"
+  ],
+  "group": 1
  },
  {
   "no": "E-026",
-  "id": "author-16",
-  "title": "مؤلف أسئلة - العلامات التجارية والماركات",
+  "id": "cat-04-rival",
+  "title": "محلل أنماط المنافسين - المسلسلات الكويتية القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-3",
+  "committee": "خلية فئة المسلسلات الكويتية القديمة",
+  "cslug": "categories",
+  "sup": "cat-04-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-027",
-  "id": "author-17",
-  "title": "مؤلف أسئلة - تاريخ الكويت والخليج",
+  "id": "cat-04-writer",
+  "title": "كاتب الأسئلة - المسلسلات الكويتية القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-3",
+  "committee": "خلية فئة المسلسلات الكويتية القديمة",
+  "cslug": "categories",
+  "sup": "cat-04-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-028",
-  "id": "author-18",
-  "title": "مؤلف أسئلة - التاريخ الإسلامي",
+  "id": "cat-04-media",
+  "title": "صياد الصور - المسلسلات الكويتية القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-3",
+  "committee": "خلية فئة المسلسلات الكويتية القديمة",
+  "cslug": "categories",
+  "sup": "cat-04-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-029",
-  "id": "author-19",
-  "title": "مؤلف أسئلة - التاريخ العالمي والحروب",
+  "id": "cat-04-checker",
+  "title": "مدقق الحقائق - المسلسلات الكويتية القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-3",
+  "committee": "خلية فئة المسلسلات الكويتية القديمة",
+  "cslug": "categories",
+  "sup": "cat-04-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-030",
-  "id": "author-20",
-  "title": "مؤلف أسئلة - السير الذاتية والشخصيات المؤثرة",
+  "id": "cat-04-monitor",
+  "title": "مراقب العملية - المسلسلات الكويتية القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-3",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة المسلسلات الكويتية القديمة",
+  "cslug": "categories",
+  "sup": "monitor-questions-1",
+  "kind": "monitor",
+  "supervises": [
+   "cat-04-rival",
+   "cat-04-writer",
+   "cat-04-media",
+   "cat-04-checker"
+  ],
+  "group": 1
  },
  {
   "no": "E-031",
-  "id": "author-21",
-  "title": "مؤلف أسئلة - الفقه والعبادات",
+  "id": "cat-05-rival",
+  "title": "محلل أنماط المنافسين - المسلسلات الخليجية والعربية الحديثة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-3",
+  "committee": "خلية فئة المسلسلات الخليجية والعربية الحديثة",
+  "cslug": "categories",
+  "sup": "cat-05-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-032",
-  "id": "author-22",
-  "title": "مؤلف أسئلة - السيرة النبوية والصحابة",
+  "id": "cat-05-writer",
+  "title": "كاتب الأسئلة - المسلسلات الخليجية والعربية الحديثة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-4",
+  "committee": "خلية فئة المسلسلات الخليجية والعربية الحديثة",
+  "cslug": "categories",
+  "sup": "cat-05-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-033",
-  "id": "author-23",
-  "title": "مؤلف أسئلة - القرآن الكريم وتفسيره",
+  "id": "cat-05-media",
+  "title": "صياد الصور - المسلسلات الخليجية والعربية الحديثة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-4",
+  "committee": "خلية فئة المسلسلات الخليجية والعربية الحديثة",
+  "cslug": "categories",
+  "sup": "cat-05-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-034",
-  "id": "author-24",
-  "title": "مؤلف أسئلة - جغرافيا الدول والعواصم",
+  "id": "cat-05-checker",
+  "title": "مدقق الحقائق - المسلسلات الخليجية والعربية الحديثة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-4",
+  "committee": "خلية فئة المسلسلات الخليجية والعربية الحديثة",
+  "cslug": "categories",
+  "sup": "cat-05-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-035",
-  "id": "author-25",
-  "title": "مؤلف أسئلة - المعالم السياحية والعجائب",
+  "id": "cat-05-monitor",
+  "title": "مراقب العملية - المسلسلات الخليجية والعربية الحديثة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-4",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة المسلسلات الخليجية والعربية الحديثة",
+  "cslug": "categories",
+  "sup": "monitor-questions-1",
+  "kind": "monitor",
+  "supervises": [
+   "cat-05-rival",
+   "cat-05-writer",
+   "cat-05-media",
+   "cat-05-checker"
+  ],
+  "group": 1
  },
  {
   "no": "E-036",
-  "id": "author-26",
-  "title": "مؤلف أسئلة - الفضاء والفلك",
+  "id": "cat-06-rival",
+  "title": "محلل أنماط المنافسين - المسلسلات الأجنبية والمنصات",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-4",
+  "committee": "خلية فئة المسلسلات الأجنبية والمنصات",
+  "cslug": "categories",
+  "sup": "cat-06-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-037",
-  "id": "author-27",
-  "title": "مؤلف أسئلة - عالم الحيوان والطبيعة",
+  "id": "cat-06-writer",
+  "title": "كاتب الأسئلة - المسلسلات الأجنبية والمنصات",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-4",
+  "committee": "خلية فئة المسلسلات الأجنبية والمنصات",
+  "cslug": "categories",
+  "sup": "cat-06-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-038",
-  "id": "author-28",
-  "title": "مؤلف أسئلة - الطب وصحة الإنسان",
+  "id": "cat-06-media",
+  "title": "صياد الصور - المسلسلات الأجنبية والمنصات",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-4",
+  "committee": "خلية فئة المسلسلات الأجنبية والمنصات",
+  "cslug": "categories",
+  "sup": "cat-06-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-039",
-  "id": "author-29",
-  "title": "مؤلف أسئلة - الفيزياء والكيمياء والعلوم",
+  "id": "cat-06-checker",
+  "title": "مدقق الحقائق - المسلسلات الأجنبية والمنصات",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-5",
+  "committee": "خلية فئة المسلسلات الأجنبية والمنصات",
+  "cslug": "categories",
+  "sup": "cat-06-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-040",
-  "id": "author-30",
-  "title": "مؤلف أسئلة - الاختراعات والعلماء",
+  "id": "cat-06-monitor",
+  "title": "مراقب العملية - المسلسلات الأجنبية والمنصات",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-5",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة المسلسلات الأجنبية والمنصات",
+  "cslug": "categories",
+  "sup": "monitor-questions-1",
+  "kind": "monitor",
+  "supervises": [
+   "cat-06-rival",
+   "cat-06-writer",
+   "cat-06-media",
+   "cat-06-checker"
+  ],
+  "group": 1
  },
  {
   "no": "E-041",
-  "id": "author-31",
-  "title": "مؤلف أسئلة - التقنية والذكاء الاصطناعي",
+  "id": "cat-07-rival",
+  "title": "محلل أنماط المنافسين - الأفلام العربية الكلاسيكية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-5",
+  "committee": "خلية فئة الأفلام العربية الكلاسيكية",
+  "cslug": "categories",
+  "sup": "cat-07-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-042",
-  "id": "author-32",
-  "title": "مؤلف أسئلة - ألعاب الفيديو (Gaming)",
+  "id": "cat-07-writer",
+  "title": "كاتب الأسئلة - الأفلام العربية الكلاسيكية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-5",
+  "committee": "خلية فئة الأفلام العربية الكلاسيكية",
+  "cslug": "categories",
+  "sup": "cat-07-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-043",
-  "id": "author-33",
-  "title": "مؤلف أسئلة - السيارات والمحركات",
+  "id": "cat-07-media",
+  "title": "صياد الصور - الأفلام العربية الكلاسيكية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-5",
+  "committee": "خلية فئة الأفلام العربية الكلاسيكية",
+  "cslug": "categories",
+  "sup": "cat-07-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-044",
-  "id": "author-34",
-  "title": "مؤلف أسئلة - الطيران والسفر",
+  "id": "cat-07-checker",
+  "title": "مدقق الحقائق - الأفلام العربية الكلاسيكية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-5",
+  "committee": "خلية فئة الأفلام العربية الكلاسيكية",
+  "cslug": "categories",
+  "sup": "cat-07-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 1
  },
  {
   "no": "E-045",
-  "id": "author-35",
-  "title": "مؤلف أسئلة - الشعر النبطي والفصيح",
+  "id": "cat-07-monitor",
+  "title": "مراقب العملية - الأفلام العربية الكلاسيكية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-5",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة الأفلام العربية الكلاسيكية",
+  "cslug": "categories",
+  "sup": "monitor-questions-1",
+  "kind": "monitor",
+  "supervises": [
+   "cat-07-rival",
+   "cat-07-writer",
+   "cat-07-media",
+   "cat-07-checker"
+  ],
+  "group": 1
  },
  {
   "no": "E-046",
-  "id": "author-36",
-  "title": "مؤلف أسئلة - الأدب والروايات العالمية",
+  "id": "cat-08-rival",
+  "title": "محلل أنماط المنافسين - أفلام هوليوود والسينما العالمية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-6",
+  "committee": "خلية فئة أفلام هوليوود والسينما العالمية",
+  "cslug": "categories",
+  "sup": "cat-08-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-047",
-  "id": "author-37",
-  "title": "مؤلف أسئلة - الأغاني والموسيقى الخليجية",
+  "id": "cat-08-writer",
+  "title": "كاتب الأسئلة - أفلام هوليوود والسينما العالمية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-6",
+  "committee": "خلية فئة أفلام هوليوود والسينما العالمية",
+  "cslug": "categories",
+  "sup": "cat-08-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-048",
-  "id": "author-38",
-  "title": "مؤلف أسئلة - الموسيقى العربية والعالمية",
+  "id": "cat-08-media",
+  "title": "صياد الصور - أفلام هوليوود والسينما العالمية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-6",
+  "committee": "خلية فئة أفلام هوليوود والسينما العالمية",
+  "cslug": "categories",
+  "sup": "cat-08-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-049",
-  "id": "author-39",
-  "title": "مؤلف أسئلة - المسرحيات الكويتية",
+  "id": "cat-08-checker",
+  "title": "مدقق الحقائق - أفلام هوليوود والسينما العالمية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-6",
+  "committee": "خلية فئة أفلام هوليوود والسينما العالمية",
+  "cslug": "categories",
+  "sup": "cat-08-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-050",
-  "id": "author-40",
-  "title": "مؤلف أسئلة - الإيموجي والألغاز البصرية",
+  "id": "cat-08-monitor",
+  "title": "مراقب العملية - أفلام هوليوود والسينما العالمية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-6",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة أفلام هوليوود والسينما العالمية",
+  "cslug": "categories",
+  "sup": "monitor-questions-2",
+  "kind": "monitor",
+  "supervises": [
+   "cat-08-rival",
+   "cat-08-writer",
+   "cat-08-media",
+   "cat-08-checker"
+  ],
+  "group": 2
  },
  {
   "no": "E-051",
-  "id": "author-41",
-  "title": "مؤلف أسئلة - الصور المموهة والتخمين",
+  "id": "cat-09-rival",
+  "title": "محلل أنماط المنافسين - الأنمي والمانجا",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-6",
+  "committee": "خلية فئة الأنمي والمانجا",
+  "cslug": "categories",
+  "sup": "cat-09-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-052",
-  "id": "author-42",
-  "title": "مؤلف أسئلة - المقاطع الصوتية والأصوات",
+  "id": "cat-09-writer",
+  "title": "كاتب الأسئلة - الأنمي والمانجا",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-6",
+  "committee": "خلية فئة الأنمي والمانجا",
+  "cslug": "categories",
+  "sup": "cat-09-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-053",
-  "id": "author-43",
-  "title": "مؤلف أسئلة - الاقتصاد والمال والأعمال",
+  "id": "cat-09-media",
+  "title": "صياد الصور - الأنمي والمانجا",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-7",
+  "committee": "خلية فئة الأنمي والمانجا",
+  "cslug": "categories",
+  "sup": "cat-09-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-054",
-  "id": "author-44",
-  "title": "مؤلف أسئلة - العملات والطوابع",
+  "id": "cat-09-checker",
+  "title": "مدقق الحقائق - الأنمي والمانجا",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-7",
+  "committee": "خلية فئة الأنمي والمانجا",
+  "cslug": "categories",
+  "sup": "cat-09-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-055",
-  "id": "author-45",
-  "title": "مؤلف أسئلة - السياسة والعلاقات الدولية",
+  "id": "cat-09-monitor",
+  "title": "مراقب العملية - الأنمي والمانجا",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-7",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة الأنمي والمانجا",
+  "cslug": "categories",
+  "sup": "monitor-questions-2",
+  "kind": "monitor",
+  "supervises": [
+   "cat-09-rival",
+   "cat-09-writer",
+   "cat-09-media",
+   "cat-09-checker"
+  ],
+  "group": 2
  },
  {
   "no": "E-056",
-  "id": "author-46",
-  "title": "مؤلف أسئلة - القوانين والأنظمة",
+  "id": "cat-10-rival",
+  "title": "محلل أنماط المنافسين - الكرتون وأفلام ديزني",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-7",
+  "committee": "خلية فئة الكرتون وأفلام ديزني",
+  "cslug": "categories",
+  "sup": "cat-10-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-057",
-  "id": "author-47",
-  "title": "مؤلف أسئلة - علم النفس ولغة الجسد",
+  "id": "cat-10-writer",
+  "title": "كاتب الأسئلة - الكرتون وأفلام ديزني",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-7",
+  "committee": "خلية فئة الكرتون وأفلام ديزني",
+  "cslug": "categories",
+  "sup": "cat-10-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-058",
-  "id": "author-48",
-  "title": "مؤلف أسئلة - الأزياء والموضة",
+  "id": "cat-10-media",
+  "title": "صياد الصور - الكرتون وأفلام ديزني",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-7",
+  "committee": "خلية فئة الكرتون وأفلام ديزني",
+  "cslug": "categories",
+  "sup": "cat-10-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-059",
-  "id": "author-49",
-  "title": "مؤلف أسئلة - العطور والبخور",
+  "id": "cat-10-checker",
+  "title": "مدقق الحقائق - الكرتون وأفلام ديزني",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-7",
+  "committee": "خلية فئة الكرتون وأفلام ديزني",
+  "cslug": "categories",
+  "sup": "cat-10-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-060",
-  "id": "author-50",
-  "title": "مؤلف أسئلة - الديوانية والعادات والتقاليد",
+  "id": "cat-10-monitor",
+  "title": "مراقب العملية - الكرتون وأفلام ديزني",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-8",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة الكرتون وأفلام ديزني",
+  "cslug": "categories",
+  "sup": "monitor-questions-2",
+  "kind": "monitor",
+  "supervises": [
+   "cat-10-rival",
+   "cat-10-writer",
+   "cat-10-media",
+   "cat-10-checker"
+  ],
+  "group": 2
  },
  {
   "no": "E-061",
-  "id": "author-51",
-  "title": "مؤلف أسئلة - البر والكشتات والبحر (الحداق)",
+  "id": "cat-11-rival",
+  "title": "محلل أنماط المنافسين - اللهجة الكويتية والمصطلحات القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-8",
+  "committee": "خلية فئة اللهجة الكويتية والمصطلحات القديمة",
+  "cslug": "categories",
+  "sup": "cat-11-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-062",
-  "id": "author-52",
-  "title": "مؤلف أسئلة - ترندات السوشيال ميديا",
+  "id": "cat-11-writer",
+  "title": "كاتب الأسئلة - اللهجة الكويتية والمصطلحات القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-8",
+  "committee": "خلية فئة اللهجة الكويتية والمصطلحات القديمة",
+  "cslug": "categories",
+  "sup": "cat-11-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-063",
-  "id": "author-53",
-  "title": "مؤلف أسئلة - المشاهير وصناع المحتوى",
+  "id": "cat-11-media",
+  "title": "صياد الصور - اللهجة الكويتية والمصطلحات القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-8",
+  "committee": "خلية فئة اللهجة الكويتية والمصطلحات القديمة",
+  "cslug": "categories",
+  "sup": "cat-11-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-064",
-  "id": "author-54",
-  "title": "مؤلف أسئلة - الرياضيات والذكاء المنطقي",
+  "id": "cat-11-checker",
+  "title": "مدقق الحقائق - اللهجة الكويتية والمصطلحات القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-8",
+  "committee": "خلية فئة اللهجة الكويتية والمصطلحات القديمة",
+  "cslug": "categories",
+  "sup": "cat-11-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-065",
-  "id": "author-55",
-  "title": "مؤلف أسئلة - سرعة البديهة والمعلومات العامة",
+  "id": "cat-11-monitor",
+  "title": "مراقب العملية - اللهجة الكويتية والمصطلحات القديمة",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-8",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة اللهجة الكويتية والمصطلحات القديمة",
+  "cslug": "categories",
+  "sup": "monitor-questions-2",
+  "kind": "monitor",
+  "supervises": [
+   "cat-11-rival",
+   "cat-11-writer",
+   "cat-11-media",
+   "cat-11-checker"
+  ],
+  "group": 2
  },
  {
   "no": "E-066",
-  "id": "author-56",
-  "title": "مؤلف أسئلة - فئة «جواب الناس» (10 إجابات)",
+  "id": "cat-12-rival",
+  "title": "محلل أنماط المنافسين - اللهجات الخليجية والعربية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-8",
+  "committee": "خلية فئة اللهجات الخليجية والعربية",
+  "cslug": "categories",
+  "sup": "cat-12-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-067",
-  "id": "author-57",
-  "title": "مؤلف أسئلة - فئة «جواب الناس» (10 إجابات)",
+  "id": "cat-12-writer",
+  "title": "كاتب الأسئلة - اللهجات الخليجية والعربية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-9",
+  "committee": "خلية فئة اللهجات الخليجية والعربية",
+  "cslug": "categories",
+  "sup": "cat-12-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-068",
-  "id": "author-58",
-  "title": "مؤلف أسئلة - البطولات والمناسبات الموسمية",
+  "id": "cat-12-media",
+  "title": "صياد الصور - اللهجات الخليجية والعربية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-9",
+  "committee": "خلية فئة اللهجات الخليجية والعربية",
+  "cslug": "categories",
+  "sup": "cat-12-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-069",
-  "id": "author-59",
-  "title": "مؤلف أسئلة - البطولات والمناسبات الموسمية",
+  "id": "cat-12-checker",
+  "title": "مدقق الحقائق - اللهجات الخليجية والعربية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-9",
+  "committee": "خلية فئة اللهجات الخليجية والعربية",
+  "cslug": "categories",
+  "sup": "cat-12-monitor",
   "kind": "worker",
-  "supervises": []
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-070",
-  "id": "author-60",
-  "title": "مؤلف أسئلة - البطولات والمناسبات الموسمية",
+  "id": "cat-12-monitor",
+  "title": "مراقب العملية - اللهجات الخليجية والعربية",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "لجنة تأليف الأسئلة",
-  "cslug": "authors",
-  "sup": "monitor-questions-9",
-  "kind": "worker",
-  "supervises": []
+  "committee": "خلية فئة اللهجات الخليجية والعربية",
+  "cslug": "categories",
+  "sup": "monitor-questions-2",
+  "kind": "monitor",
+  "supervises": [
+   "cat-12-rival",
+   "cat-12-writer",
+   "cat-12-media",
+   "cat-12-checker"
+  ],
+  "group": 2
  },
  {
   "no": "E-071",
-  "id": "monitor-questions-1",
-  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (1)",
+  "id": "cat-13-rival",
+  "title": "محلل أنماط المنافسين - الأمثال الشعبية والألغاز",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "مراقبو لجنة الأسئلة",
-  "cslug": "authors",
-  "sup": "auditor-content",
-  "kind": "monitor",
-  "supervises": [
-   "author-01",
-   "author-02",
-   "author-03",
-   "author-04",
-   "author-05",
-   "author-06",
-   "author-07"
-  ]
+  "committee": "خلية فئة الأمثال الشعبية والألغاز",
+  "cslug": "categories",
+  "sup": "cat-13-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-072",
-  "id": "monitor-questions-2",
-  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (2)",
+  "id": "cat-13-writer",
+  "title": "كاتب الأسئلة - الأمثال الشعبية والألغاز",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "مراقبو لجنة الأسئلة",
-  "cslug": "authors",
-  "sup": "auditor-content",
-  "kind": "monitor",
-  "supervises": [
-   "author-08",
-   "author-09",
-   "author-10",
-   "author-11",
-   "author-12",
-   "author-13",
-   "author-14"
-  ]
+  "committee": "خلية فئة الأمثال الشعبية والألغاز",
+  "cslug": "categories",
+  "sup": "cat-13-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-073",
-  "id": "monitor-questions-3",
-  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (3)",
+  "id": "cat-13-media",
+  "title": "صياد الصور - الأمثال الشعبية والألغاز",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "مراقبو لجنة الأسئلة",
-  "cslug": "authors",
-  "sup": "auditor-content",
-  "kind": "monitor",
-  "supervises": [
-   "author-15",
-   "author-16",
-   "author-17",
-   "author-18",
-   "author-19",
-   "author-20",
-   "author-21"
-  ]
+  "committee": "خلية فئة الأمثال الشعبية والألغاز",
+  "cslug": "categories",
+  "sup": "cat-13-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-074",
-  "id": "monitor-questions-4",
-  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (4)",
+  "id": "cat-13-checker",
+  "title": "مدقق الحقائق - الأمثال الشعبية والألغاز",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "مراقبو لجنة الأسئلة",
-  "cslug": "authors",
-  "sup": "auditor-content",
-  "kind": "monitor",
-  "supervises": [
-   "author-22",
-   "author-23",
-   "author-24",
-   "author-25",
-   "author-26",
-   "author-27",
-   "author-28"
-  ]
+  "committee": "خلية فئة الأمثال الشعبية والألغاز",
+  "cslug": "categories",
+  "sup": "cat-13-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 2
  },
  {
   "no": "E-075",
-  "id": "monitor-questions-5",
-  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (5)",
+  "id": "cat-13-monitor",
+  "title": "مراقب العملية - الأمثال الشعبية والألغاز",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "مراقبو لجنة الأسئلة",
-  "cslug": "authors",
-  "sup": "auditor-content",
+  "committee": "خلية فئة الأمثال الشعبية والألغاز",
+  "cslug": "categories",
+  "sup": "monitor-questions-2",
   "kind": "monitor",
   "supervises": [
-   "author-29",
-   "author-30",
-   "author-31",
-   "author-32",
-   "author-33",
-   "author-34",
-   "author-35"
-  ]
+   "cat-13-rival",
+   "cat-13-writer",
+   "cat-13-media",
+   "cat-13-checker"
+  ],
+  "group": 2
  },
  {
   "no": "E-076",
-  "id": "monitor-questions-6",
-  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (6)",
+  "id": "cat-14-rival",
+  "title": "محلل أنماط المنافسين - شارع المطاعم والمقاهي",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "مراقبو لجنة الأسئلة",
-  "cslug": "authors",
-  "sup": "auditor-content",
-  "kind": "monitor",
-  "supervises": [
-   "author-36",
-   "author-37",
-   "author-38",
-   "author-39",
-   "author-40",
-   "author-41",
-   "author-42"
-  ]
+  "committee": "خلية فئة شارع المطاعم والمقاهي",
+  "cslug": "categories",
+  "sup": "cat-14-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
  },
  {
   "no": "E-077",
-  "id": "monitor-questions-7",
-  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (7)",
+  "id": "cat-14-writer",
+  "title": "كاتب الأسئلة - شارع المطاعم والمقاهي",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "مراقبو لجنة الأسئلة",
-  "cslug": "authors",
-  "sup": "auditor-content",
-  "kind": "monitor",
-  "supervises": [
-   "author-43",
-   "author-44",
-   "author-45",
-   "author-46",
-   "author-47",
-   "author-48",
-   "author-49"
-  ]
+  "committee": "خلية فئة شارع المطاعم والمقاهي",
+  "cslug": "categories",
+  "sup": "cat-14-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
  },
  {
   "no": "E-078",
-  "id": "monitor-questions-8",
-  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (8)",
+  "id": "cat-14-media",
+  "title": "صياد الصور - شارع المطاعم والمقاهي",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "مراقبو لجنة الأسئلة",
-  "cslug": "authors",
-  "sup": "auditor-content",
-  "kind": "monitor",
-  "supervises": [
-   "author-50",
-   "author-51",
-   "author-52",
-   "author-53",
-   "author-54",
-   "author-55",
-   "author-56"
-  ]
+  "committee": "خلية فئة شارع المطاعم والمقاهي",
+  "cslug": "categories",
+  "sup": "cat-14-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
  },
  {
   "no": "E-079",
-  "id": "monitor-questions-9",
-  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (9)",
+  "id": "cat-14-checker",
+  "title": "مدقق الحقائق - شارع المطاعم والمقاهي",
   "sector": "قطاع المحتوى والفئات",
-  "committee": "مراقبو لجنة الأسئلة",
-  "cslug": "authors",
-  "sup": "auditor-content",
-  "kind": "monitor",
-  "supervises": [
-   "author-57",
-   "author-58",
-   "author-59",
-   "author-60"
-  ]
+  "committee": "خلية فئة شارع المطاعم والمقاهي",
+  "cslug": "categories",
+  "sup": "cat-14-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
  },
  {
   "no": "E-080",
+  "id": "cat-14-monitor",
+  "title": "مراقب العملية - شارع المطاعم والمقاهي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة شارع المطاعم والمقاهي",
+  "cslug": "categories",
+  "sup": "monitor-questions-3",
+  "kind": "monitor",
+  "supervises": [
+   "cat-14-rival",
+   "cat-14-writer",
+   "cat-14-media",
+   "cat-14-checker"
+  ],
+  "group": 3
+ },
+ {
+  "no": "E-081",
+  "id": "cat-15-rival",
+  "title": "محلل أنماط المنافسين - الأكلات الشعبية والمطبخ العالمي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأكلات الشعبية والمطبخ العالمي",
+  "cslug": "categories",
+  "sup": "cat-15-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-082",
+  "id": "cat-15-writer",
+  "title": "كاتب الأسئلة - الأكلات الشعبية والمطبخ العالمي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأكلات الشعبية والمطبخ العالمي",
+  "cslug": "categories",
+  "sup": "cat-15-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-083",
+  "id": "cat-15-media",
+  "title": "صياد الصور - الأكلات الشعبية والمطبخ العالمي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأكلات الشعبية والمطبخ العالمي",
+  "cslug": "categories",
+  "sup": "cat-15-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-084",
+  "id": "cat-15-checker",
+  "title": "مدقق الحقائق - الأكلات الشعبية والمطبخ العالمي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأكلات الشعبية والمطبخ العالمي",
+  "cslug": "categories",
+  "sup": "cat-15-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-085",
+  "id": "cat-15-monitor",
+  "title": "مراقب العملية - الأكلات الشعبية والمطبخ العالمي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأكلات الشعبية والمطبخ العالمي",
+  "cslug": "categories",
+  "sup": "monitor-questions-3",
+  "kind": "monitor",
+  "supervises": [
+   "cat-15-rival",
+   "cat-15-writer",
+   "cat-15-media",
+   "cat-15-checker"
+  ],
+  "group": 3
+ },
+ {
+  "no": "E-086",
+  "id": "cat-16-rival",
+  "title": "محلل أنماط المنافسين - العلامات التجارية والماركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العلامات التجارية والماركات",
+  "cslug": "categories",
+  "sup": "cat-16-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-087",
+  "id": "cat-16-writer",
+  "title": "كاتب الأسئلة - العلامات التجارية والماركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العلامات التجارية والماركات",
+  "cslug": "categories",
+  "sup": "cat-16-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-088",
+  "id": "cat-16-media",
+  "title": "صياد الصور - العلامات التجارية والماركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العلامات التجارية والماركات",
+  "cslug": "categories",
+  "sup": "cat-16-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-089",
+  "id": "cat-16-checker",
+  "title": "مدقق الحقائق - العلامات التجارية والماركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العلامات التجارية والماركات",
+  "cslug": "categories",
+  "sup": "cat-16-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-090",
+  "id": "cat-16-monitor",
+  "title": "مراقب العملية - العلامات التجارية والماركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العلامات التجارية والماركات",
+  "cslug": "categories",
+  "sup": "monitor-questions-3",
+  "kind": "monitor",
+  "supervises": [
+   "cat-16-rival",
+   "cat-16-writer",
+   "cat-16-media",
+   "cat-16-checker"
+  ],
+  "group": 3
+ },
+ {
+  "no": "E-091",
+  "id": "cat-17-rival",
+  "title": "محلل أنماط المنافسين - تاريخ الكويت والخليج",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة تاريخ الكويت والخليج",
+  "cslug": "categories",
+  "sup": "cat-17-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-092",
+  "id": "cat-17-writer",
+  "title": "كاتب الأسئلة - تاريخ الكويت والخليج",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة تاريخ الكويت والخليج",
+  "cslug": "categories",
+  "sup": "cat-17-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-093",
+  "id": "cat-17-media",
+  "title": "صياد الصور - تاريخ الكويت والخليج",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة تاريخ الكويت والخليج",
+  "cslug": "categories",
+  "sup": "cat-17-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-094",
+  "id": "cat-17-checker",
+  "title": "مدقق الحقائق - تاريخ الكويت والخليج",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة تاريخ الكويت والخليج",
+  "cslug": "categories",
+  "sup": "cat-17-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-095",
+  "id": "cat-17-monitor",
+  "title": "مراقب العملية - تاريخ الكويت والخليج",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة تاريخ الكويت والخليج",
+  "cslug": "categories",
+  "sup": "monitor-questions-3",
+  "kind": "monitor",
+  "supervises": [
+   "cat-17-rival",
+   "cat-17-writer",
+   "cat-17-media",
+   "cat-17-checker"
+  ],
+  "group": 3
+ },
+ {
+  "no": "E-096",
+  "id": "cat-18-rival",
+  "title": "محلل أنماط المنافسين - التاريخ الإسلامي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ الإسلامي",
+  "cslug": "categories",
+  "sup": "cat-18-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-097",
+  "id": "cat-18-writer",
+  "title": "كاتب الأسئلة - التاريخ الإسلامي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ الإسلامي",
+  "cslug": "categories",
+  "sup": "cat-18-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-098",
+  "id": "cat-18-media",
+  "title": "صياد الصور - التاريخ الإسلامي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ الإسلامي",
+  "cslug": "categories",
+  "sup": "cat-18-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-099",
+  "id": "cat-18-checker",
+  "title": "مدقق الحقائق - التاريخ الإسلامي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ الإسلامي",
+  "cslug": "categories",
+  "sup": "cat-18-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-100",
+  "id": "cat-18-monitor",
+  "title": "مراقب العملية - التاريخ الإسلامي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ الإسلامي",
+  "cslug": "categories",
+  "sup": "monitor-questions-3",
+  "kind": "monitor",
+  "supervises": [
+   "cat-18-rival",
+   "cat-18-writer",
+   "cat-18-media",
+   "cat-18-checker"
+  ],
+  "group": 3
+ },
+ {
+  "no": "E-101",
+  "id": "cat-19-rival",
+  "title": "محلل أنماط المنافسين - التاريخ العالمي والحروب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ العالمي والحروب",
+  "cslug": "categories",
+  "sup": "cat-19-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-102",
+  "id": "cat-19-writer",
+  "title": "كاتب الأسئلة - التاريخ العالمي والحروب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ العالمي والحروب",
+  "cslug": "categories",
+  "sup": "cat-19-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-103",
+  "id": "cat-19-media",
+  "title": "صياد الصور - التاريخ العالمي والحروب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ العالمي والحروب",
+  "cslug": "categories",
+  "sup": "cat-19-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-104",
+  "id": "cat-19-checker",
+  "title": "مدقق الحقائق - التاريخ العالمي والحروب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ العالمي والحروب",
+  "cslug": "categories",
+  "sup": "cat-19-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 3
+ },
+ {
+  "no": "E-105",
+  "id": "cat-19-monitor",
+  "title": "مراقب العملية - التاريخ العالمي والحروب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التاريخ العالمي والحروب",
+  "cslug": "categories",
+  "sup": "monitor-questions-3",
+  "kind": "monitor",
+  "supervises": [
+   "cat-19-rival",
+   "cat-19-writer",
+   "cat-19-media",
+   "cat-19-checker"
+  ],
+  "group": 3
+ },
+ {
+  "no": "E-106",
+  "id": "cat-20-rival",
+  "title": "محلل أنماط المنافسين - السير الذاتية والشخصيات المؤثرة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السير الذاتية والشخصيات المؤثرة",
+  "cslug": "categories",
+  "sup": "cat-20-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-107",
+  "id": "cat-20-writer",
+  "title": "كاتب الأسئلة - السير الذاتية والشخصيات المؤثرة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السير الذاتية والشخصيات المؤثرة",
+  "cslug": "categories",
+  "sup": "cat-20-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-108",
+  "id": "cat-20-media",
+  "title": "صياد الصور - السير الذاتية والشخصيات المؤثرة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السير الذاتية والشخصيات المؤثرة",
+  "cslug": "categories",
+  "sup": "cat-20-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-109",
+  "id": "cat-20-checker",
+  "title": "مدقق الحقائق - السير الذاتية والشخصيات المؤثرة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السير الذاتية والشخصيات المؤثرة",
+  "cslug": "categories",
+  "sup": "cat-20-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-110",
+  "id": "cat-20-monitor",
+  "title": "مراقب العملية - السير الذاتية والشخصيات المؤثرة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السير الذاتية والشخصيات المؤثرة",
+  "cslug": "categories",
+  "sup": "monitor-questions-4",
+  "kind": "monitor",
+  "supervises": [
+   "cat-20-rival",
+   "cat-20-writer",
+   "cat-20-media",
+   "cat-20-checker"
+  ],
+  "group": 4
+ },
+ {
+  "no": "E-111",
+  "id": "cat-21-rival",
+  "title": "محلل أنماط المنافسين - الفقه والعبادات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفقه والعبادات",
+  "cslug": "categories",
+  "sup": "cat-21-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-112",
+  "id": "cat-21-writer",
+  "title": "كاتب الأسئلة - الفقه والعبادات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفقه والعبادات",
+  "cslug": "categories",
+  "sup": "cat-21-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-113",
+  "id": "cat-21-media",
+  "title": "صياد الصور - الفقه والعبادات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفقه والعبادات",
+  "cslug": "categories",
+  "sup": "cat-21-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-114",
+  "id": "cat-21-checker",
+  "title": "مدقق الحقائق - الفقه والعبادات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفقه والعبادات",
+  "cslug": "categories",
+  "sup": "cat-21-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-115",
+  "id": "cat-21-monitor",
+  "title": "مراقب العملية - الفقه والعبادات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفقه والعبادات",
+  "cslug": "categories",
+  "sup": "monitor-questions-4",
+  "kind": "monitor",
+  "supervises": [
+   "cat-21-rival",
+   "cat-21-writer",
+   "cat-21-media",
+   "cat-21-checker"
+  ],
+  "group": 4
+ },
+ {
+  "no": "E-116",
+  "id": "cat-22-rival",
+  "title": "محلل أنماط المنافسين - السيرة النبوية والصحابة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيرة النبوية والصحابة",
+  "cslug": "categories",
+  "sup": "cat-22-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-117",
+  "id": "cat-22-writer",
+  "title": "كاتب الأسئلة - السيرة النبوية والصحابة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيرة النبوية والصحابة",
+  "cslug": "categories",
+  "sup": "cat-22-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-118",
+  "id": "cat-22-media",
+  "title": "صياد الصور - السيرة النبوية والصحابة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيرة النبوية والصحابة",
+  "cslug": "categories",
+  "sup": "cat-22-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-119",
+  "id": "cat-22-checker",
+  "title": "مدقق الحقائق - السيرة النبوية والصحابة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيرة النبوية والصحابة",
+  "cslug": "categories",
+  "sup": "cat-22-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-120",
+  "id": "cat-22-monitor",
+  "title": "مراقب العملية - السيرة النبوية والصحابة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيرة النبوية والصحابة",
+  "cslug": "categories",
+  "sup": "monitor-questions-4",
+  "kind": "monitor",
+  "supervises": [
+   "cat-22-rival",
+   "cat-22-writer",
+   "cat-22-media",
+   "cat-22-checker"
+  ],
+  "group": 4
+ },
+ {
+  "no": "E-121",
+  "id": "cat-23-rival",
+  "title": "محلل أنماط المنافسين - القرآن الكريم وتفسيره",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القرآن الكريم وتفسيره",
+  "cslug": "categories",
+  "sup": "cat-23-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-122",
+  "id": "cat-23-writer",
+  "title": "كاتب الأسئلة - القرآن الكريم وتفسيره",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القرآن الكريم وتفسيره",
+  "cslug": "categories",
+  "sup": "cat-23-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-123",
+  "id": "cat-23-media",
+  "title": "صياد الصور - القرآن الكريم وتفسيره",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القرآن الكريم وتفسيره",
+  "cslug": "categories",
+  "sup": "cat-23-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-124",
+  "id": "cat-23-checker",
+  "title": "مدقق الحقائق - القرآن الكريم وتفسيره",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القرآن الكريم وتفسيره",
+  "cslug": "categories",
+  "sup": "cat-23-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-125",
+  "id": "cat-23-monitor",
+  "title": "مراقب العملية - القرآن الكريم وتفسيره",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القرآن الكريم وتفسيره",
+  "cslug": "categories",
+  "sup": "monitor-questions-4",
+  "kind": "monitor",
+  "supervises": [
+   "cat-23-rival",
+   "cat-23-writer",
+   "cat-23-media",
+   "cat-23-checker"
+  ],
+  "group": 4
+ },
+ {
+  "no": "E-126",
+  "id": "cat-24-rival",
+  "title": "محلل أنماط المنافسين - جغرافيا الدول والعواصم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة جغرافيا الدول والعواصم",
+  "cslug": "categories",
+  "sup": "cat-24-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-127",
+  "id": "cat-24-writer",
+  "title": "كاتب الأسئلة - جغرافيا الدول والعواصم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة جغرافيا الدول والعواصم",
+  "cslug": "categories",
+  "sup": "cat-24-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-128",
+  "id": "cat-24-media",
+  "title": "صياد الصور - جغرافيا الدول والعواصم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة جغرافيا الدول والعواصم",
+  "cslug": "categories",
+  "sup": "cat-24-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-129",
+  "id": "cat-24-checker",
+  "title": "مدقق الحقائق - جغرافيا الدول والعواصم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة جغرافيا الدول والعواصم",
+  "cslug": "categories",
+  "sup": "cat-24-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-130",
+  "id": "cat-24-monitor",
+  "title": "مراقب العملية - جغرافيا الدول والعواصم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة جغرافيا الدول والعواصم",
+  "cslug": "categories",
+  "sup": "monitor-questions-4",
+  "kind": "monitor",
+  "supervises": [
+   "cat-24-rival",
+   "cat-24-writer",
+   "cat-24-media",
+   "cat-24-checker"
+  ],
+  "group": 4
+ },
+ {
+  "no": "E-131",
+  "id": "cat-25-rival",
+  "title": "محلل أنماط المنافسين - المعالم السياحية والعجائب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المعالم السياحية والعجائب",
+  "cslug": "categories",
+  "sup": "cat-25-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-132",
+  "id": "cat-25-writer",
+  "title": "كاتب الأسئلة - المعالم السياحية والعجائب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المعالم السياحية والعجائب",
+  "cslug": "categories",
+  "sup": "cat-25-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-133",
+  "id": "cat-25-media",
+  "title": "صياد الصور - المعالم السياحية والعجائب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المعالم السياحية والعجائب",
+  "cslug": "categories",
+  "sup": "cat-25-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-134",
+  "id": "cat-25-checker",
+  "title": "مدقق الحقائق - المعالم السياحية والعجائب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المعالم السياحية والعجائب",
+  "cslug": "categories",
+  "sup": "cat-25-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-135",
+  "id": "cat-25-monitor",
+  "title": "مراقب العملية - المعالم السياحية والعجائب",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المعالم السياحية والعجائب",
+  "cslug": "categories",
+  "sup": "monitor-questions-4",
+  "kind": "monitor",
+  "supervises": [
+   "cat-25-rival",
+   "cat-25-writer",
+   "cat-25-media",
+   "cat-25-checker"
+  ],
+  "group": 4
+ },
+ {
+  "no": "E-136",
+  "id": "cat-26-rival",
+  "title": "محلل أنماط المنافسين - الفضاء والفلك",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفضاء والفلك",
+  "cslug": "categories",
+  "sup": "cat-26-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-137",
+  "id": "cat-26-writer",
+  "title": "كاتب الأسئلة - الفضاء والفلك",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفضاء والفلك",
+  "cslug": "categories",
+  "sup": "cat-26-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-138",
+  "id": "cat-26-media",
+  "title": "صياد الصور - الفضاء والفلك",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفضاء والفلك",
+  "cslug": "categories",
+  "sup": "cat-26-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-139",
+  "id": "cat-26-checker",
+  "title": "مدقق الحقائق - الفضاء والفلك",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفضاء والفلك",
+  "cslug": "categories",
+  "sup": "cat-26-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 4
+ },
+ {
+  "no": "E-140",
+  "id": "cat-26-monitor",
+  "title": "مراقب العملية - الفضاء والفلك",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفضاء والفلك",
+  "cslug": "categories",
+  "sup": "monitor-questions-4",
+  "kind": "monitor",
+  "supervises": [
+   "cat-26-rival",
+   "cat-26-writer",
+   "cat-26-media",
+   "cat-26-checker"
+  ],
+  "group": 4
+ },
+ {
+  "no": "E-141",
+  "id": "cat-27-rival",
+  "title": "محلل أنماط المنافسين - عالم الحيوان والطبيعة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة عالم الحيوان والطبيعة",
+  "cslug": "categories",
+  "sup": "cat-27-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-142",
+  "id": "cat-27-writer",
+  "title": "كاتب الأسئلة - عالم الحيوان والطبيعة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة عالم الحيوان والطبيعة",
+  "cslug": "categories",
+  "sup": "cat-27-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-143",
+  "id": "cat-27-media",
+  "title": "صياد الصور - عالم الحيوان والطبيعة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة عالم الحيوان والطبيعة",
+  "cslug": "categories",
+  "sup": "cat-27-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-144",
+  "id": "cat-27-checker",
+  "title": "مدقق الحقائق - عالم الحيوان والطبيعة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة عالم الحيوان والطبيعة",
+  "cslug": "categories",
+  "sup": "cat-27-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-145",
+  "id": "cat-27-monitor",
+  "title": "مراقب العملية - عالم الحيوان والطبيعة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة عالم الحيوان والطبيعة",
+  "cslug": "categories",
+  "sup": "monitor-questions-5",
+  "kind": "monitor",
+  "supervises": [
+   "cat-27-rival",
+   "cat-27-writer",
+   "cat-27-media",
+   "cat-27-checker"
+  ],
+  "group": 5
+ },
+ {
+  "no": "E-146",
+  "id": "cat-28-rival",
+  "title": "محلل أنماط المنافسين - الطب وصحة الإنسان",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطب وصحة الإنسان",
+  "cslug": "categories",
+  "sup": "cat-28-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-147",
+  "id": "cat-28-writer",
+  "title": "كاتب الأسئلة - الطب وصحة الإنسان",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطب وصحة الإنسان",
+  "cslug": "categories",
+  "sup": "cat-28-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-148",
+  "id": "cat-28-media",
+  "title": "صياد الصور - الطب وصحة الإنسان",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطب وصحة الإنسان",
+  "cslug": "categories",
+  "sup": "cat-28-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-149",
+  "id": "cat-28-checker",
+  "title": "مدقق الحقائق - الطب وصحة الإنسان",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطب وصحة الإنسان",
+  "cslug": "categories",
+  "sup": "cat-28-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-150",
+  "id": "cat-28-monitor",
+  "title": "مراقب العملية - الطب وصحة الإنسان",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطب وصحة الإنسان",
+  "cslug": "categories",
+  "sup": "monitor-questions-5",
+  "kind": "monitor",
+  "supervises": [
+   "cat-28-rival",
+   "cat-28-writer",
+   "cat-28-media",
+   "cat-28-checker"
+  ],
+  "group": 5
+ },
+ {
+  "no": "E-151",
+  "id": "cat-29-rival",
+  "title": "محلل أنماط المنافسين - الفيزياء والكيمياء والعلوم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفيزياء والكيمياء والعلوم",
+  "cslug": "categories",
+  "sup": "cat-29-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-152",
+  "id": "cat-29-writer",
+  "title": "كاتب الأسئلة - الفيزياء والكيمياء والعلوم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفيزياء والكيمياء والعلوم",
+  "cslug": "categories",
+  "sup": "cat-29-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-153",
+  "id": "cat-29-media",
+  "title": "صياد الصور - الفيزياء والكيمياء والعلوم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفيزياء والكيمياء والعلوم",
+  "cslug": "categories",
+  "sup": "cat-29-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-154",
+  "id": "cat-29-checker",
+  "title": "مدقق الحقائق - الفيزياء والكيمياء والعلوم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفيزياء والكيمياء والعلوم",
+  "cslug": "categories",
+  "sup": "cat-29-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-155",
+  "id": "cat-29-monitor",
+  "title": "مراقب العملية - الفيزياء والكيمياء والعلوم",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الفيزياء والكيمياء والعلوم",
+  "cslug": "categories",
+  "sup": "monitor-questions-5",
+  "kind": "monitor",
+  "supervises": [
+   "cat-29-rival",
+   "cat-29-writer",
+   "cat-29-media",
+   "cat-29-checker"
+  ],
+  "group": 5
+ },
+ {
+  "no": "E-156",
+  "id": "cat-30-rival",
+  "title": "محلل أنماط المنافسين - الاختراعات والعلماء",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاختراعات والعلماء",
+  "cslug": "categories",
+  "sup": "cat-30-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-157",
+  "id": "cat-30-writer",
+  "title": "كاتب الأسئلة - الاختراعات والعلماء",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاختراعات والعلماء",
+  "cslug": "categories",
+  "sup": "cat-30-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-158",
+  "id": "cat-30-media",
+  "title": "صياد الصور - الاختراعات والعلماء",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاختراعات والعلماء",
+  "cslug": "categories",
+  "sup": "cat-30-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-159",
+  "id": "cat-30-checker",
+  "title": "مدقق الحقائق - الاختراعات والعلماء",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاختراعات والعلماء",
+  "cslug": "categories",
+  "sup": "cat-30-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-160",
+  "id": "cat-30-monitor",
+  "title": "مراقب العملية - الاختراعات والعلماء",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاختراعات والعلماء",
+  "cslug": "categories",
+  "sup": "monitor-questions-5",
+  "kind": "monitor",
+  "supervises": [
+   "cat-30-rival",
+   "cat-30-writer",
+   "cat-30-media",
+   "cat-30-checker"
+  ],
+  "group": 5
+ },
+ {
+  "no": "E-161",
+  "id": "cat-31-rival",
+  "title": "محلل أنماط المنافسين - التقنية والذكاء الاصطناعي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التقنية والذكاء الاصطناعي",
+  "cslug": "categories",
+  "sup": "cat-31-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-162",
+  "id": "cat-31-writer",
+  "title": "كاتب الأسئلة - التقنية والذكاء الاصطناعي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التقنية والذكاء الاصطناعي",
+  "cslug": "categories",
+  "sup": "cat-31-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-163",
+  "id": "cat-31-media",
+  "title": "صياد الصور - التقنية والذكاء الاصطناعي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التقنية والذكاء الاصطناعي",
+  "cslug": "categories",
+  "sup": "cat-31-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-164",
+  "id": "cat-31-checker",
+  "title": "مدقق الحقائق - التقنية والذكاء الاصطناعي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التقنية والذكاء الاصطناعي",
+  "cslug": "categories",
+  "sup": "cat-31-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-165",
+  "id": "cat-31-monitor",
+  "title": "مراقب العملية - التقنية والذكاء الاصطناعي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة التقنية والذكاء الاصطناعي",
+  "cslug": "categories",
+  "sup": "monitor-questions-5",
+  "kind": "monitor",
+  "supervises": [
+   "cat-31-rival",
+   "cat-31-writer",
+   "cat-31-media",
+   "cat-31-checker"
+  ],
+  "group": 5
+ },
+ {
+  "no": "E-166",
+  "id": "cat-32-rival",
+  "title": "محلل أنماط المنافسين - ألعاب الفيديو (Gaming)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ألعاب الفيديو (Gaming)",
+  "cslug": "categories",
+  "sup": "cat-32-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-167",
+  "id": "cat-32-writer",
+  "title": "كاتب الأسئلة - ألعاب الفيديو (Gaming)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ألعاب الفيديو (Gaming)",
+  "cslug": "categories",
+  "sup": "cat-32-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-168",
+  "id": "cat-32-media",
+  "title": "صياد الصور - ألعاب الفيديو (Gaming)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ألعاب الفيديو (Gaming)",
+  "cslug": "categories",
+  "sup": "cat-32-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-169",
+  "id": "cat-32-checker",
+  "title": "مدقق الحقائق - ألعاب الفيديو (Gaming)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ألعاب الفيديو (Gaming)",
+  "cslug": "categories",
+  "sup": "cat-32-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 5
+ },
+ {
+  "no": "E-170",
+  "id": "cat-32-monitor",
+  "title": "مراقب العملية - ألعاب الفيديو (Gaming)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ألعاب الفيديو (Gaming)",
+  "cslug": "categories",
+  "sup": "monitor-questions-5",
+  "kind": "monitor",
+  "supervises": [
+   "cat-32-rival",
+   "cat-32-writer",
+   "cat-32-media",
+   "cat-32-checker"
+  ],
+  "group": 5
+ },
+ {
+  "no": "E-171",
+  "id": "cat-33-rival",
+  "title": "محلل أنماط المنافسين - السيارات والمحركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيارات والمحركات",
+  "cslug": "categories",
+  "sup": "cat-33-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-172",
+  "id": "cat-33-writer",
+  "title": "كاتب الأسئلة - السيارات والمحركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيارات والمحركات",
+  "cslug": "categories",
+  "sup": "cat-33-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-173",
+  "id": "cat-33-media",
+  "title": "صياد الصور - السيارات والمحركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيارات والمحركات",
+  "cslug": "categories",
+  "sup": "cat-33-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-174",
+  "id": "cat-33-checker",
+  "title": "مدقق الحقائق - السيارات والمحركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيارات والمحركات",
+  "cslug": "categories",
+  "sup": "cat-33-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-175",
+  "id": "cat-33-monitor",
+  "title": "مراقب العملية - السيارات والمحركات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السيارات والمحركات",
+  "cslug": "categories",
+  "sup": "monitor-questions-6",
+  "kind": "monitor",
+  "supervises": [
+   "cat-33-rival",
+   "cat-33-writer",
+   "cat-33-media",
+   "cat-33-checker"
+  ],
+  "group": 6
+ },
+ {
+  "no": "E-176",
+  "id": "cat-34-rival",
+  "title": "محلل أنماط المنافسين - الطيران والسفر",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطيران والسفر",
+  "cslug": "categories",
+  "sup": "cat-34-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-177",
+  "id": "cat-34-writer",
+  "title": "كاتب الأسئلة - الطيران والسفر",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطيران والسفر",
+  "cslug": "categories",
+  "sup": "cat-34-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-178",
+  "id": "cat-34-media",
+  "title": "صياد الصور - الطيران والسفر",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطيران والسفر",
+  "cslug": "categories",
+  "sup": "cat-34-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-179",
+  "id": "cat-34-checker",
+  "title": "مدقق الحقائق - الطيران والسفر",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطيران والسفر",
+  "cslug": "categories",
+  "sup": "cat-34-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-180",
+  "id": "cat-34-monitor",
+  "title": "مراقب العملية - الطيران والسفر",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الطيران والسفر",
+  "cslug": "categories",
+  "sup": "monitor-questions-6",
+  "kind": "monitor",
+  "supervises": [
+   "cat-34-rival",
+   "cat-34-writer",
+   "cat-34-media",
+   "cat-34-checker"
+  ],
+  "group": 6
+ },
+ {
+  "no": "E-181",
+  "id": "cat-35-rival",
+  "title": "محلل أنماط المنافسين - الشعر النبطي والفصيح",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الشعر النبطي والفصيح",
+  "cslug": "categories",
+  "sup": "cat-35-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-182",
+  "id": "cat-35-writer",
+  "title": "كاتب الأسئلة - الشعر النبطي والفصيح",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الشعر النبطي والفصيح",
+  "cslug": "categories",
+  "sup": "cat-35-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-183",
+  "id": "cat-35-media",
+  "title": "صياد الصور - الشعر النبطي والفصيح",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الشعر النبطي والفصيح",
+  "cslug": "categories",
+  "sup": "cat-35-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-184",
+  "id": "cat-35-checker",
+  "title": "مدقق الحقائق - الشعر النبطي والفصيح",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الشعر النبطي والفصيح",
+  "cslug": "categories",
+  "sup": "cat-35-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-185",
+  "id": "cat-35-monitor",
+  "title": "مراقب العملية - الشعر النبطي والفصيح",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الشعر النبطي والفصيح",
+  "cslug": "categories",
+  "sup": "monitor-questions-6",
+  "kind": "monitor",
+  "supervises": [
+   "cat-35-rival",
+   "cat-35-writer",
+   "cat-35-media",
+   "cat-35-checker"
+  ],
+  "group": 6
+ },
+ {
+  "no": "E-186",
+  "id": "cat-36-rival",
+  "title": "محلل أنماط المنافسين - الأدب والروايات العالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأدب والروايات العالمية",
+  "cslug": "categories",
+  "sup": "cat-36-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-187",
+  "id": "cat-36-writer",
+  "title": "كاتب الأسئلة - الأدب والروايات العالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأدب والروايات العالمية",
+  "cslug": "categories",
+  "sup": "cat-36-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-188",
+  "id": "cat-36-media",
+  "title": "صياد الصور - الأدب والروايات العالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأدب والروايات العالمية",
+  "cslug": "categories",
+  "sup": "cat-36-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-189",
+  "id": "cat-36-checker",
+  "title": "مدقق الحقائق - الأدب والروايات العالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأدب والروايات العالمية",
+  "cslug": "categories",
+  "sup": "cat-36-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-190",
+  "id": "cat-36-monitor",
+  "title": "مراقب العملية - الأدب والروايات العالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأدب والروايات العالمية",
+  "cslug": "categories",
+  "sup": "monitor-questions-6",
+  "kind": "monitor",
+  "supervises": [
+   "cat-36-rival",
+   "cat-36-writer",
+   "cat-36-media",
+   "cat-36-checker"
+  ],
+  "group": 6
+ },
+ {
+  "no": "E-191",
+  "id": "cat-37-rival",
+  "title": "محلل أنماط المنافسين - الأغاني والموسيقى الخليجية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأغاني والموسيقى الخليجية",
+  "cslug": "categories",
+  "sup": "cat-37-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-192",
+  "id": "cat-37-writer",
+  "title": "كاتب الأسئلة - الأغاني والموسيقى الخليجية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأغاني والموسيقى الخليجية",
+  "cslug": "categories",
+  "sup": "cat-37-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-193",
+  "id": "cat-37-media",
+  "title": "صياد الصور - الأغاني والموسيقى الخليجية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأغاني والموسيقى الخليجية",
+  "cslug": "categories",
+  "sup": "cat-37-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-194",
+  "id": "cat-37-checker",
+  "title": "مدقق الحقائق - الأغاني والموسيقى الخليجية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأغاني والموسيقى الخليجية",
+  "cslug": "categories",
+  "sup": "cat-37-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-195",
+  "id": "cat-37-monitor",
+  "title": "مراقب العملية - الأغاني والموسيقى الخليجية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأغاني والموسيقى الخليجية",
+  "cslug": "categories",
+  "sup": "monitor-questions-6",
+  "kind": "monitor",
+  "supervises": [
+   "cat-37-rival",
+   "cat-37-writer",
+   "cat-37-media",
+   "cat-37-checker"
+  ],
+  "group": 6
+ },
+ {
+  "no": "E-196",
+  "id": "cat-38-rival",
+  "title": "محلل أنماط المنافسين - الموسيقى العربية والعالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الموسيقى العربية والعالمية",
+  "cslug": "categories",
+  "sup": "cat-38-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-197",
+  "id": "cat-38-writer",
+  "title": "كاتب الأسئلة - الموسيقى العربية والعالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الموسيقى العربية والعالمية",
+  "cslug": "categories",
+  "sup": "cat-38-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-198",
+  "id": "cat-38-media",
+  "title": "صياد الصور - الموسيقى العربية والعالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الموسيقى العربية والعالمية",
+  "cslug": "categories",
+  "sup": "cat-38-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-199",
+  "id": "cat-38-checker",
+  "title": "مدقق الحقائق - الموسيقى العربية والعالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الموسيقى العربية والعالمية",
+  "cslug": "categories",
+  "sup": "cat-38-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 6
+ },
+ {
+  "no": "E-200",
+  "id": "cat-38-monitor",
+  "title": "مراقب العملية - الموسيقى العربية والعالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الموسيقى العربية والعالمية",
+  "cslug": "categories",
+  "sup": "monitor-questions-6",
+  "kind": "monitor",
+  "supervises": [
+   "cat-38-rival",
+   "cat-38-writer",
+   "cat-38-media",
+   "cat-38-checker"
+  ],
+  "group": 6
+ },
+ {
+  "no": "E-201",
+  "id": "cat-39-rival",
+  "title": "محلل أنماط المنافسين - المسرحيات الكويتية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المسرحيات الكويتية",
+  "cslug": "categories",
+  "sup": "cat-39-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-202",
+  "id": "cat-39-writer",
+  "title": "كاتب الأسئلة - المسرحيات الكويتية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المسرحيات الكويتية",
+  "cslug": "categories",
+  "sup": "cat-39-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-203",
+  "id": "cat-39-media",
+  "title": "صياد الصور - المسرحيات الكويتية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المسرحيات الكويتية",
+  "cslug": "categories",
+  "sup": "cat-39-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-204",
+  "id": "cat-39-checker",
+  "title": "مدقق الحقائق - المسرحيات الكويتية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المسرحيات الكويتية",
+  "cslug": "categories",
+  "sup": "cat-39-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-205",
+  "id": "cat-39-monitor",
+  "title": "مراقب العملية - المسرحيات الكويتية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المسرحيات الكويتية",
+  "cslug": "categories",
+  "sup": "monitor-questions-7",
+  "kind": "monitor",
+  "supervises": [
+   "cat-39-rival",
+   "cat-39-writer",
+   "cat-39-media",
+   "cat-39-checker"
+  ],
+  "group": 7
+ },
+ {
+  "no": "E-206",
+  "id": "cat-40-rival",
+  "title": "محلل أنماط المنافسين - الإيموجي والألغاز البصرية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الإيموجي والألغاز البصرية",
+  "cslug": "categories",
+  "sup": "cat-40-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-207",
+  "id": "cat-40-writer",
+  "title": "كاتب الأسئلة - الإيموجي والألغاز البصرية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الإيموجي والألغاز البصرية",
+  "cslug": "categories",
+  "sup": "cat-40-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-208",
+  "id": "cat-40-media",
+  "title": "صياد الصور - الإيموجي والألغاز البصرية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الإيموجي والألغاز البصرية",
+  "cslug": "categories",
+  "sup": "cat-40-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-209",
+  "id": "cat-40-checker",
+  "title": "مدقق الحقائق - الإيموجي والألغاز البصرية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الإيموجي والألغاز البصرية",
+  "cslug": "categories",
+  "sup": "cat-40-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-210",
+  "id": "cat-40-monitor",
+  "title": "مراقب العملية - الإيموجي والألغاز البصرية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الإيموجي والألغاز البصرية",
+  "cslug": "categories",
+  "sup": "monitor-questions-7",
+  "kind": "monitor",
+  "supervises": [
+   "cat-40-rival",
+   "cat-40-writer",
+   "cat-40-media",
+   "cat-40-checker"
+  ],
+  "group": 7
+ },
+ {
+  "no": "E-211",
+  "id": "cat-41-rival",
+  "title": "محلل أنماط المنافسين - الصور المموهة والتخمين",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الصور المموهة والتخمين",
+  "cslug": "categories",
+  "sup": "cat-41-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-212",
+  "id": "cat-41-writer",
+  "title": "كاتب الأسئلة - الصور المموهة والتخمين",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الصور المموهة والتخمين",
+  "cslug": "categories",
+  "sup": "cat-41-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-213",
+  "id": "cat-41-media",
+  "title": "صياد الصور - الصور المموهة والتخمين",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الصور المموهة والتخمين",
+  "cslug": "categories",
+  "sup": "cat-41-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-214",
+  "id": "cat-41-checker",
+  "title": "مدقق الحقائق - الصور المموهة والتخمين",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الصور المموهة والتخمين",
+  "cslug": "categories",
+  "sup": "cat-41-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-215",
+  "id": "cat-41-monitor",
+  "title": "مراقب العملية - الصور المموهة والتخمين",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الصور المموهة والتخمين",
+  "cslug": "categories",
+  "sup": "monitor-questions-7",
+  "kind": "monitor",
+  "supervises": [
+   "cat-41-rival",
+   "cat-41-writer",
+   "cat-41-media",
+   "cat-41-checker"
+  ],
+  "group": 7
+ },
+ {
+  "no": "E-216",
+  "id": "cat-42-rival",
+  "title": "محلل أنماط المنافسين - المقاطع الصوتية والأصوات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المقاطع الصوتية والأصوات",
+  "cslug": "categories",
+  "sup": "cat-42-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-217",
+  "id": "cat-42-writer",
+  "title": "كاتب الأسئلة - المقاطع الصوتية والأصوات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المقاطع الصوتية والأصوات",
+  "cslug": "categories",
+  "sup": "cat-42-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-218",
+  "id": "cat-42-media",
+  "title": "صياد الصور - المقاطع الصوتية والأصوات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المقاطع الصوتية والأصوات",
+  "cslug": "categories",
+  "sup": "cat-42-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-219",
+  "id": "cat-42-checker",
+  "title": "مدقق الحقائق - المقاطع الصوتية والأصوات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المقاطع الصوتية والأصوات",
+  "cslug": "categories",
+  "sup": "cat-42-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-220",
+  "id": "cat-42-monitor",
+  "title": "مراقب العملية - المقاطع الصوتية والأصوات",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المقاطع الصوتية والأصوات",
+  "cslug": "categories",
+  "sup": "monitor-questions-7",
+  "kind": "monitor",
+  "supervises": [
+   "cat-42-rival",
+   "cat-42-writer",
+   "cat-42-media",
+   "cat-42-checker"
+  ],
+  "group": 7
+ },
+ {
+  "no": "E-221",
+  "id": "cat-43-rival",
+  "title": "محلل أنماط المنافسين - الاقتصاد والمال والأعمال",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاقتصاد والمال والأعمال",
+  "cslug": "categories",
+  "sup": "cat-43-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-222",
+  "id": "cat-43-writer",
+  "title": "كاتب الأسئلة - الاقتصاد والمال والأعمال",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاقتصاد والمال والأعمال",
+  "cslug": "categories",
+  "sup": "cat-43-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-223",
+  "id": "cat-43-media",
+  "title": "صياد الصور - الاقتصاد والمال والأعمال",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاقتصاد والمال والأعمال",
+  "cslug": "categories",
+  "sup": "cat-43-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-224",
+  "id": "cat-43-checker",
+  "title": "مدقق الحقائق - الاقتصاد والمال والأعمال",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاقتصاد والمال والأعمال",
+  "cslug": "categories",
+  "sup": "cat-43-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-225",
+  "id": "cat-43-monitor",
+  "title": "مراقب العملية - الاقتصاد والمال والأعمال",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الاقتصاد والمال والأعمال",
+  "cslug": "categories",
+  "sup": "monitor-questions-7",
+  "kind": "monitor",
+  "supervises": [
+   "cat-43-rival",
+   "cat-43-writer",
+   "cat-43-media",
+   "cat-43-checker"
+  ],
+  "group": 7
+ },
+ {
+  "no": "E-226",
+  "id": "cat-44-rival",
+  "title": "محلل أنماط المنافسين - العملات والطوابع",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العملات والطوابع",
+  "cslug": "categories",
+  "sup": "cat-44-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-227",
+  "id": "cat-44-writer",
+  "title": "كاتب الأسئلة - العملات والطوابع",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العملات والطوابع",
+  "cslug": "categories",
+  "sup": "cat-44-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-228",
+  "id": "cat-44-media",
+  "title": "صياد الصور - العملات والطوابع",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العملات والطوابع",
+  "cslug": "categories",
+  "sup": "cat-44-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-229",
+  "id": "cat-44-checker",
+  "title": "مدقق الحقائق - العملات والطوابع",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العملات والطوابع",
+  "cslug": "categories",
+  "sup": "cat-44-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-230",
+  "id": "cat-44-monitor",
+  "title": "مراقب العملية - العملات والطوابع",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العملات والطوابع",
+  "cslug": "categories",
+  "sup": "monitor-questions-7",
+  "kind": "monitor",
+  "supervises": [
+   "cat-44-rival",
+   "cat-44-writer",
+   "cat-44-media",
+   "cat-44-checker"
+  ],
+  "group": 7
+ },
+ {
+  "no": "E-231",
+  "id": "cat-45-rival",
+  "title": "محلل أنماط المنافسين - السياسة والعلاقات الدولية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السياسة والعلاقات الدولية",
+  "cslug": "categories",
+  "sup": "cat-45-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-232",
+  "id": "cat-45-writer",
+  "title": "كاتب الأسئلة - السياسة والعلاقات الدولية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السياسة والعلاقات الدولية",
+  "cslug": "categories",
+  "sup": "cat-45-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-233",
+  "id": "cat-45-media",
+  "title": "صياد الصور - السياسة والعلاقات الدولية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السياسة والعلاقات الدولية",
+  "cslug": "categories",
+  "sup": "cat-45-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-234",
+  "id": "cat-45-checker",
+  "title": "مدقق الحقائق - السياسة والعلاقات الدولية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السياسة والعلاقات الدولية",
+  "cslug": "categories",
+  "sup": "cat-45-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 7
+ },
+ {
+  "no": "E-235",
+  "id": "cat-45-monitor",
+  "title": "مراقب العملية - السياسة والعلاقات الدولية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة السياسة والعلاقات الدولية",
+  "cslug": "categories",
+  "sup": "monitor-questions-7",
+  "kind": "monitor",
+  "supervises": [
+   "cat-45-rival",
+   "cat-45-writer",
+   "cat-45-media",
+   "cat-45-checker"
+  ],
+  "group": 7
+ },
+ {
+  "no": "E-236",
+  "id": "cat-46-rival",
+  "title": "محلل أنماط المنافسين - القوانين والأنظمة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القوانين والأنظمة",
+  "cslug": "categories",
+  "sup": "cat-46-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-237",
+  "id": "cat-46-writer",
+  "title": "كاتب الأسئلة - القوانين والأنظمة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القوانين والأنظمة",
+  "cslug": "categories",
+  "sup": "cat-46-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-238",
+  "id": "cat-46-media",
+  "title": "صياد الصور - القوانين والأنظمة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القوانين والأنظمة",
+  "cslug": "categories",
+  "sup": "cat-46-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-239",
+  "id": "cat-46-checker",
+  "title": "مدقق الحقائق - القوانين والأنظمة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القوانين والأنظمة",
+  "cslug": "categories",
+  "sup": "cat-46-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-240",
+  "id": "cat-46-monitor",
+  "title": "مراقب العملية - القوانين والأنظمة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة القوانين والأنظمة",
+  "cslug": "categories",
+  "sup": "monitor-questions-8",
+  "kind": "monitor",
+  "supervises": [
+   "cat-46-rival",
+   "cat-46-writer",
+   "cat-46-media",
+   "cat-46-checker"
+  ],
+  "group": 8
+ },
+ {
+  "no": "E-241",
+  "id": "cat-47-rival",
+  "title": "محلل أنماط المنافسين - علم النفس ولغة الجسد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة علم النفس ولغة الجسد",
+  "cslug": "categories",
+  "sup": "cat-47-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-242",
+  "id": "cat-47-writer",
+  "title": "كاتب الأسئلة - علم النفس ولغة الجسد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة علم النفس ولغة الجسد",
+  "cslug": "categories",
+  "sup": "cat-47-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-243",
+  "id": "cat-47-media",
+  "title": "صياد الصور - علم النفس ولغة الجسد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة علم النفس ولغة الجسد",
+  "cslug": "categories",
+  "sup": "cat-47-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-244",
+  "id": "cat-47-checker",
+  "title": "مدقق الحقائق - علم النفس ولغة الجسد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة علم النفس ولغة الجسد",
+  "cslug": "categories",
+  "sup": "cat-47-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-245",
+  "id": "cat-47-monitor",
+  "title": "مراقب العملية - علم النفس ولغة الجسد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة علم النفس ولغة الجسد",
+  "cslug": "categories",
+  "sup": "monitor-questions-8",
+  "kind": "monitor",
+  "supervises": [
+   "cat-47-rival",
+   "cat-47-writer",
+   "cat-47-media",
+   "cat-47-checker"
+  ],
+  "group": 8
+ },
+ {
+  "no": "E-246",
+  "id": "cat-48-rival",
+  "title": "محلل أنماط المنافسين - الأزياء والموضة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأزياء والموضة",
+  "cslug": "categories",
+  "sup": "cat-48-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-247",
+  "id": "cat-48-writer",
+  "title": "كاتب الأسئلة - الأزياء والموضة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأزياء والموضة",
+  "cslug": "categories",
+  "sup": "cat-48-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-248",
+  "id": "cat-48-media",
+  "title": "صياد الصور - الأزياء والموضة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأزياء والموضة",
+  "cslug": "categories",
+  "sup": "cat-48-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-249",
+  "id": "cat-48-checker",
+  "title": "مدقق الحقائق - الأزياء والموضة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأزياء والموضة",
+  "cslug": "categories",
+  "sup": "cat-48-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-250",
+  "id": "cat-48-monitor",
+  "title": "مراقب العملية - الأزياء والموضة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الأزياء والموضة",
+  "cslug": "categories",
+  "sup": "monitor-questions-8",
+  "kind": "monitor",
+  "supervises": [
+   "cat-48-rival",
+   "cat-48-writer",
+   "cat-48-media",
+   "cat-48-checker"
+  ],
+  "group": 8
+ },
+ {
+  "no": "E-251",
+  "id": "cat-49-rival",
+  "title": "محلل أنماط المنافسين - العطور والبخور",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العطور والبخور",
+  "cslug": "categories",
+  "sup": "cat-49-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-252",
+  "id": "cat-49-writer",
+  "title": "كاتب الأسئلة - العطور والبخور",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العطور والبخور",
+  "cslug": "categories",
+  "sup": "cat-49-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-253",
+  "id": "cat-49-media",
+  "title": "صياد الصور - العطور والبخور",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العطور والبخور",
+  "cslug": "categories",
+  "sup": "cat-49-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-254",
+  "id": "cat-49-checker",
+  "title": "مدقق الحقائق - العطور والبخور",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العطور والبخور",
+  "cslug": "categories",
+  "sup": "cat-49-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-255",
+  "id": "cat-49-monitor",
+  "title": "مراقب العملية - العطور والبخور",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة العطور والبخور",
+  "cslug": "categories",
+  "sup": "monitor-questions-8",
+  "kind": "monitor",
+  "supervises": [
+   "cat-49-rival",
+   "cat-49-writer",
+   "cat-49-media",
+   "cat-49-checker"
+  ],
+  "group": 8
+ },
+ {
+  "no": "E-256",
+  "id": "cat-50-rival",
+  "title": "محلل أنماط المنافسين - الديوانية والعادات والتقاليد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الديوانية والعادات والتقاليد",
+  "cslug": "categories",
+  "sup": "cat-50-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-257",
+  "id": "cat-50-writer",
+  "title": "كاتب الأسئلة - الديوانية والعادات والتقاليد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الديوانية والعادات والتقاليد",
+  "cslug": "categories",
+  "sup": "cat-50-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-258",
+  "id": "cat-50-media",
+  "title": "صياد الصور - الديوانية والعادات والتقاليد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الديوانية والعادات والتقاليد",
+  "cslug": "categories",
+  "sup": "cat-50-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-259",
+  "id": "cat-50-checker",
+  "title": "مدقق الحقائق - الديوانية والعادات والتقاليد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الديوانية والعادات والتقاليد",
+  "cslug": "categories",
+  "sup": "cat-50-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-260",
+  "id": "cat-50-monitor",
+  "title": "مراقب العملية - الديوانية والعادات والتقاليد",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الديوانية والعادات والتقاليد",
+  "cslug": "categories",
+  "sup": "monitor-questions-8",
+  "kind": "monitor",
+  "supervises": [
+   "cat-50-rival",
+   "cat-50-writer",
+   "cat-50-media",
+   "cat-50-checker"
+  ],
+  "group": 8
+ },
+ {
+  "no": "E-261",
+  "id": "cat-51-rival",
+  "title": "محلل أنماط المنافسين - البر والكشتات والبحر (الحداق)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البر والكشتات والبحر (الحداق)",
+  "cslug": "categories",
+  "sup": "cat-51-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-262",
+  "id": "cat-51-writer",
+  "title": "كاتب الأسئلة - البر والكشتات والبحر (الحداق)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البر والكشتات والبحر (الحداق)",
+  "cslug": "categories",
+  "sup": "cat-51-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-263",
+  "id": "cat-51-media",
+  "title": "صياد الصور - البر والكشتات والبحر (الحداق)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البر والكشتات والبحر (الحداق)",
+  "cslug": "categories",
+  "sup": "cat-51-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-264",
+  "id": "cat-51-checker",
+  "title": "مدقق الحقائق - البر والكشتات والبحر (الحداق)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البر والكشتات والبحر (الحداق)",
+  "cslug": "categories",
+  "sup": "cat-51-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 8
+ },
+ {
+  "no": "E-265",
+  "id": "cat-51-monitor",
+  "title": "مراقب العملية - البر والكشتات والبحر (الحداق)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البر والكشتات والبحر (الحداق)",
+  "cslug": "categories",
+  "sup": "monitor-questions-8",
+  "kind": "monitor",
+  "supervises": [
+   "cat-51-rival",
+   "cat-51-writer",
+   "cat-51-media",
+   "cat-51-checker"
+  ],
+  "group": 8
+ },
+ {
+  "no": "E-266",
+  "id": "cat-52-rival",
+  "title": "محلل أنماط المنافسين - ترندات السوشيال ميديا",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ترندات السوشيال ميديا",
+  "cslug": "categories",
+  "sup": "cat-52-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-267",
+  "id": "cat-52-writer",
+  "title": "كاتب الأسئلة - ترندات السوشيال ميديا",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ترندات السوشيال ميديا",
+  "cslug": "categories",
+  "sup": "cat-52-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-268",
+  "id": "cat-52-media",
+  "title": "صياد الصور - ترندات السوشيال ميديا",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ترندات السوشيال ميديا",
+  "cslug": "categories",
+  "sup": "cat-52-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-269",
+  "id": "cat-52-checker",
+  "title": "مدقق الحقائق - ترندات السوشيال ميديا",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ترندات السوشيال ميديا",
+  "cslug": "categories",
+  "sup": "cat-52-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-270",
+  "id": "cat-52-monitor",
+  "title": "مراقب العملية - ترندات السوشيال ميديا",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة ترندات السوشيال ميديا",
+  "cslug": "categories",
+  "sup": "monitor-questions-9",
+  "kind": "monitor",
+  "supervises": [
+   "cat-52-rival",
+   "cat-52-writer",
+   "cat-52-media",
+   "cat-52-checker"
+  ],
+  "group": 9
+ },
+ {
+  "no": "E-271",
+  "id": "cat-53-rival",
+  "title": "محلل أنماط المنافسين - المشاهير وصناع المحتوى",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المشاهير وصناع المحتوى",
+  "cslug": "categories",
+  "sup": "cat-53-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-272",
+  "id": "cat-53-writer",
+  "title": "كاتب الأسئلة - المشاهير وصناع المحتوى",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المشاهير وصناع المحتوى",
+  "cslug": "categories",
+  "sup": "cat-53-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-273",
+  "id": "cat-53-media",
+  "title": "صياد الصور - المشاهير وصناع المحتوى",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المشاهير وصناع المحتوى",
+  "cslug": "categories",
+  "sup": "cat-53-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-274",
+  "id": "cat-53-checker",
+  "title": "مدقق الحقائق - المشاهير وصناع المحتوى",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المشاهير وصناع المحتوى",
+  "cslug": "categories",
+  "sup": "cat-53-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-275",
+  "id": "cat-53-monitor",
+  "title": "مراقب العملية - المشاهير وصناع المحتوى",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة المشاهير وصناع المحتوى",
+  "cslug": "categories",
+  "sup": "monitor-questions-9",
+  "kind": "monitor",
+  "supervises": [
+   "cat-53-rival",
+   "cat-53-writer",
+   "cat-53-media",
+   "cat-53-checker"
+  ],
+  "group": 9
+ },
+ {
+  "no": "E-276",
+  "id": "cat-54-rival",
+  "title": "محلل أنماط المنافسين - الرياضيات والذكاء المنطقي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الرياضيات والذكاء المنطقي",
+  "cslug": "categories",
+  "sup": "cat-54-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-277",
+  "id": "cat-54-writer",
+  "title": "كاتب الأسئلة - الرياضيات والذكاء المنطقي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الرياضيات والذكاء المنطقي",
+  "cslug": "categories",
+  "sup": "cat-54-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-278",
+  "id": "cat-54-media",
+  "title": "صياد الصور - الرياضيات والذكاء المنطقي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الرياضيات والذكاء المنطقي",
+  "cslug": "categories",
+  "sup": "cat-54-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-279",
+  "id": "cat-54-checker",
+  "title": "مدقق الحقائق - الرياضيات والذكاء المنطقي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الرياضيات والذكاء المنطقي",
+  "cslug": "categories",
+  "sup": "cat-54-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-280",
+  "id": "cat-54-monitor",
+  "title": "مراقب العملية - الرياضيات والذكاء المنطقي",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة الرياضيات والذكاء المنطقي",
+  "cslug": "categories",
+  "sup": "monitor-questions-9",
+  "kind": "monitor",
+  "supervises": [
+   "cat-54-rival",
+   "cat-54-writer",
+   "cat-54-media",
+   "cat-54-checker"
+  ],
+  "group": 9
+ },
+ {
+  "no": "E-281",
+  "id": "cat-55-rival",
+  "title": "محلل أنماط المنافسين - سرعة البديهة والمعلومات العامة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة سرعة البديهة والمعلومات العامة",
+  "cslug": "categories",
+  "sup": "cat-55-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-282",
+  "id": "cat-55-writer",
+  "title": "كاتب الأسئلة - سرعة البديهة والمعلومات العامة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة سرعة البديهة والمعلومات العامة",
+  "cslug": "categories",
+  "sup": "cat-55-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-283",
+  "id": "cat-55-media",
+  "title": "صياد الصور - سرعة البديهة والمعلومات العامة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة سرعة البديهة والمعلومات العامة",
+  "cslug": "categories",
+  "sup": "cat-55-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-284",
+  "id": "cat-55-checker",
+  "title": "مدقق الحقائق - سرعة البديهة والمعلومات العامة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة سرعة البديهة والمعلومات العامة",
+  "cslug": "categories",
+  "sup": "cat-55-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-285",
+  "id": "cat-55-monitor",
+  "title": "مراقب العملية - سرعة البديهة والمعلومات العامة",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة سرعة البديهة والمعلومات العامة",
+  "cslug": "categories",
+  "sup": "monitor-questions-9",
+  "kind": "monitor",
+  "supervises": [
+   "cat-55-rival",
+   "cat-55-writer",
+   "cat-55-media",
+   "cat-55-checker"
+  ],
+  "group": 9
+ },
+ {
+  "no": "E-286",
+  "id": "cat-56-rival",
+  "title": "محلل أنماط المنافسين - فئة «جواب الناس» (10 إجابات)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة فئة «جواب الناس» (10 إجابات)",
+  "cslug": "categories",
+  "sup": "cat-56-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-287",
+  "id": "cat-56-writer",
+  "title": "كاتب الأسئلة - فئة «جواب الناس» (10 إجابات)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة فئة «جواب الناس» (10 إجابات)",
+  "cslug": "categories",
+  "sup": "cat-56-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-288",
+  "id": "cat-56-media",
+  "title": "صياد الصور - فئة «جواب الناس» (10 إجابات)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة فئة «جواب الناس» (10 إجابات)",
+  "cslug": "categories",
+  "sup": "cat-56-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-289",
+  "id": "cat-56-checker",
+  "title": "مدقق الحقائق - فئة «جواب الناس» (10 إجابات)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة فئة «جواب الناس» (10 إجابات)",
+  "cslug": "categories",
+  "sup": "cat-56-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-290",
+  "id": "cat-56-monitor",
+  "title": "مراقب العملية - فئة «جواب الناس» (10 إجابات)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة فئة «جواب الناس» (10 إجابات)",
+  "cslug": "categories",
+  "sup": "monitor-questions-9",
+  "kind": "monitor",
+  "supervises": [
+   "cat-56-rival",
+   "cat-56-writer",
+   "cat-56-media",
+   "cat-56-checker"
+  ],
+  "group": 9
+ },
+ {
+  "no": "E-291",
+  "id": "cat-57-rival",
+  "title": "محلل أنماط المنافسين - البطولات والمناسبات الموسمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البطولات والمناسبات الموسمية",
+  "cslug": "categories",
+  "sup": "cat-57-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-292",
+  "id": "cat-57-writer",
+  "title": "كاتب الأسئلة - البطولات والمناسبات الموسمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البطولات والمناسبات الموسمية",
+  "cslug": "categories",
+  "sup": "cat-57-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-293",
+  "id": "cat-57-media",
+  "title": "صياد الصور - البطولات والمناسبات الموسمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البطولات والمناسبات الموسمية",
+  "cslug": "categories",
+  "sup": "cat-57-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-294",
+  "id": "cat-57-checker",
+  "title": "مدقق الحقائق - البطولات والمناسبات الموسمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البطولات والمناسبات الموسمية",
+  "cslug": "categories",
+  "sup": "cat-57-monitor",
+  "kind": "worker",
+  "supervises": [],
+  "group": 9
+ },
+ {
+  "no": "E-295",
+  "id": "cat-57-monitor",
+  "title": "مراقب العملية - البطولات والمناسبات الموسمية",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "خلية فئة البطولات والمناسبات الموسمية",
+  "cslug": "categories",
+  "sup": "monitor-questions-9",
+  "kind": "monitor",
+  "supervises": [
+   "cat-57-rival",
+   "cat-57-writer",
+   "cat-57-media",
+   "cat-57-checker"
+  ],
+  "group": 9
+ },
+ {
+  "no": "E-296",
+  "id": "monitor-questions-1",
+  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (1)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "مراقبو خلايا الفئات",
+  "cslug": "categories",
+  "sup": "auditor-content",
+  "kind": "monitor",
+  "supervises": [
+   "cat-01-monitor",
+   "cat-02-monitor",
+   "cat-03-monitor",
+   "cat-04-monitor",
+   "cat-05-monitor",
+   "cat-06-monitor",
+   "cat-07-monitor"
+  ],
+  "group": 1
+ },
+ {
+  "no": "E-297",
+  "id": "monitor-questions-2",
+  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (2)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "مراقبو خلايا الفئات",
+  "cslug": "categories",
+  "sup": "auditor-content",
+  "kind": "monitor",
+  "supervises": [
+   "cat-08-monitor",
+   "cat-09-monitor",
+   "cat-10-monitor",
+   "cat-11-monitor",
+   "cat-12-monitor",
+   "cat-13-monitor"
+  ],
+  "group": 2
+ },
+ {
+  "no": "E-298",
+  "id": "monitor-questions-3",
+  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (3)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "مراقبو خلايا الفئات",
+  "cslug": "categories",
+  "sup": "auditor-content",
+  "kind": "monitor",
+  "supervises": [
+   "cat-14-monitor",
+   "cat-15-monitor",
+   "cat-16-monitor",
+   "cat-17-monitor",
+   "cat-18-monitor",
+   "cat-19-monitor"
+  ],
+  "group": 3
+ },
+ {
+  "no": "E-299",
+  "id": "monitor-questions-4",
+  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (4)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "مراقبو خلايا الفئات",
+  "cslug": "categories",
+  "sup": "auditor-content",
+  "kind": "monitor",
+  "supervises": [
+   "cat-20-monitor",
+   "cat-21-monitor",
+   "cat-22-monitor",
+   "cat-23-monitor",
+   "cat-24-monitor",
+   "cat-25-monitor",
+   "cat-26-monitor"
+  ],
+  "group": 4
+ },
+ {
+  "no": "E-300",
+  "id": "monitor-questions-5",
+  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (5)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "مراقبو خلايا الفئات",
+  "cslug": "categories",
+  "sup": "auditor-content",
+  "kind": "monitor",
+  "supervises": [
+   "cat-27-monitor",
+   "cat-28-monitor",
+   "cat-29-monitor",
+   "cat-30-monitor",
+   "cat-31-monitor",
+   "cat-32-monitor"
+  ],
+  "group": 5
+ },
+ {
+  "no": "E-301",
+  "id": "monitor-questions-6",
+  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (6)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "مراقبو خلايا الفئات",
+  "cslug": "categories",
+  "sup": "auditor-content",
+  "kind": "monitor",
+  "supervises": [
+   "cat-33-monitor",
+   "cat-34-monitor",
+   "cat-35-monitor",
+   "cat-36-monitor",
+   "cat-37-monitor",
+   "cat-38-monitor"
+  ],
+  "group": 6
+ },
+ {
+  "no": "E-302",
+  "id": "monitor-questions-7",
+  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (7)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "مراقبو خلايا الفئات",
+  "cslug": "categories",
+  "sup": "auditor-content",
+  "kind": "monitor",
+  "supervises": [
+   "cat-39-monitor",
+   "cat-40-monitor",
+   "cat-41-monitor",
+   "cat-42-monitor",
+   "cat-43-monitor",
+   "cat-44-monitor",
+   "cat-45-monitor"
+  ],
+  "group": 7
+ },
+ {
+  "no": "E-303",
+  "id": "monitor-questions-8",
+  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (8)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "مراقبو خلايا الفئات",
+  "cslug": "categories",
+  "sup": "auditor-content",
+  "kind": "monitor",
+  "supervises": [
+   "cat-46-monitor",
+   "cat-47-monitor",
+   "cat-48-monitor",
+   "cat-49-monitor",
+   "cat-50-monitor",
+   "cat-51-monitor"
+  ],
+  "group": 8
+ },
+ {
+  "no": "E-304",
+  "id": "monitor-questions-9",
+  "title": "مراقب جودة الأسئلة ومقارنة المنافسين (9)",
+  "sector": "قطاع المحتوى والفئات",
+  "committee": "مراقبو خلايا الفئات",
+  "cslug": "categories",
+  "sup": "auditor-content",
+  "kind": "monitor",
+  "supervises": [
+   "cat-52-monitor",
+   "cat-53-monitor",
+   "cat-54-monitor",
+   "cat-55-monitor",
+   "cat-56-monitor",
+   "cat-57-monitor"
+  ],
+  "group": 9
+ },
+ {
+  "no": "E-305",
   "id": "innov-local-1",
   "title": "مبتكر فئات وترندات محلية وخليجية (1)",
   "sector": "قطاع المحتوى والفئات",
@@ -999,7 +4050,7 @@
   "supervises": []
  },
  {
-  "no": "E-081",
+  "no": "E-306",
   "id": "innov-local-2",
   "title": "مبتكر فئات وترندات محلية وخليجية (2)",
   "sector": "قطاع المحتوى والفئات",
@@ -1010,7 +4061,7 @@
   "supervises": []
  },
  {
-  "no": "E-082",
+  "no": "E-307",
   "id": "innov-local-3",
   "title": "مبتكر فئات وترندات محلية وخليجية (3)",
   "sector": "قطاع المحتوى والفئات",
@@ -1021,7 +4072,7 @@
   "supervises": []
  },
  {
-  "no": "E-083",
+  "no": "E-308",
   "id": "innov-local-4",
   "title": "مبتكر فئات وترندات محلية وخليجية (4)",
   "sector": "قطاع المحتوى والفئات",
@@ -1032,7 +4083,7 @@
   "supervises": []
  },
  {
-  "no": "E-084",
+  "no": "E-309",
   "id": "innov-local-5",
   "title": "مبتكر فئات وترندات محلية وخليجية (5)",
   "sector": "قطاع المحتوى والفئات",
@@ -1043,7 +4094,7 @@
   "supervises": []
  },
  {
-  "no": "E-085",
+  "no": "E-310",
   "id": "innov-global-1",
   "title": "مبتكر فئات عالمية وتفاعلية (1)",
   "sector": "قطاع المحتوى والفئات",
@@ -1054,7 +4105,7 @@
   "supervises": []
  },
  {
-  "no": "E-086",
+  "no": "E-311",
   "id": "innov-global-2",
   "title": "مبتكر فئات عالمية وتفاعلية (2)",
   "sector": "قطاع المحتوى والفئات",
@@ -1065,7 +4116,7 @@
   "supervises": []
  },
  {
-  "no": "E-087",
+  "no": "E-312",
   "id": "innov-global-3",
   "title": "مبتكر فئات عالمية وتفاعلية (3)",
   "sector": "قطاع المحتوى والفئات",
@@ -1076,7 +4127,7 @@
   "supervises": []
  },
  {
-  "no": "E-088",
+  "no": "E-313",
   "id": "innov-global-4",
   "title": "مبتكر فئات عالمية وتفاعلية (4)",
   "sector": "قطاع المحتوى والفئات",
@@ -1087,7 +4138,7 @@
   "supervises": []
  },
  {
-  "no": "E-089",
+  "no": "E-314",
   "id": "lifeline-designer-1",
   "title": "مصمم وسائل مساعدة («فزعات») جديدة (1)",
   "sector": "قطاع المحتوى والفئات",
@@ -1098,7 +4149,7 @@
   "supervises": []
  },
  {
-  "no": "E-090",
+  "no": "E-315",
   "id": "lifeline-designer-2",
   "title": "مصمم وسائل مساعدة («فزعات») جديدة (2)",
   "sector": "قطاع المحتوى والفئات",
@@ -1109,7 +4160,7 @@
   "supervises": []
  },
  {
-  "no": "E-091",
+  "no": "E-316",
   "id": "lifeline-designer-3",
   "title": "مصمم وسائل مساعدة («فزعات») جديدة (3)",
   "sector": "قطاع المحتوى والفئات",
@@ -1120,7 +4171,7 @@
   "supervises": []
  },
  {
-  "no": "E-092",
+  "no": "E-317",
   "id": "tournament-designer-1",
   "title": "مصمم أنماط بطولات وتحديات جماعية (1)",
   "sector": "قطاع المحتوى والفئات",
@@ -1131,7 +4182,7 @@
   "supervises": []
  },
  {
-  "no": "E-093",
+  "no": "E-318",
   "id": "tournament-designer-2",
   "title": "مصمم أنماط بطولات وتحديات جماعية (2)",
   "sector": "قطاع المحتوى والفئات",
@@ -1142,7 +4193,7 @@
   "supervises": []
  },
  {
-  "no": "E-094",
+  "no": "E-319",
   "id": "tournament-designer-3",
   "title": "مصمم أنماط بطولات وتحديات جماعية (3)",
   "sector": "قطاع المحتوى والفئات",
@@ -1153,7 +4204,7 @@
   "supervises": []
  },
  {
-  "no": "E-095",
+  "no": "E-320",
   "id": "monitor-categories-1",
   "title": "مراقب جدوى الفئات وتجربة الجمهور (1)",
   "sector": "قطاع المحتوى والفئات",
@@ -1170,7 +4221,7 @@
   ]
  },
  {
-  "no": "E-096",
+  "no": "E-321",
   "id": "monitor-categories-2",
   "title": "مراقب جدوى الفئات وتجربة الجمهور (2)",
   "sector": "قطاع المحتوى والفئات",
@@ -1186,7 +4237,7 @@
   ]
  },
  {
-  "no": "E-097",
+  "no": "E-322",
   "id": "monitor-categories-3",
   "title": "مراقب جدوى الفئات وتجربة الجمهور (3)",
   "sector": "قطاع المحتوى والفئات",
@@ -1201,7 +4252,7 @@
   ]
  },
  {
-  "no": "E-098",
+  "no": "E-323",
   "id": "monitor-categories-4",
   "title": "مراقب جدوى الفئات وتجربة الجمهور (4)",
   "sector": "قطاع المحتوى والفئات",
@@ -1216,7 +4267,7 @@
   ]
  },
  {
-  "no": "E-099",
+  "no": "E-324",
   "id": "proofreader-1",
   "title": "مدقق لغوي وضبط اللهجات الخليجية (1)",
   "sector": "قطاع المحتوى والفئات",
@@ -1227,7 +4278,7 @@
   "supervises": []
  },
  {
-  "no": "E-100",
+  "no": "E-325",
   "id": "proofreader-2",
   "title": "مدقق لغوي وضبط اللهجات الخليجية (2)",
   "sector": "قطاع المحتوى والفئات",
@@ -1238,7 +4289,7 @@
   "supervises": []
  },
  {
-  "no": "E-101",
+  "no": "E-326",
   "id": "translator-1",
   "title": "مترجم محتوى وألعاب للغات العالمية",
   "sector": "قطاع المحتوى والفئات",
@@ -1249,7 +4300,7 @@
   "supervises": []
  },
  {
-  "no": "E-102",
+  "no": "E-327",
   "id": "monitor-language-1",
   "title": "مراقب الهوية اللغوية والأخلاقية (1)",
   "sector": "قطاع المحتوى والفئات",
@@ -1263,7 +4314,7 @@
   ]
  },
  {
-  "no": "E-103",
+  "no": "E-328",
   "id": "monitor-language-2",
   "title": "مراقب الهوية اللغوية والأخلاقية (2)",
   "sector": "قطاع المحتوى والفئات",
@@ -1276,7 +4327,7 @@
   ]
  },
  {
-  "no": "E-104",
+  "no": "E-329",
   "id": "webrtc-engineer-1",
   "title": "مهندس بروتوكولات البث الفوري (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1287,7 +4338,7 @@
   "supervises": []
  },
  {
-  "no": "E-105",
+  "no": "E-330",
   "id": "webrtc-engineer-2",
   "title": "مهندس بروتوكولات البث الفوري (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1298,7 +4349,7 @@
   "supervises": []
  },
  {
-  "no": "E-106",
+  "no": "E-331",
   "id": "webrtc-engineer-3",
   "title": "مهندس بروتوكولات البث الفوري (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1309,7 +4360,7 @@
   "supervises": []
  },
  {
-  "no": "E-107",
+  "no": "E-332",
   "id": "webrtc-engineer-4",
   "title": "مهندس بروتوكولات البث الفوري (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1320,7 +4371,7 @@
   "supervises": []
  },
  {
-  "no": "E-108",
+  "no": "E-333",
   "id": "webrtc-engineer-5",
   "title": "مهندس بروتوكولات البث الفوري (5)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1331,7 +4382,7 @@
   "supervises": []
  },
  {
-  "no": "E-109",
+  "no": "E-334",
   "id": "video-encoding-engineer-1",
   "title": "مهندس ضغط ومعالجة الفيديو فائق الدقة (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1342,7 +4393,7 @@
   "supervises": []
  },
  {
-  "no": "E-110",
+  "no": "E-335",
   "id": "video-encoding-engineer-2",
   "title": "مهندس ضغط ومعالجة الفيديو فائق الدقة (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1353,7 +4404,7 @@
   "supervises": []
  },
  {
-  "no": "E-111",
+  "no": "E-336",
   "id": "video-encoding-engineer-3",
   "title": "مهندس ضغط ومعالجة الفيديو فائق الدقة (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1364,7 +4415,7 @@
   "supervises": []
  },
  {
-  "no": "E-112",
+  "no": "E-337",
   "id": "video-encoding-engineer-4",
   "title": "مهندس ضغط ومعالجة الفيديو فائق الدقة (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1375,7 +4426,7 @@
   "supervises": []
  },
  {
-  "no": "E-113",
+  "no": "E-338",
   "id": "video-encoding-engineer-5",
   "title": "مهندس ضغط ومعالجة الفيديو فائق الدقة (5)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1386,7 +4437,7 @@
   "supervises": []
  },
  {
-  "no": "E-114",
+  "no": "E-339",
   "id": "live-sync-engineer-1",
   "title": "مهندس تزامن البث مع اللعب الجماعي (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1397,7 +4448,7 @@
   "supervises": []
  },
  {
-  "no": "E-115",
+  "no": "E-340",
   "id": "live-sync-engineer-2",
   "title": "مهندس تزامن البث مع اللعب الجماعي (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1408,7 +4459,7 @@
   "supervises": []
  },
  {
-  "no": "E-116",
+  "no": "E-341",
   "id": "live-sync-engineer-3",
   "title": "مهندس تزامن البث مع اللعب الجماعي (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1419,7 +4470,7 @@
   "supervises": []
  },
  {
-  "no": "E-117",
+  "no": "E-342",
   "id": "live-sync-engineer-4",
   "title": "مهندس تزامن البث مع اللعب الجماعي (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1430,7 +4481,7 @@
   "supervises": []
  },
  {
-  "no": "E-118",
+  "no": "E-343",
   "id": "live-sync-engineer-5",
   "title": "مهندس تزامن البث مع اللعب الجماعي (5)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1441,7 +4492,7 @@
   "supervises": []
  },
  {
-  "no": "E-119",
+  "no": "E-344",
   "id": "monitor-stream-1",
   "title": "مراقب سرعة وجودة البث (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1458,7 +4509,7 @@
   ]
  },
  {
-  "no": "E-120",
+  "no": "E-345",
   "id": "monitor-stream-2",
   "title": "مراقب سرعة وجودة البث (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1475,7 +4526,7 @@
   ]
  },
  {
-  "no": "E-121",
+  "no": "E-346",
   "id": "monitor-stream-3",
   "title": "مراقب سرعة وجودة البث (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1492,7 +4543,7 @@
   ]
  },
  {
-  "no": "E-122",
+  "no": "E-347",
   "id": "recommendation-engineer-1",
   "title": "مهندس خوارزميات التوصية والاقتراحات (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1503,7 +4554,7 @@
   "supervises": []
  },
  {
-  "no": "E-123",
+  "no": "E-348",
   "id": "recommendation-engineer-2",
   "title": "مهندس خوارزميات التوصية والاقتراحات (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1514,7 +4565,7 @@
   "supervises": []
  },
  {
-  "no": "E-124",
+  "no": "E-349",
   "id": "recommendation-engineer-3",
   "title": "مهندس خوارزميات التوصية والاقتراحات (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1525,7 +4576,7 @@
   "supervises": []
  },
  {
-  "no": "E-125",
+  "no": "E-350",
   "id": "recommendation-engineer-4",
   "title": "مهندس خوارزميات التوصية والاقتراحات (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1536,7 +4587,7 @@
   "supervises": []
  },
  {
-  "no": "E-126",
+  "no": "E-351",
   "id": "recommendation-engineer-5",
   "title": "مهندس خوارزميات التوصية والاقتراحات (5)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1547,7 +4598,7 @@
   "supervises": []
  },
  {
-  "no": "E-127",
+  "no": "E-352",
   "id": "nlp-engineer-1",
   "title": "مهندس توليد الأسئلة الذكي والتدقيق الآلي (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1558,7 +4609,7 @@
   "supervises": []
  },
  {
-  "no": "E-128",
+  "no": "E-353",
   "id": "nlp-engineer-2",
   "title": "مهندس توليد الأسئلة الذكي والتدقيق الآلي (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1569,7 +4620,7 @@
   "supervises": []
  },
  {
-  "no": "E-129",
+  "no": "E-354",
   "id": "nlp-engineer-3",
   "title": "مهندس توليد الأسئلة الذكي والتدقيق الآلي (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1580,7 +4631,7 @@
   "supervises": []
  },
  {
-  "no": "E-130",
+  "no": "E-355",
   "id": "nlp-engineer-4",
   "title": "مهندس توليد الأسئلة الذكي والتدقيق الآلي (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1591,7 +4642,7 @@
   "supervises": []
  },
  {
-  "no": "E-131",
+  "no": "E-356",
   "id": "nlp-engineer-5",
   "title": "مهندس توليد الأسئلة الذكي والتدقيق الآلي (5)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1602,7 +4653,7 @@
   "supervises": []
  },
  {
-  "no": "E-132",
+  "no": "E-357",
   "id": "anticheat-engineer-1",
   "title": "مهندس كشف الغش والتلاعب في البطولات (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1613,7 +4664,7 @@
   "supervises": []
  },
  {
-  "no": "E-133",
+  "no": "E-358",
   "id": "anticheat-engineer-2",
   "title": "مهندس كشف الغش والتلاعب في البطولات (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1624,7 +4675,7 @@
   "supervises": []
  },
  {
-  "no": "E-134",
+  "no": "E-359",
   "id": "anticheat-engineer-3",
   "title": "مهندس كشف الغش والتلاعب في البطولات (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1635,7 +4686,7 @@
   "supervises": []
  },
  {
-  "no": "E-135",
+  "no": "E-360",
   "id": "anticheat-engineer-4",
   "title": "مهندس كشف الغش والتلاعب في البطولات (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1646,7 +4697,7 @@
   "supervises": []
  },
  {
-  "no": "E-136",
+  "no": "E-361",
   "id": "anticheat-engineer-5",
   "title": "مهندس كشف الغش والتلاعب في البطولات (5)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1657,7 +4708,7 @@
   "supervises": []
  },
  {
-  "no": "E-137",
+  "no": "E-362",
   "id": "monitor-ai-1",
   "title": "مراقب دقة الذكاء الاصطناعي ومقارنته بيوتيوب (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1674,7 +4725,7 @@
   ]
  },
  {
-  "no": "E-138",
+  "no": "E-363",
   "id": "monitor-ai-2",
   "title": "مراقب دقة الذكاء الاصطناعي ومقارنته بيوتيوب (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1691,7 +4742,7 @@
   ]
  },
  {
-  "no": "E-139",
+  "no": "E-364",
   "id": "monitor-ai-3",
   "title": "مراقب دقة الذكاء الاصطناعي ومقارنته بيوتيوب (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1708,7 +4759,7 @@
   ]
  },
  {
-  "no": "E-140",
+  "no": "E-365",
   "id": "smarttv-developer-1",
   "title": "مطور تطبيقات التلفزيون الذكي (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1719,7 +4770,7 @@
   "supervises": []
  },
  {
-  "no": "E-141",
+  "no": "E-366",
   "id": "smarttv-developer-2",
   "title": "مطور تطبيقات التلفزيون الذكي (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1730,7 +4781,7 @@
   "supervises": []
  },
  {
-  "no": "E-142",
+  "no": "E-367",
   "id": "smarttv-developer-3",
   "title": "مطور تطبيقات التلفزيون الذكي (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1741,7 +4792,7 @@
   "supervises": []
  },
  {
-  "no": "E-143",
+  "no": "E-368",
   "id": "smarttv-developer-4",
   "title": "مطور تطبيقات التلفزيون الذكي (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1752,7 +4803,7 @@
   "supervises": []
  },
  {
-  "no": "E-144",
+  "no": "E-369",
   "id": "smarttv-developer-5",
   "title": "مطور تطبيقات التلفزيون الذكي (5)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1763,7 +4814,7 @@
   "supervises": []
  },
  {
-  "no": "E-145",
+  "no": "E-370",
   "id": "smarttv-developer-6",
   "title": "مطور تطبيقات التلفزيون الذكي (6)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1774,7 +4825,7 @@
   "supervises": []
  },
  {
-  "no": "E-146",
+  "no": "E-371",
   "id": "ios-developer-1",
   "title": "مطور تطبيقات الآيفون (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1785,7 +4836,7 @@
   "supervises": []
  },
  {
-  "no": "E-147",
+  "no": "E-372",
   "id": "ios-developer-2",
   "title": "مطور تطبيقات الآيفون (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1796,7 +4847,7 @@
   "supervises": []
  },
  {
-  "no": "E-148",
+  "no": "E-373",
   "id": "ios-developer-3",
   "title": "مطور تطبيقات الآيفون (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1807,7 +4858,7 @@
   "supervises": []
  },
  {
-  "no": "E-149",
+  "no": "E-374",
   "id": "ios-developer-4",
   "title": "مطور تطبيقات الآيفون (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1818,7 +4869,7 @@
   "supervises": []
  },
  {
-  "no": "E-150",
+  "no": "E-375",
   "id": "android-developer-1",
   "title": "مطور تطبيقات الأندرويد (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1829,7 +4880,7 @@
   "supervises": []
  },
  {
-  "no": "E-151",
+  "no": "E-376",
   "id": "android-developer-2",
   "title": "مطور تطبيقات الأندرويد (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1840,7 +4891,7 @@
   "supervises": []
  },
  {
-  "no": "E-152",
+  "no": "E-377",
   "id": "android-developer-3",
   "title": "مطور تطبيقات الأندرويد (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1851,7 +4902,7 @@
   "supervises": []
  },
  {
-  "no": "E-153",
+  "no": "E-378",
   "id": "android-developer-4",
   "title": "مطور تطبيقات الأندرويد (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1862,7 +4913,7 @@
   "supervises": []
  },
  {
-  "no": "E-154",
+  "no": "E-379",
   "id": "web-developer-1",
   "title": "مطور واجهات الويب التفاعلية (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1873,7 +4924,7 @@
   "supervises": []
  },
  {
-  "no": "E-155",
+  "no": "E-380",
   "id": "web-developer-2",
   "title": "مطور واجهات الويب التفاعلية (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1884,7 +4935,7 @@
   "supervises": []
  },
  {
-  "no": "E-156",
+  "no": "E-381",
   "id": "web-developer-3",
   "title": "مطور واجهات الويب التفاعلية (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1895,7 +4946,7 @@
   "supervises": []
  },
  {
-  "no": "E-157",
+  "no": "E-382",
   "id": "web-developer-4",
   "title": "مطور واجهات الويب التفاعلية (4)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1906,7 +4957,7 @@
   "supervises": []
  },
  {
-  "no": "E-158",
+  "no": "E-383",
   "id": "web-developer-5",
   "title": "مطور واجهات الويب التفاعلية (5)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1917,7 +4968,7 @@
   "supervises": []
  },
  {
-  "no": "E-159",
+  "no": "E-384",
   "id": "web-developer-6",
   "title": "مطور واجهات الويب التفاعلية (6)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1928,7 +4979,7 @@
   "supervises": []
  },
  {
-  "no": "E-160",
+  "no": "E-385",
   "id": "monitor-apps-1",
   "title": "مراقب استقرار التطبيقات وسرعة الاستجابة (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1946,7 +4997,7 @@
   ]
  },
  {
-  "no": "E-161",
+  "no": "E-386",
   "id": "monitor-apps-2",
   "title": "مراقب استقرار التطبيقات وسرعة الاستجابة (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1966,7 +5017,7 @@
   ]
  },
  {
-  "no": "E-162",
+  "no": "E-387",
   "id": "monitor-apps-3",
   "title": "مراقب استقرار التطبيقات وسرعة الاستجابة (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1984,7 +5035,7 @@
   ]
  },
  {
-  "no": "E-163",
+  "no": "E-388",
   "id": "cloud-engineer-1",
   "title": "مهندس خوادم وسحابة إلكترونية (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -1995,7 +5046,7 @@
   "supervises": []
  },
  {
-  "no": "E-164",
+  "no": "E-389",
   "id": "cloud-engineer-2",
   "title": "مهندس خوادم وسحابة إلكترونية (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -2006,7 +5057,7 @@
   "supervises": []
  },
  {
-  "no": "E-165",
+  "no": "E-390",
   "id": "cloud-engineer-3",
   "title": "مهندس خوادم وسحابة إلكترونية (3)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -2017,7 +5068,7 @@
   "supervises": []
  },
  {
-  "no": "E-166",
+  "no": "E-391",
   "id": "monitor-security-1",
   "title": "مراقب الأمن السيبراني وتحمل الضغط المليوني (1)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -2031,7 +5082,7 @@
   ]
  },
  {
-  "no": "E-167",
+  "no": "E-392",
   "id": "monitor-security-2",
   "title": "مراقب الأمن السيبراني وتحمل الضغط المليوني (2)",
   "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
@@ -2044,7 +5095,7 @@
   ]
  },
  {
-  "no": "E-168",
+  "no": "E-393",
   "id": "ux-tv-web-1",
   "title": "مصمم واجهات وتجربة مستخدم - التلفزيون والويب (1)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2055,7 +5106,7 @@
   "supervises": []
  },
  {
-  "no": "E-169",
+  "no": "E-394",
   "id": "ux-tv-web-2",
   "title": "مصمم واجهات وتجربة مستخدم - التلفزيون والويب (2)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2066,7 +5117,7 @@
   "supervises": []
  },
  {
-  "no": "E-170",
+  "no": "E-395",
   "id": "ux-tv-web-3",
   "title": "مصمم واجهات وتجربة مستخدم - التلفزيون والويب (3)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2077,7 +5128,7 @@
   "supervises": []
  },
  {
-  "no": "E-171",
+  "no": "E-396",
   "id": "ux-tv-web-4",
   "title": "مصمم واجهات وتجربة مستخدم - التلفزيون والويب (4)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2088,7 +5139,7 @@
   "supervises": []
  },
  {
-  "no": "E-172",
+  "no": "E-397",
   "id": "ux-mobile-1",
   "title": "مصمم واجهات وتجربة مستخدم - الهواتف (1)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2099,7 +5150,7 @@
   "supervises": []
  },
  {
-  "no": "E-173",
+  "no": "E-398",
   "id": "ux-mobile-2",
   "title": "مصمم واجهات وتجربة مستخدم - الهواتف (2)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2110,7 +5161,7 @@
   "supervises": []
  },
  {
-  "no": "E-174",
+  "no": "E-399",
   "id": "ux-mobile-3",
   "title": "مصمم واجهات وتجربة مستخدم - الهواتف (3)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2121,7 +5172,7 @@
   "supervises": []
  },
  {
-  "no": "E-175",
+  "no": "E-400",
   "id": "ux-mobile-4",
   "title": "مصمم واجهات وتجربة مستخدم - الهواتف (4)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2132,7 +5183,7 @@
   "supervises": []
  },
  {
-  "no": "E-176",
+  "no": "E-401",
   "id": "motion-designer-1",
   "title": "مصمم موشن جرافيك لوسائل المساعدة والبطولات (1)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2143,7 +5194,7 @@
   "supervises": []
  },
  {
-  "no": "E-177",
+  "no": "E-402",
   "id": "motion-designer-2",
   "title": "مصمم موشن جرافيك لوسائل المساعدة والبطولات (2)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2154,7 +5205,7 @@
   "supervises": []
  },
  {
-  "no": "E-178",
+  "no": "E-403",
   "id": "motion-designer-3",
   "title": "مصمم موشن جرافيك لوسائل المساعدة والبطولات (3)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2165,7 +5216,7 @@
   "supervises": []
  },
  {
-  "no": "E-179",
+  "no": "E-404",
   "id": "motion-designer-4",
   "title": "مصمم موشن جرافيك لوسائل المساعدة والبطولات (4)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2176,7 +5227,7 @@
   "supervises": []
  },
  {
-  "no": "E-180",
+  "no": "E-405",
   "id": "motion-designer-5",
   "title": "مصمم موشن جرافيك لوسائل المساعدة والبطولات (5)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2187,7 +5238,7 @@
   "supervises": []
  },
  {
-  "no": "E-181",
+  "no": "E-406",
   "id": "motion-designer-6",
   "title": "مصمم موشن جرافيك لوسائل المساعدة والبطولات (6)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2198,7 +5249,7 @@
   "supervises": []
  },
  {
-  "no": "E-182",
+  "no": "E-407",
   "id": "brand-designer-1",
   "title": "مصمم هوية بصرية وشعارات الفئات (1)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2209,7 +5260,7 @@
   "supervises": []
  },
  {
-  "no": "E-183",
+  "no": "E-408",
   "id": "brand-designer-2",
   "title": "مصمم هوية بصرية وشعارات الفئات (2)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2220,7 +5271,7 @@
   "supervises": []
  },
  {
-  "no": "E-184",
+  "no": "E-409",
   "id": "brand-designer-3",
   "title": "مصمم هوية بصرية وشعارات الفئات (3)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2231,7 +5282,7 @@
   "supervises": []
  },
  {
-  "no": "E-185",
+  "no": "E-410",
   "id": "brand-designer-4",
   "title": "مصمم هوية بصرية وشعارات الفئات (4)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2242,7 +5293,7 @@
   "supervises": []
  },
  {
-  "no": "E-186",
+  "no": "E-411",
   "id": "sound-engineer-1",
   "title": "مهندس مؤثرات صوتية وموسيقى تفاعلية (1)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2253,7 +5304,7 @@
   "supervises": []
  },
  {
-  "no": "E-187",
+  "no": "E-412",
   "id": "sound-engineer-2",
   "title": "مهندس مؤثرات صوتية وموسيقى تفاعلية (2)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2264,7 +5315,7 @@
   "supervises": []
  },
  {
-  "no": "E-188",
+  "no": "E-413",
   "id": "sound-engineer-3",
   "title": "مهندس مؤثرات صوتية وموسيقى تفاعلية (3)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2275,7 +5326,7 @@
   "supervises": []
  },
  {
-  "no": "E-189",
+  "no": "E-414",
   "id": "sound-engineer-4",
   "title": "مهندس مؤثرات صوتية وموسيقى تفاعلية (4)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2286,7 +5337,7 @@
   "supervises": []
  },
  {
-  "no": "E-190",
+  "no": "E-415",
   "id": "monitor-design-1",
   "title": "مراقب التجربة البصرية والصوتية (1)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2306,7 +5357,7 @@
   ]
  },
  {
-  "no": "E-191",
+  "no": "E-416",
   "id": "monitor-design-2",
   "title": "مراقب التجربة البصرية والصوتية (2)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2324,7 +5375,7 @@
   ]
  },
  {
-  "no": "E-192",
+  "no": "E-417",
   "id": "monitor-design-3",
   "title": "مراقب التجربة البصرية والصوتية (3)",
   "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
@@ -2344,7 +5395,7 @@
   ]
  },
  {
-  "no": "E-193",
+  "no": "E-418",
   "id": "creator-manager-1",
   "title": "مدير حسابات المشاهير واليوتيوبرز (1)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2355,7 +5406,7 @@
   "supervises": []
  },
  {
-  "no": "E-194",
+  "no": "E-419",
   "id": "creator-manager-2",
   "title": "مدير حسابات المشاهير واليوتيوبرز (2)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2366,7 +5417,7 @@
   "supervises": []
  },
  {
-  "no": "E-195",
+  "no": "E-420",
   "id": "creator-manager-3",
   "title": "مدير حسابات المشاهير واليوتيوبرز (3)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2377,7 +5428,7 @@
   "supervises": []
  },
  {
-  "no": "E-196",
+  "no": "E-421",
   "id": "creator-manager-4",
   "title": "مدير حسابات المشاهير واليوتيوبرز (4)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2388,7 +5439,7 @@
   "supervises": []
  },
  {
-  "no": "E-197",
+  "no": "E-422",
   "id": "creator-manager-5",
   "title": "مدير حسابات المشاهير واليوتيوبرز (5)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2399,7 +5450,7 @@
   "supervises": []
  },
  {
-  "no": "E-198",
+  "no": "E-423",
   "id": "creator-manager-6",
   "title": "مدير حسابات المشاهير واليوتيوبرز (6)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2410,7 +5461,7 @@
   "supervises": []
  },
  {
-  "no": "E-199",
+  "no": "E-424",
   "id": "creator-manager-7",
   "title": "مدير حسابات المشاهير واليوتيوبرز (7)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2421,7 +5472,7 @@
   "supervises": []
  },
  {
-  "no": "E-200",
+  "no": "E-425",
   "id": "creator-manager-8",
   "title": "مدير حسابات المشاهير واليوتيوبرز (8)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2432,7 +5483,7 @@
   "supervises": []
  },
  {
-  "no": "E-201",
+  "no": "E-426",
   "id": "growth-marketer-1",
   "title": "أخصائي تسويق وصناعة ترندات قصيرة (1)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2443,7 +5494,7 @@
   "supervises": []
  },
  {
-  "no": "E-202",
+  "no": "E-427",
   "id": "growth-marketer-2",
   "title": "أخصائي تسويق وصناعة ترندات قصيرة (2)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2454,7 +5505,7 @@
   "supervises": []
  },
  {
-  "no": "E-203",
+  "no": "E-428",
   "id": "growth-marketer-3",
   "title": "أخصائي تسويق وصناعة ترندات قصيرة (3)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2465,7 +5516,7 @@
   "supervises": []
  },
  {
-  "no": "E-204",
+  "no": "E-429",
   "id": "growth-marketer-4",
   "title": "أخصائي تسويق وصناعة ترندات قصيرة (4)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2476,7 +5527,7 @@
   "supervises": []
  },
  {
-  "no": "E-205",
+  "no": "E-430",
   "id": "growth-marketer-5",
   "title": "أخصائي تسويق وصناعة ترندات قصيرة (5)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2487,7 +5538,7 @@
   "supervises": []
  },
  {
-  "no": "E-206",
+  "no": "E-431",
   "id": "growth-marketer-6",
   "title": "أخصائي تسويق وصناعة ترندات قصيرة (6)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2498,7 +5549,7 @@
   "supervises": []
  },
  {
-  "no": "E-207",
+  "no": "E-432",
   "id": "monitor-roi-1",
   "title": "مراقب عائدات وأداء المشاهير (1)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2517,7 +5568,7 @@
   ]
  },
  {
-  "no": "E-208",
+  "no": "E-433",
   "id": "monitor-roi-2",
   "title": "مراقب عائدات وأداء المشاهير (2)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2536,7 +5587,7 @@
   ]
  },
  {
-  "no": "E-209",
+  "no": "E-434",
   "id": "monitor-community-1",
   "title": "مراقب البثوث المباشرة والفئات الخاصة بالجمهور (1)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2547,7 +5598,7 @@
   "supervises": []
  },
  {
-  "no": "E-210",
+  "no": "E-435",
   "id": "monitor-community-2",
   "title": "مراقب البثوث المباشرة والفئات الخاصة بالجمهور (2)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2558,7 +5609,7 @@
   "supervises": []
  },
  {
-  "no": "E-211",
+  "no": "E-436",
   "id": "monitor-community-3",
   "title": "مراقب البثوث المباشرة والفئات الخاصة بالجمهور (3)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
@@ -2569,7 +5620,7 @@
   "supervises": []
  },
  {
-  "no": "E-212",
+  "no": "E-437",
   "id": "monitor-community-4",
   "title": "مراقب البثوث المباشرة والفئات الخاصة بالجمهور (4)",
   "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
