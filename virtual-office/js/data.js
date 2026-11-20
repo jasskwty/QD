@@ -5,7 +5,7 @@ export const GH_BLOB = `https://github.com/${REPO}/blob/${BRANCH}/`;
 export const GH_TREE = `https://github.com/${REPO}/tree/${BRANCH}/`;
 
 let base = null;
-export const source = () => (base === '../' ? 'محلي' : base ? 'GitHub' : '—');
+export const source = () => (base === '../' ? 'محلي' : base === './' ? 'نسخة منشورة' : base ? 'GitHub' : '—');
 
 async function json(path, fallback) {
   try {
@@ -19,7 +19,7 @@ export async function text(path) {
 }
 
 export async function init() {
-  for (const b of ['../', RAW]) {
+  for (const b of ['../', RAW, './']) {  // local server, GitHub, or a copy published beside the page
     try { const r = await fetch(b + 'company/org.json', { cache: 'no-store' }); if (r.ok) { base = b; return await r.json(); } } catch { /* next */ }
   }
   throw new Error('ما قدرت أقرا company/org.json محلياً ولا من GitHub');

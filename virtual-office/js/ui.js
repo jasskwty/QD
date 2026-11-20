@@ -142,7 +142,7 @@ function copyBox(txt) {
   const log = $('#chat-log');
   const box = document.createElement('div'); box.className = 'copy';
   box.innerHTML = `<code>${esc(txt)}</code><button>نسخ</button>`;
-  box.querySelector('button').onclick = () => { navigator.clipboard?.writeText(txt); toast('انسخ ✓'); };
+  box.querySelector('button').onclick = () => { navigator.clipboard?.writeText(txt).then(() => toast('انسخ ✓'), () => toast('ما قدرت أنسخ: حدد النص وانسخه')); };
   log.appendChild(box); log.scrollTop = log.scrollHeight;
 }
 
@@ -203,7 +203,7 @@ export function openRoom(room, state) {
       const box = document.createElement('div'); box.className = 'copy';
       const cmd = `سوّ اجتماع حسب company/MEETING.md مع: ${m.attendees.join('، ')}. الموضوع: ${text}`;
       box.innerHTML = `<code>${esc(cmd)}</code><button>نسخ</button>`;
-      box.querySelector('button').onclick = () => { navigator.clipboard?.writeText(cmd); toast('انسخ ✓'); };
+      box.querySelector('button').onclick = () => { navigator.clipboard?.writeText(cmd).then(() => toast('انسخ ✓'), () => toast('ما قدرت أنسخ: حدد النص وانسخه')); };
       $('#meet-log').appendChild(box);
       return;
     }
