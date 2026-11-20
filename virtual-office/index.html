@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مكتب الديوانية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game"></div>
+
+  <header id="hud">
+    <div class="brand">🏢 مكتب الديوانية <span>QD Virtual Office</span></div>
+    <section class="card" id="joy-card"><div class="lbl">😄 مؤشر الفرحة الحي</div><div id="joy"></div></section>
+    <section class="card" id="finance"></section>
+    <section class="card" id="tokens"></section>
+    <section class="card" id="shift"></section>
+    <div class="actions">
+      <input id="search" list="people" placeholder="🔎 ابحث عن موظف (الاسم أو الرقم)">
+      <datalist id="people"></datalist>
+      <button id="btn-priorities">📋 أولوياتي</button>
+      <button id="btn-emergency" class="danger">🚨 اجتماع قادة عاجل</button>
+      <button id="btn-sound" title="الصوت">🔈</button>
+    </div>
+  </header>
+
+  <div id="banner" hidden></div>
+  <div id="prompt" hidden></div>
+  <div id="toast" hidden></div>
+  <div id="source"></div>
+  <div id="help">⌨️ WASD / الأسهم للمشي · 🖱️ اضغط بالماوس للانتقال · E تحدث · R إدارة القاعة · عجلة الماوس للتقريب</div>
+
+  <aside id="panel" hidden>
+    <button id="panel-close" aria-label="إغلاق">✕</button>
+    <div id="panel-body"></div>
+  </aside>
+
+  <div id="loading"><div class="spinner">⚽</div><div id="loading-msg">نجهز المقر…</div></div>
+
+  <script>
+    // Phaser: local copy (npm install) first, CDN when the page is opened without the server
+    (function () {
+      var s = document.createElement('script');
+      s.src = 'node_modules/phaser/dist/phaser.min.js';
+      s.onload = boot;
+      s.onerror = function () {
+        var c = document.createElement('script');
+        c.src = 'https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js';
+        c.onload = boot;
+        c.onerror = function () { document.getElementById('loading-msg').textContent = '⚠️ ما قدرت أحمل محرك اللعبة Phaser'; };
+        document.head.appendChild(c);
+      };
+      document.head.appendChild(s);
+      function boot() { var m = document.createElement('script'); m.type = 'module'; m.src = 'js/game.js'; document.body.appendChild(m); }
+    })();
+  </script>
+</body>
+</html>

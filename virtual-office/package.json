@@ -1,0 +1,15 @@
+{
+  "name": "qd-virtual-office",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QD Virtual Office: a 2D top-down game of the Diwaniya agent company",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.11.0",
+    "phaser": "3.80.1"
+  }
+}

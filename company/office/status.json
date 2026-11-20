@@ -1,0 +1,14 @@
+{
+  "updated": null,
+  "joy": { "diwaniya": null, "seenjeem": null, "makhmakh": null, "updated": null, "report": null, "testers": {} },
+  "crisis": { "active": false, "reason": null, "since": null, "rounds": 0 },
+  "finance": { "target": 200, "achieved": null, "level": 1, "currency": "د.ك" },
+  "tokens": { "saving_pct": null, "note": null },
+  "brief": [],
+  "football": [
+    { "team": "القادسية", "text": null },
+    { "team": "برشلونة", "text": null },
+    { "team": "الأزرق", "text": null }
+  ],
+  "celebrate": false
+}

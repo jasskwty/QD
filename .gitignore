@@ -3,3 +3,6 @@ work/
 out/
 .env
 *.jsonl
+
+# company work files are the agents' output: keep them
+!company/work/

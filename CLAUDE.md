@@ -4,6 +4,9 @@
 - الاختبارات: `npm test` (بدون اتصال بقاعدة البيانات).
 - الشركة: `company/README.md`، الهيكل في `company/ORG.md`، الموظفين في `.claude/agents/`، الاجتماع في `company/MEETING.md`.
 - الشغل كله على الفرع `claude/multi-agent-company-9dst9p`.
+- الموظفين يتولدون من `tools/company/gen_org.py` (شغّله بعد أي تعديل في القوالب أو `company/agent_overrides.json` أو `company/extra_cells.json`). لا تعدّل `.claude/agents/` يدوي.
+- الشفتات: `company/SHIFTS.md` · اجتماع القادة: `company/MEETING.md` · الكارثة: `company/JOY_CRISIS.md`.
+- المكتب الافتراضي: `virtual-office/` (`npm start`)، والإشعارات: `tools/notify/`. التشغيل في `SETUP_GUIDE.md`.
 
 ## القواعد (3 بس)
 1. لا مفاتيح ولا أسرار في أي ملف أو كومت أو محادثة: الريبو عام.
