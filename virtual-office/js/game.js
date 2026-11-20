@@ -3,7 +3,7 @@
 import * as data from './data.js';
 import * as ui from './ui.js';
 import { T, COLS, ROWS, WORLD_W, WORLD_H, ROOMS, roomById, LEADERS, buildGrid, placeEmployees, meetingSeats, findPath,
-  DINER_SEATS, LOUNGE_REWARD_SEATS } from './layout.js';
+  DINER_SEATS, LOUNGE_REWARD_SEATS, DEPT_TABLES, tableOf, tableSeats, roomAt } from './layout.js';
 
 const SECTOR_COLOR = {
   'القيادة العليا ومجلس التفتيش الأعلى': 0x2b2d42, 'قطاع المحتوى والفئات': 0x2a9d8f, 'قطاع الهندسة والبث والذكاء الاصطناعي': 0x457b9d,
@@ -14,6 +14,8 @@ const SCARVES = ['q', 'b', 'k']; // القادسية، برشلونة، الأز
 const ROLE_ICON = { rival: '🕵️', writer: '✍️', media: '📷', checker: '🔎', monitor: '👁️' };
 const CHANTS = ['💛 يا قادسية يا ملكي!', 'Visca el Barça! 💙❤️', '💙 الأزرق الأزرق!', 'هدددددف ⚽', 'الملكي ما يغلب 💛', 'Força Barça 💙❤️',
   'يا أزرق شد حيلك 💙', 'القادسية بطل الدوري 🏆'];
+const REACTIONS = ['😂', '🔥', '🤩', '😮', '🤔', '👏', '😆', '🥳', '😐'];
+const DEPT_MEETING_MS = 35000, DEPT_MEETINGS_AT_ONCE = 5;
 const JOY_EMOJI = (v) => (v == null ? '🎮' : v >= 85 ? '🤩' : v >= 70 ? '😂' : v >= 55 ? '🔥' : v >= 40 ? '😐' : '💤');
 
 const hash = (s) => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; };
@@ -34,8 +36,11 @@ class Office extends Phaser.Scene {
     this.drawWorld();
     const { pos, cellSlots } = placeEmployees(this.org);
     this.home = pos;
+    this.cellSlots = cellSlots;
     this.drawCells(cellSlots);
     this.drawFurniture();
+    this.drawDeptTables();
+    this.drawLoungeLive();
     this.bakeStatic(before);
     this.spawnNPCs();
     this.spawnPlayer();
@@ -48,6 +53,11 @@ class Office extends Phaser.Scene {
       onGoTo: (id) => this.goTo(id),
       onEmergency: () => this.emergency(),
       onPriorities: () => ui.openPriorities(this.state),
+      onTravel: (dest) => this.travel(dest),
+      travelList: () => this.travelList(),
+      toggleSprint: () => (this.sprint = !this.sprint),
+      zoom: (d) => this.cameras.main.setZoom(Phaser.Math.Clamp(this.cameras.main.zoom + d, 0.4, 1.6)),
+      setStick: (x, y) => { this.stick = x || y ? { x, y } : null; },
       onPromptTap: () => { if (this.nearNPC) ui.openAgent(this.nearNPC.e, this.state); else if (this.inRoom) ui.openRoom(this.inRoom, this.state); },
       onSay: (id, text) => this.say(id, text.split('\n')[0].slice(0, 70), 6000),
       toggleSound: () => (this.sound_on = !this.sound_on),
@@ -59,6 +69,10 @@ class Office extends Phaser.Scene {
     this.time.addEvent({ delay: 9000, loop: true, callback: () => this.randomChant() });
     this.time.addEvent({ delay: 1500, loop: true, callback: () => this.siren() });
     this.time.addEvent({ delay: 30000, loop: true, callback: () => ui.updateHUD(this.state, currentShift()) });
+    this.setupDepartments();
+    this.time.addEvent({ delay: 4000, loop: true, callback: () => this.deptTick() });
+    this.time.addEvent({ delay: 2500, loop: true, callback: () => this.loungeTick() });
+    this.deptTick();
     document.getElementById('loading').hidden = true;
   }
 
@@ -192,6 +206,16 @@ class Office extends Phaser.Scene {
     label(EN.x + EN.w / 2, EN.y + 685, '🖥️ الخوادم', 11);
   }
 
+  drawDeptTables() {
+    const g = this.add.graphics().setDepth(1);
+    for (const id of Object.keys(DEPT_TABLES)) {
+      const t = tableOf(id);
+      g.fillStyle(0x5b4636, 0.95).fillEllipse(t.x, t.y, t.rx * 2, t.ry * 2);
+      g.lineStyle(2, 0xffd23f, 0.4).strokeEllipse(t.x, t.y, t.rx * 2, t.ry * 2);
+      this.add.text(t.x, t.y, 'طاولة اجتماع القسم', { fontFamily: 'Noto Kufi Arabic, Tahoma', fontSize: '10px', color: '#ffe9a8', rtl: true }).setOrigin(0.5).setDepth(2);
+    }
+  }
+
   scarfWall(g, x, y) {
     const scarf = (sx, sy, cols) => cols.forEach((c, i) => g.fillStyle(c).fillRect(sx + i * 10, sy, 10, 22));
     scarf(x, y, [0xffd200, 0x0047ab, 0xffd200, 0x0047ab]);
@@ -233,21 +257,23 @@ class Office extends Phaser.Scene {
   setupCameras() {
     const cam = this.cameras.main;
     cam.setBounds(0, 0, WORLD_W, WORLD_H).startFollow(this.player, true, 0.12, 0.12).setZoom(1);
-    this.mini = this.cameras.add(12, this.scale.height - 172, 240, 160).setZoom(240 / WORLD_W).setBackgroundColor(0x0b0d12).centerOn(WORLD_W / 2, WORLD_H / 2);
+    const mw = this.scale.width < 600 ? 150 : 240, mh = mw * 2 / 3;
+    this.mini = this.cameras.add(12, this.scale.height - mh - 12, mw, mh).setZoom(mw / WORLD_W).setBackgroundColor(0x0b0d12).centerOn(WORLD_W / 2, WORLD_H / 2);
     this.mini.setName('mini');
     this.dot = this.add.circle(0, 0, 60, 0xffd23f).setDepth(50);
     cam.ignore(this.dot);
     this.mini.ignore([this.nameTag, this.playerTag, ...[...this.npcs.values()].map(n => n.emo)]);
-    this.scale.on('resize', (sz) => { this.mini.setPosition(12, sz.height - 172); });
+    this.scale.on('resize', (sz) => { this.mini.setPosition(12, sz.height - mh - 12); });
   }
 
   setupInput() {
-    this.keys = this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,R', false);
+    this.keys = this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,R,SHIFT', false);
+    this.pathG = this.add.graphics().setDepth(8);
     this.input.keyboard.on('keydown-E', () => { if (this.typing) return; if (this.nearNPC) ui.openAgent(this.nearNPC.e, this.state); });
     this.input.keyboard.on('keydown-R', () => { if (this.typing) return; if (this.inRoom) ui.openRoom(this.inRoom, this.state); });
     this.input.on('pointerdown', (ptr) => {
       if (this.panel || ptr.camera === this.mini) {
-        if (ptr.camera === this.mini) this.walkTo(ptr.worldX, ptr.worldY);
+        if (ptr.camera === this.mini) this.teleport(ptr.worldX, ptr.worldY);
         return;
       }
       this.walkTo(ptr.worldX, ptr.worldY);
@@ -365,6 +391,7 @@ class Office extends Phaser.Scene {
     for (const tv of this.tvs) tv.setText(['⚽ شاشة المباريات', ...fb.map(f => `${f.team}: ${f.text || 'بانتظار آخر نتيجة'}`)].join('\n'));
     // who sits where
     const busy = new Set(ROOMS.filter(r => r.meeting).flatMap(r => ui.meetingOf(r.id).attendees));
+    for (const m of (this.deptMeetings || new Map()).values()) for (const id of m.ids) busy.add(id);
     const promoted = new Set(st.roster?.promoted || []);
     const off = this.org.filter(e => e.shift !== shift && !busy.has(e.id) && e.cslug !== 'joylab' && e.id !== 'ceo-business-manager');
     const hourKey = String(new Date().getUTCHours());
@@ -387,6 +414,7 @@ class Office extends Phaser.Scene {
       let emo = '';
       if (e.cslug === 'joylab' && e.id.startsWith('playtester')) emo = JOY_EMOJI(st.status.joy?.testers?.[id]);
       else if (busy.has(id) && crisis) emo = '🚨';
+      else if (n.place === 'dept') emo = '🗣️';
       else if (want === 'cafe') emo = '☕';
       else if (want === 'lounge') emo = '🎮';
       else if (offShift) emo = '💤';
@@ -429,22 +457,126 @@ class Office extends Phaser.Scene {
     people.forEach((id, k) => this.time.delayedCall(k * 150, () => this.say(id, CHANTS[k % CHANTS.length], 4000)));
   }
 
+  // ── movement helpers ──
+  nearestWalkable(x, y) {
+    const [tx, ty] = this.tileOf(x, y);
+    for (let r = 0; r < 8; r++) for (let dy = -r; dy <= r; dy++) for (let dx = -r; dx <= r; dx++) {
+      const nx = tx + dx, ny = ty + dy;
+      if (nx > 0 && ny > 0 && nx < COLS && ny < ROWS && this.grid[ny][nx]) return { x: nx * T + T / 2, y: ny * T + T / 2 };
+    }
+    return null;
+  }
+  teleport(x, y) {
+    const p = this.nearestWalkable(x, y); if (!p) return;
+    this.playerPath = null;
+    this.cameras.main.fadeOut(140, 0, 0, 0);
+    this.cameras.main.once('camerafadeoutcomplete', () => { this.player.setPosition(p.x, p.y); this.cameras.main.fadeIn(180, 0, 0, 0); });
+  }
+  travelList() {
+    const rooms = ROOMS.map(r => ({ key: 'room:' + r.id, label: r.label, x: r.x + r.w / 2, y: r.y + r.h - 70 }));
+    const live = [...(this.deptMeetings || new Map()).values()].map(m => ({ key: 'dept:' + m.dept.id, label: `🗣️ اجتماع: ${m.dept.name}`, x: m.table.x, y: m.table.y + m.table.ry + 60 }));
+    return [{ key: 'me', label: '👑 مكتبي', x: roomById.ceo.x + 280, y: roomById.ceo.y + 260 }, ...live, ...rooms];
+  }
+  travel(dest) { const d = this.travelList().find(x => x.key === dest); if (d) this.teleport(d.x, d.y); }
+
+  // ── department meetings: every department, even a 5-person cell, meets in turn around its own table ──
+  setupDepartments() {
+    this.depts = (this.state.departments || []).filter(d => d.members?.length);
+    this.deptMeetings = new Map();
+    this.deptCursor = Math.floor(Math.random() * Math.max(1, this.depts.length));
+    for (const d of this.depts) d.table = this.deptTable(d);
+  }
+  deptTable(d) {
+    const homes = d.members.map(id => this.home[id]).filter(Boolean);
+    if (!homes.length) return null;
+    const first = homes[0];
+    const slot = (this.cellSlots || []).find(s => first.x >= s.x && first.x <= s.x + s.w && first.y >= s.y && first.y <= s.y + s.h);
+    if (slot) return { x: slot.x + slot.w / 2, y: slot.y + slot.h * 0.62, rx: slot.w * 0.28, ry: slot.h * 0.16, room: 'cells', slot: slot.cid };
+    const counts = {};
+    for (const h of homes) { const r = roomAt(h.x, h.y); if (r) counts[r.id] = (counts[r.id] || 0) + 1; }
+    const room = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0];
+    const t = room && tableOf(room);
+    return t ? { ...t, room } : null;
+  }
+  deptTick() {
+    if (!this.depts?.length) return;
+    const now = this.time.now, shift = currentShift();
+    for (const [id, m] of this.deptMeetings) if (now > m.until) {
+      for (const pid of m.ids) { const h = this.home[pid], n = this.npcs.get(pid); if (h && n && n.place === 'dept') this.moveNPC(pid, h.x, h.y, 'desk'); }
+      this.deptMeetings.delete(id);
+    }
+    const roomsBusy = new Set([...this.deptMeetings.values()].map(m => m.table.slot || m.table.room));
+    const bigBusy = new Set(ROOMS.filter(r => r.meeting).flatMap(r => ui.meetingOf(r.id).attendees));
+    let tries = 0;
+    while (this.deptMeetings.size < DEPT_MEETINGS_AT_ONCE && tries++ < this.depts.length) {
+      const d = this.depts[this.deptCursor++ % this.depts.length];
+      if (!d.table || this.deptMeetings.has(d.id) || roomsBusy.has(d.table.slot || d.table.room)) continue;
+      const ids = [d.chair, ...d.members.filter(id => id !== d.chair)]
+        .filter(id => this.npcs.has(id) && !bigBusy.has(id) && this.npcs.get(id).place === 'desk' && (this.byId[id].shift === shift || this.byId[id].cslug === 'joylab' || id === d.chair))
+        .slice(0, 14);
+      if (ids.length < 2) continue;
+      const seats = tableSeats(d.table, ids.length);
+      ids.forEach((id, i) => { this.moveNPC(id, seats[i].x, seats[i].y, 'dept'); const n = this.npcs.get(id); n.s.setAlpha(1); n.emo.setText(i === 0 ? '🎤' : '🗣️'); });
+      this.deptMeetings.set(d.id, { dept: d, ids, table: d.table, until: now + DEPT_MEETING_MS });
+      roomsBusy.add(d.table.slot || d.table.room);
+      this.say(ids[0], `📋 بدينا اجتماع ${d.name.replace(/^خلية فئة /, 'خلية ')}`, 3500);
+    }
+    ui.setDeptMeetings([...this.deptMeetings.values()].map(m => ({ key: 'dept:' + m.dept.id, label: m.dept.name, n: m.ids.length })));
+  }
+
+  // ── lounge plays around the clock ──
+  drawLoungeLive() {
+    const L = roomById.lounge;
+    this.screenTexts = [0, 1, 2].map(i => {
+      const tx = this.add.text(L.x + 160 + i * 232, L.y + 140, '', { fontFamily: 'Noto Kufi Arabic, Tahoma', fontSize: '10px', color: '#ffe9a8', rtl: true, align: 'center' }).setOrigin(0.5).setDepth(3);
+      this.dynamic.add(tx); return tx;
+    });
+    const sign = this.add.text(L.x + L.w - 60, L.y + 60, '🔴 اللعب شغال 24 ساعة', { fontFamily: 'Noto Kufi Arabic, Tahoma', fontSize: '12px', color: '#ff7ad9', rtl: true }).setOrigin(1, 0).setDepth(3);
+    this.dynamic.add(sign);
+    this.tweens.add({ targets: sign, alpha: 0.35, duration: 900, yoyo: true, repeat: -1 });
+  }
+  loungeTick() {
+    const cats = (this.cellSlots || []).filter(s => s.cid !== 'quality').map(s => s.label);
+    const pts = [200, 400, 600];
+    this.round = (this.round || 0) + 1;
+    const pick = (a) => a[Math.floor(Math.random() * a.length)];
+    if (this.screenTexts) {
+      this.screenTexts[0].setText(`سؤال ${pick(pts)} · ${pick(cats) || ''}`);
+      this.screenTexts[1].setText(`جولة ${this.round} ⏱️`);
+      this.screenTexts[2].setText(`جولة ${this.round} ⏱️`);
+    }
+    const real = this.state.status.joy?.testers || {};
+    for (const [id, n] of this.npcs) {
+      if (!id.startsWith('playtester') || n.place !== 'desk') continue;
+      if (real[id] == null) n.emo.setText(pick(REACTIONS));
+      if (Math.random() < 0.12) this.say(id, pick(['جاوبتها! 💪', 'لااا كانت سهلة 😭', 'فزعة! 🆘', 'الحين دورنا 🔥', 'VAR! 📺', 'هذي من وين جايبينها 😂']), 2200);
+    }
+    for (const [id, n] of this.npcs) if (id.startsWith('joy-analyst') && n.place === 'desk') n.emo.setText(pick(['📝', '📊', '🧐']));
+  }
+
   // ── loop ──
   update(time, dt) {
-    const speed = 240 * dt / 1000, k = this.keys;
+    const k = this.keys;
+    const speed = 240 * dt / 1000 * (this.sprint || k.SHIFT.isDown ? 2.2 : 1);
     let vx = 0, vy = 0;
-    if (!this.typing) {
+    if (this.stick) { vx = this.stick.x; vy = this.stick.y; }
+    else if (!this.typing) {
       if (k.A.isDown || k.LEFT.isDown) vx -= 1; if (k.D.isDown || k.RIGHT.isDown) vx += 1;
       if (k.W.isDown || k.UP.isDown) vy -= 1; if (k.S.isDown || k.DOWN.isDown) vy += 1;
     }
     if (vx || vy) {
       this.playerPath = null;
-      const len = Math.hypot(vx, vy); vx = vx / len * speed; vy = vy / len * speed;
+      const len = Math.max(1, Math.hypot(vx, vy)); vx = vx / len * speed; vy = vy / len * speed;
       const box = (x, y) => [[-9, 0], [9, 0], [-9, 14], [9, 14]].every(([ox, oy]) => this.walkable(x + ox, y + oy));
       if (box(this.player.x + vx, this.player.y)) this.player.x += vx;
       if (box(this.player.x, this.player.y + vy)) this.player.y += vy;
       if (vx) this.player.setFlipX(vx < 0);
     } else if (this.playerPath?.length) this.step(this.player, this.playerPath, speed) || (this.playerPath = null);
+    const pl = this.playerPath?.length || 0;
+    if (pl !== this.lastPathLen) {
+      this.lastPathLen = pl; this.pathG.clear();
+      if (pl) { this.pathG.fillStyle(0xffd23f, 0.7); this.playerPath.forEach((pt, i) => { if (i % 2 === 0) this.pathG.fillCircle(pt.x, pt.y, 4); }); }
+    }
     for (const n of this.npcs.values()) {
       if (n.path?.length) { if (!this.step(n.s, n.path, 180 * dt / 1000)) n.path = null; }
       n.emo.setPosition(n.s.x, n.s.y - 26);

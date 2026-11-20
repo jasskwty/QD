@@ -73,9 +73,32 @@ a { color: #8cc8ff; }
 .spinner { font-size: 48px; animation: spin 1.2s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+#btn-sprint.on { background: #3a5a1e; border-color: var(--ok); }
+#dept-live { position: fixed; top: 150px; inset-inline-start: 12px; z-index: 9; display: flex; flex-direction: column; gap: 4px; max-width: 260px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 8px; }
+#dept-live .lbl { font-size: 11px; color: var(--muted); }
+#dept-live button { font-size: 11px; text-align: start; padding: 4px 8px; }
+.travel { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+.travel button { font-size: 12px; text-align: start; }
+.travel button.live { border-color: var(--gold); }
+#stick { position: fixed; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); right: 24px; width: 120px; height: 120px; border-radius: 50%; z-index: 15;
+  background: #ffffff14; border: 2px solid #ffffff40; touch-action: none; display: flex; align-items: center; justify-content: center; }
+#stick[hidden] { display: none; }
+#stick i { width: 52px; height: 52px; border-radius: 50%; background: #ffd23fcc; display: block; pointer-events: none; transition: transform 40ms; }
 @media (max-width: 900px) {
   .card:not(#joy-card) { display: none; }
   #search { width: 140px; }
   #prompt { max-width: calc(100% - 32px); bottom: 190px; }
   #help { display: none; }
+  .brand, #search, #btn-sound, #btn-zoom-in, #btn-zoom-out, .wide { display: none; }
+  #hud { gap: 6px; }
+  #joy-card { min-width: 0; flex: 1; padding: 4px 10px; }
+  .joy-row { font-size: 11px; grid-template-columns: 56px 1fr 34px; }
+  .actions { margin-inline-start: 0; padding: 4px; }
+  .actions button { padding: 6px 10px; }
+  #dept-live { bottom: 128px; padding: 6px; }
+  #panel { top: 80px; }
+  #dept-live { top: auto; bottom: 180px; max-width: 46%; }
+  #dept-live button:nth-of-type(n+3) { display: none; }
+  .travel { grid-template-columns: 1fr; }
 }

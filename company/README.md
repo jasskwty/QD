@@ -9,7 +9,8 @@
 |---|---|
 | [`ORG.md`](ORG.md) / [`org.json`](org.json) | الهيكل الكامل بالأسماء والأرقام |
 | [`SHIFTS.md`](SHIFTS.md) | الشفتات والشغل على مدار الساعة |
-| [`MEETING.md`](MEETING.md) | اجتماع القادة: تقارير ورؤية المدير التنفيذي |
+| [`MEETING.md`](MEETING.md) | اجتماع القادة، واجتماع كل قسم |
+| [`DEPARTMENTS.md`](DEPARTMENTS.md) | الأقسام الـ 82 ورؤساء اجتماعاتها |
 | [`JOY_CRISIS.md`](JOY_CRISIS.md) | 🚨 بروتوكول كارثة الفرحة |
 | [`office/status.json`](office/status.json) | مؤشر الفرحة، التارقت، التوفير، الكارثة (يقراه المكتب) |
 | [`work/`](work) · [`meetings/`](meetings) · [`decisions.md`](decisions.md) · [`backlog.md`](backlog.md) | الشغل والمحاضر والقرارات والمهام |

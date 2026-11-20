@@ -12,6 +12,11 @@ export const STATE_LABEL = { working: '💻 يشتغل', reviewing: '🔍 يدق
 export function initUI(c) {
   ctx = c;
   $('#btn-priorities').onclick = () => ctx.onPriorities();
+  $('#btn-travel').onclick = () => openTravel();
+  $('#btn-sprint').onclick = () => { const on = ctx.toggleSprint(); $('#btn-sprint').classList.toggle('on', on); toast(on ? '🏃 الركض شغال' : '🚶 مشي عادي'); };
+  $('#btn-zoom-in').onclick = () => ctx.zoom(0.15);
+  $('#btn-zoom-out').onclick = () => ctx.zoom(-0.15);
+  setupStick();
   $('#btn-emergency').onclick = () => ctx.onEmergency();
   $('#btn-sound').onclick = () => { const on = ctx.toggleSound(); $('#btn-sound').textContent = on ? '🔊' : '🔈'; };
   $('#panel-close').onclick = closePanel;
@@ -78,6 +83,43 @@ function openPanel(html) { $('#panel-body').innerHTML = html; $('#panel').hidden
 export function closePanel() { $('#panel').hidden = true; ctx?.setPanelOpen(false); }
 export const panelOpen = () => !$('#panel').hidden;
 
+// ── quick travel ──
+function openTravel() {
+  const list = ctx.travelList();
+  openPanel(`<div class="agent-head"><h2>🧭 انتقال سريع</h2><div class="muted small">اختر مكان وتنتقل له فوراً. (الضغط على الخريطة الصغيرة ينقلك بعد.)</div></div>
+    <div class="travel">${list.map(d => `<button data-travel="${esc(d.key)}" class="${d.key.startsWith('dept:') ? 'live' : ''}">${esc(d.label)}</button>`).join('')}</div>`);
+  document.querySelectorAll('[data-travel]').forEach(b => b.onclick = () => { closePanel(); ctx.onTravel(b.dataset.travel); });
+}
+
+// ── department meetings running now ──
+export function setDeptMeetings(list) {
+  const el = $('#dept-live'); if (!el) return;
+  el.innerHTML = `<div class="lbl">🗣️ اجتماعات الأقسام الحين (${list.length})</div>` +
+    list.map(m => `<button data-travel="${esc(m.key)}" title="روح للاجتماع">${esc(m.label.replace(/^خلية فئة /, 'خلية '))} · ${m.n}</button>`).join('');
+  el.querySelectorAll('[data-travel]').forEach(b => b.onclick = () => ctx.onTravel(b.dataset.travel));
+}
+
+// ── on-screen joystick for phones ──
+function setupStick() {
+  const base = $('#stick'), knob = $('#stick i');
+  if (!base) return;
+  if (!(matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window)) { base.hidden = true; return; }
+  base.hidden = false;
+  let id = null;
+  const R = 46;
+  const move = (ev) => {
+    const r = base.getBoundingClientRect();
+    let dx = ev.clientX - (r.left + r.width / 2), dy = ev.clientY - (r.top + r.height / 2);
+    const d = Math.hypot(dx, dy); if (d > R) { dx = dx / d * R; dy = dy / d * R; }
+    knob.style.transform = `translate(${dx}px, ${dy}px)`;
+    ctx.setStick(dx / R, dy / R);
+  };
+  base.addEventListener('pointerdown', (ev) => { id = ev.pointerId; base.setPointerCapture(id); move(ev); ev.preventDefault(); });
+  base.addEventListener('pointermove', (ev) => { if (ev.pointerId === id) move(ev); });
+  const end = (ev) => { if (ev.pointerId !== id) return; id = null; knob.style.transform = ''; ctx.setStick(0, 0); };
+  base.addEventListener('pointerup', end); base.addEventListener('pointercancel', end);
+}
+
 // ── employee panel ──
 export function openAgent(e, state) {
   const a = state.agents?.[e.id] || {};
@@ -90,7 +132,7 @@ export function openAgent(e, state) {
   openPanel(`
     <div class="agent-head"><span class="no">${esc(e.no)}</span><h2>${esc(e.title)}</h2><div class="muted">${esc(e.en || '')}</div></div>
     <table class="facts">
-      <tr><th>القسم</th><td>${esc(e.committee)} · ${esc(e.sector)}</td></tr>
+      <tr><th>القسم</th><td>${esc(e.committee)} · ${esc(e.sector)} ${e.dept ? `<span class="muted">(${esc(e.dept)})</span>` : ''}</td></tr>
       ${e.focus ? `<tr><th>التخصص</th><td>${esc(e.focus)}</td></tr>` : ''}
       <tr><th>يرفع إلى</th><td>${sup ? `<a href="#" data-goto="${esc(sup.id)}">${esc(sup.no)} ${esc(sup.title)}</a>` : 'المالك'}</td></tr>
       <tr><th>يشرف على</th><td>${(e.supervises || []).length ? `${e.supervises.length} موظف` : '—'}</td></tr>
@@ -101,6 +143,7 @@ export function openAgent(e, state) {
     </table>
     <div class="links"><a target="_blank" rel="noopener" href="${data.GH_BLOB}.claude/agents/${esc(e.id)}.md">📄 تعليماته</a>
       <a target="_blank" rel="noopener" href="${data.GH_TREE}${esc(workDir)}">🗂️ شاشة شغله</a>
+      ${e.dept ? `<a target="_blank" rel="noopener" href="${data.GH_TREE}company/meetings/departments/${esc(e.dept)}">🗣️ محاضر قسمه</a>` : ''}
       <a href="#" data-summon="${esc(e.id)}">📣 استدعه لقاعة اجتماعات</a></div>
     ${isBM ? prioritiesHTML(state) : ''}
     <div class="chat" id="chat"><h3>💬 كلّمه</h3><div class="log" id="chat-log"></div>

@@ -1,0 +1,1222 @@
+[
+ {
+  "id": "d001",
+  "name": "القيادة العليا",
+  "sector": "القيادة العليا ومجلس التفتيش الأعلى",
+  "chair": "ceo",
+  "size": 11,
+  "members": [
+   "ceo",
+   "chief-inspector",
+   "auditor-content",
+   "auditor-tech",
+   "auditor-design",
+   "auditor-growth",
+   "auditor-compliance",
+   "coo",
+   "head-strategy",
+   "head-academy",
+   "ceo-business-manager"
+  ]
+ },
+ {
+  "id": "d002",
+  "name": "خلية فئة الرياضة الكويتية والخليجية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-01-monitor",
+  "size": 5,
+  "members": [
+   "cat-01-rival",
+   "cat-01-writer",
+   "cat-01-media",
+   "cat-01-checker",
+   "cat-01-monitor"
+  ]
+ },
+ {
+  "id": "d003",
+  "name": "خلية فئة كرة القدم العالمية وكأس العالم",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-02-monitor",
+  "size": 5,
+  "members": [
+   "cat-02-rival",
+   "cat-02-writer",
+   "cat-02-media",
+   "cat-02-checker",
+   "cat-02-monitor"
+  ]
+ },
+ {
+  "id": "d004",
+  "name": "خلية فئة الرياضات القتالية والأولمبية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-03-monitor",
+  "size": 5,
+  "members": [
+   "cat-03-rival",
+   "cat-03-writer",
+   "cat-03-media",
+   "cat-03-checker",
+   "cat-03-monitor"
+  ]
+ },
+ {
+  "id": "d005",
+  "name": "خلية فئة المسلسلات الكويتية القديمة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-04-monitor",
+  "size": 5,
+  "members": [
+   "cat-04-rival",
+   "cat-04-writer",
+   "cat-04-media",
+   "cat-04-checker",
+   "cat-04-monitor"
+  ]
+ },
+ {
+  "id": "d006",
+  "name": "خلية فئة المسلسلات الخليجية والعربية الحديثة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-05-monitor",
+  "size": 5,
+  "members": [
+   "cat-05-rival",
+   "cat-05-writer",
+   "cat-05-media",
+   "cat-05-checker",
+   "cat-05-monitor"
+  ]
+ },
+ {
+  "id": "d007",
+  "name": "خلية فئة المسلسلات الأجنبية والمنصات",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-06-monitor",
+  "size": 5,
+  "members": [
+   "cat-06-rival",
+   "cat-06-writer",
+   "cat-06-media",
+   "cat-06-checker",
+   "cat-06-monitor"
+  ]
+ },
+ {
+  "id": "d008",
+  "name": "خلية فئة الأفلام العربية الكلاسيكية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-07-monitor",
+  "size": 5,
+  "members": [
+   "cat-07-rival",
+   "cat-07-writer",
+   "cat-07-media",
+   "cat-07-checker",
+   "cat-07-monitor"
+  ]
+ },
+ {
+  "id": "d009",
+  "name": "خلية فئة أفلام هوليوود والسينما العالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-08-monitor",
+  "size": 5,
+  "members": [
+   "cat-08-rival",
+   "cat-08-writer",
+   "cat-08-media",
+   "cat-08-checker",
+   "cat-08-monitor"
+  ]
+ },
+ {
+  "id": "d010",
+  "name": "خلية فئة الأنمي والمانجا",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-09-monitor",
+  "size": 5,
+  "members": [
+   "cat-09-rival",
+   "cat-09-writer",
+   "cat-09-media",
+   "cat-09-checker",
+   "cat-09-monitor"
+  ]
+ },
+ {
+  "id": "d011",
+  "name": "خلية فئة الكرتون وأفلام ديزني",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-10-monitor",
+  "size": 5,
+  "members": [
+   "cat-10-rival",
+   "cat-10-writer",
+   "cat-10-media",
+   "cat-10-checker",
+   "cat-10-monitor"
+  ]
+ },
+ {
+  "id": "d012",
+  "name": "خلية فئة اللهجة الكويتية والمصطلحات القديمة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-11-monitor",
+  "size": 5,
+  "members": [
+   "cat-11-rival",
+   "cat-11-writer",
+   "cat-11-media",
+   "cat-11-checker",
+   "cat-11-monitor"
+  ]
+ },
+ {
+  "id": "d013",
+  "name": "خلية فئة اللهجات الخليجية والعربية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-12-monitor",
+  "size": 5,
+  "members": [
+   "cat-12-rival",
+   "cat-12-writer",
+   "cat-12-media",
+   "cat-12-checker",
+   "cat-12-monitor"
+  ]
+ },
+ {
+  "id": "d014",
+  "name": "خلية فئة الأمثال الشعبية والألغاز",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-13-monitor",
+  "size": 5,
+  "members": [
+   "cat-13-rival",
+   "cat-13-writer",
+   "cat-13-media",
+   "cat-13-checker",
+   "cat-13-monitor"
+  ]
+ },
+ {
+  "id": "d015",
+  "name": "خلية فئة شارع المطاعم والمقاهي",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-14-monitor",
+  "size": 5,
+  "members": [
+   "cat-14-rival",
+   "cat-14-writer",
+   "cat-14-media",
+   "cat-14-checker",
+   "cat-14-monitor"
+  ]
+ },
+ {
+  "id": "d016",
+  "name": "خلية فئة الأكلات الشعبية والمطبخ العالمي",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-15-monitor",
+  "size": 5,
+  "members": [
+   "cat-15-rival",
+   "cat-15-writer",
+   "cat-15-media",
+   "cat-15-checker",
+   "cat-15-monitor"
+  ]
+ },
+ {
+  "id": "d017",
+  "name": "خلية فئة العلامات التجارية والماركات",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-16-monitor",
+  "size": 5,
+  "members": [
+   "cat-16-rival",
+   "cat-16-writer",
+   "cat-16-media",
+   "cat-16-checker",
+   "cat-16-monitor"
+  ]
+ },
+ {
+  "id": "d018",
+  "name": "خلية فئة تاريخ الكويت والخليج",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-17-monitor",
+  "size": 5,
+  "members": [
+   "cat-17-rival",
+   "cat-17-writer",
+   "cat-17-media",
+   "cat-17-checker",
+   "cat-17-monitor"
+  ]
+ },
+ {
+  "id": "d019",
+  "name": "خلية فئة التاريخ الإسلامي",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-18-monitor",
+  "size": 5,
+  "members": [
+   "cat-18-rival",
+   "cat-18-writer",
+   "cat-18-media",
+   "cat-18-checker",
+   "cat-18-monitor"
+  ]
+ },
+ {
+  "id": "d020",
+  "name": "خلية فئة التاريخ العالمي والحروب",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-19-monitor",
+  "size": 5,
+  "members": [
+   "cat-19-rival",
+   "cat-19-writer",
+   "cat-19-media",
+   "cat-19-checker",
+   "cat-19-monitor"
+  ]
+ },
+ {
+  "id": "d021",
+  "name": "خلية فئة السير الذاتية والشخصيات المؤثرة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-20-monitor",
+  "size": 5,
+  "members": [
+   "cat-20-rival",
+   "cat-20-writer",
+   "cat-20-media",
+   "cat-20-checker",
+   "cat-20-monitor"
+  ]
+ },
+ {
+  "id": "d022",
+  "name": "خلية فئة الفقه والعبادات",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-21-monitor",
+  "size": 5,
+  "members": [
+   "cat-21-rival",
+   "cat-21-writer",
+   "cat-21-media",
+   "cat-21-checker",
+   "cat-21-monitor"
+  ]
+ },
+ {
+  "id": "d023",
+  "name": "خلية فئة السيرة النبوية والصحابة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-22-monitor",
+  "size": 5,
+  "members": [
+   "cat-22-rival",
+   "cat-22-writer",
+   "cat-22-media",
+   "cat-22-checker",
+   "cat-22-monitor"
+  ]
+ },
+ {
+  "id": "d024",
+  "name": "خلية فئة القرآن الكريم وتفسيره",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-23-monitor",
+  "size": 5,
+  "members": [
+   "cat-23-rival",
+   "cat-23-writer",
+   "cat-23-media",
+   "cat-23-checker",
+   "cat-23-monitor"
+  ]
+ },
+ {
+  "id": "d025",
+  "name": "خلية فئة جغرافيا الدول والعواصم",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-24-monitor",
+  "size": 5,
+  "members": [
+   "cat-24-rival",
+   "cat-24-writer",
+   "cat-24-media",
+   "cat-24-checker",
+   "cat-24-monitor"
+  ]
+ },
+ {
+  "id": "d026",
+  "name": "خلية فئة المعالم السياحية والعجائب",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-25-monitor",
+  "size": 5,
+  "members": [
+   "cat-25-rival",
+   "cat-25-writer",
+   "cat-25-media",
+   "cat-25-checker",
+   "cat-25-monitor"
+  ]
+ },
+ {
+  "id": "d027",
+  "name": "خلية فئة الفضاء والفلك",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-26-monitor",
+  "size": 5,
+  "members": [
+   "cat-26-rival",
+   "cat-26-writer",
+   "cat-26-media",
+   "cat-26-checker",
+   "cat-26-monitor"
+  ]
+ },
+ {
+  "id": "d028",
+  "name": "خلية فئة عالم الحيوان والطبيعة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-27-monitor",
+  "size": 5,
+  "members": [
+   "cat-27-rival",
+   "cat-27-writer",
+   "cat-27-media",
+   "cat-27-checker",
+   "cat-27-monitor"
+  ]
+ },
+ {
+  "id": "d029",
+  "name": "خلية فئة الطب وصحة الإنسان",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-28-monitor",
+  "size": 5,
+  "members": [
+   "cat-28-rival",
+   "cat-28-writer",
+   "cat-28-media",
+   "cat-28-checker",
+   "cat-28-monitor"
+  ]
+ },
+ {
+  "id": "d030",
+  "name": "خلية فئة الفيزياء والكيمياء والعلوم",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-29-monitor",
+  "size": 5,
+  "members": [
+   "cat-29-rival",
+   "cat-29-writer",
+   "cat-29-media",
+   "cat-29-checker",
+   "cat-29-monitor"
+  ]
+ },
+ {
+  "id": "d031",
+  "name": "خلية فئة الاختراعات والعلماء",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-30-monitor",
+  "size": 5,
+  "members": [
+   "cat-30-rival",
+   "cat-30-writer",
+   "cat-30-media",
+   "cat-30-checker",
+   "cat-30-monitor"
+  ]
+ },
+ {
+  "id": "d032",
+  "name": "خلية فئة التقنية والذكاء الاصطناعي",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-31-monitor",
+  "size": 5,
+  "members": [
+   "cat-31-rival",
+   "cat-31-writer",
+   "cat-31-media",
+   "cat-31-checker",
+   "cat-31-monitor"
+  ]
+ },
+ {
+  "id": "d033",
+  "name": "خلية فئة ألعاب الفيديو (Gaming)",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-32-monitor",
+  "size": 5,
+  "members": [
+   "cat-32-rival",
+   "cat-32-writer",
+   "cat-32-media",
+   "cat-32-checker",
+   "cat-32-monitor"
+  ]
+ },
+ {
+  "id": "d034",
+  "name": "خلية فئة السيارات والمحركات",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-33-monitor",
+  "size": 5,
+  "members": [
+   "cat-33-rival",
+   "cat-33-writer",
+   "cat-33-media",
+   "cat-33-checker",
+   "cat-33-monitor"
+  ]
+ },
+ {
+  "id": "d035",
+  "name": "خلية فئة الطيران والسفر",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-34-monitor",
+  "size": 5,
+  "members": [
+   "cat-34-rival",
+   "cat-34-writer",
+   "cat-34-media",
+   "cat-34-checker",
+   "cat-34-monitor"
+  ]
+ },
+ {
+  "id": "d036",
+  "name": "خلية فئة الشعر النبطي والفصيح",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-35-monitor",
+  "size": 5,
+  "members": [
+   "cat-35-rival",
+   "cat-35-writer",
+   "cat-35-media",
+   "cat-35-checker",
+   "cat-35-monitor"
+  ]
+ },
+ {
+  "id": "d037",
+  "name": "خلية فئة الأدب والروايات العالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-36-monitor",
+  "size": 5,
+  "members": [
+   "cat-36-rival",
+   "cat-36-writer",
+   "cat-36-media",
+   "cat-36-checker",
+   "cat-36-monitor"
+  ]
+ },
+ {
+  "id": "d038",
+  "name": "خلية فئة الأغاني والموسيقى الخليجية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-37-monitor",
+  "size": 5,
+  "members": [
+   "cat-37-rival",
+   "cat-37-writer",
+   "cat-37-media",
+   "cat-37-checker",
+   "cat-37-monitor"
+  ]
+ },
+ {
+  "id": "d039",
+  "name": "خلية فئة الموسيقى العربية والعالمية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-38-monitor",
+  "size": 5,
+  "members": [
+   "cat-38-rival",
+   "cat-38-writer",
+   "cat-38-media",
+   "cat-38-checker",
+   "cat-38-monitor"
+  ]
+ },
+ {
+  "id": "d040",
+  "name": "خلية فئة المسرحيات الكويتية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-39-monitor",
+  "size": 5,
+  "members": [
+   "cat-39-rival",
+   "cat-39-writer",
+   "cat-39-media",
+   "cat-39-checker",
+   "cat-39-monitor"
+  ]
+ },
+ {
+  "id": "d041",
+  "name": "خلية فئة الإيموجي والألغاز البصرية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-40-monitor",
+  "size": 5,
+  "members": [
+   "cat-40-rival",
+   "cat-40-writer",
+   "cat-40-media",
+   "cat-40-checker",
+   "cat-40-monitor"
+  ]
+ },
+ {
+  "id": "d042",
+  "name": "خلية فئة الصور المموهة والتخمين",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-41-monitor",
+  "size": 5,
+  "members": [
+   "cat-41-rival",
+   "cat-41-writer",
+   "cat-41-media",
+   "cat-41-checker",
+   "cat-41-monitor"
+  ]
+ },
+ {
+  "id": "d043",
+  "name": "خلية فئة المقاطع الصوتية والأصوات",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-42-monitor",
+  "size": 5,
+  "members": [
+   "cat-42-rival",
+   "cat-42-writer",
+   "cat-42-media",
+   "cat-42-checker",
+   "cat-42-monitor"
+  ]
+ },
+ {
+  "id": "d044",
+  "name": "خلية فئة الاقتصاد والمال والأعمال",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-43-monitor",
+  "size": 5,
+  "members": [
+   "cat-43-rival",
+   "cat-43-writer",
+   "cat-43-media",
+   "cat-43-checker",
+   "cat-43-monitor"
+  ]
+ },
+ {
+  "id": "d045",
+  "name": "خلية فئة العملات والطوابع",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-44-monitor",
+  "size": 5,
+  "members": [
+   "cat-44-rival",
+   "cat-44-writer",
+   "cat-44-media",
+   "cat-44-checker",
+   "cat-44-monitor"
+  ]
+ },
+ {
+  "id": "d046",
+  "name": "خلية فئة السياسة والعلاقات الدولية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-45-monitor",
+  "size": 5,
+  "members": [
+   "cat-45-rival",
+   "cat-45-writer",
+   "cat-45-media",
+   "cat-45-checker",
+   "cat-45-monitor"
+  ]
+ },
+ {
+  "id": "d047",
+  "name": "خلية فئة القوانين والأنظمة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-46-monitor",
+  "size": 5,
+  "members": [
+   "cat-46-rival",
+   "cat-46-writer",
+   "cat-46-media",
+   "cat-46-checker",
+   "cat-46-monitor"
+  ]
+ },
+ {
+  "id": "d048",
+  "name": "خلية فئة علم النفس ولغة الجسد",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-47-monitor",
+  "size": 5,
+  "members": [
+   "cat-47-rival",
+   "cat-47-writer",
+   "cat-47-media",
+   "cat-47-checker",
+   "cat-47-monitor"
+  ]
+ },
+ {
+  "id": "d049",
+  "name": "خلية فئة الأزياء والموضة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-48-monitor",
+  "size": 5,
+  "members": [
+   "cat-48-rival",
+   "cat-48-writer",
+   "cat-48-media",
+   "cat-48-checker",
+   "cat-48-monitor"
+  ]
+ },
+ {
+  "id": "d050",
+  "name": "خلية فئة العطور والبخور",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-49-monitor",
+  "size": 5,
+  "members": [
+   "cat-49-rival",
+   "cat-49-writer",
+   "cat-49-media",
+   "cat-49-checker",
+   "cat-49-monitor"
+  ]
+ },
+ {
+  "id": "d051",
+  "name": "خلية فئة الديوانية والعادات والتقاليد",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-50-monitor",
+  "size": 5,
+  "members": [
+   "cat-50-rival",
+   "cat-50-writer",
+   "cat-50-media",
+   "cat-50-checker",
+   "cat-50-monitor"
+  ]
+ },
+ {
+  "id": "d052",
+  "name": "خلية فئة البر والكشتات والبحر (الحداق)",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-51-monitor",
+  "size": 5,
+  "members": [
+   "cat-51-rival",
+   "cat-51-writer",
+   "cat-51-media",
+   "cat-51-checker",
+   "cat-51-monitor"
+  ]
+ },
+ {
+  "id": "d053",
+  "name": "خلية فئة ترندات السوشيال ميديا",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-52-monitor",
+  "size": 5,
+  "members": [
+   "cat-52-rival",
+   "cat-52-writer",
+   "cat-52-media",
+   "cat-52-checker",
+   "cat-52-monitor"
+  ]
+ },
+ {
+  "id": "d054",
+  "name": "خلية فئة المشاهير وصناع المحتوى",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-53-monitor",
+  "size": 5,
+  "members": [
+   "cat-53-rival",
+   "cat-53-writer",
+   "cat-53-media",
+   "cat-53-checker",
+   "cat-53-monitor"
+  ]
+ },
+ {
+  "id": "d055",
+  "name": "خلية فئة الرياضيات والذكاء المنطقي",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-54-monitor",
+  "size": 5,
+  "members": [
+   "cat-54-rival",
+   "cat-54-writer",
+   "cat-54-media",
+   "cat-54-checker",
+   "cat-54-monitor"
+  ]
+ },
+ {
+  "id": "d056",
+  "name": "خلية فئة سرعة البديهة والمعلومات العامة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-55-monitor",
+  "size": 5,
+  "members": [
+   "cat-55-rival",
+   "cat-55-writer",
+   "cat-55-media",
+   "cat-55-checker",
+   "cat-55-monitor"
+  ]
+ },
+ {
+  "id": "d057",
+  "name": "خلية فئة فئة «جواب الناس» (10 إجابات)",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-56-monitor",
+  "size": 5,
+  "members": [
+   "cat-56-rival",
+   "cat-56-writer",
+   "cat-56-media",
+   "cat-56-checker",
+   "cat-56-monitor"
+  ]
+ },
+ {
+  "id": "d058",
+  "name": "خلية فئة البطولات والمناسبات الموسمية",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "cat-57-monitor",
+  "size": 5,
+  "members": [
+   "cat-57-rival",
+   "cat-57-writer",
+   "cat-57-media",
+   "cat-57-checker",
+   "cat-57-monitor"
+  ]
+ },
+ {
+  "id": "d059",
+  "name": "مراقبو خلايا الفئات",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "auditor-content",
+  "size": 9,
+  "members": [
+   "monitor-questions-1",
+   "monitor-questions-2",
+   "monitor-questions-3",
+   "monitor-questions-4",
+   "monitor-questions-5",
+   "monitor-questions-6",
+   "monitor-questions-7",
+   "monitor-questions-8",
+   "monitor-questions-9"
+  ]
+ },
+ {
+  "id": "d060",
+  "name": "لجنة ابتكار الفئات والألعاب",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "monitor-categories-1",
+  "size": 15,
+  "members": [
+   "innov-local-1",
+   "innov-local-2",
+   "innov-local-3",
+   "innov-local-4",
+   "innov-local-5",
+   "innov-global-1",
+   "innov-global-2",
+   "innov-global-3",
+   "innov-global-4",
+   "lifeline-designer-1",
+   "lifeline-designer-2",
+   "lifeline-designer-3",
+   "tournament-designer-1",
+   "tournament-designer-2",
+   "tournament-designer-3"
+  ]
+ },
+ {
+  "id": "d061",
+  "name": "مراقبو لجنة ابتكار الفئات",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "auditor-content",
+  "size": 4,
+  "members": [
+   "monitor-categories-1",
+   "monitor-categories-2",
+   "monitor-categories-3",
+   "monitor-categories-4"
+  ]
+ },
+ {
+  "id": "d062",
+  "name": "لجنة التدقيق اللغوي والترجمة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "monitor-language-1",
+  "size": 3,
+  "members": [
+   "proofreader-1",
+   "proofreader-2",
+   "translator-1"
+  ]
+ },
+ {
+  "id": "d063",
+  "name": "مراقبو لجنة اللغة",
+  "sector": "قطاع المحتوى والفئات",
+  "chair": "auditor-content",
+  "size": 2,
+  "members": [
+   "monitor-language-1",
+   "monitor-language-2"
+  ]
+ },
+ {
+  "id": "d064",
+  "name": "لجنة البث المباشر والفيديو",
+  "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
+  "chair": "monitor-stream-1",
+  "size": 15,
+  "members": [
+   "webrtc-engineer-1",
+   "webrtc-engineer-2",
+   "webrtc-engineer-3",
+   "webrtc-engineer-4",
+   "webrtc-engineer-5",
+   "video-encoding-engineer-1",
+   "video-encoding-engineer-2",
+   "video-encoding-engineer-3",
+   "video-encoding-engineer-4",
+   "video-encoding-engineer-5",
+   "live-sync-engineer-1",
+   "live-sync-engineer-2",
+   "live-sync-engineer-3",
+   "live-sync-engineer-4",
+   "live-sync-engineer-5"
+  ]
+ },
+ {
+  "id": "d065",
+  "name": "مراقبو لجنة البث المباشر والفيديو",
+  "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
+  "chair": "auditor-tech",
+  "size": 3,
+  "members": [
+   "monitor-stream-1",
+   "monitor-stream-2",
+   "monitor-stream-3"
+  ]
+ },
+ {
+  "id": "d066",
+  "name": "لجنة الذكاء الاصطناعي والخوارزميات",
+  "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
+  "chair": "monitor-ai-1",
+  "size": 15,
+  "members": [
+   "recommendation-engineer-1",
+   "recommendation-engineer-2",
+   "recommendation-engineer-3",
+   "recommendation-engineer-4",
+   "recommendation-engineer-5",
+   "nlp-engineer-1",
+   "nlp-engineer-2",
+   "nlp-engineer-3",
+   "nlp-engineer-4",
+   "nlp-engineer-5",
+   "anticheat-engineer-1",
+   "anticheat-engineer-2",
+   "anticheat-engineer-3",
+   "anticheat-engineer-4",
+   "anticheat-engineer-5"
+  ]
+ },
+ {
+  "id": "d067",
+  "name": "مراقبو لجنة الذكاء الاصطناعي والخوارزميات",
+  "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
+  "chair": "auditor-tech",
+  "size": 3,
+  "members": [
+   "monitor-ai-1",
+   "monitor-ai-2",
+   "monitor-ai-3"
+  ]
+ },
+ {
+  "id": "d068",
+  "name": "لجنة تطوير التطبيقات والمنصات",
+  "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
+  "chair": "monitor-apps-2",
+  "size": 20,
+  "members": [
+   "smarttv-developer-1",
+   "smarttv-developer-2",
+   "smarttv-developer-3",
+   "smarttv-developer-4",
+   "smarttv-developer-5",
+   "smarttv-developer-6",
+   "ios-developer-1",
+   "ios-developer-2",
+   "ios-developer-3",
+   "ios-developer-4",
+   "android-developer-1",
+   "android-developer-2",
+   "android-developer-3",
+   "android-developer-4",
+   "web-developer-1",
+   "web-developer-2",
+   "web-developer-3",
+   "web-developer-4",
+   "web-developer-5",
+   "web-developer-6"
+  ]
+ },
+ {
+  "id": "d069",
+  "name": "مراقبو لجنة تطوير التطبيقات والمنصات",
+  "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
+  "chair": "auditor-tech",
+  "size": 3,
+  "members": [
+   "monitor-apps-1",
+   "monitor-apps-2",
+   "monitor-apps-3"
+  ]
+ },
+ {
+  "id": "d070",
+  "name": "لجنة البنية التحتية والأمن السيبراني",
+  "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
+  "chair": "monitor-security-1",
+  "size": 3,
+  "members": [
+   "cloud-engineer-1",
+   "cloud-engineer-2",
+   "cloud-engineer-3"
+  ]
+ },
+ {
+  "id": "d071",
+  "name": "مراقبو لجنة البنية التحتية والأمن السيبراني",
+  "sector": "قطاع الهندسة والبث والذكاء الاصطناعي",
+  "chair": "auditor-tech",
+  "size": 2,
+  "members": [
+   "monitor-security-1",
+   "monitor-security-2"
+  ]
+ },
+ {
+  "id": "d072",
+  "name": "لجنة التصميم والصوتيات",
+  "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
+  "chair": "monitor-design-1",
+  "size": 22,
+  "members": [
+   "ux-tv-web-1",
+   "ux-tv-web-2",
+   "ux-tv-web-3",
+   "ux-tv-web-4",
+   "ux-mobile-1",
+   "ux-mobile-2",
+   "ux-mobile-3",
+   "ux-mobile-4",
+   "motion-designer-1",
+   "motion-designer-2",
+   "motion-designer-3",
+   "motion-designer-4",
+   "motion-designer-5",
+   "motion-designer-6",
+   "brand-designer-1",
+   "brand-designer-2",
+   "brand-designer-3",
+   "brand-designer-4",
+   "sound-engineer-1",
+   "sound-engineer-2",
+   "sound-engineer-3",
+   "sound-engineer-4"
+  ]
+ },
+ {
+  "id": "d073",
+  "name": "مراقبو لجنة التصميم والصوتيات",
+  "sector": "قطاع التصميم والصوتيات والإنتاج المرئي",
+  "chair": "auditor-design",
+  "size": 3,
+  "members": [
+   "monitor-design-1",
+   "monitor-design-2",
+   "monitor-design-3"
+  ]
+ },
+ {
+  "id": "d074",
+  "name": "لجنة النمو والمشاهير",
+  "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
+  "chair": "monitor-roi-1",
+  "size": 14,
+  "members": [
+   "creator-manager-1",
+   "creator-manager-2",
+   "creator-manager-3",
+   "creator-manager-4",
+   "creator-manager-5",
+   "creator-manager-6",
+   "creator-manager-7",
+   "creator-manager-8",
+   "growth-marketer-1",
+   "growth-marketer-2",
+   "growth-marketer-3",
+   "growth-marketer-4",
+   "growth-marketer-5",
+   "growth-marketer-6"
+  ]
+ },
+ {
+  "id": "d075",
+  "name": "مراقبو لجنة النمو",
+  "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
+  "chair": "auditor-growth",
+  "size": 2,
+  "members": [
+   "monitor-roi-1",
+   "monitor-roi-2"
+  ]
+ },
+ {
+  "id": "d076",
+  "name": "مراقبو المجتمع",
+  "sector": "قطاع النمو والمشاهير والرقابة المجتمعية",
+  "chair": "auditor-growth",
+  "size": 4,
+  "members": [
+   "monitor-community-1",
+   "monitor-community-2",
+   "monitor-community-3",
+   "monitor-community-4"
+  ]
+ },
+ {
+  "id": "d077",
+  "name": "فريق اللاعبين المختبرين",
+  "sector": "مختبر تجربة اللعب والحماس",
+  "chair": "joy-analyst-1",
+  "size": 9,
+  "members": [
+   "playtester-1",
+   "playtester-2",
+   "playtester-3",
+   "playtester-4",
+   "playtester-5",
+   "playtester-6",
+   "playtester-7",
+   "playtester-8",
+   "playtester-9"
+  ]
+ },
+ {
+  "id": "d078",
+  "name": "فريق دراسة السعادة وتحليل الحماس",
+  "sector": "مختبر تجربة اللعب والحماس",
+  "chair": "joy-index-editor",
+  "size": 5,
+  "members": [
+   "joy-analyst-1",
+   "joy-analyst-2",
+   "joy-analyst-3",
+   "joy-analyst-4",
+   "joy-index-editor"
+  ]
+ },
+ {
+  "id": "d079",
+  "name": "قسم الموارد البشرية",
+  "sector": "الموارد البشرية والتدريب",
+  "chair": "hr-head",
+  "size": 4,
+  "members": [
+   "hr-head",
+   "hr-hiring",
+   "hr-allowance",
+   "hr-promotions"
+  ]
+ },
+ {
+  "id": "d080",
+  "name": "قسم التدريب والمهارات",
+  "sector": "الموارد البشرية والتدريب",
+  "chair": "skill-trainer-1",
+  "size": 3,
+  "members": [
+   "skill-trainer-1",
+   "skill-trainer-2",
+   "skill-trainer-3"
+  ]
+ },
+ {
+  "id": "d081",
+  "name": "مختبر ابتكار الألعاب",
+  "sector": "مختبر ابتكار الألعاب",
+  "chair": "game-lab-head",
+  "size": 11,
+  "members": [
+   "game-lab-head",
+   "game-inventor-1",
+   "game-inventor-2",
+   "game-inventor-3",
+   "game-inventor-4",
+   "game-inventor-5",
+   "game-inventor-6",
+   "game-inventor-7",
+   "game-inventor-8",
+   "game-inventor-9",
+   "game-inventor-10"
+  ]
+ },
+ {
+  "id": "d082",
+  "name": "جناح التسويق",
+  "sector": "قطاع التسويق",
+  "chair": "marketing-head",
+  "size": 12,
+  "members": [
+   "marketing-head",
+   "marketer-1",
+   "marketer-2",
+   "marketer-3",
+   "marketer-4",
+   "marketer-5",
+   "marketer-6",
+   "marketer-7",
+   "marketer-8",
+   "marketer-9",
+   "marketer-10",
+   "marketer-11"
+  ]
+ }
+]

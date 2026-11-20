@@ -20,17 +20,23 @@
     <div class="actions">
       <input id="search" list="people" placeholder="🔎 ابحث عن موظف (الاسم أو الرقم)">
       <datalist id="people"></datalist>
-      <button id="btn-priorities">📋 أولوياتي</button>
-      <button id="btn-emergency" class="danger">🚨 اجتماع قادة عاجل</button>
+      <button id="btn-priorities">📋<span class="wide"> أولوياتي</span></button>
+      <button id="btn-travel" title="انتقال سريع">🧭<span class="wide"> انتقال</span></button>
+      <button id="btn-sprint" title="ركض (أو اضغط Shift)">🏃</button>
+      <button id="btn-zoom-in" title="تقريب">➕</button>
+      <button id="btn-zoom-out" title="تبعيد">➖</button>
+      <button id="btn-emergency" class="danger">🚨<span class="wide"> اجتماع قادة عاجل</span></button>
       <button id="btn-sound" title="الصوت">🔈</button>
     </div>
   </header>
 
+  <div id="dept-live"></div>
+  <div id="stick" hidden><i></i></div>
   <div id="banner" hidden></div>
   <div id="prompt" hidden></div>
   <div id="toast" hidden></div>
   <div id="source"></div>
-  <div id="help">⌨️ WASD / الأسهم للمشي · 🖱️ اضغط بالماوس للانتقال · E تحدث · R إدارة القاعة · عجلة الماوس للتقريب</div>
+  <div id="help">⌨️ WASD / الأسهم للمشي · Shift للركض · 🖱️ اضغط بالماوس للانتقال · الخريطة الصغيرة تنقلك فوراً · E تحدث · R إدارة القاعة</div>
 
   <aside id="panel" hidden>
     <button id="panel-close" aria-label="إغلاق">✕</button>

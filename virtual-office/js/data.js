@@ -26,13 +26,14 @@ export async function init() {
 }
 
 export async function loadState() {
-  const [status, agents, roster, allowance, backlog] = await Promise.all([
+  const [status, agents, roster, allowance, backlog, departments] = await Promise.all([
     json('company/office/status.json', {}), json('company/office/agents-status.json', {}),
-    json('company/hr/roster.json', {}), json('company/hr/allowance.json', {}), text('company/backlog.md')
+    json('company/hr/roster.json', {}), json('company/hr/allowance.json', {}), text('company/backlog.md'),
+    json('company/departments.json', [])
   ]);
   const open = backlog.split('\n').filter(l => /^\|\s*T-\d+/.test(l) && /⏳|🔄/.test(l))
     .map(l => l.split('|').map(s => s.trim())).map(c => ({ id: c[1], task: c[2], owner: c[4], due: c[5], state: c[6] }));
-  return { status, agents, roster, allowance, open, loadedAt: new Date() };
+  return { status, agents, roster, allowance, open, departments, loadedAt: new Date() };
 }
 
 let server = null;

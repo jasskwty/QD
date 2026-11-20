@@ -18,7 +18,8 @@
   ],
   "shift": "A",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-002",
@@ -39,7 +40,8 @@
   ],
   "shift": "B",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-003",
@@ -70,7 +72,8 @@
   ],
   "shift": "A",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-004",
@@ -97,7 +100,8 @@
   ],
   "shift": "B",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-005",
@@ -116,7 +120,8 @@
   ],
   "shift": "A",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-006",
@@ -138,7 +143,8 @@
   ],
   "shift": "B",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-007",
@@ -153,7 +159,8 @@
   "supervises": [],
   "shift": "A",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-008",
@@ -173,7 +180,8 @@
   ],
   "shift": "B",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-009",
@@ -188,7 +196,8 @@
   "supervises": [],
   "shift": "A",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-010",
@@ -205,7 +214,8 @@
   ],
   "shift": "B",
   "model": "opus",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-011",
@@ -221,6 +231,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d002",
   "group": 1
  },
  {
@@ -237,6 +248,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d002",
   "group": 1
  },
  {
@@ -253,6 +265,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d002",
   "group": 1
  },
  {
@@ -269,6 +282,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d002",
   "group": 1
  },
  {
@@ -290,6 +304,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d002",
   "group": 1
  },
  {
@@ -306,6 +321,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d003",
   "group": 1
  },
  {
@@ -322,6 +338,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d003",
   "group": 1
  },
  {
@@ -338,6 +355,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d003",
   "group": 1
  },
  {
@@ -354,6 +372,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d003",
   "group": 1
  },
  {
@@ -375,6 +394,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d003",
   "group": 1
  },
  {
@@ -391,6 +411,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d004",
   "group": 1
  },
  {
@@ -407,6 +428,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d004",
   "group": 1
  },
  {
@@ -423,6 +445,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d004",
   "group": 1
  },
  {
@@ -439,6 +462,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d004",
   "group": 1
  },
  {
@@ -460,6 +484,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d004",
   "group": 1
  },
  {
@@ -476,6 +501,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d005",
   "group": 1
  },
  {
@@ -492,6 +518,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d005",
   "group": 1
  },
  {
@@ -508,6 +535,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d005",
   "group": 1
  },
  {
@@ -524,6 +552,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d005",
   "group": 1
  },
  {
@@ -545,6 +574,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d005",
   "group": 1
  },
  {
@@ -561,6 +591,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d006",
   "group": 1
  },
  {
@@ -577,6 +608,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d006",
   "group": 1
  },
  {
@@ -593,6 +625,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d006",
   "group": 1
  },
  {
@@ -609,6 +642,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d006",
   "group": 1
  },
  {
@@ -630,6 +664,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d006",
   "group": 1
  },
  {
@@ -646,6 +681,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d007",
   "group": 1
  },
  {
@@ -662,6 +698,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d007",
   "group": 1
  },
  {
@@ -678,6 +715,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d007",
   "group": 1
  },
  {
@@ -694,6 +732,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d007",
   "group": 1
  },
  {
@@ -715,6 +754,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d007",
   "group": 1
  },
  {
@@ -731,6 +771,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d008",
   "group": 1
  },
  {
@@ -747,6 +788,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d008",
   "group": 1
  },
  {
@@ -763,6 +805,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d008",
   "group": 1
  },
  {
@@ -779,6 +822,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d008",
   "group": 1
  },
  {
@@ -800,6 +844,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d008",
   "group": 1
  },
  {
@@ -816,6 +861,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d009",
   "group": 2
  },
  {
@@ -832,6 +878,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d009",
   "group": 2
  },
  {
@@ -848,6 +895,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d009",
   "group": 2
  },
  {
@@ -864,6 +912,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d009",
   "group": 2
  },
  {
@@ -885,6 +934,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d009",
   "group": 2
  },
  {
@@ -901,6 +951,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d010",
   "group": 2
  },
  {
@@ -917,6 +968,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d010",
   "group": 2
  },
  {
@@ -933,6 +985,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d010",
   "group": 2
  },
  {
@@ -949,6 +1002,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d010",
   "group": 2
  },
  {
@@ -970,6 +1024,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d010",
   "group": 2
  },
  {
@@ -986,6 +1041,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d011",
   "group": 2
  },
  {
@@ -1002,6 +1058,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d011",
   "group": 2
  },
  {
@@ -1018,6 +1075,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d011",
   "group": 2
  },
  {
@@ -1034,6 +1092,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d011",
   "group": 2
  },
  {
@@ -1055,6 +1114,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d011",
   "group": 2
  },
  {
@@ -1071,6 +1131,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d012",
   "group": 2
  },
  {
@@ -1087,6 +1148,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d012",
   "group": 2
  },
  {
@@ -1103,6 +1165,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d012",
   "group": 2
  },
  {
@@ -1119,6 +1182,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d012",
   "group": 2
  },
  {
@@ -1140,6 +1204,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d012",
   "group": 2
  },
  {
@@ -1156,6 +1221,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d013",
   "group": 2
  },
  {
@@ -1172,6 +1238,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d013",
   "group": 2
  },
  {
@@ -1188,6 +1255,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d013",
   "group": 2
  },
  {
@@ -1204,6 +1272,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d013",
   "group": 2
  },
  {
@@ -1225,6 +1294,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d013",
   "group": 2
  },
  {
@@ -1241,6 +1311,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d014",
   "group": 2
  },
  {
@@ -1257,6 +1328,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d014",
   "group": 2
  },
  {
@@ -1273,6 +1345,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d014",
   "group": 2
  },
  {
@@ -1289,6 +1362,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d014",
   "group": 2
  },
  {
@@ -1310,6 +1384,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d014",
   "group": 2
  },
  {
@@ -1326,6 +1401,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d015",
   "group": 3
  },
  {
@@ -1342,6 +1418,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d015",
   "group": 3
  },
  {
@@ -1358,6 +1435,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d015",
   "group": 3
  },
  {
@@ -1374,6 +1452,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d015",
   "group": 3
  },
  {
@@ -1395,6 +1474,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d015",
   "group": 3
  },
  {
@@ -1411,6 +1491,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d016",
   "group": 3
  },
  {
@@ -1427,6 +1508,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d016",
   "group": 3
  },
  {
@@ -1443,6 +1525,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d016",
   "group": 3
  },
  {
@@ -1459,6 +1542,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d016",
   "group": 3
  },
  {
@@ -1480,6 +1564,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d016",
   "group": 3
  },
  {
@@ -1496,6 +1581,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d017",
   "group": 3
  },
  {
@@ -1512,6 +1598,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d017",
   "group": 3
  },
  {
@@ -1528,6 +1615,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d017",
   "group": 3
  },
  {
@@ -1544,6 +1632,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d017",
   "group": 3
  },
  {
@@ -1565,6 +1654,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d017",
   "group": 3
  },
  {
@@ -1581,6 +1671,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d018",
   "group": 3
  },
  {
@@ -1597,6 +1688,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d018",
   "group": 3
  },
  {
@@ -1613,6 +1705,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d018",
   "group": 3
  },
  {
@@ -1629,6 +1722,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d018",
   "group": 3
  },
  {
@@ -1650,6 +1744,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d018",
   "group": 3
  },
  {
@@ -1666,6 +1761,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d019",
   "group": 3
  },
  {
@@ -1682,6 +1778,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d019",
   "group": 3
  },
  {
@@ -1698,6 +1795,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d019",
   "group": 3
  },
  {
@@ -1714,6 +1812,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d019",
   "group": 3
  },
  {
@@ -1735,6 +1834,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d019",
   "group": 3
  },
  {
@@ -1751,6 +1851,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d020",
   "group": 3
  },
  {
@@ -1767,6 +1868,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d020",
   "group": 3
  },
  {
@@ -1783,6 +1885,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d020",
   "group": 3
  },
  {
@@ -1799,6 +1902,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d020",
   "group": 3
  },
  {
@@ -1820,6 +1924,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d020",
   "group": 3
  },
  {
@@ -1836,6 +1941,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d021",
   "group": 4
  },
  {
@@ -1852,6 +1958,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d021",
   "group": 4
  },
  {
@@ -1868,6 +1975,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d021",
   "group": 4
  },
  {
@@ -1884,6 +1992,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d021",
   "group": 4
  },
  {
@@ -1905,6 +2014,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d021",
   "group": 4
  },
  {
@@ -1921,6 +2031,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d022",
   "group": 4
  },
  {
@@ -1937,6 +2048,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d022",
   "group": 4
  },
  {
@@ -1953,6 +2065,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d022",
   "group": 4
  },
  {
@@ -1969,6 +2082,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d022",
   "group": 4
  },
  {
@@ -1990,6 +2104,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d022",
   "group": 4
  },
  {
@@ -2006,6 +2121,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d023",
   "group": 4
  },
  {
@@ -2022,6 +2138,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d023",
   "group": 4
  },
  {
@@ -2038,6 +2155,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d023",
   "group": 4
  },
  {
@@ -2054,6 +2172,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d023",
   "group": 4
  },
  {
@@ -2075,6 +2194,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d023",
   "group": 4
  },
  {
@@ -2091,6 +2211,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d024",
   "group": 4
  },
  {
@@ -2107,6 +2228,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d024",
   "group": 4
  },
  {
@@ -2123,6 +2245,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d024",
   "group": 4
  },
  {
@@ -2139,6 +2262,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d024",
   "group": 4
  },
  {
@@ -2160,6 +2284,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d024",
   "group": 4
  },
  {
@@ -2176,6 +2301,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d025",
   "group": 4
  },
  {
@@ -2192,6 +2318,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d025",
   "group": 4
  },
  {
@@ -2208,6 +2335,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d025",
   "group": 4
  },
  {
@@ -2224,6 +2352,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d025",
   "group": 4
  },
  {
@@ -2245,6 +2374,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d025",
   "group": 4
  },
  {
@@ -2261,6 +2391,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d026",
   "group": 4
  },
  {
@@ -2277,6 +2408,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d026",
   "group": 4
  },
  {
@@ -2293,6 +2425,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d026",
   "group": 4
  },
  {
@@ -2309,6 +2442,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d026",
   "group": 4
  },
  {
@@ -2330,6 +2464,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d026",
   "group": 4
  },
  {
@@ -2346,6 +2481,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d027",
   "group": 4
  },
  {
@@ -2362,6 +2498,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d027",
   "group": 4
  },
  {
@@ -2378,6 +2515,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d027",
   "group": 4
  },
  {
@@ -2394,6 +2532,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d027",
   "group": 4
  },
  {
@@ -2415,6 +2554,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d027",
   "group": 4
  },
  {
@@ -2431,6 +2571,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d028",
   "group": 5
  },
  {
@@ -2447,6 +2588,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d028",
   "group": 5
  },
  {
@@ -2463,6 +2605,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d028",
   "group": 5
  },
  {
@@ -2479,6 +2622,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d028",
   "group": 5
  },
  {
@@ -2500,6 +2644,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d028",
   "group": 5
  },
  {
@@ -2516,6 +2661,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d029",
   "group": 5
  },
  {
@@ -2532,6 +2678,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d029",
   "group": 5
  },
  {
@@ -2548,6 +2695,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d029",
   "group": 5
  },
  {
@@ -2564,6 +2712,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d029",
   "group": 5
  },
  {
@@ -2585,6 +2734,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d029",
   "group": 5
  },
  {
@@ -2601,6 +2751,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d030",
   "group": 5
  },
  {
@@ -2617,6 +2768,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d030",
   "group": 5
  },
  {
@@ -2633,6 +2785,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d030",
   "group": 5
  },
  {
@@ -2649,6 +2802,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d030",
   "group": 5
  },
  {
@@ -2670,6 +2824,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d030",
   "group": 5
  },
  {
@@ -2686,6 +2841,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d031",
   "group": 5
  },
  {
@@ -2702,6 +2858,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d031",
   "group": 5
  },
  {
@@ -2718,6 +2875,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d031",
   "group": 5
  },
  {
@@ -2734,6 +2892,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d031",
   "group": 5
  },
  {
@@ -2755,6 +2914,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d031",
   "group": 5
  },
  {
@@ -2771,6 +2931,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d032",
   "group": 5
  },
  {
@@ -2787,6 +2948,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d032",
   "group": 5
  },
  {
@@ -2803,6 +2965,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d032",
   "group": 5
  },
  {
@@ -2819,6 +2982,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d032",
   "group": 5
  },
  {
@@ -2840,6 +3004,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d032",
   "group": 5
  },
  {
@@ -2856,6 +3021,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d033",
   "group": 5
  },
  {
@@ -2872,6 +3038,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d033",
   "group": 5
  },
  {
@@ -2888,6 +3055,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d033",
   "group": 5
  },
  {
@@ -2904,6 +3072,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d033",
   "group": 5
  },
  {
@@ -2925,6 +3094,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d033",
   "group": 5
  },
  {
@@ -2941,6 +3111,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d034",
   "group": 6
  },
  {
@@ -2957,6 +3128,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d034",
   "group": 6
  },
  {
@@ -2973,6 +3145,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d034",
   "group": 6
  },
  {
@@ -2989,6 +3162,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d034",
   "group": 6
  },
  {
@@ -3010,6 +3184,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d034",
   "group": 6
  },
  {
@@ -3026,6 +3201,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d035",
   "group": 6
  },
  {
@@ -3042,6 +3218,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d035",
   "group": 6
  },
  {
@@ -3058,6 +3235,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d035",
   "group": 6
  },
  {
@@ -3074,6 +3252,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d035",
   "group": 6
  },
  {
@@ -3095,6 +3274,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d035",
   "group": 6
  },
  {
@@ -3111,6 +3291,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d036",
   "group": 6
  },
  {
@@ -3127,6 +3308,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d036",
   "group": 6
  },
  {
@@ -3143,6 +3325,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d036",
   "group": 6
  },
  {
@@ -3159,6 +3342,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d036",
   "group": 6
  },
  {
@@ -3180,6 +3364,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d036",
   "group": 6
  },
  {
@@ -3196,6 +3381,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d037",
   "group": 6
  },
  {
@@ -3212,6 +3398,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d037",
   "group": 6
  },
  {
@@ -3228,6 +3415,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d037",
   "group": 6
  },
  {
@@ -3244,6 +3432,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d037",
   "group": 6
  },
  {
@@ -3265,6 +3454,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d037",
   "group": 6
  },
  {
@@ -3281,6 +3471,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d038",
   "group": 6
  },
  {
@@ -3297,6 +3488,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d038",
   "group": 6
  },
  {
@@ -3313,6 +3505,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d038",
   "group": 6
  },
  {
@@ -3329,6 +3522,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d038",
   "group": 6
  },
  {
@@ -3350,6 +3544,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d038",
   "group": 6
  },
  {
@@ -3366,6 +3561,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d039",
   "group": 6
  },
  {
@@ -3382,6 +3578,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d039",
   "group": 6
  },
  {
@@ -3398,6 +3595,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d039",
   "group": 6
  },
  {
@@ -3414,6 +3612,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d039",
   "group": 6
  },
  {
@@ -3435,6 +3634,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d039",
   "group": 6
  },
  {
@@ -3451,6 +3651,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d040",
   "group": 7
  },
  {
@@ -3467,6 +3668,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d040",
   "group": 7
  },
  {
@@ -3483,6 +3685,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d040",
   "group": 7
  },
  {
@@ -3499,6 +3702,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d040",
   "group": 7
  },
  {
@@ -3520,6 +3724,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d040",
   "group": 7
  },
  {
@@ -3536,6 +3741,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d041",
   "group": 7
  },
  {
@@ -3552,6 +3758,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d041",
   "group": 7
  },
  {
@@ -3568,6 +3775,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d041",
   "group": 7
  },
  {
@@ -3584,6 +3792,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d041",
   "group": 7
  },
  {
@@ -3605,6 +3814,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d041",
   "group": 7
  },
  {
@@ -3621,6 +3831,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d042",
   "group": 7
  },
  {
@@ -3637,6 +3848,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d042",
   "group": 7
  },
  {
@@ -3653,6 +3865,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d042",
   "group": 7
  },
  {
@@ -3669,6 +3882,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d042",
   "group": 7
  },
  {
@@ -3690,6 +3904,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d042",
   "group": 7
  },
  {
@@ -3706,6 +3921,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d043",
   "group": 7
  },
  {
@@ -3722,6 +3938,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d043",
   "group": 7
  },
  {
@@ -3738,6 +3955,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d043",
   "group": 7
  },
  {
@@ -3754,6 +3972,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d043",
   "group": 7
  },
  {
@@ -3775,6 +3994,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d043",
   "group": 7
  },
  {
@@ -3791,6 +4011,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d044",
   "group": 7
  },
  {
@@ -3807,6 +4028,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d044",
   "group": 7
  },
  {
@@ -3823,6 +4045,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d044",
   "group": 7
  },
  {
@@ -3839,6 +4062,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d044",
   "group": 7
  },
  {
@@ -3860,6 +4084,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d044",
   "group": 7
  },
  {
@@ -3876,6 +4101,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d045",
   "group": 7
  },
  {
@@ -3892,6 +4118,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d045",
   "group": 7
  },
  {
@@ -3908,6 +4135,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d045",
   "group": 7
  },
  {
@@ -3924,6 +4152,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d045",
   "group": 7
  },
  {
@@ -3945,6 +4174,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d045",
   "group": 7
  },
  {
@@ -3961,6 +4191,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d046",
   "group": 7
  },
  {
@@ -3977,6 +4208,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d046",
   "group": 7
  },
  {
@@ -3993,6 +4225,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d046",
   "group": 7
  },
  {
@@ -4009,6 +4242,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d046",
   "group": 7
  },
  {
@@ -4030,6 +4264,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d046",
   "group": 7
  },
  {
@@ -4046,6 +4281,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d047",
   "group": 8
  },
  {
@@ -4062,6 +4298,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d047",
   "group": 8
  },
  {
@@ -4078,6 +4315,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d047",
   "group": 8
  },
  {
@@ -4094,6 +4332,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d047",
   "group": 8
  },
  {
@@ -4115,6 +4354,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d047",
   "group": 8
  },
  {
@@ -4131,6 +4371,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d048",
   "group": 8
  },
  {
@@ -4147,6 +4388,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d048",
   "group": 8
  },
  {
@@ -4163,6 +4405,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d048",
   "group": 8
  },
  {
@@ -4179,6 +4422,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d048",
   "group": 8
  },
  {
@@ -4200,6 +4444,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d048",
   "group": 8
  },
  {
@@ -4216,6 +4461,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d049",
   "group": 8
  },
  {
@@ -4232,6 +4478,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d049",
   "group": 8
  },
  {
@@ -4248,6 +4495,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d049",
   "group": 8
  },
  {
@@ -4264,6 +4512,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d049",
   "group": 8
  },
  {
@@ -4285,6 +4534,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d049",
   "group": 8
  },
  {
@@ -4301,6 +4551,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d050",
   "group": 8
  },
  {
@@ -4317,6 +4568,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d050",
   "group": 8
  },
  {
@@ -4333,6 +4585,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d050",
   "group": 8
  },
  {
@@ -4349,6 +4602,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d050",
   "group": 8
  },
  {
@@ -4370,6 +4624,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d050",
   "group": 8
  },
  {
@@ -4386,6 +4641,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d051",
   "group": 8
  },
  {
@@ -4402,6 +4658,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d051",
   "group": 8
  },
  {
@@ -4418,6 +4675,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d051",
   "group": 8
  },
  {
@@ -4434,6 +4692,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d051",
   "group": 8
  },
  {
@@ -4455,6 +4714,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d051",
   "group": 8
  },
  {
@@ -4471,6 +4731,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d052",
   "group": 8
  },
  {
@@ -4487,6 +4748,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d052",
   "group": 8
  },
  {
@@ -4503,6 +4765,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d052",
   "group": 8
  },
  {
@@ -4519,6 +4782,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d052",
   "group": 8
  },
  {
@@ -4540,6 +4804,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d052",
   "group": 8
  },
  {
@@ -4556,6 +4821,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d053",
   "group": 9
  },
  {
@@ -4572,6 +4838,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d053",
   "group": 9
  },
  {
@@ -4588,6 +4855,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d053",
   "group": 9
  },
  {
@@ -4604,6 +4872,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d053",
   "group": 9
  },
  {
@@ -4625,6 +4894,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d053",
   "group": 9
  },
  {
@@ -4641,6 +4911,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d054",
   "group": 9
  },
  {
@@ -4657,6 +4928,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d054",
   "group": 9
  },
  {
@@ -4673,6 +4945,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d054",
   "group": 9
  },
  {
@@ -4689,6 +4962,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d054",
   "group": 9
  },
  {
@@ -4710,6 +4984,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d054",
   "group": 9
  },
  {
@@ -4726,6 +5001,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d055",
   "group": 9
  },
  {
@@ -4742,6 +5018,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d055",
   "group": 9
  },
  {
@@ -4758,6 +5035,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d055",
   "group": 9
  },
  {
@@ -4774,6 +5052,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d055",
   "group": 9
  },
  {
@@ -4795,6 +5074,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d055",
   "group": 9
  },
  {
@@ -4811,6 +5091,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d056",
   "group": 9
  },
  {
@@ -4827,6 +5108,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d056",
   "group": 9
  },
  {
@@ -4843,6 +5125,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d056",
   "group": 9
  },
  {
@@ -4859,6 +5142,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d056",
   "group": 9
  },
  {
@@ -4880,6 +5164,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d056",
   "group": 9
  },
  {
@@ -4896,6 +5181,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d057",
   "group": 9
  },
  {
@@ -4912,6 +5198,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d057",
   "group": 9
  },
  {
@@ -4928,6 +5215,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d057",
   "group": 9
  },
  {
@@ -4944,6 +5232,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d057",
   "group": 9
  },
  {
@@ -4965,6 +5254,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d057",
   "group": 9
  },
  {
@@ -4981,6 +5271,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d058",
   "group": 9
  },
  {
@@ -4997,6 +5288,7 @@
   "shift": "B",
   "model": "haiku",
   "focus": "",
+  "dept": "d058",
   "group": 9
  },
  {
@@ -5013,6 +5305,7 @@
   "shift": "A",
   "model": "haiku",
   "focus": "",
+  "dept": "d058",
   "group": 9
  },
  {
@@ -5029,6 +5322,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d058",
   "group": 9
  },
  {
@@ -5050,6 +5344,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d058",
   "group": 9
  },
  {
@@ -5074,6 +5369,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d059",
   "group": 1
  },
  {
@@ -5097,6 +5393,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d059",
   "group": 2
  },
  {
@@ -5120,6 +5417,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d059",
   "group": 3
  },
  {
@@ -5144,6 +5442,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d059",
   "group": 4
  },
  {
@@ -5167,6 +5466,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d059",
   "group": 5
  },
  {
@@ -5190,6 +5490,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d059",
   "group": 6
  },
  {
@@ -5214,6 +5515,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d059",
   "group": 7
  },
  {
@@ -5237,6 +5539,7 @@
   "shift": "A",
   "model": "sonnet",
   "focus": "",
+  "dept": "d059",
   "group": 8
  },
  {
@@ -5260,6 +5563,7 @@
   "shift": "B",
   "model": "sonnet",
   "focus": "",
+  "dept": "d059",
   "group": 9
  },
  {
@@ -5275,7 +5579,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الكويت"
+  "focus": "تخصصك: الكويت",
+  "dept": "d060"
  },
  {
   "no": "E-306",
@@ -5290,7 +5595,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: السعودية"
+  "focus": "تخصصك: السعودية",
+  "dept": "d060"
  },
  {
   "no": "E-307",
@@ -5305,7 +5611,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الإمارات وقطر"
+  "focus": "تخصصك: الإمارات وقطر",
+  "dept": "d060"
  },
  {
   "no": "E-308",
@@ -5320,7 +5627,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: البحرين وعمان"
+  "focus": "تخصصك: البحرين وعمان",
+  "dept": "d060"
  },
  {
   "no": "E-309",
@@ -5335,7 +5643,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الترندات الخليجية الأسبوعية"
+  "focus": "تخصصك: الترندات الخليجية الأسبوعية",
+  "dept": "d060"
  },
  {
   "no": "E-310",
@@ -5350,7 +5659,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الفئات العالمية الشعبية"
+  "focus": "تخصصك: الفئات العالمية الشعبية",
+  "dept": "d060"
  },
  {
   "no": "E-311",
@@ -5365,7 +5675,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: أنواع أسئلة تفاعلية"
+  "focus": "تخصصك: أنواع أسئلة تفاعلية",
+  "dept": "d060"
  },
  {
   "no": "E-312",
@@ -5380,7 +5691,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: فئات للصغار والعائلة"
+  "focus": "تخصصك: فئات للصغار والعائلة",
+  "dept": "d060"
  },
  {
   "no": "E-313",
@@ -5395,7 +5707,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: فئات المعرفة المتخصصة"
+  "focus": "تخصصك: فئات المعرفة المتخصصة",
+  "dept": "d060"
  },
  {
   "no": "E-314",
@@ -5410,7 +5723,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: فزعات هجومية على الفريق الثاني"
+  "focus": "تخصصك: فزعات هجومية على الفريق الثاني",
+  "dept": "d060"
  },
  {
   "no": "E-315",
@@ -5425,7 +5739,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: فزعات دفاعية ومساعدة"
+  "focus": "تخصصك: فزعات دفاعية ومساعدة",
+  "dept": "d060"
  },
  {
   "no": "E-316",
@@ -5440,7 +5755,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: فزعات المواسم والمناسبات"
+  "focus": "تخصصك: فزعات المواسم والمناسبات",
+  "dept": "d060"
  },
  {
   "no": "E-317",
@@ -5455,7 +5771,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: بطولات الديوانيات والدوريات"
+  "focus": "تخصصك: بطولات الديوانيات والدوريات",
+  "dept": "d060"
  },
  {
   "no": "E-318",
@@ -5470,7 +5787,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: تحديات سريعة للحفلات"
+  "focus": "تخصصك: تحديات سريعة للحفلات",
+  "dept": "d060"
  },
  {
   "no": "E-319",
@@ -5485,7 +5803,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: بطولات أونلاين بين الفرق"
+  "focus": "تخصصك: بطولات أونلاين بين الفرق",
+  "dept": "d060"
  },
  {
   "no": "E-320",
@@ -5506,7 +5825,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d061"
  },
  {
   "no": "E-321",
@@ -5526,7 +5846,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d061"
  },
  {
   "no": "E-322",
@@ -5545,7 +5866,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d061"
  },
  {
   "no": "E-323",
@@ -5564,7 +5886,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d061"
  },
  {
   "no": "E-324",
@@ -5579,7 +5902,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: أسئلة المؤلفين 01-30"
+  "focus": "تخصصك: أسئلة المؤلفين 01-30",
+  "dept": "d062"
  },
  {
   "no": "E-325",
@@ -5594,7 +5918,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: أسئلة المؤلفين 31-60 ونصوص الواجهة"
+  "focus": "تخصصك: أسئلة المؤلفين 31-60 ونصوص الواجهة",
+  "dept": "d062"
  },
  {
   "no": "E-326",
@@ -5609,7 +5934,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d062"
  },
  {
   "no": "E-327",
@@ -5627,7 +5953,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d063"
  },
  {
   "no": "E-328",
@@ -5644,7 +5971,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d063"
  },
  {
   "no": "E-329",
@@ -5659,7 +5987,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: بنية البث والخوادم (SFU)"
+  "focus": "تخصصك: بنية البث والخوادم (SFU)",
+  "dept": "d064"
  },
  {
   "no": "E-330",
@@ -5674,7 +6003,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: اتصال الجوال والمتصفح"
+  "focus": "تخصصك: اتصال الجوال والمتصفح",
+  "dept": "d064"
  },
  {
   "no": "E-331",
@@ -5689,7 +6019,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: HLS للجماهير الكبيرة"
+  "focus": "تخصصك: HLS للجماهير الكبيرة",
+  "dept": "d064"
  },
  {
   "no": "E-332",
@@ -5704,7 +6035,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الشبكات الضعيفة والتعافي"
+  "focus": "تخصصك: الشبكات الضعيفة والتعافي",
+  "dept": "d064"
  },
  {
   "no": "E-333",
@@ -5719,7 +6051,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: تسجيل البثوث وإعادتها"
+  "focus": "تخصصك: تسجيل البثوث وإعادتها",
+  "dept": "d064"
  },
  {
   "no": "E-334",
@@ -5734,7 +6067,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: ضغط مقاطع الأسئلة (webm/mp4)"
+  "focus": "تخصصك: ضغط مقاطع الأسئلة (webm/mp4)",
+  "dept": "d064"
  },
  {
   "no": "E-335",
@@ -5749,7 +6083,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: جودة متغيرة حسب الشبكة"
+  "focus": "تخصصك: جودة متغيرة حسب الشبكة",
+  "dept": "d064"
  },
  {
   "no": "E-336",
@@ -5764,7 +6099,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: 4K على التلفزيون"
+  "focus": "تخصصك: 4K على التلفزيون",
+  "dept": "d064"
  },
  {
   "no": "E-337",
@@ -5779,7 +6115,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الصور المصغرة والمعاينات"
+  "focus": "تخصصك: الصور المصغرة والمعاينات",
+  "dept": "d064"
  },
  {
   "no": "E-338",
@@ -5794,7 +6131,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: توفير التخزين والنقل"
+  "focus": "تخصصك: توفير التخزين والنقل",
+  "dept": "d064"
  },
  {
   "no": "E-339",
@@ -5809,7 +6147,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: المؤقت والساعة المشتركة"
+  "focus": "تخصصك: المؤقت والساعة المشتركة",
+  "dept": "d064"
  },
  {
   "no": "E-340",
@@ -5824,7 +6163,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: أزرار السرعة (buzzer) العادلة"
+  "focus": "تخصصك: أزرار السرعة (buzzer) العادلة",
+  "dept": "d064"
  },
  {
   "no": "E-341",
@@ -5839,7 +6179,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: حالة اللعبة في Firestore"
+  "focus": "تخصصك: حالة اللعبة في Firestore",
+  "dept": "d064"
  },
  {
   "no": "E-342",
@@ -5854,7 +6195,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: إعادة الاتصال بدون خسارة"
+  "focus": "تخصصك: إعادة الاتصال بدون خسارة",
+  "dept": "d064"
  },
  {
   "no": "E-343",
@@ -5869,7 +6211,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: التزامن مع البث المتأخر"
+  "focus": "تخصصك: التزامن مع البث المتأخر",
+  "dept": "d064"
  },
  {
   "no": "E-344",
@@ -5890,7 +6233,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d065"
  },
  {
   "no": "E-345",
@@ -5911,7 +6255,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d065"
  },
  {
   "no": "E-346",
@@ -5932,7 +6277,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d065"
  },
  {
   "no": "E-347",
@@ -5947,7 +6293,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: اقتراح الفئات"
+  "focus": "تخصصك: اقتراح الفئات",
+  "dept": "d066"
  },
  {
   "no": "E-348",
@@ -5962,7 +6309,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: توازن الصعوبة"
+  "focus": "تخصصك: توازن الصعوبة",
+  "dept": "d066"
  },
  {
   "no": "E-349",
@@ -5977,7 +6325,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: منع تكرار الأسئلة على نفس المجموعة"
+  "focus": "تخصصك: منع تكرار الأسئلة على نفس المجموعة",
+  "dept": "d066"
  },
  {
   "no": "E-350",
@@ -5992,7 +6341,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: تحليل سلوك اللاعبين"
+  "focus": "تخصصك: تحليل سلوك اللاعبين",
+  "dept": "d066"
  },
  {
   "no": "E-351",
@@ -6007,7 +6357,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: اقتراحات المواسم"
+  "focus": "تخصصك: اقتراحات المواسم",
+  "dept": "d066"
  },
  {
   "no": "E-352",
@@ -6022,7 +6373,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: قوالب ويكي داتا جديدة"
+  "focus": "تخصصك: قوالب ويكي داتا جديدة",
+  "dept": "d066"
  },
  {
   "no": "E-353",
@@ -6037,7 +6389,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: مطابقة الإجابات العربية"
+  "focus": "تخصصك: مطابقة الإجابات العربية",
+  "dept": "d066"
  },
  {
   "no": "E-354",
@@ -6052,7 +6405,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: كشف الأسئلة المكررة والمتشابهة"
+  "focus": "تخصصك: كشف الأسئلة المكررة والمتشابهة",
+  "dept": "d066"
  },
  {
   "no": "E-355",
@@ -6067,7 +6421,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: تقدير الصعوبة آلياً"
+  "focus": "تخصصك: تقدير الصعوبة آلياً",
+  "dept": "d066"
  },
  {
   "no": "E-356",
@@ -6082,7 +6437,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: تقليل استهلاك المراحل"
+  "focus": "تخصصك: تقليل استهلاك المراحل",
+  "dept": "d066"
  },
  {
   "no": "E-357",
@@ -6097,7 +6453,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: توقيت الإجابات المشبوه"
+  "focus": "تخصصك: توقيت الإجابات المشبوه",
+  "dept": "d066"
  },
  {
   "no": "E-358",
@@ -6112,7 +6469,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الحسابات المتعددة"
+  "focus": "تخصصك: الحسابات المتعددة",
+  "dept": "d066"
  },
  {
   "no": "E-359",
@@ -6127,7 +6485,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: التلاعب بالنتائج في Firestore"
+  "focus": "تخصصك: التلاعب بالنتائج في Firestore",
+  "dept": "d066"
  },
  {
   "no": "E-360",
@@ -6142,7 +6501,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الغش في البطولات الأونلاين"
+  "focus": "تخصصك: الغش في البطولات الأونلاين",
+  "dept": "d066"
  },
  {
   "no": "E-361",
@@ -6157,7 +6517,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: حماية الـ VAR من سوء الاستخدام"
+  "focus": "تخصصك: حماية الـ VAR من سوء الاستخدام",
+  "dept": "d066"
  },
  {
   "no": "E-362",
@@ -6178,7 +6539,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d067"
  },
  {
   "no": "E-363",
@@ -6199,7 +6561,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d067"
  },
  {
   "no": "E-364",
@@ -6220,7 +6583,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d067"
  },
  {
   "no": "E-365",
@@ -6235,7 +6599,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: Android TV / Google TV"
+  "focus": "تخصصك: Android TV / Google TV",
+  "dept": "d068"
  },
  {
   "no": "E-366",
@@ -6250,7 +6615,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: Samsung Tizen"
+  "focus": "تخصصك: Samsung Tizen",
+  "dept": "d068"
  },
  {
   "no": "E-367",
@@ -6265,7 +6631,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: LG webOS"
+  "focus": "تخصصك: LG webOS",
+  "dept": "d068"
  },
  {
   "no": "E-368",
@@ -6280,7 +6647,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: Apple TV"
+  "focus": "تخصصك: Apple TV",
+  "dept": "d068"
  },
  {
   "no": "E-369",
@@ -6295,7 +6663,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: التحكم بالريموت (D-pad)"
+  "focus": "تخصصك: التحكم بالريموت (D-pad)",
+  "dept": "d068"
  },
  {
   "no": "E-370",
@@ -6310,7 +6679,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الجوال كريموت للتلفزيون"
+  "focus": "تخصصك: الجوال كريموت للتلفزيون",
+  "dept": "d068"
  },
  {
   "no": "E-371",
@@ -6325,7 +6695,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الواجهة SwiftUI"
+  "focus": "تخصصك: الواجهة SwiftUI",
+  "dept": "d068"
  },
  {
   "no": "E-372",
@@ -6340,7 +6711,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الصوت والوسائط"
+  "focus": "تخصصك: الصوت والوسائط",
+  "dept": "d068"
  },
  {
   "no": "E-373",
@@ -6355,7 +6727,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الإشعارات"
+  "focus": "تخصصك: الإشعارات",
+  "dept": "d068"
  },
  {
   "no": "E-374",
@@ -6370,7 +6743,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: النشر في App Store"
+  "focus": "تخصصك: النشر في App Store",
+  "dept": "d068"
  },
  {
   "no": "E-375",
@@ -6385,7 +6759,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الواجهة Compose"
+  "focus": "تخصصك: الواجهة Compose",
+  "dept": "d068"
  },
  {
   "no": "E-376",
@@ -6400,7 +6775,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الأداء على الأجهزة الضعيفة"
+  "focus": "تخصصك: الأداء على الأجهزة الضعيفة",
+  "dept": "d068"
  },
  {
   "no": "E-377",
@@ -6415,7 +6791,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الإشعارات"
+  "focus": "تخصصك: الإشعارات",
+  "dept": "d068"
  },
  {
   "no": "E-378",
@@ -6430,7 +6807,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: النشر في Google Play"
+  "focus": "تخصصك: النشر في Google Play",
+  "dept": "d068"
  },
  {
   "no": "E-379",
@@ -6445,7 +6823,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: شاشة اللعب"
+  "focus": "تخصصك: شاشة اللعب",
+  "dept": "d068"
  },
  {
   "no": "E-380",
@@ -6460,7 +6839,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: لوحة التحكم"
+  "focus": "تخصصك: لوحة التحكم",
+  "dept": "d068"
  },
  {
   "no": "E-381",
@@ -6475,7 +6855,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الأداء والتحميل"
+  "focus": "تخصصك: الأداء والتحميل",
+  "dept": "d068"
  },
  {
   "no": "E-382",
@@ -6490,7 +6871,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: RTL والعربي"
+  "focus": "تخصصك: RTL والعربي",
+  "dept": "d068"
  },
  {
   "no": "E-383",
@@ -6505,7 +6887,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الوصول (Accessibility)"
+  "focus": "تخصصك: الوصول (Accessibility)",
+  "dept": "d068"
  },
  {
   "no": "E-384",
@@ -6520,7 +6903,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: PWA والعمل بدون نت"
+  "focus": "تخصصك: PWA والعمل بدون نت",
+  "dept": "d068"
  },
  {
   "no": "E-385",
@@ -6542,7 +6926,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d069"
  },
  {
   "no": "E-386",
@@ -6566,7 +6951,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d069"
  },
  {
   "no": "E-387",
@@ -6588,7 +6974,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d069"
  },
  {
   "no": "E-388",
@@ -6603,7 +6990,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: Firestore والفهارس والقواعد"
+  "focus": "تخصصك: Firestore والفهارس والقواعد",
+  "dept": "d070"
  },
  {
   "no": "E-389",
@@ -6618,7 +7006,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: GitHub Actions والنشر"
+  "focus": "تخصصك: GitHub Actions والنشر",
+  "dept": "d070"
  },
  {
   "no": "E-390",
@@ -6633,7 +7022,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: النسخ الاحتياطي والاسترجاع"
+  "focus": "تخصصك: النسخ الاحتياطي والاسترجاع",
+  "dept": "d070"
  },
  {
   "no": "E-391",
@@ -6651,7 +7041,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d071"
  },
  {
   "no": "E-392",
@@ -6668,7 +7059,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d071"
  },
  {
   "no": "E-393",
@@ -6683,7 +7075,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: شاشة السؤال والإجابة"
+  "focus": "تخصصك: شاشة السؤال والإجابة",
+  "dept": "d072"
  },
  {
   "no": "E-394",
@@ -6698,7 +7091,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: لوحة النتائج"
+  "focus": "تخصصك: لوحة النتائج",
+  "dept": "d072"
  },
  {
   "no": "E-395",
@@ -6713,7 +7107,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: اختيار الفئات"
+  "focus": "تخصصك: اختيار الفئات",
+  "dept": "d072"
  },
  {
   "no": "E-396",
@@ -6728,7 +7123,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: لوحة التحكم"
+  "focus": "تخصصك: لوحة التحكم",
+  "dept": "d072"
  },
  {
   "no": "E-397",
@@ -6743,7 +7139,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الجوال كريموت"
+  "focus": "تخصصك: الجوال كريموت",
+  "dept": "d072"
  },
  {
   "no": "E-398",
@@ -6758,7 +7155,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: إنشاء ديوانية والانضمام"
+  "focus": "تخصصك: إنشاء ديوانية والانضمام",
+  "dept": "d072"
  },
  {
   "no": "E-399",
@@ -6773,7 +7171,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الفئات الخاصة"
+  "focus": "تخصصك: الفئات الخاصة",
+  "dept": "d072"
  },
  {
   "no": "E-400",
@@ -6788,7 +7187,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الإعدادات والحساب"
+  "focus": "تخصصك: الإعدادات والحساب",
+  "dept": "d072"
  },
  {
   "no": "E-401",
@@ -6803,7 +7203,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: حركات الفزعات"
+  "focus": "تخصصك: حركات الفزعات",
+  "dept": "d072"
  },
  {
   "no": "E-402",
@@ -6818,7 +7219,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: كشف الإجابة"
+  "focus": "تخصصك: كشف الإجابة",
+  "dept": "d072"
  },
  {
   "no": "E-403",
@@ -6833,7 +7235,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الفوز والتتويج"
+  "focus": "تخصصك: الفوز والتتويج",
+  "dept": "d072"
  },
  {
   "no": "E-404",
@@ -6848,7 +7251,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: بداية البطولة"
+  "focus": "تخصصك: بداية البطولة",
+  "dept": "d072"
  },
  {
   "no": "E-405",
@@ -6863,7 +7267,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: المؤقت"
+  "focus": "تخصصك: المؤقت",
+  "dept": "d072"
  },
  {
   "no": "E-406",
@@ -6878,7 +7283,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الـ VAR"
+  "focus": "تخصصك: الـ VAR",
+  "dept": "d072"
  },
  {
   "no": "E-407",
@@ -6893,7 +7299,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: شعار وهوية الديوانية"
+  "focus": "تخصصك: شعار وهوية الديوانية",
+  "dept": "d072"
  },
  {
   "no": "E-408",
@@ -6908,7 +7315,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: أيقونات قطاعات الفئات"
+  "focus": "تخصصك: أيقونات قطاعات الفئات",
+  "dept": "d072"
  },
  {
   "no": "E-409",
@@ -6923,7 +7331,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: أيقونات الفئات (أ-ي)"
+  "focus": "تخصصك: أيقونات الفئات (أ-ي)",
+  "dept": "d072"
  },
  {
   "no": "E-410",
@@ -6938,7 +7347,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: تصاميم المواسم"
+  "focus": "تخصصك: تصاميم المواسم",
+  "dept": "d072"
  },
  {
   "no": "E-411",
@@ -6953,7 +7363,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: أصوات الإجابة الصح والغلط"
+  "focus": "تخصصك: أصوات الإجابة الصح والغلط",
+  "dept": "d072"
  },
  {
   "no": "E-412",
@@ -6968,7 +7379,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: المؤقت والتوتر"
+  "focus": "تخصصك: المؤقت والتوتر",
+  "dept": "d072"
  },
  {
   "no": "E-413",
@@ -6983,7 +7395,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: الفزعات"
+  "focus": "تخصصك: الفزعات",
+  "dept": "d072"
  },
  {
   "no": "E-414",
@@ -6998,7 +7411,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: الفوز والاحتفال"
+  "focus": "تخصصك: الفوز والاحتفال",
+  "dept": "d072"
  },
  {
   "no": "E-415",
@@ -7022,7 +7436,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d073"
  },
  {
   "no": "E-416",
@@ -7044,7 +7459,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d073"
  },
  {
   "no": "E-417",
@@ -7068,7 +7484,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d073"
  },
  {
   "no": "E-418",
@@ -7083,7 +7500,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: يوتيوبرز الكويت"
+  "focus": "تخصصك: يوتيوبرز الكويت",
+  "dept": "d074"
  },
  {
   "no": "E-419",
@@ -7098,7 +7516,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: يوتيوبرز السعودية"
+  "focus": "تخصصك: يوتيوبرز السعودية",
+  "dept": "d074"
  },
  {
   "no": "E-420",
@@ -7113,7 +7532,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: مشاهير سناب الخليج"
+  "focus": "تخصصك: مشاهير سناب الخليج",
+  "dept": "d074"
  },
  {
   "no": "E-421",
@@ -7128,7 +7548,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: مشاهير تيك توك"
+  "focus": "تخصصك: مشاهير تيك توك",
+  "dept": "d074"
  },
  {
   "no": "E-422",
@@ -7143,7 +7564,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: ستريمرز الألعاب (Twitch/Kick)"
+  "focus": "تخصصك: ستريمرز الألعاب (Twitch/Kick)",
+  "dept": "d074"
  },
  {
   "no": "E-423",
@@ -7158,7 +7580,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: البودكاست الخليجي"
+  "focus": "تخصصك: البودكاست الخليجي",
+  "dept": "d074"
  },
  {
   "no": "E-424",
@@ -7173,7 +7596,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: مشاهير الرياضة"
+  "focus": "تخصصك: مشاهير الرياضة",
+  "dept": "d074"
  },
  {
   "no": "E-425",
@@ -7188,7 +7612,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: صناع المحتوى العائلي"
+  "focus": "تخصصك: صناع المحتوى العائلي",
+  "dept": "d074"
  },
  {
   "no": "E-426",
@@ -7203,7 +7628,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "منصتك: X (تويتر)"
+  "focus": "منصتك: X (تويتر)",
+  "dept": "d074"
  },
  {
   "no": "E-427",
@@ -7218,7 +7644,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "منصتك: إنستغرام"
+  "focus": "منصتك: إنستغرام",
+  "dept": "d074"
  },
  {
   "no": "E-428",
@@ -7233,7 +7660,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "منصتك: تيك توك"
+  "focus": "منصتك: تيك توك",
+  "dept": "d074"
  },
  {
   "no": "E-429",
@@ -7248,7 +7676,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "منصتك: سناب شات"
+  "focus": "منصتك: سناب شات",
+  "dept": "d074"
  },
  {
   "no": "E-430",
@@ -7263,7 +7692,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "منصتك: يوتيوب شورتس"
+  "focus": "منصتك: يوتيوب شورتس",
+  "dept": "d074"
  },
  {
   "no": "E-431",
@@ -7278,7 +7708,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "منصتك: واتساب والمجموعات"
+  "focus": "منصتك: واتساب والمجموعات",
+  "dept": "d074"
  },
  {
   "no": "E-432",
@@ -7301,7 +7732,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d075"
  },
  {
   "no": "E-433",
@@ -7324,7 +7756,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d075"
  },
  {
   "no": "E-434",
@@ -7339,7 +7772,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d076"
  },
  {
   "no": "E-435",
@@ -7354,7 +7788,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d076"
  },
  {
   "no": "E-436",
@@ -7369,7 +7804,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d076"
  },
  {
   "no": "E-437",
@@ -7384,7 +7820,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d076"
  },
  {
   "no": "E-438",
@@ -7399,7 +7836,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d001"
  },
  {
   "no": "E-439",
@@ -7414,7 +7852,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "شخصيتك كلاعب: لاعب تنافسي يكره الخسارة"
+  "focus": "شخصيتك كلاعب: لاعب تنافسي يكره الخسارة",
+  "dept": "d077"
  },
  {
   "no": "E-440",
@@ -7429,7 +7868,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "شخصيتك كلاعب: لاعب كاجوال يلعب للوناسة"
+  "focus": "شخصيتك كلاعب: لاعب كاجوال يلعب للوناسة",
+  "dept": "d077"
  },
  {
   "no": "E-441",
@@ -7444,7 +7884,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "شخصيتك كلاعب: أبو العيال يلعب مع عياله"
+  "focus": "شخصيتك كلاعب: أبو العيال يلعب مع عياله",
+  "dept": "d077"
  },
  {
   "no": "E-442",
@@ -7459,7 +7900,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "شخصيتك كلاعب: طالب جامعة يلعب مع الشلة"
+  "focus": "شخصيتك كلاعب: طالب جامعة يلعب مع الشلة",
+  "dept": "d077"
  },
  {
   "no": "E-443",
@@ -7474,7 +7916,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "شخصيتك كلاعب: مجنون كورة"
+  "focus": "شخصيتك كلاعب: مجنون كورة",
+  "dept": "d077"
  },
  {
   "no": "E-444",
@@ -7489,7 +7932,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "شخصيتك كلاعب: محب المسلسلات والأفلام"
+  "focus": "شخصيتك كلاعب: محب المسلسلات والأفلام",
+  "dept": "d077"
  },
  {
   "no": "E-445",
@@ -7504,7 +7948,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "شخصيتك كلاعب: أول مرة يلعب ألعاب أسئلة"
+  "focus": "شخصيتك كلاعب: أول مرة يلعب ألعاب أسئلة",
+  "dept": "d077"
  },
  {
   "no": "E-446",
@@ -7519,7 +7964,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "شخصيتك كلاعب: خبير ألعاب أسئلة لعب كل شي"
+  "focus": "شخصيتك كلاعب: خبير ألعاب أسئلة لعب كل شي",
+  "dept": "d077"
  },
  {
   "no": "E-447",
@@ -7534,7 +7980,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "شخصيتك كلاعب: يلعب من الجوال بس"
+  "focus": "شخصيتك كلاعب: يلعب من الجوال بس",
+  "dept": "d077"
  },
  {
   "no": "E-448",
@@ -7553,7 +8000,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d078"
  },
  {
   "no": "E-449",
@@ -7572,7 +8020,8 @@
   ],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d078"
  },
  {
   "no": "E-450",
@@ -7591,7 +8040,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d078"
  },
  {
   "no": "E-451",
@@ -7606,7 +8056,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d078"
  },
  {
   "no": "E-452",
@@ -7626,7 +8077,8 @@
   ],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d078"
  },
  {
   "no": "E-453",
@@ -7641,7 +8093,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d079"
  },
  {
   "no": "E-454",
@@ -7656,7 +8109,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d079"
  },
  {
   "no": "E-455",
@@ -7671,7 +8125,8 @@
   "supervises": [],
   "shift": "A",
   "model": "haiku",
-  "focus": ""
+  "focus": "",
+  "dept": "d079"
  },
  {
   "no": "E-456",
@@ -7686,7 +8141,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d079"
  },
  {
   "no": "E-457",
@@ -7701,7 +8157,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d080"
  },
  {
   "no": "E-458",
@@ -7716,7 +8173,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: توفير التوكنز: تقصير التعليمات، نقل المهام الروتينية لـ haiku، تقليل الملفات اللي يقرونها"
+  "focus": "تخصصك: توفير التوكنز: تقصير التعليمات، نقل المهام الروتينية لـ haiku، تقليل الملفات اللي يقرونها",
+  "dept": "d080"
  },
  {
   "no": "E-459",
@@ -7731,7 +8189,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: رفع الدقة والسرعة: أدوات بحث ومصادر أفضل، أمثلة أوضح في التعليمات"
+  "focus": "تخصصك: رفع الدقة والسرعة: أدوات بحث ومصادر أفضل، أمثلة أوضح في التعليمات",
+  "dept": "d080"
  },
  {
   "no": "E-460",
@@ -7746,7 +8205,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d081"
  },
  {
   "no": "E-461",
@@ -7761,7 +8221,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب الديوانية الصوتية (بدون شاشة)"
+  "focus": "تخصصك: ألعاب الديوانية الصوتية (بدون شاشة)",
+  "dept": "d081"
  },
  {
   "no": "E-462",
@@ -7776,7 +8237,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب الحفلات والأعراس"
+  "focus": "تخصصك: ألعاب الحفلات والأعراس",
+  "dept": "d081"
  },
  {
   "no": "E-463",
@@ -7791,7 +8253,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب رمضان والقرقيعان"
+  "focus": "تخصصك: ألعاب رمضان والقرقيعان",
+  "dept": "d081"
  },
  {
   "no": "E-464",
@@ -7806,7 +8269,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب البث المباشر مع الجمهور"
+  "focus": "تخصصك: ألعاب البث المباشر مع الجمهور",
+  "dept": "d081"
  },
  {
   "no": "E-465",
@@ -7821,7 +8285,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب الجوال الجماعية في نفس الغرفة"
+  "focus": "تخصصك: ألعاب الجوال الجماعية في نفس الغرفة",
+  "dept": "d081"
  },
  {
   "no": "E-466",
@@ -7836,7 +8301,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب الرسم والتخمين"
+  "focus": "تخصصك: ألعاب الرسم والتخمين",
+  "dept": "d081"
  },
  {
   "no": "E-467",
@@ -7851,7 +8317,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب الكذب والصدق"
+  "focus": "تخصصك: ألعاب الكذب والصدق",
+  "dept": "d081"
  },
  {
   "no": "E-468",
@@ -7866,7 +8333,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب السرعة والبديهة"
+  "focus": "تخصصك: ألعاب السرعة والبديهة",
+  "dept": "d081"
  },
  {
   "no": "E-469",
@@ -7881,7 +8349,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب الفرق والبطولات بين الديوانيات"
+  "focus": "تخصصك: ألعاب الفرق والبطولات بين الديوانيات",
+  "dept": "d081"
  },
  {
   "no": "E-470",
@@ -7896,7 +8365,8 @@
   "supervises": [],
   "shift": "B",
   "model": "sonnet",
-  "focus": "تخصصك: ألعاب الأطفال والعائلة"
+  "focus": "تخصصك: ألعاب الأطفال والعائلة",
+  "dept": "d081"
  },
  {
   "no": "E-471",
@@ -7911,7 +8381,8 @@
   "supervises": [],
   "shift": "A",
   "model": "sonnet",
-  "focus": ""
+  "focus": "",
+  "dept": "d082"
  },
  {
   "no": "E-472",
@@ -7926,7 +8397,8 @@
   "supervises": [],
   "shift": "B",
   "model": "haiku",
-  "focus": "تخصصك: حملات X (تويتر)"
+  "focus": "تخصصك: حملات X (تويتر)",
+  "dept": "d082"
  },
  {
   "no": "E-473",
@@ -7941,7 +8413,8 @@
   "supervises": [],
   "shift": "A",
   "model": "haiku",
-  "focus": "تخصصك: ريلز إنستغرام"
+  "focus": "تخصصك: ريلز إنستغرام",
+  "dept": "d082"
  },
  {
   "no": "E-474",
@@ -7956,7 +8429,8 @@
   "supervises": [],
   "shift": "B",
   "model": "haiku",
-  "focus": "تخصصك: تيك توك"
+  "focus": "تخصصك: تيك توك",
+  "dept": "d082"
  },
  {
   "no": "E-475",
@@ -7971,7 +8445,8 @@
   "supervises": [],
   "shift": "A",
   "model": "haiku",
-  "focus": "تخصصك: سناب شات"
+  "focus": "تخصصك: سناب شات",
+  "dept": "d082"
  },
  {
   "no": "E-476",
@@ -7986,7 +8461,8 @@
   "supervises": [],
   "shift": "B",
   "model": "haiku",
-  "focus": "تخصصك: يوتيوب شورتس"
+  "focus": "تخصصك: يوتيوب شورتس",
+  "dept": "d082"
  },
  {
   "no": "E-477",
@@ -8001,7 +8477,8 @@
   "supervises": [],
   "shift": "A",
   "model": "haiku",
-  "focus": "تخصصك: مجموعات واتساب الديوانيات"
+  "focus": "تخصصك: مجموعات واتساب الديوانيات",
+  "dept": "d082"
  },
  {
   "no": "E-478",
@@ -8016,7 +8493,8 @@
   "supervises": [],
   "shift": "B",
   "model": "haiku",
-  "focus": "تخصصك: لقطات «أصعب سؤال» الفيروسية"
+  "focus": "تخصصك: لقطات «أصعب سؤال» الفيروسية",
+  "dept": "d082"
  },
  {
   "no": "E-479",
@@ -8031,7 +8509,8 @@
   "supervises": [],
   "shift": "A",
   "model": "haiku",
-  "focus": "تخصصك: تحديات المشاهير"
+  "focus": "تخصصك: تحديات المشاهير",
+  "dept": "d082"
  },
  {
   "no": "E-480",
@@ -8046,7 +8525,8 @@
   "supervises": [],
   "shift": "B",
   "model": "haiku",
-  "focus": "تخصصك: إعلانات ممولة بميزانية صغيرة"
+  "focus": "تخصصك: إعلانات ممولة بميزانية صغيرة",
+  "dept": "d082"
  },
  {
   "no": "E-481",
@@ -8061,7 +8541,8 @@
   "supervises": [],
   "shift": "A",
   "model": "haiku",
-  "focus": "تخصصك: الشراكات مع المقاهي والديوانيات"
+  "focus": "تخصصك: الشراكات مع المقاهي والديوانيات",
+  "dept": "d082"
  },
  {
   "no": "E-482",
@@ -8076,6 +8557,7 @@
   "supervises": [],
   "shift": "B",
   "model": "haiku",
-  "focus": "تخصصك: خطط الاشتراك والدخل"
+  "focus": "تخصصك: خطط الاشتراك والدخل",
+  "dept": "d082"
  }
 ]

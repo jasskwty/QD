@@ -447,8 +447,38 @@ mon = sum(1 for e in EMP if e["kind"] == "monitor"); lead = sum(1 for e in EMP i
 lines += ["", "## الحصيلة", "", f"- الإجمالي: **{len(EMP)}**", f"- الخط التنفيذي والإبداعي: **{len(EMP) - mon - lead}**",
           f"- الخط الرقابي: **{mon + lead}** ({mon} مراقب على اللجان + {lead} في القيادة ومجلس التفتيش)"]
 (ROOT / "company" / "ORG.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-json.dump([{**{k: e[k] for k in ("no", "id", "title", "en", "sector", "committee", "cslug", "sup", "kind", "supervises", "shift", "model", "focus")}, **({"group": e["group"]} if "group" in e else {})} for e in EMP],
+from collections import Counter
+# ── departments: every committee (even a 5-person cell) is a department with its own chair and its own meetings ──
+from collections import OrderedDict as _OD
+DEPTS = _OD()
+for e in EMP:
+    DEPTS.setdefault(e["committee"], []).append(e)
+dept_rows = []
+for i, (name, members) in enumerate(DEPTS.items(), 1):
+    ids = {m["id"] for m in members}
+    inside = [m for m in members if m["kind"] != "worker" and set(m["supervises"]) & ids]
+    if inside:
+        chair = max(inside, key=lambda m: len(set(m["supervises"]) & ids))["id"]
+    else:
+        sups = Counter(m["sup"] for m in members if m["sup"])
+        chair = sups.most_common(1)[0][0] if sups else "ceo"
+    slug = f"d{i:03d}"
+    for m in members:
+        m["dept"] = slug
+    dept_rows.append({"id": slug, "name": name, "sector": members[0]["sector"], "chair": chair, "size": len(members),
+                      "members": [m["id"] for m in members]})
+(ROOT / "company" / "departments.json").write_text(json.dumps(dept_rows, ensure_ascii=False, indent=1), encoding="utf-8")
+md = ["# الأقسام واجتماعاتها", "",
+      f"**{len(dept_rows)} قسم.** كل لجنة قسم مستقل، حتى خلية الفئة (5 موظفين). لكل قسم رئيس يدير اجتماعه، ومحاضره في `company/meetings/departments/<رقم القسم>/`.",
+      "طريقة الاجتماع في `company/MEETING.md` (اجتماع القسم).", "",
+      "| القسم | الاسم | الحجم | يرأس الاجتماع |", "|---|---|---|---|"]
+for d in dept_rows:
+    md.append(f"| {d['id']} | {d['name']} | {d['size']} | `{d['chair']}` |")
+(ROOT / "company" / "DEPARTMENTS.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+
+json.dump([{**{k: e[k] for k in ("no", "id", "title", "en", "sector", "committee", "cslug", "sup", "kind", "supervises", "shift", "model", "focus", "dept")}, **({"group": e["group"]} if "group" in e else {})} for e in EMP],
           open(ROOT / "company" / "org.json", "w"), ensure_ascii=False, indent=1)
+
 from collections import Counter
 print(len(EMP), "employees;", mon, "monitors;", lead, "leaders")
 print(Counter(e["sector"] for e in EMP))

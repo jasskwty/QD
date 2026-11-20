@@ -185,3 +185,25 @@ export function findPath(grid, sx, sy, tx, ty) {
   }
   return null;
 }
+
+// ── department meeting tables: one per room (cells huddle around their own slot) ──
+export const DEPT_TABLES = {
+  leaders: { dx: 448, dy: 400, rx: 150, ry: 50 }, eng: { dx: 544, dy: 520, rx: 160, ry: 55 }, design: { dx: 288, dy: 480, rx: 130, ry: 55 },
+  marketing: { dx: 256, dy: 410, rx: 120, ry: 55 }, gamelab: { dx: 256, dy: 410, rx: 120, ry: 55 }, innov: { dx: 384, dy: 490, rx: 150, ry: 55 },
+  hr: { dx: 120, dy: 225, rx: 70, ry: 34 }, training: { dx: 130, dy: 225, rx: 80, ry: 34 }, language: { dx: 224, dy: 228, rx: 110, ry: 34 },
+  lounge: { dx: 220, dy: 505, rx: 130, ry: 28 }
+};
+export function tableOf(roomId) {
+  const t = DEPT_TABLES[roomId], r = roomById[roomId];
+  return t && { x: r.x + t.dx, y: r.y + t.dy, rx: t.rx, ry: t.ry };
+}
+// n seats on an ellipse around a table
+export function tableSeats(t, n) {
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2 - Math.PI / 2;
+    out.push({ x: t.x + Math.cos(a) * (t.rx + 22), y: t.y + Math.sin(a) * (t.ry + 22) });
+  }
+  return out;
+}
+export const roomAt = (x, y) => ROOMS.find(r => x > r.x && x < r.x + r.w && y > r.y && y < r.y + r.h) || null;
