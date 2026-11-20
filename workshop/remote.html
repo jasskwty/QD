@@ -432,6 +432,8 @@ html.rmode #aqr{display:none!important}
 .j-pr{border:1px solid #ffffff26;border-radius:12px;padding:10px 12px;margin-bottom:8px;line-height:1.8;font-size:14px}.j-pr button{margin-top:6px;font-weight:700;font-size:13px;font-family:inherit;border:0;border-radius:99px;padding:6px 14px;background:#ffffff22;color:inherit;cursor:pointer}
 
 .j-links a.j-drive{background:#0F9D58;padding:14px}.j-links a.j-drive small{display:block;font-weight:500;font-size:12px;opacity:.9;margin-top:2px}
+
+.j-go{display:block;margin:14px 0 6px;padding:16px;border-radius:14px;background:#0F9D58;color:#fff;font-weight:800;font-size:18px;text-align:center;text-decoration:none}.j-chg{margin-top:10px;font:inherit;font-weight:700;border:1px solid #ffffff33;background:transparent;color:inherit;border-radius:99px;padding:8px 16px;cursor:pointer}
 </style></head><body>
 <canvas id="net"></canvas><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="prog" id="prog"></div>
 
@@ -547,7 +549,7 @@ html.rmode #aqr{display:none!important}
 <button class="ico" id="bo" aria-label="كل الشرائح" title="كل الشرائح (O)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
 <button class="ico" id="bn" aria-label="ملاحظات المقدم" title="ملاحظات المقدم (N)"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10"/></svg></button>
 <button class="ico" id="br" aria-label="ريموت الهاتف" title="ريموت الهاتف (R)"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></button><button class="ico" id="bf" aria-label="ملء الشاشة" title="ملء الشاشة (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
-<div id="aqr" role="dialog" aria-label="رمز الحضور"><div class="aqr-in"><span class="aqr-k">للحضور</span><h2>امسح بكاميرا جوالك</h2><div class="aqr-qr" id="aqrc"></div><ul class="aqr-l"><li><b>الحين</b> التصويت والاختبار المباشر وأسئلتكم</li><li><b>بعد الورشة</b> عروض الدروس على الدرايف والأوامر الجاهزة</li></ul><p class="aqr-u" id="aqrU"></p></div></div><div id="audChip"><i></i><span id="audN"></span></div><div id="rxL"></div><div id="physOv"><div class="pbar t"><span class="ybadge"><i id="phBadge"></i>من تصميم YBE</span><b id="phT"></b><span id="phCnt"></span><button type="button" id="phClose">إغلاق</button></div><div class="pbox" id="phBox"><iframe id="phFull" title="عرض ضرب المتجهات"></iframe></div><div class="pbar b"><button type="button" id="phPrvB">السابق</button><button type="button" id="phNxtB">التالي</button></div></div>
+<div id="aqr" role="dialog" aria-label="رمز الحضور"><div class="aqr-in"><span class="aqr-k">للحضور</span><h2>امسح بكاميرا جوالك</h2><div class="aqr-qr" id="aqrc"></div><ul class="aqr-l"><li><b>صوّت</b> كم ياخذ منك تحضير عرض؟</li><li><b>بعدها</b> تنتقل لعروض الدروس الجاهزة على الدرايف</li></ul><p class="aqr-u" id="aqrU"></p></div></div><div id="audChip"><i></i><span id="audN"></span></div><div id="rxL"></div><div id="physOv"><div class="pbar t"><span class="ybadge"><i id="phBadge"></i>من تصميم YBE</span><b id="phT"></b><span id="phCnt"></span><button type="button" id="phClose">إغلاق</button></div><div class="pbox" id="phBox"><iframe id="phFull" title="عرض ضرب المتجهات"></iframe></div><div class="pbar b"><button type="button" id="phPrvB">السابق</button><button type="button" id="phNxtB">التالي</button></div></div>
 <div id="R" hidden>
 <header class="r-top"><b id="rTtl">ريموت الورشة</b><span class="r-dot" id="rDot"><i></i><span id="rStat">جاري الاتصال…</span></span></header>
 <div id="rFull">
@@ -589,15 +591,15 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const rid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
 const HOSTED=!window.__FORCE_ART&&/^https?:$/.test(location.protocol)&&!/cla[u]de|anthropic/i.test(location.hostname);
 const MIRROR=window.name==='ws-mirror';
-const RMODE=!MIRROR&&(window.__MODE==='remote'||/^#(remote|chat|join)\b/.test(location.hash)||/remote\.html$/i.test(location.pathname));
+const RMODE=!MIRROR&&(window.__MODE==='remote'||/^#(remote|chat|join|vote)\b/.test(location.hash)||/remote\.html$/i.test(location.pathname));
 const CHATONLY=RMODE&&/^#chat\b/.test(location.hash);
-const JMODE=RMODE&&/^#join\b/.test(location.hash);
+const JMODE=RMODE&&/^#(join|vote)\b/.test(location.hash);const VMODE=JMODE&&/^#vote\b/.test(location.hash);const DRIVE_URL='https://drive.google.com/drive/folders/128tD-g4SPIlSQkFZzSPwVrIAm-IB9-RQ';
 const ART_URL='https://claude.ai/artifact/Xyd8No5zkJWUQPZNNvKEq1';
 const BASE=location.href.split('#')[0].split('?')[0].replace(/[^\/]*$/,'');
 const DECK_URL=HOSTED?BASE+'index.html':ART_URL;
 const RURL=HOSTED?BASE+'remote.html':ART_URL+'#remote';
 const CURL=HOSTED?BASE+'remote.html#chat':ART_URL+'#chat';
-const JURL=HOSTED?BASE+'remote.html#join':ART_URL+'#join';
+const JURL=HOSTED?BASE+'remote.html#join':ART_URL+'#join';const VURL=HOSTED?BASE+'remote.html#vote':ART_URL+'#vote';
 const MIRROR_SRC=HOSTED?'index.html':'deck.html';
 const TOPIC='ybe-workshop/2a23b94d033a';const TOPIC_IN=TOPIC+'/in';
 const YLOGO='<svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#fff">'+[0,90,180,270].map(a=>'<ellipse cx="20" cy="11.6" rx="2.7" ry="6.4" transform="rotate('+a+' 20 20)"/>').join('')+'</g></svg>';
@@ -748,7 +750,7 @@ ts.onclick=e=>{e.stopPropagation();if(tick){clearInterval(tick);tick=null;ts.tex
 $('tr').onclick=e=>{e.stopPropagation();clearInterval(tick);tick=null;left=TOT;rt();ts.textContent='ابدأ المؤقت';pushSoon();};
 /* --- QR codes --- */
 function qr(el,text,size){try{if(el&&typeof QRCode!=='undefined')new QRCode(el,{text,width:size,height:size,colorDark:'#041E52',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});else if(el)el.style.display='none';}catch(e){}}
-if(!MIRROR){qr($('qr'),JURL,170);qr($('rqrc'),RURL,240);qr($('aqrc'),JURL,420);if($('aqrU'))$('aqrU').textContent=JURL;qr($('yqr'),JURL,160);['jq0','jq1','jq2'].forEach(id=>qr($(id),JURL,128));}
+if(!MIRROR){qr($('qr'),VURL,170);qr($('rqrc'),RURL,240);qr($('aqrc'),VURL,420);if($('aqrU'))$('aqrU').textContent=VURL;qr($('yqr'),JURL,160);['jq0','jq1','jq2'].forEach(id=>qr($(id),JURL,128));}
 document.querySelectorAll('.hpi').forEach(x=>{x.innerHTML=YLOGO;});
 $('rskip').onclick=e=>{e.stopPropagation();$('rqr').classList.remove('on');pushSoon();};$('br').onclick=e=>{e.stopPropagation();$('rqr').classList.toggle('on');pushSoon();};
 $('rqr').onclick=()=>{$('rqr').classList.remove('on');pushSoon();};if($('aqr'))$('aqr').onclick=()=>{$('aqr').classList.remove('on');pushSoon();};
@@ -902,7 +904,7 @@ const RXI={heart:'<svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 
 let rxN=0;function spawnReact(kind){if(!RXI[kind]||rxN>24)return;rxN++;const d=el('div','rx '+kind,RXI[kind]);d.style.left=(16+Math.random()*130)+'px';d.style.setProperty('--dx1',(Math.random()*40-20)+'px');d.style.setProperty('--dx2',(Math.random()*90-45)+'px');$('rxL').appendChild(d);setTimeout(()=>{d.remove();rxN--;},3300);}
 function aud(o){const pid=String(o.pid||'').slice(0,40);if(!pid)return;const nm=String(o.nm||'').replace(/\s+/g,' ').trim().slice(0,24);const now=Date.now();const P0=AUD.p[pid]||(AUD.p[pid]={nm:'',at:0,rx:0});const isNew=now-P0.at>45000;P0.at=now;if(nm)P0.nm=nm;
   switch(o.t){
-    case 'vote':{const k=+o.v;if(k>=0&&k<PO.length&&S[i].querySelector('#poll')){const pr=AUD.votes[pid];if(pr!==k){if(pr!=null)PV[pr]=Math.max(0,PV[pr]-1);PV[k]++;AUD.votes[pid]=k;rp();pushSoon();}}}break;
+    case 'vote':{const k=+o.v;if(k>=0&&k<PO.length){const pr=AUD.votes[pid];if(pr!==k){if(pr!=null)PV[pr]=Math.max(0,PV[pr]-1);PV[k]++;AUD.votes[pid]=k;rp();pushSoon();}}}break;
     case 'ans':{if(qi<Q.length&&!qo.dataset.done&&+o.n===qi+1){const k=+o.v;const key=qi+':'+pid;if(k>=0&&k<Q[qi][1].length&&AUD.ans[key]==null){AUD.ans[key]=k;renderQC();pushSoon();}}}break;
     case 'react':if(now-P0.rx>650){P0.rx=now;spawnReact(String(o.v));}break;
     case 'ask':{const q=String(o.v||'').replace(/\s+/g,' ').trim().slice(0,300);if(q&&AUD.asks.length<40&&!AUD.asks.some(a=>a.q===q)){AUD.asks.push({id:rid(),q,nm:P0.nm||''});renderAsks();AUD.qd=true;pushSoon();}}break;}
@@ -1122,6 +1124,18 @@ function render(){const s=st.s,C=$('jCard');
 function dot(){const live=st.last&&Date.now()-st.last<12000;$('jDot').className='j-dot'+(live?' ok':'');$('jStat').textContent=live?'متصل بالعرض':(T.live()?'بانتظار شاشة العرض…':'جاري الاتصال…');}
 T.on(o=>{if(o.k==='st'){st.s=o;st.last=Date.now();render();}else if(o.k==='ch'){st.c=o;if(st.s&&st.s.ctl&&st.s.ctl.ai)render();}dot();});
 let hT=0;T.onStatus=()=>{dot();const now=Date.now();if(T.live()&&now-hT>800){hT=now;setTimeout(()=>{send('hi');T.send({k:'cmd',a:'hello'},TOPIC_IN);},150);}};
+if(VMODE){render=()=>{};const PO=['أقل من ساعة','من ساعة إلى ٣ ساعات','أكثر من ٣ ساعات','ما أسوي عروض'];document.title='تصويت · ورشة العروض التفاعلية';['jNameBox','jReact','jFiles'].forEach(x=>{if($(x))$(x).hidden=true;});
+  const C=$('jCard');let mine=null;try{mine=JSON.parse(localStorage.getItem('wsVote'));}catch(e){}
+  const openDrive=()=>{const l=document.createElement('a');l.href=DRIVE_URL;l.target='_blank';l.rel='noopener';document.body.appendChild(l);l.click();l.remove();};
+  const done=()=>{C.innerHTML='';C.appendChild(mk('span','j-tag','وصل صوتك ✓'));C.appendChild(mk('h2','','شكرًا! صوتك طلع على شاشة العرض'));
+    C.appendChild(mk('p','sub','هديتك من الورشة: عروض تفاعلية جاهزة لكل المواد، للعاشر والحادي عشر والثاني عشر.'));
+    const g=mk('a','j-go','افتح عروض الدروس على الدرايف');g.href=DRIVE_URL;g.target='_blank';g.rel='noopener';C.appendChild(g);
+    C.appendChild(mk('p','j-note','إذا ما انفتح الدرايف بروحه، اضغط الزر. نزّل الملف وافتحه بالمتصفح عشان يشتغل كامل.'));
+    const ch=mk('button','j-chg','غيّر صوتي');ch.type='button';ch.onclick=()=>ask();C.appendChild(ch);};
+  const ask=()=>{C.innerHTML='';C.appendChild(mk('span','j-tag','سؤال سريع'));C.appendChild(mk('h2','','كم ياخذ منك تحضير عرض لدرس واحد؟'));const g=mk('div','j-opts');
+    PO.forEach((t,j)=>{const b=mk('button',mine===j?'sel':'',esc(t));b.type='button';b.onclick=()=>{mine=j;try{localStorage.setItem('wsVote',JSON.stringify(j));}catch(e){}send('vote',j);buzz();openDrive();done();};g.appendChild(b);});
+    C.appendChild(g);C.appendChild(mk('p','j-note','اختر إجابتك: تطلع على الشاشة على طول، وبعدها ننقلك لعروض الدروس.'));};
+  if(mine!=null){done();}else ask();}
 render();dot();
 tStart('join').then(()=>{send('hi');T.send({k:'cmd',a:'hello'},TOPIC_IN);});
 setInterval(()=>{dot();send('hi');},15000);
