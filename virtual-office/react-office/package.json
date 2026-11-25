@@ -1,0 +1,22 @@
+{
+  "name": "qd-react-office",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QD virtual office (Phaser 3 + React) wired to the n8n webhooks",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "phaser": "3.80.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}
