@@ -935,7 +935,7 @@ let lastSt='';function pushAll(force,hb){if(MIRROR)return;pLast=Date.now();const
     if(force)dbSet('wr/mt',meta());if((force||hadCh)&&!dbChT)dbChT=setTimeout(()=>{dbChT=null;dbSet('wr/ch',chat());},1000);}}
 const BANS=new Set((()=>{try{return JSON.parse(localStorage.getItem('wsBans')||'[]')}catch(e){return []}})());function banDev(id){if(BANS.has(id))return;BANS.add(id);try{localStorage.setItem('wsBans',JSON.stringify([...BANS]))}catch(e){}if(AUD.p[id])delete AUD.p[id];T.send({k:'ban',id});pushSoon();}
 function goAI(then){if(i!==AIX){if(PH.open)closePhys(true);show(AIX);setTimeout(then,650);}else then();}
-function cmd(o){const a=o.a,v=o.v;const who=String(o.pid||o.did||'').slice(0,40);const adm=o.ak===AKX;if(adm&&who&&BANS.has(who)){BANS.delete(who);try{localStorage.setItem('wsBans',JSON.stringify([...BANS]))}catch(e){}pushSoon();}if(who&&BANS.has(who)&&!adm)return;if(!adm&&(JNAME(o.nm)||(typeof v==='string'&&JNAME(v))||(a!=='aud'&&JNAME(o.t)))){if(who)banDev(who);return;}if(a!=='aud'&&!adm&&a!=='next'&&a!=='hello')return;if(a==='aud'){aud(o);return;}if(a!=='ptr'&&a!=='hello')$('rqr').classList.remove('on');
+function cmd(o){const a=o.a,v=o.v;const who=String(o.pid||o.did||'').slice(0,40);const adm=o.ak===AKX;if(adm&&who&&BANS.has(who)){BANS.delete(who);try{localStorage.setItem('wsBans',JSON.stringify([...BANS]))}catch(e){}pushSoon();}if(who&&BANS.has(who)&&!adm)return;if(!adm&&(JNAME(o.nm)||(typeof v==='string'&&JNAME(v))||(a!=='aud'&&JNAME(o.t)))){if(who)banDev(who);return;}if(a==='aud'){aud(o);return;}if(a!=='ptr'&&a!=='hello')$('rqr').classList.remove('on');
   switch(a){
     case 'hello':pushAll(true);return;
     case 'next':next();break;case 'prev':prev();break;
@@ -981,9 +981,9 @@ let ADM=false;try{ADM=localStorage.getItem('wsAdm')===AKX;}catch(e){}
 let RBAN=false;try{RBAN=localStorage.getItem('wsBan')==='1';}catch(e){}
 function rBan(){if(ADM)return;RBAN=true;try{localStorage.setItem('wsBan','1');}catch(e){}banScreen();}
 function setAdm(){ADM=true;try{localStorage.setItem('wsAdm',AKX);localStorage.removeItem('wsBan');}catch(e){}RBAN=false;const x=document.getElementById('banX');x&&x.remove();const b=document.getElementById('rBasic');b&&b.remove();c('hello');}
-function c(a,v,opt){opt=opt||{};if(RBAN&&!ADM)return {};if(!ADM&&a!=='next'&&a!=='hello')return {};const o=T.send({k:'cmd',a,v,did:DID,ak:ADM?AKX:undefined});if(T.db&&!opt.nodb&&a!=='ptr')dbSet('wr/cmd',o);if(!opt.quiet&&a!=='ptr')buzz();return o;}
+function c(a,v,opt){opt=opt||{};if(RBAN&&!ADM)return {};const o=T.send({k:'cmd',a,v,did:DID,ak:ADM?AKX:undefined});if(T.db&&!opt.nodb&&a!=='ptr')dbSet('wr/cmd',o);if(!opt.quiet&&a!=='ptr')buzz();return o;}
 $('rLogo').innerHTML=YLOGO;
-if(!ADM){const B=document.createElement('div');B.id='rBasic';
+if(false){const B=document.createElement('div');B.id='rBasic';
   B.style.cssText='position:fixed;inset:0;z-index:9000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;background:#0B1020;color:#fff;text-align:center;font-family:inherit';
   B.innerHTML='<div style="font-size:15px;opacity:.7">ريموت الورشة</div><div id="rBt" style="font-size:20px;font-weight:800;min-height:1.4em"></div>'
    +'<button type="button" id="rBn" style="width:min(320px,80vw);height:min(320px,80vw);border-radius:50%;border:0;background:#10B981;color:#fff;font:900 34px inherit;font-family:inherit;box-shadow:0 18px 50px rgba(16,185,129,.35);cursor:pointer">التالي</button>'
@@ -1023,7 +1023,7 @@ $('rCamB').onclick=()=>$('rCam').click();
 $('rCam').onchange=e=>{const f=e.target.files&&e.target.files[0];e.target.value='';if(!f)return;const im=new Image();const u=URL.createObjectURL(f);
   im.onload=()=>{const mx=900,sc=Math.min(1,mx/Math.max(im.width,im.height));const cv=document.createElement('canvas');cv.width=Math.round(im.width*sc);cv.height=Math.round(im.height*sc);cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);URL.revokeObjectURL(u);
     let q=.72,data=cv.toDataURL('image/jpeg',q);while(data.length>140000&&q>.3){q-=.1;data=cv.toDataURL('image/jpeg',q);}
-    const txt=rIn.value.trim();rIn.value='';auto();if(!ADM)return;const o=T.send({k:'cmd',a:'img',v:data,t:txt,did:DID,ak:AKX});if(T.db)dbSet('wr/img',o);buzz();
+    const txt=rIn.value.trim();rIn.value='';auto();const o=T.send({k:'cmd',a:'img',v:data,t:txt,did:DID,ak:ADM?AKX:undefined});if(T.db)dbSet('wr/img',o);buzz();
     const L=$('rLog');const d=mk('div','r-m u pend');const pi=new Image();pi.src=data;pi.alt='صورة مسألة';d.appendChild(pi);d.appendChild(mk('small','','يرسل…'));L.appendChild(d);L.scrollTop=L.scrollHeight;};
   im.onerror=()=>URL.revokeObjectURL(u);im.src=u;};
 function renderChips(){const box=$('rChips');box.innerHTML='';const ph=st.s&&st.s.ai?st.s.ai.ph:0;let L=[];
