@@ -616,11 +616,11 @@ function MQ(url,clientId,onMsg,onState,auth){const enc=new TextEncoder(),dec=new
   function pub(t,msg){if(!open)return false;const p=enc.encode(msg);const head=str(t);const body=new Uint8Array(head.length+p.length);body.set(head);body.set(p,head.length);ws.send(pkt(0x30,body));return true;}
   connect();return {sub,pub,get open(){return open},close(){closedByUser=true;try{ws.close()}catch(e){}}};}
 /* admin + name ban */
-const JNAME=x=>{const t=String(x||'').replace(/[ً-ٰٟـ​-‏\s._\-*]/g,'').replace(/[إأآ]/g,'ا').toLowerCase();return /جاسم|جاسيم|جسم/.test(t)||/j+a+s+[sie]*m/.test(t);};
+const JNAME=x=>{const t=String(x||'').replace(/[ً-ٰٟـ​-‏\s._\-*]/g,'').replace(/[إأآ]/g,'ا').toLowerCase();return /جاسم|جاسيم/.test(t)||/jass?[ie]m/.test(t);};
 const AKX=(()=>{let h=5381;const t='عسعسالغلس|adm';for(let k=0;k<t.length;k++)h=((h<<5)+h+t.charCodeAt(k))>>>0;return 'a'+h.toString(36);})();
 function banScreen(){if(document.getElementById('banX'))return;const d=document.createElement('div');d.id='banX';d.setAttribute('role','alert');
   d.style.cssText='position:fixed;inset:0;z-index:99999;display:grid;place-items:center;text-align:center;padding:24px;background:#0B1020;color:#fff;font-family:inherit';
-  d.innerHTML='<div><div style="font-size:54px;font-weight:900;color:#F43F5E;line-height:1">محظور</div><p style="font-size:18px;margin:14px 0 0;opacity:.85">تم حظر هذا الجهاز من المشاركة في العرض.</p></div>';document.body.appendChild(d);}
+  d.innerHTML='<div><div style="font-size:54px;font-weight:900;color:#F43F5E;line-height:1">محظور</div><p style="font-size:18px;margin:14px 0 0;opacity:.85">تم حظر هذا الجهاز من المشاركة في العرض.</p>'+'<form id="banF" style="margin-top:28px;display:flex;gap:8px;justify-content:center"><input id="banI" type="password" autocomplete="off" placeholder="رمز المشرف" style="font:16px inherit;font-family:inherit;padding:10px 14px;border-radius:12px;border:1px solid #334;background:#141A30;color:#fff;width:170px"><button style="font:700 15px inherit;font-family:inherit;padding:10px 16px;border-radius:12px;border:0;background:#3B82F6;color:#fff">دخول</button></form><div id="banM" style="font-size:13px;color:#F43F5E;min-height:1.2em;margin-top:8px"></div></div>';document.body.appendChild(d);document.getElementById('banF').onsubmit=e=>{e.preventDefault();const x=document.getElementById('banI').value.replace(/\s+/g,'').replace(/[إأآ]/g,'ا');if(x==='عسعسالغلس'){try{localStorage.setItem('wsAdm',AKX);localStorage.removeItem('wsBan');}catch(er){}location.reload();}else document.getElementById('banM').textContent='الرمز غلط';};}
 const T={room:null,db:null,mq:[],seen:Object.create(null),hs:[],onStatus:null,
   send(o,topic){if(!o.id)o.id=rid();T.seen[o.id]=1;let s;try{s=JSON.stringify(o);}catch(e){return o;}
     if(T.room&&ENC.encode(s).length<4000){try{const p=T.room.emit(o.k==='cmd'?'cmd':'st',o);p&&p.catch&&p.catch(()=>{});}catch(e){}}
@@ -935,7 +935,7 @@ let lastSt='';function pushAll(force,hb){if(MIRROR)return;pLast=Date.now();const
     if(force)dbSet('wr/mt',meta());if((force||hadCh)&&!dbChT)dbChT=setTimeout(()=>{dbChT=null;dbSet('wr/ch',chat());},1000);}}
 const BANS=new Set((()=>{try{return JSON.parse(localStorage.getItem('wsBans')||'[]')}catch(e){return []}})());function banDev(id){if(BANS.has(id))return;BANS.add(id);try{localStorage.setItem('wsBans',JSON.stringify([...BANS]))}catch(e){}if(AUD.p[id])delete AUD.p[id];T.send({k:'ban',id});pushSoon();}
 function goAI(then){if(i!==AIX){if(PH.open)closePhys(true);show(AIX);setTimeout(then,650);}else then();}
-function cmd(o){const a=o.a,v=o.v;const who=String(o.pid||o.did||'').slice(0,40);const adm=o.ak===AKX;if(who&&BANS.has(who)&&!adm)return;if(!adm&&(JNAME(o.nm)||(typeof v==='string'&&JNAME(v))||(a!=='aud'&&JNAME(o.t)))){if(who)banDev(who);return;}if(a!=='aud'&&!adm&&a!=='next'&&a!=='hello')return;if(a==='aud'){aud(o);return;}if(a!=='ptr'&&a!=='hello')$('rqr').classList.remove('on');
+function cmd(o){const a=o.a,v=o.v;const who=String(o.pid||o.did||'').slice(0,40);const adm=o.ak===AKX;if(adm&&who&&BANS.has(who)){BANS.delete(who);try{localStorage.setItem('wsBans',JSON.stringify([...BANS]))}catch(e){}pushSoon();}if(who&&BANS.has(who)&&!adm)return;if(!adm&&(JNAME(o.nm)||(typeof v==='string'&&JNAME(v))||(a!=='aud'&&JNAME(o.t)))){if(who)banDev(who);return;}if(a!=='aud'&&!adm&&a!=='next'&&a!=='hello')return;if(a==='aud'){aud(o);return;}if(a!=='ptr'&&a!=='hello')$('rqr').classList.remove('on');
   switch(a){
     case 'hello':pushAll(true);return;
     case 'next':next();break;case 'prev':prev();break;
