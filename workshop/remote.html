@@ -246,7 +246,7 @@ html.rmode #net,html.rmode .blob,html.rmode .prog,html.rmode .s,html.rmode .foot
 .r-tm{margin-inline-start:auto;font:900 17px Alexandria,sans-serif;direction:ltr}
 .r-mir{position:relative;border-radius:14px;overflow:hidden;border:2px solid var(--rl);aspect-ratio:16/9;background:#F4F7FF}
 .r-mir iframe{position:absolute;top:0;left:0;width:1600px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
-.r-tp{position:absolute;inset:0;touch-action:none}.r-mir.lz{border-color:var(--rred)}
+.r-tp{position:absolute;inset:0;touch-action:none}.r-mir.lz{border-color:var(--rred)}.r-mir.tc{border-color:#10B981}
 .r-badge{position:absolute;bottom:6px;left:6px;font:700 11px "Readex Pro",sans-serif;background:#000a;color:#fff;border-radius:99px;padding:2px 9px;pointer-events:none}
 .r-prog{height:5px;display:flex;gap:2px}.r-prog i{flex:1;background:var(--rl);border-radius:2px}.r-prog i.d{background:var(--c1)}.r-prog i.d2{background:var(--c2)}.r-prog i.cur{background:#fff}
 .r-cur{background:var(--rc);border:1px solid var(--rl);border-radius:16px;padding:12px}
@@ -556,7 +556,7 @@ html.rmode #aqr{display:none!important}
 <form class="r-in" id="rForm" autocomplete="off"><button type="button" class="r-cam" id="rCamB" aria-label="صوّر مسألة"><svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></svg></button><textarea id="rIn" rows="1" placeholder="اكتب لـ YBE…" enterkeyhint="send" aria-label="رسالة لـ YBE"></textarea><button type="submit" class="r-snd" id="rSend" aria-label="إرسال"><svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l7 3 3 7z"/><path d="M10 13.5L21 3"/></svg></button><input type="file" id="rCam" accept="image/*" capture="environment" hidden></form>
 <button type="button" class="r-part" id="rPartB">مشاركة الحضور: سلّم الهاتف لأحد يسأل YBE بس</button></section>
 <div class="r-tg" id="rTg">
-<button type="button" id="rLz"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>ليزر</button>
+<button type="button" id="rLz"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>ليزر</button> <button type="button" id="rTc"><svg viewBox="0 0 24 24"><path d="M9 11V5a1.5 1.5 0 0 1 3 0v5M12 10V8.5a1.5 1.5 0 0 1 3 0V11M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1a6 6 0 0 1-4.8-2.4L4 15.5a1.5 1.5 0 0 1 2.4-1.8L9 16"/></svg>لمس</button>
 <button type="button" id="rBk"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 5l18 14"/></svg>شاشة سودا</button>
 <button type="button" id="rNt"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10"/></svg>ملاحظات بالشاشة</button>
 <button type="button" id="rAq"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><circle cx="17.5" cy="17.5" r="3.5"/></svg>رمز الحضور</button>
@@ -949,6 +949,7 @@ function cmd(o){const a=o.a,v=o.v;const who=String(o.pid||o.did||'').slice(0,40)
     case 'build':build();break;
     case 'notes':notes.classList.toggle('on');break;case 'ov':ov(!$('ov').classList.contains('on'));break;case 'qr':$('rqr').classList.toggle('on');break;case 'aqr':$('aqr').classList.toggle('on');break;
     case 'black':blk.classList.toggle('on');break;
+    case 'tap':if(Array.isArray(v)){const px=+v[0]*innerWidth,py=+v[1]*innerHeight;laser.style.left=(+v[0]*100)+'%';laser.style.top=(+v[1]*100)+'%';laser.classList.add('on');clearTimeout(lzT);lzT=setTimeout(()=>laser.classList.remove('on'),600);const tg=document.elementFromPoint(px,py);if(tg&&tg!==laser){if(tg.matches&&tg.matches('input,textarea'))tg.focus();['pointerdown','mousedown','pointerup','mouseup','click'].forEach(t=>{try{tg.dispatchEvent(new (t.startsWith('pointer')&&window.PointerEvent?PointerEvent:MouseEvent)(t,{bubbles:true,cancelable:true,clientX:px,clientY:py,view:window}));}catch(e){}});}pushSoon();}return;
     case 'ptr':if(Array.isArray(v)){laser.style.left=(+v[0]*100)+'%';laser.style.top=(+v[1]*100)+'%';laser.classList.add('on');clearTimeout(lzT);lzT=setTimeout(()=>laser.classList.remove('on'),1500);}return;
     case 'chat':if(typeof v==='string'&&v.trim())goAI(()=>ySend(v.slice(0,2500)));break;
     case 'chip':if(typeof v==='string'&&v)goAI(()=>chip(v.slice(0,2500)));break;
@@ -1008,12 +1009,13 @@ let lt=0,sx=null;const tp=$('rTp');
 function ptr(e){const r=tp.getBoundingClientRect();const x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));const t=Date.now();if(t-lt>50){lt=t;c('ptr',[+x.toFixed(4),+y.toFixed(4)]);}}
 tp.addEventListener('pointerdown',e=>{if(st.lz){try{tp.setPointerCapture(e.pointerId);}catch(x){}ptr(e);}else sx=e.clientX;});
 tp.addEventListener('pointermove',e=>{if(st.lz&&e.buttons)ptr(e);});
-tp.addEventListener('pointerup',e=>{if(!st.lz&&sx!=null){const d=e.clientX-sx;if(Math.abs(d)>50)d>0?c('next'):c('prev');else c('next');}sx=null;});
+tp.addEventListener('pointerup',e=>{if(st.tc){const r=tp.getBoundingClientRect();const x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));c('tap',[+x.toFixed(4),+y.toFixed(4)]);sx=null;return;}if(!st.lz&&sx!=null){const d=e.clientX-sx;if(Math.abs(d)>50)d>0?c('next'):c('prev');else c('next');}sx=null;});
 /* buttons */
 $('rNb').onclick=()=>c('next');$('rPv').onclick=()=>c('prev');$('rFirst').onclick=()=>c('first');$('rLast').onclick=()=>c('last');
 $('rBk').onclick=()=>c('black');$('rNt').onclick=()=>c('notes');$('rQr').onclick=()=>c('qr');$('rAq').onclick=()=>c('aqr');$('rAll').onclick=()=>c('all');$('rHid').onclick=()=>c('hideall');$('rOv').onclick=()=>c('ov');
 $('rVb').onclick=()=>{st.vib=!st.vib;try{localStorage.setItem('wsvib',st.vib?'1':'0')}catch(e){}$('rVb').classList.toggle('on',st.vib);buzz();};$('rVb').classList.toggle('on',st.vib);
-$('rLz').onclick=()=>{st.lz=!st.lz;$('rLz').classList.toggle('on',st.lz);$('rMir').classList.toggle('lz',st.lz);$('rMb').textContent=st.lz?'المس المعاينة وتطلع نقطة على الشاشة':'معاينة مباشرة';buzz();};
+$('rTc').onclick=()=>{st.tc=!st.tc;if(st.tc&&st.lz){st.lz=false;$('rLz').classList.remove('on');$('rMir').classList.remove('lz');}$('rTc').classList.toggle('on',st.tc);$('rMir').classList.toggle('tc',st.tc);$('rMb').textContent=st.tc?'المس أي زر بالمعاينة وينضغط على الشاشة':'معاينة مباشرة';buzz();};
+$('rLz').onclick=()=>{if(st.tc){st.tc=false;$('rTc').classList.remove('on');$('rMir').classList.remove('tc');}st.lz=!st.lz;$('rLz').classList.toggle('on',st.lz);$('rMir').classList.toggle('lz',st.lz);$('rMb').textContent=st.lz?'المس المعاينة وتطلع نقطة على الشاشة':'معاينة مباشرة';buzz();};
 const sheet=on=>{$('rSheet').classList.toggle('on',on);$('rShade').classList.toggle('on',on);};$('rList').onclick=()=>sheet(true);$('rShade').onclick=()=>sheet(false);
 /* chat */
 const rIn=$('rIn');function auto(){rIn.style.height='auto';rIn.style.height=Math.min(rIn.scrollHeight,120)+'px';}rIn.addEventListener('input',auto);
